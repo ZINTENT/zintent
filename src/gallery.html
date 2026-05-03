@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="midnight">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ZINTENT | Component Gallery</title>
+    <link rel="stylesheet" href="../dist/intent.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;800&display=swap" rel="stylesheet">
+    <style>
+        body { background: var(--zi-bg-base); color: var(--zi-text-base); margin: 0; }
+        .gallery-header { border-bottom: 1px solid rgba(255,255,255,0.1); padding: var(--zi-space-12) 0; text-align: center; }
+        .component-label { font-size: 0.75rem; color: var(--zi-accent-primary); text-transform: uppercase; letter-spacing: 1px; margin-bottom: var(--zi-space-4); }
+        .component-demo { border: 1px dashed rgba(255,255,255,0.1); padding: var(--zi-space-8); border-radius: var(--zi-radius-lg); margin-bottom: var(--zi-space-12); }
+    </style>
+</head>
+<body class="auto-layout">
+    <div class="gallery-header">
+        <h1>Component Gallery</h1>
+        <p style="color: var(--zi-text-muted);">The building blocks of the ZINTENT ecosystem.</p>
+    </div>
+
+    <main style="max-width: 1000px; margin: var(--zi-space-12) auto; padding: 0 var(--zi-space-4);">
+        
+        <!-- Navbar -->
+        <div class="component-label">Macro: &lt;z-nav&gt;</div>
+        <div class="component-demo">
+            <z-nav>
+                <div style="font-weight: 800;">LOGO</div>
+                <z-row>
+                    <span>Link 1</span>
+                    <span>Link 2</span>
+                </z-row>
+            </z-nav>
+        </div>
+
+        <!-- Card -->
+        <div class="component-label">Macro: &lt;z-card&gt;</div>
+        <div class="component-demo">
+            <z-card style="max-width: 400px; padding: var(--zi-space-6);">
+                <h3>Card Title</h3>
+                <p>This is a standard elevated surface with interaction lift enabled by default.</p>
+                <div class="btn-primary" style="background: var(--zi-accent-primary); padding: var(--zi-space-2) var(--zi-space-4); text-align: center; border-radius: var(--zi-radius-md);">Button</div>
+            </z-card>
+        </div>
+
+        <!-- Grid -->
+        <div class="component-label">Macro: &lt;z-grid&gt;</div>
+        <div class="component-demo">
+            <z-grid>
+                <z-card style="height: 100px; display: flex; align-items: center; justify-content: center;">Item 1</z-card>
+                <z-card style="height: 100px; display: flex; align-items: center; justify-content: center;">Item 2</z-card>
+                <z-card style="height: 100px; display: flex; align-items: center; justify-content: center;">Item 3</z-card>
+            </z-grid>
+        </div>
+
+        <!-- Buttons -->
+        <div class="component-label">Intents: btn-primary, interaction-lift</div>
+        <div class="component-demo">
+            <z-row>
+                <div class="btn-primary interaction-lift" style="background: var(--zi-accent-primary); padding: var(--zi-space-3) var(--zi-space-8); border-radius: var(--zi-radius-full); cursor: pointer;">Primary Action</div>
+                <div class="btn-dropdown interaction-lift" style="border: 1px solid var(--zi-text-muted); padding: var(--zi-space-3) var(--zi-space-8); border-radius: var(--zi-radius-full); cursor: pointer;">Secondary Option</div>
+            </z-row>
+        </div>
+
+    </main>
+</body>
+</html>

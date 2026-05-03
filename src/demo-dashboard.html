@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="midnight">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ZINTENT - Analytics Dashboard Demo</title>
+    <link rel="stylesheet" href="../dist/styles-dashboard.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+</head>
+<body class="m-0 bg-base" style="font-family: 'Inter', system-ui, sans-serif;">
+    <!-- Sidebar Layout -->
+    <div class="intent-sidebar" style="--sidebar-width: 260px; min-height: 100vh;">
+        <!-- Sidebar Navigation -->
+        <aside class="bg-surface p-6 stack-md" style="border-right: 1px solid var(--zi-border-color);">
+            <div class="text-fluid-xl font-bold mb-8 text-accent">LogoInc</div>
+            <nav class="stack-sm">
+                <a href="#" class="btn-ghost" style="justify-content: flex-start; width: 100%;">Overview</a>
+                <a href="#" class="btn-ghost text-muted" style="justify-content: flex-start; width: 100%;">Analytics</a>
+                <a href="#" class="btn-ghost text-muted" style="justify-content: flex-start; width: 100%;">Reports</a>
+                <a href="#" class="btn-ghost text-muted" style="justify-content: flex-start; width: 100%;">Settings</a>
+            </nav>
+        </aside>
+
+        <!-- Main Content -->
+        <main class="p-8 container-responsive animate-fade-in">
+            <header class="intent-cluster mb-8" style="justify-content: space-between; align-items: center;">
+                <h1 class="text-fluid-2xl font-bold m-0 text-foreground">Dashboard</h1>
+                <div class="btn-primary transition-lift">Export Data</div>
+            </header>
+
+            <!-- Metrics Grid -->
+            <div class="intent-auto-grid mb-8" style="--grid-min: 240px; gap: 24px;">
+                <div class="card-elevated">
+                    <div class="text-sm text-muted">Total Revenue</div>
+                    <div class="text-fluid-2xl font-bold mt-2 text-foreground">$45,231.89</div>
+                    <div class="text-sm mt-2"><span class="badge-success">+20.1%</span> from last month</div>
+                </div>
+                <div class="card-elevated">
+                    <div class="text-sm text-muted">Active Users</div>
+                    <div class="text-fluid-2xl font-bold mt-2 text-foreground">2,350</div>
+                    <div class="text-sm mt-2"><span class="badge-success">+180</span> new users</div>
+                </div>
+                <div class="card-elevated">
+                    <div class="text-sm text-muted">Server Load</div>
+                    <div class="text-fluid-2xl font-bold mt-2 text-foreground">84%</div>
+                    <div class="text-sm mt-2"><span class="badge-error">+14%</span> since yesterday</div>
+                </div>
+            </div>
+
+            <!-- Main Chart Area -->
+            <div class="card-default mb-8">
+                <div class="card-header border-b mb-4">
+                    <h4 class="card-title text-foreground">Revenue Overview</h4>
+                </div>
+                <div class="card-body">
+                    <div class="intent-center bg-surface border rounded" style="height: 300px; border-style: dashed;">
+                        <span class="text-muted">Chart Visualization Placeholder</span>
+                    </div>
+                </div>
+            </div>
+        </main>
+    </div>
+</body>
+</html>

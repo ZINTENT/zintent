@@ -1,0 +1,22 @@
+{
+  "name": "zintent-react-vite-example",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "build:css": "cd ../.. && go run ./compiler --input examples/react-vite/index.html -o examples/react-vite/public/zintent.css --preset core --content examples/react-vite/src",
+    "dev": "npm run build:css && vite",
+    "build": "npm run build:css && vite build",
+    "preview": "vite preview"
+  },
+  "dependencies": {
+    "react": "^18.3.1",
+    "react-dom": "^18.3.1"
+  },
+  "devDependencies": {
+    "@types/react": "^18.3.3",
+    "@types/react-dom": "^18.3.0",
+    "@vitejs/plugin-react": "^4.3.1",
+    "typescript": "^5.5.4",
+    "vite": "^5.4.2"
+  }
+}

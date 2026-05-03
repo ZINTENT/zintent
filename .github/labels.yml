@@ -1,0 +1,51 @@
+- name: "priority: high"
+  color: "d73a4a"
+  description: "Critical bugs or essential roadmap items for the next release."
+
+- name: "priority: medium"
+  color: "e99695"
+  description: "Important improvements or features for upcoming versions."
+
+- name: "priority: low"
+  color: "0075ca"
+  description: "Minor bugs or nice-to-have features."
+
+- name: "good first issue"
+  color: "7057ff"
+  description: "Good for newcomers to the project."
+
+- name: "help wanted"
+  color: "008672"
+  description: "Extra attention is needed from the community."
+
+- name: "bug"
+  color: "d73a4a"
+  description: "Something isn't working."
+
+- name: "feature request"
+  color: "a2eeef"
+  description: "New feature or request."
+
+- name: "documentation"
+  color: "0075ca"
+  description: "Improvements or additions to documentation."
+
+- name: "compiler"
+  color: "fef2c0"
+  description: "Issues related to the Go compiler engine."
+
+- name: "intents"
+  color: "fbca04"
+  description: "Issues related to CSS intent definitions or the registry."
+
+- name: "performance"
+  color: "006b75"
+  description: "Issues related to build speed or output size."
+
+- name: "a11y"
+  color: "bfd4f2"
+  description: "Accessibility-related tasks or bugs."
+
+- name: "question"
+  color: "d876e3"
+  description: "Further information is requested."

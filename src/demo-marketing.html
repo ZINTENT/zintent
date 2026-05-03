@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="vibrant">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ZINTENT - Marketing Page Demo</title>
+    <link rel="stylesheet" href="../dist/styles-marketing.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+</head>
+<body class="bg-base m-0" style="font-family: 'Inter', system-ui, sans-serif;">
+    <!-- Navbar -->
+    <header class="intent-cluster p-6 bg-surface" style="justify-content: space-between; border-bottom: 1px solid var(--zi-border-color);">
+        <div class="text-fluid-xl font-bold text-accent">NextGenCorp</div>
+        <nav class="intent-cluster" style="gap: 24px;">
+            <a href="#" class="btn-ghost" style="text-decoration: none;">Features</a>
+            <a href="#" class="btn-ghost" style="text-decoration: none;">Pricing</a>
+            <a href="#" class="btn-ghost" style="text-decoration: none;">About</a>
+        </nav>
+        <div class="btn-primary transition-lift">Get Started</div>
+    </header>
+
+    <!-- Hero Section -->
+    <main class="intent-center py-24 bg-surface animate-slide-up" style="text-align: center; padding-left: 20px; padding-right: 20px;">
+        <div style="max-width: 800px;">
+            <span class="badge-primary mb-4 p-2">v2.1.0 Released</span>
+            <h1 class="text-fluid-4xl font-extrabold mb-6 text-foreground" style="line-height: 1.1;">Build Faster, Launch Better with True Intention</h1>
+            <p class="text-fluid-xl text-muted mb-10">Stop writing CSS classes. Start declaring your intentions. The next generation design system compiler that scales with your ambition.</p>
+            
+            <div class="intent-cluster intent-center" style="gap: 16px;">
+                <div class="btn-primary btn-lg transition-bounce">Start 14-Day Free Trial</div>
+                <div class="btn-secondary btn-lg transition-lift">Read Documentation</div>
+            </div>
+        </div>
+    </main>
+
+    <!-- Feature Bento Grid -->
+    <section class="container-responsive py-24 px-8">
+        <div class="intent-center mb-16">
+            <h2 class="text-fluid-3xl font-bold text-foreground">Everything you need, zero configuration.</h2>
+        </div>
+        
+        <div class="intent-bento" style="--bento-min: 300px; gap: 32px;">
+            <div class="card-elevated transition-lift" style="grid-column: span 2 / span 2;">
+                <h3 class="card-title text-accent mb-4">Zero Runtime Overhead</h3>
+                <p class="card-text text-muted">The compiler extracts only the intents you use and generates pure, optimized CSS ahead of time.</p>
+            </div>
+            
+            <div class="card-elevated transition-lift">
+                <h3 class="card-title text-accent mb-4">AI Theming</h3>
+                <p class="card-text text-muted">Generate whole design systems mapped perfectly to WCAG rules.</p>
+            </div>
+
+            <div class="card-elevated transition-lift">
+                <h3 class="card-title text-accent mb-4">Antigravity Layout</h3>
+                <p class="card-text text-muted">Container queries that adapt instantly.</p>
+            </div>
+
+            <div class="card-elevated transition-lift" style="grid-column: span 2 / span 2;">
+                <h3 class="card-title text-accent mb-4">Physics Animations</h3>
+                <p class="card-text text-muted">GPU accelerated spring physics motion. Respects reduced-motion media queries out of the box.</p>
+            </div>
+        </div>
+    </section>
+
+</body>
+</html>

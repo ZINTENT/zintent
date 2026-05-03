@@ -1,0 +1,18 @@
+{
+  "version": 1,
+  "generatedAt": "2026-04-19T03:52:42.209Z",
+  "snapshots": {
+    "index-full": {
+      "hash": "6546bf21df637ad7a3d527edee18afaea33ca5ec72d12433a73ed64462e68674",
+      "sizeBytes": 44906
+    },
+    "index-minimal": {
+      "hash": "d6ac5f74a73b8f106b1b5ac3cc6e2de133bf33a9cc7dcf5931de7d6411e42e1c",
+      "sizeBytes": 24140
+    },
+    "phase1-full": {
+      "hash": "55a6184aef2d3a2b508d4e3b8b6f7b68bc7e4b2031eac89442437615e66125b9",
+      "sizeBytes": 50765
+    }
+  }
+}

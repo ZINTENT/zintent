@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="nordic">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ZINTENT Phase 6: Adaptive Layouts</title>
+    <link rel="stylesheet" href="../dist/styles.css">
+    <style>
+        .demo-canvas {
+            container-type: inline-size;
+            resize: both;
+            overflow: auto;
+            border: 2px solid var(--zi-neutral-700);
+            padding: var(--zi-space-4);
+            margin: var(--zi-space-8) auto;
+            max-width: 1000px;
+            background: var(--zi-bg-base);
+        }
+    </style>
+</head>
+<body class="zi-base-body zi-antigravity-root">
+
+    <z-nav>
+        <z-row justify-between>
+            <z-row gap-4>
+                <div class="zi-text-2xl zi-font-bold text-accent zi-transition-standard transition-scale">ZINTENT Phase 6</div>
+                <div class="zi-badge-primary zi-animate-pulse">Adaptive Engine</div>
+            </z-row>
+            <z-row gap-4>
+                <z-btn variant="ghost" size="sm">Docs</z-btn>
+                <z-btn variant="primary" size="sm" class="zi-shadow-glow">Try Pro</z-btn>
+            </z-row>
+        </z-row>
+    </z-nav>
+
+    <main class="zi-p-8">
+        <z-section>
+            <z-stack gap-6 class="zi-text-center">
+                <h1 class="zi-text-fluid-5xl zi-font-black zi-leading-tight zi-animate-slide-up">
+                    Zero-Runtime <br><span class="text-accent">Adaptive Layouts</span>
+                </h1>
+                <p class="zi-text-muted zi-text-fluid-lg zi-box-prose mx-auto zi-animate-fade-in delay-200">
+                    The Adaptive engine uses Container Queries to change layouts based on their container size, not the viewport. Resize the glass canvas below to see the magic.
+                </p>
+            </z-stack>
+        </z-section>
+
+        <z-section>
+            <h2 class="zi-text-3xl zi-font-bold zi-mb-8 zi-border-b zi-border-subtle zi-pb-2">1. Adaptive Sidebar (Resizes at 700px)</h2>
+            <div class="demo-canvas zi-radius-xl zi-shadow-xl zi-border-glass zi-bg-glass">
+                <div class="intent-adaptive-sidebar zi-p-6">
+                    <div class="zi-card-elevated zi-bg-glass-heavy zi-radius-lg zi-p-6 zi-border-glass transition-lift">
+                        <z-stack gap-6>
+                            <div class="zi-text-xl zi-font-black text-accent">Navigation</div>
+                            <nav class="zi-nav-vertical zi-stack-sm">
+                                <a href="#" class="zi-nav-link zi-active zi-badge-primary">Dashboard</a>
+                                <a href="#" class="zi-nav-link zi-p-2 zi-radius-sm zi-transition-standard">Analytics</a>
+                                <a href="#" class="zi-nav-link zi-p-2 zi-radius-sm zi-transition-standard">Settings</a>
+                            </nav>
+                        </z-stack>
+                    </div>
+                    <div class="zi-card-default zi-bg-surface zi-radius-lg zi-p-8 zi-shadow-md">
+                        <z-stack gap-8>
+                            <h3 class="zi-text-3xl zi-font-bold">Main Content Area</h3>
+                            <p class="zi-text-muted zi-text-lg">
+                                This sidebar will automatically stack below the content when the container width drops below 700px. It uses the new <code>nested</code> intent property combined with Container Queries.
+                            </p>
+                            <div class="zi-grid-3 zi-gap-6">
+                                <div class="zi-card-flat zi-p-6 zi-bg-glass zi-radius-md zi-border-subtle zi-text-center zi-transition-standard transition-scale">
+                                    <div class="zi-text-2xl zi-font-bold">85%</div>
+                                    <div class="zi-text-xs zi-text-muted">Performance</div>
+                                </div>
+                                <div class="zi-card-flat zi-p-6 zi-bg-glass zi-radius-md zi-border-subtle zi-text-center zi-transition-standard transition-scale">
+                                    <div class="zi-text-2xl zi-font-bold">1.2kb</div>
+                                    <div class="zi-text-xs zi-text-muted">Bundle</div>
+                                </div>
+                                <div class="zi-card-flat zi-p-6 zi-bg-glass zi-radius-md zi-border-subtle zi-text-center zi-transition-standard transition-scale">
+                                    <div class="zi-text-2xl zi-font-bold">A++</div>
+                                    <div class="zi-text-xs zi-text-muted">Accessibility</div>
+                                </div>
+                            </div>
+                        </z-stack>
+                    </div>
+                </div>
+            </div>
+        </z-section>
+
+        <z-section>
+            <h2 class="zi-text-3xl zi-font-bold zi-mb-8 zi-border-b zi-border-subtle zi-pb-2">2. Zero-Runtime Component (z-card-pro)</h2>
+            <div class="zi-grid-responsive zi-gap-8">
+                <z-card-pro>
+                    <z-slot name="header">
+                        <z-row justify-between>
+                            <span class="zi-text-xl zi-font-black">Project Alpha</span>
+                            <span class="zi-badge-success zi-animate-pulse">Active</span>
+                        </z-row>
+                    </z-slot>
+                    <p class="zi-py-4">This component was pre-rendered by the Go compiler using the new slot system. <strong>No React or Vue required</strong> for these complex layouts.</p>
+                    <z-slot name="footer">
+                        <z-btn variant="link" size="xs">View Details &rarr;</z-btn>
+                    </z-slot>
+                </z-card-pro>
+
+                <z-card-pro>
+                    <z-slot name="header">
+                        <z-row justify-between>
+                            <span class="zi-text-xl zi-font-black">Project Beta</span>
+                            <span class="zi-badge-warning">Pending Review</span>
+                        </z-row>
+                    </z-slot>
+                    <p class="zi-py-4">The compiler handles named slots and nested components with zero runtime overhead, delivering a <strong>Premium Developer Experience</strong>.</p>
+                    <z-slot name="footer">
+                        <z-btn variant="primary" size="xs" class="zi-shadow-glow">Approve Now</z-btn>
+                    </z-slot>
+                </z-card-pro>
+            </div>
+        </z-section>
+
+    </main>
+
+    <footer class="zi-p-12 zi-bg-surface zi-text-center">
+        <p class="zi-text-muted">ZINTENT Phase 6 Demo &bull; Adaptive Layouts &bull; No JS required for layout changes</p>
+    </footer>
+
+</body>
+</html>

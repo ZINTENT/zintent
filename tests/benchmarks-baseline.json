@@ -1,0 +1,24 @@
+{
+  "version": 1,
+  "generatedAt": "2026-04-19T03:52:29.373Z",
+  "runs": {
+    "index-full": {
+      "sizeBytes": 44906
+    },
+    "index-core": {
+      "sizeBytes": 43920
+    },
+    "index-minimal": {
+      "sizeBytes": 24140
+    },
+    "phase1-full": {
+      "sizeBytes": 50765
+    },
+    "phase1-core": {
+      "sizeBytes": 49779
+    },
+    "phase1-minimal": {
+      "sizeBytes": 49779
+    }
+  }
+}

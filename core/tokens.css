@@ -1,0 +1,88 @@
+:root {
+    /* Semantic Color Intent */
+    --zi-accent-primary: #6366f1;
+    --zi-accent-secondary: #a855f7;
+    --zi-accent-glow: rgba(99, 102, 241, 0.4);
+    
+    --zi-bg-base: #0f172a;
+    --zi-bg-surface: #1e293b;
+    --zi-bg-glass: rgba(30, 41, 59, 0.7);
+    --zi-bg-glass-heavy: rgba(15, 23, 42, 0.85);
+    --zi-bg-elevated: rgba(255, 255, 255, 0.05);
+    --zi-bg-shine: linear-gradient(110deg, rgba(255,255,255,0) 0%, rgba(255,255,255,0.05) 50%, rgba(255,255,255,0) 100%);
+    
+    --zi-text-base: #f8fafc;
+    --zi-text-muted: #94a3b8;
+    --zi-text-accent: #818cf8;
+    
+    --zi-border-subtle: rgba(255, 255, 255, 0.08);
+    --zi-border-strong: rgba(255, 255, 255, 0.15);
+    --zi-border-glass: rgba(255, 255, 255, 0.1);
+
+    /* Neutral Scale (Alpha, theme-friendly) */
+    --zi-neutral-500: rgba(255, 255, 255, 0.28);
+    --zi-neutral-600: rgba(255, 255, 255, 0.18);
+    --zi-neutral-700: rgba(255, 255, 255, 0.12);
+    --zi-neutral-800: rgba(255, 255, 255, 0.08);
+
+    /* State Colors */
+    --zi-success-500: #10b981;
+    --zi-warning-500: #f59e0b;
+    --zi-error-500: #ef4444;
+    --zi-info-500: #3b82f6;
+
+    /* Spacing System (Intent-Based) */
+    --zi-space-1: 0.25rem;
+    --zi-space-2: 0.5rem;
+    --zi-space-3: 0.75rem;
+    --zi-space-4: 1rem;
+    --zi-space-6: 1.5rem;
+    --zi-space-8: 2rem;
+    --zi-space-12: 3rem;
+    --zi-space-24: 6rem;
+
+    /* Radius Engine */
+    --zi-radius-sm: 0.375rem;
+    --zi-radius-md: 0.5rem;
+    --zi-radius-lg: 1rem;
+    --zi-radius-xl: 1.5rem;
+    --zi-radius-full: 9999px;
+
+    /* Shadow Engine (High Fidelity) */
+    --zi-shadow-sm: 0 1px 2px 0 rgb(0 0 0 / 0.05);
+    --zi-shadow-md: 0 4px 6px -1px rgb(0 0 0 / 0.1), 0 24px 30px -1px rgb(0 0 0 / 0.1);
+    --zi-shadow-lg: 0 10px 15px -3px rgb(0 0 0 / 0.1), 0 4px 6px -4px rgb(0 0 0 / 0.1);
+    --zi-shadow-xl: 0 20px 25px -5px rgb(0 0 0 / 0.35), 0 10px 10px -5px rgb(0 0 0 / 0.25);
+    --zi-shadow-glow: 0 0 20px 0 var(--zi-accent-glow);
+
+    /* Font Scale */
+    --zi-font-xs: 0.75rem;
+    --zi-font-sm: 0.875rem;
+    --zi-font-base: 1rem;
+    --zi-font-lg: 1.125rem;
+    --zi-font-xl: 1.25rem;
+    --zi-font-2xl: 1.5rem;
+
+    /* Duration + Easing */
+    --zi-duration-fast: 150ms;
+    --zi-duration-normal: 300ms;
+    --zi-duration-slow: 500ms;
+
+    --zi-ease-out: cubic-bezier(0, 0, 0.2, 1);
+    --zi-ease-smooth: cubic-bezier(0.4, 0, 0.2, 1);
+    --zi-ease-spring: cubic-bezier(0.34, 1.56, 0.64, 1);
+    --zi-ease-bounce: cubic-bezier(0.68, -0.55, 0.265, 1.55);
+
+    /* Transition Engine */
+    --zi-transition-fast: 150ms cubic-bezier(0.4, 0, 0.2, 1);
+    --zi-transition-normal: 300ms cubic-bezier(0.4, 0, 0.2, 1);
+    --zi-transition-standard: 300ms cubic-bezier(0.4, 0, 0.2, 1);
+    --zi-transition-slow: 500ms cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+/* Typography Overrides */
+html {
+    font-family: 'Inter', system-ui, -apple-system, sans-serif;
+    color: var(--zi-text-base);
+    background-color: var(--zi-bg-base);
+}

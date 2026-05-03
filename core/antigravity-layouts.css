@@ -1,0 +1,622 @@
+/* ZINTENT Enhanced Antigravity Layout Engine */
+/* Intelligent auto-layout system - Content-aware spacing and alignment */
+
+/* ========================================
+   BASE ANTIGRAVITY UTILITIES
+   ======================================== */
+
+/* Content-Aware Flex Distribution */
+.antigravity-fill {
+    display: flex;
+    flex-wrap: wrap;
+    gap: var(--zi-space-4);
+    align-content: flex-start;
+}
+
+.antigravity-center {
+    display: grid;
+    place-items: center;
+    gap: var(--zi-space-4);
+    width: 100%;
+}
+
+/* ========================================
+   ADVANCED LAYOUT INTENTS
+   ======================================== */
+
+/* Auto Grid - Smart column distribution */
+.intent-auto-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(min(100%, 280px), 1fr));
+    gap: var(--zi-space-6);
+}
+
+.intent-auto-grid-sm {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(min(100%, 200px), 1fr));
+    gap: var(--zi-space-4);
+}
+
+.intent-auto-grid-lg {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(min(100%, 350px), 1fr));
+    gap: var(--zi-space-8);
+}
+
+/* Dense packing for irregular items */
+.intent-auto-grid-dense {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(min(100%, 280px), 1fr));
+    grid-auto-flow: dense;
+    gap: var(--zi-space-6);
+}
+
+/* Masonry Layout - Pinterest-style */
+.intent-masonry {
+    column-count: 1;
+    column-gap: var(--zi-space-6);
+}
+
+.intent-masonry > * {
+    break-inside: avoid;
+    margin-bottom: var(--zi-space-6);
+}
+
+@media (min-width: 640px) {
+    .intent-masonry { column-count: 2; }
+}
+
+@media (min-width: 1024px) {
+    .intent-masonry { column-count: 3; }
+}
+
+@media (min-width: 1280px) {
+    .intent-masonry { column-count: 4; }
+}
+
+/* Masonry with CSS Grid (Modern) */
+@supports (grid-template-rows: masonry) {
+    .intent-masonry-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+        grid-template-rows: masonry;
+        gap: var(--zi-space-6);
+    }
+}
+
+/* Sidebar Layout - Classic sidebar + main */
+.intent-sidebar {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: var(--zi-space-6);
+}
+
+@media (min-width: 1024px) {
+    .intent-sidebar {
+        grid-template-columns: 280px 1fr;
+    }
+    
+    .intent-sidebar-wide {
+        grid-template-columns: 320px 1fr;
+    }
+    
+    .intent-sidebar-narrow {
+        grid-template-columns: 240px 1fr;
+    }
+}
+
+/* Sidebar Right Variant */
+.intent-sidebar-right {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: var(--zi-space-6);
+}
+
+@media (min-width: 1024px) {
+    .intent-sidebar-right {
+        grid-template-columns: 1fr 280px;
+    }
+}
+
+/* Holy Grail Layout */
+.intent-holy-grail {
+    display: grid;
+    grid-template-areas:
+        "header"
+        "nav"
+        "main"
+        "aside"
+        "footer";
+    grid-template-columns: 1fr;
+    gap: var(--zi-space-6);
+}
+
+.intent-holy-grail > header { grid-area: header; }
+.intent-holy-grail > nav { grid-area: nav; }
+.intent-holy-grail > main { grid-area: main; }
+.intent-holy-grail > aside { grid-area: aside; }
+.intent-holy-grail > footer { grid-area: footer; }
+
+@media (min-width: 1024px) {
+    .intent-holy-grail {
+        grid-template-areas:
+            "header header header"
+            "nav main aside"
+            "footer footer footer";
+        grid-template-columns: 240px 1fr 240px;
+        grid-template-rows: auto 1fr auto;
+    }
+}
+
+/* Split Layout - 50/50 or asymmetric */
+.intent-split {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: var(--zi-space-6);
+}
+
+@media (min-width: 768px) {
+    .intent-split {
+        grid-template-columns: 1fr 1fr;
+    }
+    
+    .intent-split-40-60 {
+        grid-template-columns: 2fr 3fr;
+    }
+    
+    .intent-split-30-70 {
+        grid-template-columns: 3fr 7fr;
+    }
+    
+    .intent-split-60-40 {
+        grid-template-columns: 3fr 2fr;
+    }
+}
+
+/* Feature Layout - Hero + content */
+.intent-feature {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: var(--zi-space-8);
+}
+
+@media (min-width: 768px) {
+    .intent-feature {
+        grid-template-columns: 1fr 1fr;
+        align-items: center;
+    }
+    
+    .intent-feature-reverse > :first-child {
+        order: 2;
+    }
+}
+
+/* Bento Grid - Irregular but structured */
+.intent-bento {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: var(--zi-space-4);
+}
+
+.intent-bento > :first-child {
+    grid-column: span 2;
+}
+
+@media (min-width: 768px) {
+    .intent-bento {
+        grid-template-columns: repeat(4, 1fr);
+    }
+    
+    .intent-bento > :first-child {
+        grid-column: span 2;
+        grid-row: span 2;
+    }
+    
+    .intent-bento > :nth-child(4) {
+        grid-column: span 2;
+    }
+}
+
+/* ========================================
+   STACK LAYOUTS (Vertical spacing)
+   ======================================== */
+
+/* Vertical Stack with automatic spacing */
+.intent-stack {
+    display: flex;
+    flex-direction: column;
+    gap: var(--zi-space-4);
+}
+
+.intent-stack-xs { gap: var(--zi-space-1); }
+.intent-stack-sm { gap: var(--zi-space-2); }
+.intent-stack-md { gap: var(--zi-space-4); }
+.intent-stack-lg { gap: var(--zi-space-6); }
+.intent-stack-xl { gap: var(--zi-space-8); }
+.intent-stack-2xl { gap: var(--zi-space-12); }
+
+/* Recursive Stack (stacks within stacks maintain rhythm) */
+.intent-stack-recursive {
+    display: flex;
+    flex-direction: column;
+    gap: var(--zi-space-4);
+}
+
+.intent-stack-recursive * + * {
+    margin-top: 0;
+}
+
+/* Split Stack - Horizontal on wide, vertical on narrow */
+.intent-stack-split {
+    display: flex;
+    flex-direction: column;
+    gap: var(--zi-space-4);
+}
+
+@media (min-width: 640px) {
+    .intent-stack-split {
+        flex-direction: row;
+        flex-wrap: wrap;
+    }
+}
+
+/* ========================================
+   CLUSTER LAYOUTS (Horizontal groups)
+   ======================================== */
+
+/* Horizontal cluster with gap */
+.intent-cluster {
+    display: flex;
+    flex-wrap: wrap;
+    gap: var(--zi-space-4);
+    align-items: center;
+}
+
+.intent-cluster-xs { gap: var(--zi-space-1); }
+.intent-cluster-sm { gap: var(--zi-space-2); }
+.intent-cluster-md { gap: var(--zi-space-4); }
+.intent-cluster-lg { gap: var(--zi-space-6); }
+
+/* Cluster with space-between */
+.intent-cluster-between {
+    display: flex;
+    flex-wrap: wrap;
+    gap: var(--zi-space-4);
+    justify-content: space-between;
+    align-items: center;
+}
+
+/* Cluster center */
+.intent-cluster-center {
+    display: flex;
+    flex-wrap: wrap;
+    gap: var(--zi-space-4);
+    justify-content: center;
+    align-items: center;
+}
+
+/* Cluster right */
+.intent-cluster-right {
+    display: flex;
+    flex-wrap: wrap;
+    gap: var(--zi-space-4);
+    justify-content: flex-end;
+    align-items: center;
+}
+
+/* ========================================
+   BOX LAYOUTS (Centered content)
+   ======================================== */
+
+/* Center box with max-width */
+.intent-box {
+    margin-inline: auto;
+    width: 100%;
+}
+
+.intent-box-xs { max-width: 20rem; }
+.intent-box-sm { max-width: 24rem; }
+.intent-box-md { max-width: 28rem; }
+.intent-box-lg { max-width: 32rem; }
+.intent-box-xl { max-width: 36rem; }
+.intent-box-2xl { max-width: 42rem; }
+.intent-box-3xl { max-width: 48rem; }
+.intent-box-4xl { max-width: 56rem; }
+.intent-box-5xl { max-width: 64rem; }
+.intent-box-6xl { max-width: 72rem; }
+.intent-box-7xl { max-width: 80rem; }
+.intent-box-prose { max-width: 65ch; }
+
+/* Box with padding */
+.intent-box-padded {
+    margin-inline: auto;
+    width: 100%;
+    padding-inline: var(--zi-space-4);
+}
+
+@media (min-width: 640px) {
+    .intent-box-padded {
+        padding-inline: var(--zi-space-6);
+    }
+}
+
+@media (min-width: 1024px) {
+    .intent-box-padded {
+        padding-inline: var(--zi-space-8);
+    }
+}
+
+/* ========================================
+   CENTERING INTENTS
+   ======================================== */
+
+/* Perfect center - both axes */
+.intent-center {
+    display: grid;
+    place-items: center;
+}
+
+/* Center horizontally */
+.intent-center-x {
+    display: flex;
+    justify-content: center;
+}
+
+/* Center vertically */
+.intent-center-y {
+    display: flex;
+    align-items: center;
+}
+
+/* Center with text alignment */
+.intent-center-text {
+    text-align: center;
+}
+
+/* ========================================
+   ASPECT RATIO INTENTS
+   ======================================== */
+
+.intent-square {
+    aspect-ratio: 1 / 1;
+}
+
+.intent-landscape {
+    aspect-ratio: 16 / 9;
+}
+
+.intent-portrait {
+    aspect-ratio: 3 / 4;
+}
+
+.intent-video {
+    aspect-ratio: 16 / 9;
+}
+
+.intent-ultrawide {
+    aspect-ratio: 21 / 9;
+}
+
+.intent-golden {
+    aspect-ratio: 1.618 / 1;
+}
+
+/* ========================================
+   FULL BLEED & CONTAINMENT
+   ======================================== */
+
+/* Full width breaking out of container */
+.intent-full-bleed {
+    width: 100vw;
+    margin-left: calc(50% - 50vw);
+    margin-right: calc(50% - 50vw);
+}
+
+/* Full height */
+.intent-full-height {
+    min-height: 100vh;
+    min-height: 100dvh;
+}
+
+/* Content containment for performance */
+.intent-contain {
+    contain: layout style paint;
+}
+
+.intent-contain-strict {
+    contain: strict;
+}
+
+/* Content visibility for lazy rendering */
+.intent-content-auto {
+    content-visibility: auto;
+    contain-intrinsic-size: 0 500px;
+}
+
+/* ========================================
+   SCROLL & OVERFLOW
+   ======================================== */
+
+/* Horizontal scroll container */
+.intent-scroll-x {
+    display: flex;
+    gap: var(--zi-space-4);
+    overflow-x: auto;
+    scroll-snap-type: x mandatory;
+    -webkit-overflow-scrolling: touch;
+    scrollbar-width: thin;
+}
+
+.intent-scroll-x > * {
+    scroll-snap-align: start;
+    flex-shrink: 0;
+}
+
+/* Vertical scroll container */
+.intent-scroll-y {
+    overflow-y: auto;
+    -webkit-overflow-scrolling: touch;
+    scrollbar-width: thin;
+}
+
+/* Hide scrollbar but keep functionality */
+.intent-scroll-hidden {
+    -ms-overflow-style: none;
+    scrollbar-width: none;
+}
+
+.intent-scroll-hidden::-webkit-scrollbar {
+    display: none;
+}
+
+/* ========================================
+   POSITION INTENTS
+   ======================================== */
+
+/* Sticky positioning */
+.intent-sticky {
+    position: sticky;
+    top: 0;
+}
+
+.intent-sticky-bottom {
+    position: sticky;
+    bottom: 0;
+}
+
+/* Fixed positioning */
+.intent-fixed {
+    position: fixed;
+}
+
+.intent-fixed-top {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+}
+
+.intent-fixed-bottom {
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    right: 0;
+}
+
+/* ========================================
+   SUBGRID SUPPORT (Modern Browsers)
+   ======================================== */
+
+@supports (grid-template-columns: subgrid) {
+    .intent-subgrid-cols {
+        grid-template-columns: subgrid;
+    }
+    
+    .intent-subgrid-rows {
+        grid-template-rows: subgrid;
+    }
+    
+    .intent-subgrid {
+        grid-template-columns: subgrid;
+        grid-template-rows: subgrid;
+    }
+}
+
+/* ========================================
+   LOGICAL PROPERTIES (RTL Support)
+   ======================================== */
+
+/* Margin inline (respects text direction) */
+.intent-space-inline-sm { margin-inline: var(--zi-space-2); }
+.intent-space-inline-md { margin-inline: var(--zi-space-4); }
+.intent-space-inline-lg { margin-inline: var(--zi-space-6); }
+
+/* Margin block */
+.intent-space-block-sm { margin-block: var(--zi-space-2); }
+.intent-space-block-md { margin-block: var(--zi-space-4); }
+.intent-space-block-lg { margin-block: var(--zi-space-6); }
+
+/* Padding inline */
+.intent-pad-inline-sm { padding-inline: var(--zi-space-2); }
+.intent-pad-inline-md { padding-inline: var(--zi-space-4); }
+.intent-pad-inline-lg { padding-inline: var(--zi-space-6); }
+
+/* Padding block */
+.intent-pad-block-sm { padding-block: var(--zi-space-2); }
+.intent-pad-block-md { padding-block: var(--zi-space-4); }
+.intent-pad-block-lg { padding-block: var(--zi-space-6); }
+
+/* Border inline */
+.intent-border-inline {
+    border-inline: 1px solid var(--zi-bg-surface);
+}
+
+/* Border block */
+.intent-border-block {
+    border-block: 1px solid var(--zi-bg-surface);
+}
+
+/* ========================================
+   SMART GAPS (Content-aware)
+   ======================================== */
+
+/* Gaps that scale with container */
+.intent-gap-fluid {
+    gap: clamp(var(--zi-space-2), 2vw, var(--zi-space-8));
+}
+
+/* No gap between specific combinations */
+.intent-gap-0 > * + * {
+    margin-top: 0;
+}
+
+/* ========================================
+   UTILITY COMBINATIONS
+   ======================================== */
+
+/* Common patterns pre-composed */
+.intent-card-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(min(100%, 300px), 1fr));
+    gap: var(--zi-space-6);
+}
+
+.intent-nav-cluster {
+    display: flex;
+    flex-wrap: wrap;
+    gap: var(--zi-space-4);
+    justify-content: space-between;
+    align-items: center;
+}
+
+.intent-hero-stack {
+    display: flex;
+    flex-direction: column;
+    gap: var(--zi-space-6);
+    align-items: center;
+    text-align: center;
+    padding-block: var(--zi-space-24);
+}
+
+.intent-form-stack {
+    display: flex;
+    flex-direction: column;
+    gap: var(--zi-space-4);
+    max-width: 32rem;
+    margin-inline: auto;
+}
+
+.intent-media-object {
+    display: flex;
+    gap: var(--zi-space-4);
+    align-items: flex-start;
+}
+
+.intent-media-object > :first-child {
+    flex-shrink: 0;
+}
+
+.intent-media-object > :last-child {
+    flex: 1;
+    min-width: 0;
+}

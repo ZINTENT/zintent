@@ -1,0 +1,85 @@
+/* ZINTENT Theme Library */
+
+[data-theme="midnight"] {
+    --zi-accent-primary: #6366f1;
+    --zi-accent-secondary: #a855f7;
+    --zi-bg-base: #0f172a;
+    --zi-bg-surface: #1e293b;
+    --zi-text-base: #f8fafc;
+    --zi-text-muted: #94a3b8;
+}
+
+[data-theme="vibrant"] {
+    --zi-accent-primary: #ec4899;
+    --zi-accent-secondary: #f59e0b;
+    --zi-bg-base: #4c0519;
+    --zi-bg-surface: #881337;
+    --zi-text-base: #fff1f2;
+    --zi-text-muted: #fecdd3;
+}
+
+[data-theme="forest"] {
+    --zi-accent-primary: #10b981;
+    --zi-accent-secondary: #3b82f6;
+    --zi-bg-base: #064e3b;
+    --zi-bg-surface: #065f46;
+    --zi-text-base: #ecfdf5;
+    --zi-text-muted: #6ee7b7;
+}
+
+[data-theme="light"] {
+    --zi-accent-primary: #4f46e5;
+    --zi-accent-secondary: #7c3aed;
+    --zi-bg-base: #f8fafc;
+    --zi-bg-surface: #ffffff;
+    --zi-text-base: #0f172a;
+    --zi-text-muted: #475569;
+
+    --zi-bg-elevated: rgba(0, 0, 0, 0.04);
+    --zi-neutral-500: rgba(0, 0, 0, 0.28);
+    --zi-neutral-600: rgba(0, 0, 0, 0.18);
+    --zi-neutral-700: rgba(0, 0, 0, 0.12);
+    --zi-neutral-800: rgba(0, 0, 0, 0.08);
+
+    --zi-shadow-xl: 0 20px 25px -5px rgb(0 0 0 / 0.12), 0 10px 10px -5px rgb(0 0 0 / 0.10);
+}
+
+[data-theme="nordic"] {
+    --zi-accent-primary: #88c0d0;
+    --zi-accent-secondary: #81a1c1;
+    --zi-bg-base: #2e3440;
+    --zi-bg-surface: #3b4252;
+    --zi-bg-glass: rgba(59, 66, 82, 0.7);
+    --zi-bg-glass-heavy: rgba(46, 52, 64, 0.9);
+    --zi-text-base: #eceff4;
+    --zi-text-muted: #d8dee9;
+    --zi-border-subtle: rgba(216, 222, 233, 0.1);
+    --zi-border-strong: rgba(216, 222, 233, 0.2);
+    --zi-shadow-xl: 0 25px 50px -12px rgba(0, 0, 0, 0.5);
+}
+
+[data-theme="high-contrast"] {
+    --zi-accent-primary: #ffff00; /* Pure Yellow */
+    --zi-accent-secondary: #00ffff; /* Pure Cyan */
+    --zi-bg-base: #000000; /* Pure Black */
+    --zi-bg-surface: #000000;
+    --zi-text-base: #ffffff; /* Pure White */
+    --zi-text-muted: #ffffff;
+    
+    --zi-accent-glow: #ffffff;
+    --zi-bg-glass: #000000;
+    --zi-bg-elevated: #000000;
+    
+    --zi-neutral-500: #ffffff;
+    --zi-neutral-600: #ffffff;
+    --zi-neutral-700: #ffffff;
+    --zi-neutral-800: #ffffff;
+
+    --zi-shadow-sm: none;
+    --zi-shadow-md: none;
+    --zi-shadow-lg: none;
+    --zi-shadow-xl: none;
+    --zi-shadow-glow: 0 0 0 2px #ffffff;
+    
+    border: 2px solid #ffffff;
+}

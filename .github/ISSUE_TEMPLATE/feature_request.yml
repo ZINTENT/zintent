@@ -1,0 +1,67 @@
+name: Feature request
+description: Suggest a new framework capability or improvement.
+title: "[feature]: "
+labels:
+  - enhancement
+body:
+  - type: markdown
+    attributes:
+      value: |
+        Thanks for your idea. Focus on developer impact, performance, and compatibility.
+  - type: textarea
+    id: problem
+    attributes:
+      label: Problem statement
+      description: What developer pain point does this solve?
+      placeholder: I can't currently ...
+    validations:
+      required: true
+  - type: textarea
+    id: proposal
+    attributes:
+      label: Proposed solution
+      description: Describe the feature and expected API/CLI behavior.
+      placeholder: Add `--xyz` to compiler so ...
+    validations:
+      required: true
+  - type: textarea
+    id: alternatives
+    attributes:
+      label: Alternatives considered
+      description: Any current workaround?
+      placeholder: I currently use ...
+  - type: dropdown
+    id: impact-area
+    attributes:
+      label: Primary impact area
+      options:
+        - Performance / bundle size
+        - Developer experience
+        - New intents/utilities
+        - Accessibility
+        - Theming / tokens
+        - Build tooling / CLI
+        - Framework integrations
+        - Docs / examples
+        - CI / automation
+    validations:
+      required: true
+  - type: dropdown
+    id: breaking
+    attributes:
+      label: Could this be a breaking change?
+      options:
+        - No
+        - Maybe
+        - Yes
+    validations:
+      required: true
+  - type: textarea
+    id: acceptance
+    attributes:
+      label: Acceptance criteria
+      description: How will we know this is complete?
+      placeholder: |
+        - [ ] `npm run test:snapshots` passes
+        - [ ] Bundle budget stays within limit
+        - [ ] README updated

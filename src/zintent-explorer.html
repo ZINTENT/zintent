@@ -1,0 +1,273 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="nordic">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ZINTENT Explorer | 50+ Component Showcase</title>
+    <link rel="stylesheet" href="../dist/explorer.css">
+    <style>
+        .zone-title { margin-bottom: var(--zi-space-12); padding-bottom: var(--zi-space-4); border-bottom: 2px solid var(--zi-accent-primary); width: fit-content; }
+        .component-label { font-size: 0.65rem; font-weight: 900; color: var(--zi-text-muted); text-transform: uppercase; letter-spacing: 0.2em; margin-bottom: var(--zi-space-4); display: block; }
+        .gallery-item { margin-bottom: var(--zi-space-12); }
+    </style>
+</head>
+<body class="zi-reset zi-base-body zi-antigravity-root">
+
+    <!-- 1. STICKY THEME CONTROL CENTER -->
+    <z-nav-glass>
+        <div class="zi-flex items-center gap-4">
+            <div class="zi-text-2xl zi-font-black text-accent">ZINTENT <span class="zi-text-xs zi-text-muted">EXPLORER</span></div>
+            <z-badge-dot variant="primary">v2.1 STABLE</z-badge-dot>
+        </div>
+        
+        <div class="zi-flex items-center gap-6">
+            <div class="zi-flex zi-gap-2">
+                <button onclick="setTheme('nordic')" class="zi-px-4 zi-py-1 zi-radius-full zi-text-xs zi-font-bold zi-bg-glass zi-border-glass hover:zi-bg-accent">Nordic</button>
+                <button onclick="setTheme('midnight')" class="zi-px-4 zi-py-1 zi-radius-full zi-text-xs zi-font-bold zi-bg-glass zi-border-glass hover:zi-bg-accent">Midnight</button>
+                <button onclick="setTheme('vibrant')" class="zi-px-4 zi-py-1 zi-radius-full zi-text-xs zi-font-bold zi-bg-glass zi-border-glass hover:zi-bg-accent">Vibrant</button>
+                <button onclick="setTheme('high-contrast')" class="zi-px-4 zi-py-1 zi-radius-full zi-text-xs zi-font-bold zi-bg-glass zi-border-glass hover:zi-bg-accent">Contrast</button>
+            </div>
+            <z-divider class="zi-h-6 zi-w-px zi-mx-0"></z-divider>
+            <z-btn variant="primary" size="sm">Get Schema</z-btn>
+        </div>
+    </z-nav-glass>
+
+    <div class="zi-flex zi-h-full">
+        <!-- Dashboard Sidebar Navigation -->
+        <z-sidebar-nav>
+            <div class="zi-stack-md">
+                <div class="zi-text-xs zi-font-black zi-text-muted zi-px-2">SHOWCASE ZONES</div>
+                <div class="zi-stack-sm">
+                    <a href="#core" class="zi-p-3 zi-bg-glass zi-radius-md zi-font-bold text-accent no-underline">Core Actions</a>
+                    <a href="#navigation" class="zi-p-3 zi-radius-md zi-font-bold text-muted no-underline intent-hover-glass">Navigation</a>
+                    <a href="#ecommerce" class="zi-p-3 zi-radius-md zi-font-bold text-muted no-underline intent-hover-glass">E-commerce</a>
+                    <a href="#data" class="zi-p-3 zi-radius-md zi-font-bold text-muted no-underline intent-hover-glass">Data Display</a>
+                    <a href="#forms" class="zi-p-3 zi-radius-md zi-font-bold text-muted no-underline intent-hover-glass">Forms & Controls</a>
+                    <a href="#feedback" class="zi-p-3 zi-radius-md zi-font-bold text-muted no-underline intent-hover-glass">Feedback & Status</a>
+                </div>
+            </div>
+            
+            <z-skeleton-profile></z-skeleton-profile>
+            
+            <z-card class="zi-mt-auto">
+                <div class="zi-text-xs zi-font-bold zi-mb-2">COMPILATION</div>
+                <z-progress-bar value="100"></z-progress-bar>
+                <div class="zi-text-[10px] zi-mt-2">52 Components Optimized</div>
+            </z-card>
+        </z-sidebar-nav>
+
+        <main class="zi-flex-1 zi-p-16 zi-overflow-y-auto">
+            
+            <header class="zi-mb-24">
+                <z-badge-glow variant="primary" class="zi-mb-4">PHASE 8 COMPLETE</z-badge-glow>
+                <h1 class="zi-text-fluid-5xl zi-font-black zi-mb-4">The Standard <span class="text-accent">Library</span></h1>
+                <p class="zi-text-fluid-lg zi-text-muted zi-box-prose">Explore the complete architecture of ZINTENT. Total of 52 high-fidelity macros optimized via our Deduplication and Nesting Engines.</p>
+            </header>
+
+            <!-- ZONE 1: CORE ACTIONS -->
+            <section id="core" class="zi-mb-32">
+                <h2 class="zone-title zi-text-2xl zi-font-black">CORE ACTIONS</h2>
+                <z-grid columns="4">
+                    <div class="gallery-item">
+                        <span class="component-label">Buttons</span>
+                        <div class="zi-stack-sm">
+                            <z-btn variant="primary">Primary</z-btn>
+                            <z-btn variant="secondary">Secondary</z-btn>
+                        </div>
+                    </div>
+                    <div class="gallery-item">
+                        <span class="component-label">Badges</span>
+                        <div class="zi-flex zi-flex-wrap zi-gap-2">
+                            <z-badge-glow variant="primary">New</z-badge-glow>
+                            <z-badge-dot variant="accent">Active</z-badge-dot>
+                            <z-tag>System</z-tag>
+                        </div>
+                    </div>
+                    <div class="gallery-item">
+                        <span class="component-label">Indicators</span>
+                        <div class="zi-stack-md">
+                            <z-loader></z-loader>
+                            <z-progress-ring size="60" value="75"></z-progress-ring>
+                        </div>
+                    </div>
+                </z-grid>
+            </section>
+
+            <!-- ZONE 2: NAVIGATION -->
+            <section id="navigation" class="zi-mb-32">
+                <h2 class="zone-title zi-text-2xl zi-font-black">NAVIGATION & HIERARCHY</h2>
+                <div class="zi-stack-lg">
+                    <div class="gallery-item">
+                        <span class="component-label">Breadcrumbs</span>
+                        <z-breadcrumb>
+                            <z-breadcrumb-item label="Home"></z-breadcrumb-item>
+                            <z-breadcrumb-item label="Library"></z-breadcrumb-item>
+                            <z-breadcrumb-item label="Components"></z-breadcrumb-item>
+                        </z-breadcrumb>
+                    </div>
+                    <div class="gallery-item">
+                        <span class="component-label">Tabs</span>
+                        <z-tab-group>
+                            <z-tab class="active">Interface</z-tab>
+                            <z-tab>Security</z-tab>
+                            <z-tab>Environment</z-tab>
+                        </z-tab-group>
+                    </div>
+                    <div class="gallery-item">
+                        <span class="component-label">Pro Footer</span>
+                        <z-footer-pro>
+                            <z-slot name="brand">
+                                <div class="zi-text-2xl zi-font-black text-accent">ZINTENT</div>
+                                <p class="zi-text-sm text-muted">Intent-based styling for the next generation.</p>
+                            </z-slot>
+                            <z-slot name="links1">
+                                <div class="zi-font-bold zi-mb-4">Product</div>
+                                <z-tag-group>
+                                    <z-tag>Changelog</z-tag>
+                                    <z-tag>Documentation</z-tag>
+                                </z-tag-group>
+                            </z-slot>
+                            <z-slot name="copyright">© 2026 Antigravity Systems.</z-slot>
+                        </z-footer-pro>
+                    </div>
+                </div>
+            </section>
+
+            <!-- ZONE 3: E-COMMERCE -->
+            <section id="ecommerce" class="zi-mb-32">
+                <h2 class="zone-title zi-text-2xl zi-font-black">E-COMMERCE UNITS</h2>
+                <div class="zi-grid zi-grid-3 zi-gap-12">
+                    <z-product-card 
+                        name="HyperCore Processor" 
+                        price="$999" 
+                        rating="4.9" 
+                        category="Hardcore Hardware" 
+                        badge="HOT"
+                        image="https://images.unsplash.com/photo-1591799264318-7e6ef8ddb7ea?auto=format&fit=crop&w=600&q=80">
+                    </z-product-card>
+                    
+                    <z-cart-summary total="$2,450.00">
+                        <div class="zi-flex justify-between zi-text-sm"><span>HyperCore</span><span>$999</span></div>
+                        <div class="zi-flex justify-between zi-text-sm"><span>Neural Suite</span><span>$1451</span></div>
+                    </z-cart-summary>
+
+                    <z-price-card plan="ENTERPRISE" price="$499" cycle="/mo">
+                        <div class="zi-text-sm">Unlimited Nodes</div>
+                        <div class="zi-text-sm">Priority Antigravity Support</div>
+                        <div class="zi-text-sm">Custom Intent Mappings</div>
+                    </z-price-card>
+                </div>
+            </section>
+
+            <!-- ZONE 4: DATA DISPLAY -->
+            <section id="data" class="zi-mb-32">
+                <h2 class="zone-title zi-text-2xl zi-font-black">DATA & INTELLIGENCE</h2>
+                <div class="zi-grid zi-grid-2 zi-gap-12">
+                    <div class="gallery-item">
+                        <span class="component-label">Timeline</span>
+                        <z-timeline>
+                            <z-timeline-event time="09:00 AM" label="System Boot">Core engine initialized successfully.</z-timeline-event>
+                            <z-timeline-event time="10:30 AM" label="Token Sync">AI token generator calibrated to Nordic theme.</z-timeline-event>
+                            <z-timeline-event time="02:15 PM" label="Phase 8 Deployment">52 Macros operational.</z-timeline-event>
+                        </z-timeline>
+                    </div>
+                    <div class="gallery-item">
+                        <span class="component-label">Accordions (Native)</span>
+                        <z-accordion>
+                            <z-accordion-item title="What is the Zero-Runtime promise?">ZINTENT compiles all logic to native CSS blocks, requiring 0KB of JS at runtime.</z-accordion-item>
+                            <z-accordion-item title="How does the Deduplication Engine work?">It hashes intent styles and merges selectors with identical properties into single rules.</z-accordion-item>
+                        </z-accordion>
+                    </div>
+                </div>
+                
+                <div class="gallery-item zi-mt-12">
+                    <span class="component-label">Data Table Pro</span>
+                    <z-data-table>
+                        <thead>
+                            <z-th>Component ID</z-th>
+                            <z-th>Status</z-th>
+                            <z-th>Complexity</z-th>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <z-td><z-kbd>z-nav-glass</z-kbd></z-td>
+                                <z-td><z-badge-dot variant="accent">Optimized</z-badge-dot></z-td>
+                                <z-td>High</z-td>
+                            </tr>
+                            <tr>
+                                <z-td><z-kbd>z-stat-card</z-kbd></z-td>
+                                <z-td><z-badge-dot variant="accent">Optimized</z-badge-dot></z-td>
+                                <z-td>Medium</z-td>
+                            </tr>
+                        </tbody>
+                    </z-data-table>
+                </div>
+            </section>
+
+            <!-- ZONE 5: FORMS & CONTROLS -->
+            <section id="forms" class="zi-mb-32">
+                <h2 class="zone-title zi-text-2xl zi-font-black">FORMS & INTERACTIVITY</h2>
+                <div class="zi-grid zi-grid-3 zi-gap-12">
+                    <z-card>
+                        <span class="component-label">Floating Inputs</span>
+                        <z-input-floating id="f1" label="Full Access Name" type="text"></z-input-floating>
+                        <z-input-floating id="f2" label="Security Token" type="password"></z-input-floating>
+                        <z-toggle label="Enable Hardware Acceleration"></z-toggle>
+                    </z-card>
+                    
+                    <div class="gallery-item">
+                        <span class="component-label">File Upload</span>
+                        <z-file-upload></z-file-upload>
+                    </div>
+
+                    <div class="gallery-item">
+                        <span class="component-label">Step Indicators</span>
+                        <z-steps>
+                            <z-step index="1" label="Concept" state="accent"></z-step>
+                            <z-step index="2" label="Build" state="accent"></z-step>
+                            <z-step index="3" label="Launch" state="glass"></z-step>
+                        </z-steps>
+                    </div>
+                </div>
+            </section>
+
+            <!-- ZONE 6: FEEDBACK & STATUS -->
+            <section id="feedback" class="zi-mb-32">
+                <h2 class="zone-title zi-text-2xl zi-font-black">FEEDBACK & STATES</h2>
+                <div class="zi-grid zi-grid-3 zi-gap-12">
+                    <div class="gallery-item">
+                        <span class="component-label">Skeletons</span>
+                        <z-skeleton-card></z-skeleton-card>
+                    </div>
+                    <div class="gallery-item">
+                        <span class="component-label">Toasts & Popovers</span>
+                        <div class="zi-stack-md">
+                            <z-toast variant="accent" content="System synchronization complete."></z-toast>
+                            <z-popover>
+                                <div class="zi-font-bold zi-mb-2">Hardware Details</div>
+                                <div class="zi-text-xs text-muted">Intel Core i9-14900K mapped to Antigravity Cluster Node 4.</div>
+                            </z-popover>
+                        </div>
+                    </div>
+                    <div class="gallery-item">
+                        <span class="component-label">Empty State</span>
+                        <z-empty-state icon="∅" title="No Nodes Found" content="This workspace hasn't been mapped to the Antigravity engine yet." action="Scan Now"></z-empty-state>
+                    </div>
+                </div>
+            </section>
+
+            <section class="zi-mt-32 zi-mb-24">
+                <z-newsletter></z-newsletter>
+            </section>
+
+        </main>
+    </div>
+
+    <script>
+        function setTheme(theme) {
+            document.documentElement.setAttribute('data-theme', theme);
+            console.log('ZINTENT: Switched to', theme);
+        }
+    </script>
+</body>
+</html>

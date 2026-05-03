@@ -1,0 +1,53 @@
+{
+  "name": "zintent",
+  "version": "2.1.0",
+  "description": "The Intent-Based CSS Framework - Zero Runtime, Maximum Performance",
+  "main": "compiler/main.go",
+  "bin": {
+    "zintent": "compiler/zintent-compiler.js"
+  },
+  "scripts": {
+    "build": "go run ./compiler src/index.html -o dist/styles.css",
+    "build:minimal": "go run ./compiler src/index.html -o dist/styles.min.css --preset minimal",
+    "build:core": "go run ./compiler src/index.html -o dist/styles.core.css --preset core",
+    "build:scan": "go run ./compiler src/index.html -o dist/styles.scan.css --content src --preset minimal",
+    "build:demo": "go run ./compiler src/phase1-demo.html -o dist/phase1-styles-clean.css",
+    "build:phase2": "go run ./compiler src/phase2-demo.html -o dist/phase2-styles.css",
+    "build:phase3": "go run ./compiler src/phase3-demo.html -o dist/phase3-styles.css",
+    "build:phase4": "go run ./compiler src/phase4-demo.html -o dist/phase4-styles.css",
+    "build:phase5": "go run ./compiler src/phase5-demo.html -o dist/phase5-styles.css",
+    "build:dashboard": "go run ./compiler src/demo-dashboard.html -o dist/styles-dashboard.css",
+    "build:marketing": "go run ./compiler src/demo-marketing.html -o dist/styles-marketing.css",
+    "build:saas": "go run ./compiler src/demo-saas.html -o dist/styles-saas.css",
+    "dev": "go run ./compiler --watch src/phase2-demo.html -o dist/phase2-styles.css",
+    "dev:phase3": "go run ./compiler --watch src/phase3-demo.html -o dist/phase3-styles.css",
+    "dev:phase4": "go run ./compiler --watch src/phase4-demo.html -o dist/phase4-styles.css",
+    "dev:phase5": "go run ./compiler --watch src/phase5-demo.html -o dist/phase5-styles.css",
+    "tokens:generate": "node compiler/ai-token-generator.js",
+    "tokens:brand": "node compiler/ai-token-generator.js --brand=",
+    "tokens:light": "node compiler/ai-token-generator.js --theme=light",
+    "lint:contrast": "node compiler/contrast-lint.js",
+    "test:go": "go test ./compiler -count=1",
+    "test:snapshots:update": "node compiler/snapshot-test.js --update",
+    "test:snapshots": "node compiler/snapshot-test.js",
+    "benchmark": "node compiler/benchmark.js",
+    "benchmark:baseline": "node compiler/benchmark.js --update-baseline",
+    "benchmark:compare": "node compiler/benchmark.js --compare",
+    "test:budget": "go run ./compiler --input src/phase1-demo.html -o dist/phase1-budget.css --preset full --budget-kb 55",
+    "compile": "go build -o zintent-v2.exe ./compiler",
+    "test": "npm run test:go && npm run test:snapshots"
+  },
+  "keywords": [
+    "css",
+    "framework",
+    "intent-based",
+    "design-system",
+    "ai"
+  ],
+  "author": "Antigravity",
+  "license": "MIT",
+  "dependencies": {
+    "chokidar": "^3.6.0",
+    "glob": "^10.3.10"
+  }
+}

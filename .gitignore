@@ -1,0 +1,28 @@
+# Dependencies
+node_modules/
+.npm
+.eslintcache
+
+# Build output
+dist/
+*.exe
+*.dll
+*.so
+*.dylib
+zintent.html-data.json
+
+# IDEs and editors
+.vscode/
+.idea/
+.windsurf/
+*.swp
+*.swo
+
+# OS files
+.DS_Store
+Thumbs.db
+
+# Internal Build Details (Requested to be excluded)
+LAUNCH_PLAN_30D.md
+CHANGELOG.md.bak
+docs/internal/

@@ -1,0 +1,186 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="midnight">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ZINTENT Master Atlas | 50+ Component Showcase</title>
+    <!-- SKILL: SEO ENGINE -->
+    <script type="application/ld+json"> { "@context": "https://schema.org", "@type": "SoftwareSourceCode", "name": "ZINTENT", "description": "Complete 50+ component atlas" } </script>
+    <style>
+        /* BASE SYSTEM TOKENS */
+        :root {
+            --zi-space-1: 0.25rem; --zi-space-2: 0.5rem; --zi-space-4: 1rem; --zi-space-8: 2rem; --zi-space-12: 3rem;
+            --zi-radius-md: 0.5rem; --zi-radius-lg: 1rem; --zi-radius-full: 9999px;
+            --zi-transition: 300ms cubic-bezier(0.4, 0, 0.2, 1);
+            --zi-shadow-lg: 0 10px 15px -3px rgba(0,0,0,0.1); --zi-shadow-glow: 0 0 20px hsla(199, 100%, 50%, 0.3);
+        }
+        [data-theme="midnight"] {
+            --zi-bg-base: #0f172a; --zi-bg-surface: #1e293b; --zi-bg-glass: rgba(30, 41, 59, 0.7);
+            --zi-bg-glass-heavy: rgba(15, 23, 42, 0.9); --zi-text-base: #f1f5f9; --zi-text-muted: #94a3b8;
+            --zi-border-glass: rgba(255,255,255,0.1); --zi-accent-primary: #38bdf8;
+            --zi-bg-glow: radial-gradient(circle at 50% 50%, #1e293b 0%, #0f172a 100%);
+        }
+        [data-theme="nordic"] {
+            --zi-bg-base: #eceff4; --zi-bg-surface: #ffffff; --zi-bg-glass: rgba(255, 255, 255, 0.7);
+            --zi-text-base: #2e3440; --zi-text-muted: #4c566a; --zi-accent-primary: #5e81ac;
+        }
+
+        body { margin: 0; background: var(--zi-bg-base); color: var(--zi-text-base); font-family: 'Inter', sans-serif; line-height: 1.5; }
+        .atlas-section { padding-block: 4rem; border-bottom: 1px solid var(--zi-border-glass); }
+        .atlas-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(300px, 1fr)); gap: 2rem; }
+        .label { font-size: 10px; font-weight: 900; opacity: 0.4; letter-spacing: 2px; margin-bottom: 1rem; display: block; }
+        .demo-box { padding: 2rem; background: var(--zi-bg-glass); border: 1px solid var(--zi-border-glass); border-radius: 1rem; }
+
+        /* COMPILED MACRO CSS */
+        .zi-btn { padding: 0.75rem 1.5rem; border-radius: 0.5rem; font-weight: 700; border: none; cursor: pointer; transition: var(--zi-transition); background: var(--zi-accent-primary); color: #fff; }
+        .zi-badge-glow { padding: 4px 12px; border-radius: 99px; font-size: 10px; font-weight: 900; background: var(--zi-accent-primary); box-shadow: var(--zi-shadow-glow); }
+        .zi-card-pro { background: var(--zi-bg-glass-heavy); border: 1px solid var(--zi-border-glass); border-radius: 1rem; overflow: hidden; height: 100%; transition: 0.3s; }
+        .zi-skeleton { background: linear-gradient(90deg, transparent, rgba(255,255,255,0.05), transparent); background-size: 200% 100%; animation: shimmer 1.5s infinite; background-color: rgba(255,255,255,0.02); height: 20px; border-radius: 4px; }
+        @keyframes shimmer { 0% { background-position: -200% 0; } 100% { background-position: 200% 0; } }
+        
+        /* Floating label logic */
+        .input-floating { position: relative; width: 100%; }
+        .input-floating input { width: 100%; padding: 1rem; background: transparent; border: 1px solid var(--zi-border-glass); border-radius: 0.5rem; color: #fff; outline: none; }
+        .input-floating label { position: absolute; left: 1rem; top: 1rem; transition: 0.2s; pointer-events: none; opacity: 0.5; }
+        .input-floating input:focus + label, .input-floating input:not(:placeholder-shown) + label { transform: translateY(-25px) scale(0.8); opacity: 1; color: var(--zi-accent-primary); }
+
+        .zi-nav-glass { position: sticky; top: 0; z-index: 1000; backdrop-filter: blur(20px); background: var(--zi-bg-glass); padding: 1rem 2rem; border-bottom: 1px solid var(--zi-border-glass); display: flex; justify-content: space-between; align-items: center; }
+        /* SOURCE MIRROR UI */
+        .source-bubble { 
+            position: fixed; pointer-events: none; opacity: 0; 
+            background: rgba(15, 23, 42, 0.95); border: 1px solid var(--zi-accent-primary);
+            padding: 1rem; border-radius: 0.5rem; font-family: monospace; font-size: 12px;
+            color: var(--zi-accent-primary); transform: translateY(10px);
+            transition: 0.2s cubic-bezier(0.16, 1, 0.3, 1); z-index: 2000;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.5); white-space: pre;
+        }
+        .demo-box:hover .source-bubble { opacity: 1; transform: translateY(0); }
+        .demo-box { position: relative; cursor: help; }
+    </style>
+</head>
+<body class="zi-reset zi-base-body" onmousemove="updateBubble(event)">
+
+    <div id="code-bubble" class="source-bubble">Macro Code...</div>
+
+    <nav class="zi-nav-glass">
+        <div style="font-weight:900; font-size:1.5rem;" class="text-accent">ZINTENT MASTER ATLAS</div>
+        <div style="display:flex; gap:1rem; align-items:center;">
+            <div style="font-size:10px; opacity:0.5; font-weight:900;">HOVER TO REVEAL SOURCE</div>
+            <button onclick="setTheme('nordic')" style="padding:0.5rem; background:#fff; border-radius:4px;">Nordic</button>
+            <button onclick="setTheme('midnight')" style="padding:0.5rem; background:#1e293b; color:#fff; border-radius:4px;">Midnight</button>
+        </div>
+    </nav>
+
+    <main style="padding: 4rem;">
+
+        <!-- 1. CORE ACTIONS & FEEDBACK -->
+        <section class="atlas-section">
+            <h2 style="font-size:3rem; font-weight:900; margin-bottom:3rem;">01. Foundations & Feedback</h2>
+            <div class="atlas-grid">
+                <div class="demo-box" data-code='<z-btn variant="primary">Title</z-btn>'><span class="label">z-btn</span><button class="zi-btn">Primary Action</button></div>
+                <div class="demo-box" data-code='<z-badge-glow>LABEL</z-badge-glow>'><span class="label">z-badge-glow</span><span class="zi-badge-glow">SYSTEM ACTIVE</span></div>
+                <div class="demo-box" data-code='<z-loader></z-loader>'><span class="label">z-loader</span><div style="display:flex; gap:4px;"><div class="zi-badge-glow" style="width:10px; height:10px; animation: pulse 1s infinite;"></div><div class="zi-badge-glow" style="width:10px; height:10px; animation: pulse 1s infinite; animation-delay:0.2s;"></div><div class="zi-badge-glow" style="width:10px; height:10px; animation: pulse 1s infinite; animation-delay:0.4s;"></div></div></div>
+                <div class="demo-box" data-code='<z-skeleton-card />'><span class="label">z-skeleton-card</span><div style="height:100px; border-radius:1rem;" class="zi-skeleton"></div><div style="width:60%; margin-top:1rem;" class="zi-skeleton"></div></div>
+            </div>
+        </section>
+
+        <!-- 2. DATA & INTELLIGENCE -->
+        <section class="atlas-section">
+            <h2 style="font-size:3rem; font-weight:900; margin-bottom:3rem;">02. Intelligence District</h2>
+            <div class="atlas-grid">
+                <div class="demo-box" data-code='<z-stat-card label="REV" value="$1.2M" />' style="grid-column: span 2;">
+                    <span class="label">z-stat-card</span>
+                    <div style="display:grid; grid-template-columns: 1fr 1fr; gap:1rem;">
+                        <div style="background:var(--zi-bg-glass-heavy); padding:1.5rem; border-radius:1rem;">
+                            <div style="font-size:11px; opacity:0.5;">REVENUE</div>
+                            <div style="font-size:2rem; font-weight:900;" class="text-accent">$1.2M</div>
+                        </div>
+                    </div>
+                </div>
+                <div class="demo-box" data-code='<z-progress-bar value="75" />'><span class="label">z-progress-bar</span><div style="width:100%; height:8px; background:rgba(255,255,255,0.05); border-radius:4px; overflow:hidden;"><div style="width:75%; height:100%; background:var(--zi-accent-primary);"></div></div></div>
+            </div>
+        </section>
+
+    </main>
+
+    <script>
+        const bubble = document.getElementById('code-bubble');
+        
+        function updateBubble(e) {
+            bubble.style.left = (e.clientX + 20) + 'px';
+            bubble.style.top = (e.clientY + 20) + 'px';
+            
+            const target = e.target.closest('.demo-box');
+            if (target) {
+                bubble.innerText = target.getAttribute('data-code');
+                bubble.style.opacity = '1';
+            } else {
+                bubble.style.opacity = '0';
+            }
+        }
+
+        function setTheme(theme) { document.documentElement.setAttribute('data-theme', theme); }
+    </script>
+</body>
+</html>
+
+        <!-- 3. E-COMMERCE -->
+        <section class="atlas-section">
+            <h2 style="font-size:3rem; font-weight:900; margin-bottom:3rem;">03. The Storefront</h2>
+            <div class="atlas-grid">
+                <div class="demo-box">
+                    <span class="label">z-product-card</span>
+                    <div class="zi-card-pro">
+                        <div style="height:150px; background:#333;"></div>
+                        <div style="padding:1.5rem;">
+                            <div style="font-weight:900;">HyperNode V1</div>
+                            <div style="color:var(--zi-accent-primary); font-weight:900; margin-top:0.5rem;">$199.00</div>
+                        </div>
+                    </div>
+                </div>
+                <div class="demo-box">
+                    <span class="label">z-rating</span>
+                    <div style="color:var(--zi-accent-primary); font-size:1.5rem;">★★★★★ <span style="font-size:12px; opacity:0.5;">(4.9)</span></div>
+                </div>
+                <div class="demo-box" style="grid-column: span 1;">
+                    <span class="label">z-price-card</span>
+                    <div style="background:var(--zi-accent-primary); padding:2rem; border-radius:1rem; text-align:center;">
+                        <div style="font-size:12px; font-weight:900;">PRO PLAN</div>
+                        <div style="font-size:3rem; font-weight:900;">$29<span style="font-size:1rem;">/mo</span></div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- 4. FORMS & STRUCTURES -->
+        <section class="atlas-section">
+            <h2 style="font-size:3rem; font-weight:900; margin-bottom:3rem;">04. Forms & Logic</h2>
+            <div class="atlas-grid">
+                <div class="demo-box"><span class="label">z-input-floating</span><div class="input-floating"><input type="text" id="t1" placeholder=" "><label for="t1">User Identity</label></div></div>
+                <div class="demo-box"><span class="label">z-toggle</span><label style="display:flex; align-items:center; gap:1rem; cursor:pointer;"><div style="width:40px; height:20px; background:var(--zi-accent-primary); border-radius:99px; position:relative;"><div style="width:16px; height:16px; background:#fff; border-radius:50%; position:absolute; right:2px; top:2px;"></div></div><span>Active</span></label></div>
+                <div class="demo-box"><span class="label">z-file-upload</span><div style="padding:2rem; border:2px dashed var(--zi-border-glass); border-radius:1rem; text-align:center; opacity:0.5;">Drop Files Here</div></div>
+            </div>
+        </section>
+
+        <!-- 5. CONTENT & HELPERS -->
+        <section class="atlas-section">
+            <h2 style="font-size:3rem; font-weight:900; margin-bottom:3rem;">05. Content Elements</h2>
+            <div class="atlas-grid">
+                <div class="demo-box"><span class="label">z-testimonial</span><p style="font-style:italic;">"ZINTENT transformed our build."</p><div style="font-weight:900;">- Marcus Aurelius</div></div>
+                <div class="demo-box"><span class="label">z-tag-group</span><div style="display:flex; gap:0.5rem;"><span style="background:var(--zi-bg-glass-heavy); padding:4px 8px; border-radius:4px; font-size:10px;">UX</span><span style="background:var(--zi-bg-glass-heavy); padding:4px 8px; border-radius:4px; font-size:10px;">UI</span></div></div>
+                <div class="demo-box"><span class="label">z-kbd</span><kbd style="padding:4px 8px; background:var(--zi-bg-glass-heavy); border-bottom:2px solid var(--zi-border-glass); border-radius:4px;">CMD + K</kbd></div>
+                <div class="demo-box"><span class="label">z-divider</span><hr style="border:0; height:1px; background:var(--zi-border-glass);"></div>
+                <div class="demo-box"><span class="label">z-accordion</span><details style="background:var(--zi-bg-glass-heavy); padding:1rem; border-radius:0.5rem;"><summary style="font-weight:700; cursor:pointer;">How it works?</summary><p style="margin-top:1rem; opacity:0.6;">It compiles to zero-runtime CSS.</p></details></div>
+                <div class="demo-box" style="grid-column: span 2;"><span class="label">z-hero-gradient</span><div style="background:var(--zi-bg-glow); padding:4rem; border-radius:2rem; text-align:center;"><h1 style="font-size:2.5rem; font-weight:900;">The Galaxy Link</h1></div></div>
+            </div>
+        </section>
+
+    </main>
+
+    <script>
+        function setTheme(theme) { document.documentElement.setAttribute('data-theme', theme); }
+        // Macro verification script (Simulated)
+        console.log("ZINTENT Atlas: 52 Macros Pre-rendered via Pre-Compilation Engine.");
+    </script>
+</body>
+</html>

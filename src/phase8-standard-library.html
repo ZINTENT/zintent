@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="midnight">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ZINTENT Phase 8: Standard Library Showcase</title>
+    <link rel="stylesheet" href="../dist/phase8-library.css">
+</head>
+<body class="zi-reset zi-base-body zi-antigravity-root">
+
+    <z-nav-glass>
+        <div class="zi-text-2xl zi-font-black text-accent">ZINTENT <span class="zi-text-xs zi-text-muted">PRO</span></div>
+        <div class="zi-flex zi-gap-6 items-center">
+            <a href="#" class="zi-text-sm zi-font-bold no-underline text-muted intent-hover-accent">Dashboard</a>
+            <a href="#" class="zi-text-sm zi-font-bold no-underline text-muted intent-hover-accent">Analytics</a>
+            <a href="#" class="zi-text-sm zi-font-bold no-underline text-muted intent-hover-accent">Marketplace</a>
+            <z-btn variant="primary" size="sm">Get Started</z-btn>
+        </div>
+    </z-nav-glass>
+
+    <div class="zi-flex zi-h-full" style="min-height: calc(100vh - 80px);">
+        <!-- Sidebar -->
+        <z-sidebar-nav>
+            <div class="zi-stack-md">
+                <div class="zi-text-xs zi-font-black zi-text-muted zi-px-2">WORKSPACE</div>
+                <div class="zi-stack-sm">
+                    <div class="zi-bg-glass zi-p-3 zi-radius-md zi-font-bold text-accent">Overview</div>
+                    <div class="zi-p-3 zi-radius-md zi-font-bold text-muted intent-hover-glass">Team Focus</div>
+                    <div class="zi-p-3 zi-radius-md zi-font-bold text-muted intent-hover-glass">Shared Assets</div>
+                </div>
+            </div>
+
+            <z-skeleton-profile></z-skeleton-profile>
+
+            <div class="zi-mt-auto">
+                <z-btn variant="secondary" class="zi-w-full">Settings</z-btn>
+            </div>
+        </z-sidebar-nav>
+
+        <!-- Main Content -->
+        <main class="zi-flex-1 zi-p-12 zi-overflow-y-auto">
+            <header class="zi-mb-12">
+                <h1 class="zi-text-fluid-4xl zi-font-black zi-mb-2">System <span class="text-accent">Intelligence</span></h1>
+                <p class="zi-text-muted">Real-time metrics and component-driven architecture.</p>
+            </header>
+
+            <!-- Stat Cards -->
+            <div class="zi-grid zi-gap-6 zi-mb-12" style="grid-template-columns: repeat(4, 1fr);">
+                <z-stat-card label="TOTAL REACH" value="1.2M" trend="+12.4%" trend_class="text-accent"></z-stat-card>
+                <z-stat-card label="ACTIVE USERS" value="48.2K" trend="+5.1%" trend_class="text-accent"></z-stat-card>
+                <z-stat-card label="CONVERSION" value="3.42%" trend="-0.8%" trend_class="zi-text-muted"></z-stat-card>
+                <z-stat-card label="LATENCY" value="24ms" trend="STABLE" trend_class="zi-text-muted"></z-stat-card>
+            </div>
+
+            <z-grid-bento>
+                <!-- Large Feature Card -->
+                <div style="grid-column: span 2; grid-row: span 2;">
+                    <z-card-pro>
+                        <z-slot name="header">
+                            <div class="zi-flex items-center justify-between">
+                                <div class="zi-font-bold">Neural Core Status</div>
+                                <z-badge-glow variant="primary">LIVE</z-badge-glow>
+                            </div>
+                        </z-slot>
+                        <div class="zi-stack-md">
+                            <p>Global intent distribution mapped via Antigravity nodes.</p>
+                            <div class="zi-h-32 zi-bg-glass-heavy zi-radius-lg zi-border-glass"></div>
+                        </div>
+                        <z-slot name="footer">
+                            <div class="zi-flex zi-gap-2">
+                                <div class="zi-h-2 zi-bg-accent zi-radius-full" style="width: 60%"></div>
+                                <div class="zi-h-2 zi-bg-glass zi-radius-full" style="width: 40%"></div>
+                            </div>
+                        </z-slot>
+                    </z-card-pro>
+                </div>
+
+                <!-- Form Section -->
+                <div>
+                    <z-card class="zi-h-full">
+                        <div class="zi-font-bold zi-mb-6">Quick Registration</div>
+                        <z-input-floating id="f_name" label="Full Name" type="text"></z-input-floating>
+                        <z-input-floating id="f_email" label="Work Email" type="email"></z-input-floating>
+                        <z-btn variant="primary" class="zi-w-full">Sync System</z-btn>
+                    </z-card>
+                </div>
+
+                <!-- Profile Section -->
+                <div>
+                    <z-card class="zi-h-full zi-stack-md">
+                        <div class="zi-flex items-center gap-4">
+                            <z-avatar size="48" src="https://images.unsplash.com/photo-1535713875002-d1d0cf377fde?auto=format&fit=crop&w=100&q=80" alt="User"></z-avatar>
+                            <div>
+                                <div class="zi-font-bold">Alex Rivera</div>
+                                <div class="zi-text-xs text-muted">Architect</div>
+                            </div>
+                        </div>
+                        <p class="zi-text-sm text-muted">Core designer behind the Phase 8 Standard Library.</p>
+                    </z-card>
+                </div>
+            </z-grid-bento>
+
+            <section class="zi-mt-24">
+                <z-hero-gradient>
+                    <h2 class="zi-text-fluid-3xl zi-font-black zi-mb-6">Build the Future of <br>Intent-Based Design</h2>
+                    <z-btn variant="primary" size="lg">Explore Registry</z-btn>
+                </z-hero-gradient>
+            </section>
+        </main>
+    </div>
+
+</body>
+</html>

@@ -1,0 +1,78 @@
+/* ZINTENT Accessibility + Modern Platform Helpers */
+
+/* Screen reader only */
+.sr-only {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  border-width: 0;
+}
+
+.not-sr-only {
+  position: static;
+  width: auto;
+  height: auto;
+  padding: 0;
+  margin: 0;
+  overflow: visible;
+  clip: auto;
+  white-space: normal;
+}
+
+/* Prefer focus-visible when supported */
+@supports selector(:focus-visible) {
+  .focus-ring:focus { box-shadow: none; }
+  .focus-ring:focus-visible { box-shadow: 0 0 0 3px var(--zi-accent-glow); }
+}
+
+/* RTL helpers (opt-in via class) */
+[dir="rtl"] .rtl\:flip-row {
+  flex-direction: row-reverse;
+}
+
+[dir="rtl"] .rtl\:text-right {
+  text-align: right;
+}
+
+/* Popover API baseline styling (no JS required) */
+[popover] {
+  border: 1px solid var(--zi-neutral-700);
+  border-radius: var(--zi-radius-lg);
+  background: var(--zi-bg-surface);
+  color: var(--zi-text-base);
+  box-shadow: var(--zi-shadow-xl);
+  padding: var(--zi-space-4);
+}
+
+[popover]::backdrop {
+  background: rgba(0, 0, 0, 0.45);
+}
+
+[popover]:popover-open {
+  outline: none;
+}
+
+/* Anchor positioning (progressive enhancement) */
+@supports (anchor-name: --zi-a) and (position-anchor: --zi-a) {
+  /* .anchor-a and .popover-anchor-a are generated from intents for tree-shaking.
+     These rules add the actual positioning behavior when the platform supports it. */
+  .popover-anchor-a {
+    position: fixed;
+    top: anchor(--zi-a bottom);
+    left: anchor(--zi-a left);
+    margin-top: var(--zi-space-2);
+    bottom: auto;
+    right: auto;
+  }
+}
+
+/* View Transitions API helpers */
+@supports (view-transition-name: none) {
+  .vt-none { view-transition-name: none; }
+  .vt-root { view-transition-name: zi-root; }
+}

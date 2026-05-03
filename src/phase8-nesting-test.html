@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ZINTENT Phase 8: Native Nesting Test</title>
+    <link rel="stylesheet" href="../dist/phase8-nesting.css">
+</head>
+<body class="zi-reset zi-base-body zi-p-12">
+    <h1 class="zi-text-fluid-4xl zi-font-black zi-mb-12">Native <span class="text-accent">Nesting</span> Engine</h1>
+    
+    <div class="zi-grid zi-gap-12">
+        <!-- 1. Nav Interactive Test -->
+        <section class="zi-card-default">
+            <h2 class="zi-text-xl zi-font-bold zi-mb-4">1. Nested Navigation</h2>
+            <nav class="nav-interactive">
+                <a href="#">Home</a>
+                <a href="#">Gallery</a>
+                <a href="#">About</a>
+                <a href="#">Contact</a>
+            </nav>
+        </section>
+
+        <!-- 2. Input Premium Test -->
+        <section class="zi-card-default">
+            <h2 class="zi-text-xl zi-font-bold zi-mb-4">2. Floating Labels (Complex Nesting)</h2>
+            <div class="input-premium">
+                <input type="text" id="name" placeholder=" ">
+                <label for="name">Your Full Name</label>
+            </div>
+        </section>
+
+        <!-- 3. Card Glass Reveal Test -->
+        <section class="zi-card-default overflow-hidden">
+            <h2 class="zi-text-xl zi-font-bold zi-mb-4">3. Hover Reveal Pattern</h2>
+            <div class="card-glass-reveal zi-bg-glass zi-p-12 zi-relative zi-radius-lg">
+                <div class="zi-text-lg">Hover to Reveal Hidden Secret</div>
+                <div class="reveal-content zi-absolute zi-inset-0 zi-bg-accent zi-p-12 zi-items-center zi-flex">
+                    <span class="zi-text-white zi-font-bold">Secret Revealed via Native Nesting!</span>
+                </div>
+            </div>
+        </section>
+    </div>
+</body>
+</html>

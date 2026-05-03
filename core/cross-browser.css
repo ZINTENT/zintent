@@ -1,0 +1,40 @@
+/* 
+  ZINTENT Cross-Browser Stabilization Patch (Phase 10)
+  Ensuring universal high-fidelity rendering.
+*/
+
+@layer zi-core {
+    /* Safari Glassmorphism Polyfill */
+    [class*="zi-bg-glass"] {
+        -webkit-backdrop-filter: blur(12px);
+    }
+
+    /* Firefox Container Query Fallback (Simplified) */
+    @supports not (container-type: inline-size) {
+        .atlas-grid {
+            display: flex;
+            flex-wrap: wrap;
+        }
+    }
+
+    /* Custom Scrollbar (Premium Experience) */
+    ::-webkit-scrollbar {
+        width: 8px;
+        height: 8px;
+    }
+    ::-webkit-scrollbar-track {
+        background: transparent;
+    }
+    ::-webkit-scrollbar-thumb {
+        background: rgba(255,255,255,0.1);
+        border-radius: 99px;
+    }
+    ::-webkit-scrollbar-thumb:hover {
+        background: var(--zi-accent-primary);
+    }
+
+    /* Fixed Anchor Offsets */
+    :target {
+        scroll-margin-top: 100px;
+    }
+}

@@ -1,0 +1,954 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="midnight">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ZINTENT Phase 5 - Advanced Interactions</title>
+    <link rel="stylesheet" href="/ZINTENT/dist/phase5-styles.css?v=2">
+    <style>
+        @keyframes skeleton-pulse {
+            0% { background-position: 200% 0; }
+            100% { background-position: -200% 0; }
+        }
+        @keyframes shimmer {
+            100% { transform: translateX(100%); }
+        }
+    </style>
+</head>
+<body class="surface-base">
+    <!-- Navigation -->
+    <nav class="intent-cluster-between surface-elevated" style="position: sticky; top: 0; padding: var(--zi-space-4) var(--zi-space-8); margin-bottom: var(--zi-space-12); z-index: 100;">
+        <div class="intent-cluster gap-4">
+            <span class="font-bold text-xl text-accent">ZINTENT</span>
+            <span class="text-sm text-muted">Phase 5: Advanced Interactions</span>
+        </div>
+        <div class="intent-cluster gap-4" id="navThemeButtons">
+            <button type="button" class="btn-ghost btn-sm" data-theme="midnight">Midnight</button>
+            <button type="button" class="btn-ghost btn-sm" data-theme="light">Light</button>
+            <button type="button" class="btn-ghost btn-sm" data-theme="forest">Forest</button>
+        </div>
+    </nav>
+
+    <!-- Micro-interactions Section -->
+    <section id="micro" class="intent-center px-6 py-12">
+        <div class="container-xl">
+            <h2 class="text-center text-fluid-3xl mb-4">
+                Micro-<span class="text-accent">interactions</span>
+            </h2>
+            <p class="container-sm text-center text-muted mb-12">
+                Toast notifications, skeleton screens, and loading states
+            </p>
+
+            <!-- Toast Notifications -->
+            <div class="card-default p-6 mb-8">
+                <h3 class="text-xl mb-4">Toast Notifications</h3>
+                <div class="intent-cluster gap-3 mb-4" id="toastButtons">
+                    <button type="button" class="btn-success" data-type="success" data-title="Success!" data-message="Your changes have been saved successfully.">Show Success</button>
+                    <button type="button" class="btn-danger" data-type="error" data-title="Error!" data-message="Something went wrong. Please try again.">Show Error</button>
+                    <button type="button" class="btn-secondary" data-type="warning" data-title="Warning!" data-message="Your session will expire in 5 minutes.">Show Warning</button>
+                    <button type="button" class="btn-ghost" data-type="info" data-title="Info" data-message="New updates are available.">Show Info</button>
+                </div>
+
+                <!-- Toast Container -->
+                <div class="toast-container" id="toastContainer">
+                    <!-- Toasts will appear here -->
+                </div>
+            </div>
+
+            <!-- Popover API + Anchor Positioning -->
+            <div class="card-default p-6 mb-8">
+                <h3 class="text-xl mb-4">Popover + Anchor Positioning</h3>
+                <p class="text-sm text-muted mb-4">Native Popover API (no JavaScript). Anchor positioning is progressive enhancement.</p>
+                <div class="intent-cluster gap-3">
+                    <button type="button" class="btn-primary anchor-a" popovertarget="demoPopover" popovertargetaction="toggle">Toggle Popover</button>
+                    <button type="button" class="btn-ghost btn-sm" popovertarget="demoPopover" popovertargetaction="show">Show</button>
+                </div>
+
+                <div id="demoPopover" class="popover-surface popover-panel popover-anchor-a" popover>
+                    <div class="font-semibold mb-2">Popover</div>
+                    <div class="text-sm text-muted">Works without JS. In supporting browsers, it anchors to the button.</div>
+                    <div class="popover-actions">
+                        <button type="button" class="btn-ghost btn-sm" popovertarget="demoPopover" popovertargetaction="hide">Close</button>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Skeleton Screens -->
+            <div class="grid-responsive gap-6 mb-8">
+                <div class="card-default p-6">
+                    <h3 class="text-xl mb-4">Skeleton Cards</h3>
+                    <div class="intent-stack gap-4" id="skeletonCards">
+                        <!-- Skeleton Card 1 -->
+                        <div class="surface-elevated p-4 rounded-lg">
+                            <div class="intent-cluster gap-3 mb-3">
+                                <div class="skeleton skeleton-avatar"></div>
+                                <div class="flex-1">
+                                    <div class="skeleton skeleton-text skeleton-text-lg"></div>
+                                    <div class="skeleton skeleton-text skeleton-text-sm"></div>
+                                </div>
+                            </div>
+                            <div class="skeleton skeleton-text"></div>
+                            <div class="skeleton skeleton-text"></div>
+                            <div class="skeleton skeleton-text" style="width: 60%;"></div>
+                        </div>
+                        <!-- Skeleton Card 2 -->
+                        <div class="surface-elevated p-4 rounded-lg">
+                            <div class="skeleton skeleton-image mb-3"></div>
+                            <div class="skeleton skeleton-text skeleton-text-lg"></div>
+                            <div class="skeleton skeleton-text"></div>
+                        </div>
+                    </div>
+                    <button type="button" class="btn-primary btn-sm mt-4" id="toggleSkeletonBtn">Toggle Content</button>
+                </div>
+
+                <div class="card-default p-6">
+                    <h3 class="text-xl mb-4">Skeleton List</h3>
+                    <div class="intent-stack gap-3" id="skeletonList">
+                        <div class="intent-cluster gap-3">
+                            <div class="skeleton skeleton-avatar"></div>
+                            <div class="flex-1">
+                                <div class="skeleton skeleton-text"></div>
+                                <div class="skeleton skeleton-text skeleton-text-sm"></div>
+                            </div>
+                        </div>
+                        <div class="intent-cluster gap-3">
+                            <div class="skeleton skeleton-avatar"></div>
+                            <div class="flex-1">
+                                <div class="skeleton skeleton-text"></div>
+                                <div class="skeleton skeleton-text skeleton-text-sm"></div>
+                            </div>
+                        </div>
+                        <div class="intent-cluster gap-3">
+                            <div class="skeleton skeleton-avatar"></div>
+                            <div class="flex-1">
+                                <div class="skeleton skeleton-text"></div>
+                                <div class="skeleton skeleton-text skeleton-text-sm"></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Templates (ensures compiler includes utility classes used in JS swaps) -->
+            <template id="tplSkeletonCardsLoading">
+                <div class="surface-elevated p-4 rounded-lg">
+                    <div class="intent-cluster gap-3 mb-3">
+                        <div class="skeleton skeleton-avatar"></div>
+                        <div class="flex-1">
+                            <div class="skeleton skeleton-text skeleton-text-lg"></div>
+                            <div class="skeleton skeleton-text skeleton-text-sm"></div>
+                        </div>
+                    </div>
+                    <div class="skeleton skeleton-text"></div>
+                    <div class="skeleton skeleton-text"></div>
+                    <div class="skeleton skeleton-text" style="width: 60%;"></div>
+                </div>
+                <div class="surface-elevated p-4 rounded-lg">
+                    <div class="skeleton skeleton-image mb-3"></div>
+                    <div class="skeleton skeleton-text skeleton-text-lg"></div>
+                    <div class="skeleton skeleton-text"></div>
+                </div>
+            </template>
+
+            <template id="tplSkeletonCardsContent">
+                <div class="surface-elevated p-4 rounded-lg">
+                    <div class="intent-cluster gap-3 mb-3">
+                        <div class="w-10 h-10 rounded-full bg-accent flex items-center justify-center text-white font-bold">JD</div>
+                        <div class="flex-1">
+                            <div class="font-semibold">John Doe</div>
+                            <div class="text-sm text-muted">Software Engineer</div>
+                        </div>
+                    </div>
+                    <p class="text-sm">Experienced developer with 5+ years in web technologies.</p>
+                </div>
+                <div class="surface-elevated p-4 rounded-lg">
+                    <div class="aspect-video bg-elevated rounded mb-3 flex items-center justify-center text-muted">
+                        <svg width="48" height="48" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><rect x="3" y="3" width="18" height="18" rx="2"/><circle cx="8.5" cy="8.5" r="1.5"/><path d="M21 15l-5-5L5 21"/></svg>
+                    </div>
+                    <div class="font-semibold">Project Screenshot</div>
+                    <div class="text-sm text-muted">Updated 2 hours ago</div>
+                </div>
+            </template>
+
+            <template id="tplSkeletonListLoading">
+                <div class="intent-cluster gap-3">
+                    <div class="skeleton skeleton-avatar"></div>
+                    <div class="flex-1">
+                        <div class="skeleton skeleton-text"></div>
+                        <div class="skeleton skeleton-text skeleton-text-sm"></div>
+                    </div>
+                </div>
+                <div class="intent-cluster gap-3">
+                    <div class="skeleton skeleton-avatar"></div>
+                    <div class="flex-1">
+                        <div class="skeleton skeleton-text"></div>
+                        <div class="skeleton skeleton-text skeleton-text-sm"></div>
+                    </div>
+                </div>
+                <div class="intent-cluster gap-3">
+                    <div class="skeleton skeleton-avatar"></div>
+                    <div class="flex-1">
+                        <div class="skeleton skeleton-text"></div>
+                        <div class="skeleton skeleton-text skeleton-text-sm"></div>
+                    </div>
+                </div>
+            </template>
+
+            <template id="tplSkeletonListContent">
+                <div class="intent-cluster gap-3">
+                    <div class="w-10 h-10 rounded-full bg-accent flex items-center justify-center text-white font-bold">AJ</div>
+                    <div class="flex-1">
+                        <div class="font-semibold">Alice Johnson</div>
+                        <div class="text-sm text-muted">Online now</div>
+                    </div>
+                </div>
+                <div class="intent-cluster gap-3">
+                    <div class="w-10 h-10 rounded-full bg-accent flex items-center justify-center text-white font-bold">BM</div>
+                    <div class="flex-1">
+                        <div class="font-semibold">Ben Miller</div>
+                        <div class="text-sm text-muted">Last seen 10m ago</div>
+                    </div>
+                </div>
+                <div class="intent-cluster gap-3">
+                    <div class="w-10 h-10 rounded-full bg-accent flex items-center justify-center text-white font-bold">CS</div>
+                    <div class="flex-1">
+                        <div class="font-semibold">Cara Singh</div>
+                        <div class="text-sm text-muted">Typing…</div>
+                    </div>
+                </div>
+            </template>
+
+            <!-- Loading States -->
+            <div class="grid-responsive gap-6 mb-8">
+                <div class="card-default p-6">
+                    <h3 class="text-xl mb-4">Loading Spinners</h3>
+                    <div class="intent-cluster gap-6 justify-center">
+                        <div class="loading-spinner loading-spinner-sm"></div>
+                        <div class="loading-spinner"></div>
+                        <div class="loading-spinner loading-spinner-lg"></div>
+                    </div>
+                </div>
+
+                <div class="card-default p-6">
+                    <h3 class="text-xl mb-4">Loading Dots</h3>
+                    <div class="intent-cluster gap-6 justify-center">
+                        <div class="loading-dots">
+                            <div class="loading-dot loading-dot-1"></div>
+                            <div class="loading-dot loading-dot-2"></div>
+                            <div class="loading-dot"></div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="card-default p-6">
+                    <h3 class="text-xl mb-4">Pulse Loading</h3>
+                    <div class="intent-cluster gap-6 justify-center">
+                        <div class="loading-pulse"></div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Progress Bars -->
+            <div class="grid-responsive gap-6 mb-8">
+                <div class="card-default p-6">
+                    <h3 class="text-xl mb-4">Progress Bar</h3>
+                    <div class="progress-bar mb-4">
+                        <div class="progress-bar-fill" id="progressBarFill" style="width: 0%;"></div>
+                    </div>
+                    <div class="intent-cluster gap-3" id="progressButtons">
+                        <button type="button" class="btn-ghost btn-sm" data-progress="0">0%</button>
+                        <button type="button" class="btn-ghost btn-sm" data-progress="25">25%</button>
+                        <button type="button" class="btn-ghost btn-sm" data-progress="50">50%</button>
+                        <button type="button" class="btn-ghost btn-sm" data-progress="75">75%</button>
+                        <button type="button" class="btn-primary btn-sm" id="animateProgressBtn">Animate</button>
+                    </div>
+                </div>
+
+                <div class="card-default p-6">
+                    <h3 class="text-xl mb-4">Circular Progress</h3>
+                    <div class="intent-center">
+                        <svg class="progress-circle" width="80" height="80" viewBox="0 0 80 80">
+                            <circle class="progress-circle-track" cx="40" cy="40" r="36"></circle>
+                            <circle class="progress-circle-fill" id="progressCircleFill" cx="40" cy="40" r="36" stroke-dasharray="226" stroke-dashoffset="226"></circle>
+                        </svg>
+                    </div>
+                    <div class="intent-cluster gap-3 justify-center mt-4" id="circleProgressButtons">
+                        <button type="button" class="btn-ghost btn-sm" data-circle="0">0%</button>
+                        <button type="button" class="btn-ghost btn-sm" data-circle="50">50%</button>
+                        <button type="button" class="btn-ghost btn-sm" data-circle="100">100%</button>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Loading Overlay Demo -->
+            <div class="card-default p-6 mb-8" style="position: relative; min-height: 200px;">
+                <h3 class="text-xl mb-4">Loading Overlay</h3>
+                <p class="text-muted mb-4">This card has a loading overlay that can be toggled.</p>
+                <div class="intent-cluster gap-3" id="overlayButtons">
+                    <button type="button" class="btn-primary" id="showOverlayBtn">Show Loading</button>
+                    <button type="button" class="btn-ghost" id="hideOverlayBtn">Hide Loading</button>
+                </div>
+                <div class="loading-overlay" id="loadingOverlay" style="display: none;">
+                    <div class="loading-spinner loading-spinner-lg"></div>
+                </div>
+            </div>
+
+            <!-- Shimmer Effect -->
+            <div class="card-default p-6 mb-8">
+                <h3 class="text-xl mb-4">Shimmer Effect</h3>
+                <div class="shimmer surface-elevated p-4 rounded-lg" style="height: 100px;">
+                    <div class="shimmer-effect"></div>
+                    <div class="intent-cluster gap-3 h-full items-center">
+                        <div class="skeleton skeleton-avatar"></div>
+                        <div class="flex-1">
+                            <div class="skeleton skeleton-text skeleton-text-lg"></div>
+                            <div class="skeleton skeleton-text skeleton-text-sm"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Advanced Interactions (Phase 5) -->
+    <section id="advanced" class="intent-center px-6 py-12" style="background: var(--zi-bg-elevated);">
+        <div class="container-xl">
+            <h2 class="text-center text-fluid-3xl mb-4">
+                Advanced <span class="text-accent">Interactions</span>
+            </h2>
+            <p class="container-sm text-center text-muted mb-12">
+                View Transitions & Scroll-Driven Animation Recipes
+            </p>
+
+            <div class="grid-responsive gap-8 mb-12">
+                <!-- View Transitions Demo -->
+                <div class="card-default p-6 vt-root" id="vtDemoContainer" style="min-height: 400px;">
+                    <h3 class="text-xl mb-4">View Transition Recipe</h3>
+                    <p class="text-muted mb-6">Declarative state morphing using vt-* intents.</p>
+                    
+                    <div id="vtDisplayArea">
+                        <!-- Default View (List) -->
+                        <div class="vt-fade">
+                            <div class="intent-stack gap-3 mb-6">
+                                <div class="surface-elevated p-4 rounded-lg vt-list">
+                                    <span class="font-bold">Project Antigravity</span>
+                                </div>
+                                <div class="surface-elevated p-4 rounded-lg vt-list">
+                                    <span class="font-bold">ZINTENT Core</span>
+                                </div>
+                                <div class="surface-elevated p-4 rounded-lg vt-list">
+                                    <span class="font-bold">Phase 5 Interaction</span>
+                                </div>
+                            </div>
+                            <button type="button" class="btn btn-primary btn-block" onclick="toggleVT('grid')">Morph to Grid</button>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Scroll-Driven Animations Demo -->
+                <div class="card-default p-6 overflow-hidden">
+                    <h3 class="text-xl mb-4">Scroll-Driven Animations</h3>
+                    <p class="text-muted mb-6">Scroll progress and view reveal via pure CSS intents.</p>
+                    
+                    <div class="surface-elevated p-0 rounded-lg overflow-hidden flex flex-col" style="height: 300px;">
+                        <div class="scroll-progress" style="height: 4px; background: var(--zi-accent-primary); transform-origin: left; z-index: 10;"></div>
+                        <div class="flex-1 overflow-y-auto p-8" id="scrollIndicatorArea">
+                            <div style="height: 50px;"></div>
+                            <div class="card scroll-reveal p-6 mb-12 text-center" style="background: var(--zi-accent-primary); border-radius: var(--zi-radius-md); color: white;">
+                                <h4 class="font-bold">Reveal on Scroll</h4>
+                                <p class="text-xs">entry 20% cover 40%</p>
+                            </div>
+                            <div style="height: 100px;"></div>
+                            <div class="card scroll-zoom p-8 mb-12 text-center" style="background: var(--zi-accent-secondary); border-radius: var(--zi-radius-md); color: white;">
+                                <h4 class="font-bold">Zoom on Entry</h4>
+                            </div>
+                            <div style="height: 100px;"></div>
+                            <div class="card scroll-parallax p-6 mb-12 text-center" style="border: 2px dashed var(--zi-neutral-600);">
+                                <h4 class="font-bold">Parallax Intent</h4>
+                            </div>
+                            <div style="height: 400px;"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Templates for VT morphing -->
+    <template id="tplVTGrid">
+        <div class="vt-fade">
+            <div class="intent-auto-grid-sm vt-list mb-6">
+                <div class="surface-elevated p-6 intent-center vt-card">Grid 1</div>
+                <div class="surface-elevated p-6 intent-center vt-card">Grid 2</div>
+                <div class="surface-elevated p-6 intent-center vt-card">Grid 3</div>
+                <div class="surface-elevated p-6 intent-center vt-card">Grid 4</div>
+            </div>
+            <button type="button" class="btn btn-primary btn-block" onclick="toggleVT('list')">Morph to List</button>
+        </div>
+    </template>
+
+    <template id="tplVTList">
+        <div class="vt-fade">
+            <div class="intent-stack gap-3 mb-6">
+                <div class="surface-elevated p-4 rounded-lg vt-list">
+                    <span class="font-bold">Project Antigravity</span>
+                </div>
+                <div class="surface-elevated p-4 rounded-lg vt-list">
+                    <span class="font-bold">ZINTENT Core</span>
+                </div>
+                <div class="surface-elevated p-4 rounded-lg vt-list">
+                    <span class="font-bold">Phase 5 Interaction</span>
+                </div>
+            </div>
+            <button type="button" class="btn btn-primary btn-block" onclick="toggleVT('grid')">Morph to Grid</button>
+        </div>
+    </template>
+
+    <!-- Keyboard Navigation Section -->
+    <section id="keyboard" class="intent-center px-6 py-12">
+        <div class="container-xl">
+            <h2 class="text-center text-fluid-3xl mb-4">
+                Keyboard <span class="text-accent">Navigation</span>
+            </h2>
+            <p class="container-sm text-center text-muted mb-12">
+                Focus management, skip links, and keyboard shortcuts
+            </p>
+
+            <!-- Skip Link Demo -->
+            <div class="card-default p-6 mb-8">
+                <h3 class="text-xl mb-4">Skip Links</h3>
+                <p class="text-muted mb-4">Press Tab to see the skip link appear. Use <span class="kbd">Tab</span> to navigate.</p>
+                <a href="#main-content" class="skip-link">Skip to main content</a>
+                <div class="surface-elevated p-4 rounded-lg mt-4" id="main-content">
+                    <p class="text-sm">This is the main content area that the skip link targets.</p>
+                </div>
+            </div>
+
+            <!-- Focus Rings Demo -->
+            <div class="card-default p-6 mb-8">
+                <h3 class="text-xl mb-4">Focus Ring Styles</h3>
+                <div class="grid-responsive gap-4">
+                    <button type="button" class="btn-ghost p-4" style="box-shadow: 0 0 0 3px var(--zi-accent-glow);">
+                        Default Focus Ring
+                    </button>
+                    <button type="button" class="btn-ghost p-4" style="box-shadow: inset 0 0 0 2px var(--zi-accent-primary);">
+                        Inset Focus Ring
+                    </button>
+                    <button type="button" class="btn-ghost p-4" style="border-bottom: 2px solid var(--zi-accent-primary);">
+                        Underline Focus
+                    </button>
+                </div>
+            </div>
+
+            <!-- Keyboard Shortcuts Demo -->
+            <div class="card-default p-6 mb-8">
+                <h3 class="text-xl mb-4">Keyboard Shortcuts</h3>
+                <div class="keyboard-shortcut-list">
+                    <div class="keyboard-shortcut-item">
+                        <div class="keyboard-shortcut-keys"><span class="kbd">Ctrl</span> + <span class="kbd">K</span></div>
+                        <div class="keyboard-shortcut-desc">Open command palette</div>
+                    </div>
+                    <div class="keyboard-shortcut-item">
+                        <div class="keyboard-shortcut-keys"><span class="kbd">Ctrl</span> + <span class="kbd">/</span></div>
+                        <div class="keyboard-shortcut-desc">Show keyboard shortcuts</div>
+                    </div>
+                    <div class="keyboard-shortcut-item">
+                        <div class="keyboard-shortcut-keys"><span class="kbd">Esc</span></div>
+                        <div class="keyboard-shortcut-desc">Close modal or dropdown</div>
+                    </div>
+                    <div class="keyboard-shortcut-item">
+                        <div class="keyboard-shortcut-keys"><span class="kbd">Tab</span></div>
+                        <div class="keyboard-shortcut-desc">Navigate to next focusable element</div>
+                    </div>
+                    <div class="keyboard-shortcut-item">
+                        <div class="keyboard-shortcut-keys"><span class="kbd">Shift</span> + <span class="kbd">Tab</span></div>
+                        <div class="keyboard-shortcut-desc">Navigate to previous focusable element</div>
+                    </div>
+                    <div class="keyboard-shortcut-item">
+                        <div class="keyboard-shortcut-keys"><span class="kbd">Enter</span></div>
+                        <div class="keyboard-shortcut-desc">Activate focused button or link</div>
+                    </div>
+                    <div class="keyboard-shortcut-item">
+                        <div class="keyboard-shortcut-keys"><span class="kbd">Space</span></div>
+                        <div class="keyboard-shortcut-desc">Toggle checkbox or activate button</div>
+                    </div>
+                    <div class="keyboard-shortcut-item">
+                        <div class="keyboard-shortcut-keys"><span class="kbd">↑</span> <span class="kbd">↓</span> <span class="kbd">←</span> <span class="kbd">→</span></div>
+                        <div class="keyboard-shortcut-desc">Navigate within component (roving tabindex)</div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Roving Tabindex Demo -->
+            <div class="card-default p-6 mb-8">
+                <h3 class="text-xl mb-4">Roving Tabindex</h3>
+                <p class="text-muted mb-4">Use arrow keys to navigate between buttons. Only one has tabindex="0" at a time.</p>
+                <div class="intent-cluster gap-2" id="rovingContainer">
+                    <button type="button" class="btn-ghost roving-tabindex roving-tabindex-active" data-index="0">Item 1</button>
+                    <button type="button" class="btn-ghost roving-tabindex" data-index="1" tabindex="-1">Item 2</button>
+                    <button type="button" class="btn-ghost roving-tabindex" data-index="2" tabindex="-1">Item 3</button>
+                    <button type="button" class="btn-ghost roving-tabindex" data-index="3" tabindex="-1">Item 4</button>
+                    <button type="button" class="btn-ghost roving-tabindex" data-index="4" tabindex="-1">Item 5</button>
+                </div>
+            </div>
+
+            <!-- Arrow Navigation Demo -->
+            <div class="card-default p-6 mb-8">
+                <h3 class="text-xl mb-4">Arrow Key Navigation Grid</h3>
+                <p class="text-muted mb-4">Click any cell, then use arrow keys to navigate the grid.</p>
+                <div class="grid-responsive gap-2" id="arrowGrid" style="grid-template-columns: repeat(3, 1fr); max-width: 300px;">
+                    <button type="button" class="btn-ghost p-4 arrow-nav" data-row="0" data-col="0">1</button>
+                    <button type="button" class="btn-ghost p-4 arrow-nav" data-row="0" data-col="1">2</button>
+                    <button type="button" class="btn-ghost p-4 arrow-nav" data-row="0" data-col="2">3</button>
+                    <button type="button" class="btn-ghost p-4 arrow-nav" data-row="1" data-col="0">4</button>
+                    <button type="button" class="btn-ghost p-4 arrow-nav" data-row="1" data-col="1">5</button>
+                    <button type="button" class="btn-ghost p-4 arrow-nav" data-row="1" data-col="2">6</button>
+                    <button type="button" class="btn-ghost p-4 arrow-nav" data-row="2" data-col="0">7</button>
+                    <button type="button" class="btn-ghost p-4 arrow-nav" data-row="2" data-col="1">8</button>
+                    <button type="button" class="btn-ghost p-4 arrow-nav" data-row="2" data-col="2">9</button>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Toast Container Fixed -->
+    <div class="toast-container" id="toastContainerFixed">
+        <!-- Hidden template toast for CSS extraction -->
+        <div class="toast" style="display: none;"></div>
+        <div class="toast toast-show" style="display: none;"></div>
+    </div>
+
+    <!-- Footer -->
+    <footer class="intent-center text-center px-6 py-12" style="border-top: 1px solid var(--zi-bg-surface);">
+        <div class="container-sm">
+            <div class="animate-fade-in font-bold text-2xl text-accent mb-4">ZINTENT</div>
+            <p class="text-muted mb-4 text-sm">
+                Phase 5 Steps 1-2: Micro-interactions & Keyboard Navigation • Zero Runtime
+            </p>
+            <div class="intent-cluster justify-center gap-4 mb-4">
+                <a href="#" class="text-sm text-muted no-underline">Documentation</a>
+                <a href="#" class="text-sm text-muted no-underline">GitHub</a>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Theme Switcher -->
+    <div class="intent-center" style="position: fixed; bottom: var(--zi-space-6); left: 0; right: 0; z-index: 1000;">
+        <div class="intent-cluster gap-2 surface-elevated" id="fixedThemeButtons" style="padding: var(--zi-space-2) var(--zi-space-4); border-radius: var(--zi-radius-full); box-shadow: var(--zi-shadow-lg);">
+            <button type="button" class="btn-ghost btn-sm" data-theme="midnight" style="border-radius: var(--zi-radius-full);">Midnight</button>
+            <button type="button" class="btn-ghost btn-sm" data-theme="light" style="border-radius: var(--zi-radius-full);">Light</button>
+            <button type="button" class="btn-ghost btn-sm" data-theme="forest" style="border-radius: var(--zi-radius-full);">Forest</button>
+        </div>
+    </div>
+
+    <script>
+        // Theme Functions
+        function setTheme(theme) {
+            document.documentElement.setAttribute('data-theme', theme);
+            localStorage.setItem('zi-theme', theme);
+        }
+
+        // Toast Functions
+        function showToast(type, title, message) {
+            const container =
+                document.getElementById('toastContainer') ||
+                document.getElementById('toastContainerFixed');
+            if (!container) {
+                console.error('Toast container not found (#toastContainerFixed or #toastContainer).');
+                return;
+            }
+            
+            const toast = document.createElement('div');
+            toast.className = 'toast';
+            toast.style.position = 'relative';
+            
+            const icons = {
+                success: `<svg class="toast-icon toast-icon-success" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/><polyline points="22 4 12 14.01 9 11.01"/></svg>`,
+                error: `<svg class="toast-icon toast-icon-error" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><line x1="15" y1="9" x2="9" y2="15"/><line x1="9" y1="9" x2="15" y2="15"/></svg>`,
+                warning: `<svg class="toast-icon toast-icon-warning" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M10.29 3.86L1.82 18a2 2 0 0 0 1.71 3h16.94a2 2 0 0 0 1.71-3L13.71 3.86a2 2 0 0 0-3.42 0z"/><line x1="12" y1="9" x2="12" y2="13"/><line x1="12" y1="17" x2="12.01" y2="17"/></svg>`,
+                info: `<svg class="toast-icon toast-icon-info" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><line x1="12" y1="16" x2="12" y2="12"/><line x1="12" y1="8" x2="12.01" y2="8"/></svg>`
+            };
+            
+            const safeType = Object.prototype.hasOwnProperty.call(icons, type) ? type : 'info';
+            toast.innerHTML = `
+                ${icons[safeType]}
+                <div class="toast-content">
+                    <div class="toast-title">${title}</div>
+                    <div class="toast-message">${message}</div>
+                </div>
+                <span class="toast-close" aria-label="Dismiss">&times;</span>
+                <div class="toast-progress">
+                    <div class="toast-progress-bar" style="transition: width 5s linear;"></div>
+                </div>
+            `;
+            
+            // Close button click
+            const closeBtn = toast.querySelector('.toast-close');
+            if (closeBtn) {
+                closeBtn.addEventListener('click', function(e) {
+                    e.stopPropagation();
+                    dismissToast(toast);
+                });
+            }
+            
+            // Click toast to dismiss
+            toast.addEventListener('click', function() {
+                dismissToast(this);
+            });
+            
+            container.appendChild(toast);
+
+            // Trigger show transition on next frame
+            requestAnimationFrame(() => {
+                toast.classList.add('toast-show');
+            });
+            
+            // Animate progress bar
+            setTimeout(() => {
+                const progressBar = toast.querySelector('.toast-progress-bar');
+                if (progressBar) progressBar.style.width = '0%';
+            }, 50);
+            
+            // Auto remove after 5 seconds
+            setTimeout(() => {
+                dismissToast(toast);
+            }, 5000);
+        }
+
+        // Dismiss toast with animation
+        function dismissToast(toast) {
+            if (!toast || toast.classList.contains('toast-dismissed')) return;
+            toast.classList.add('toast-dismissed');
+            toast.style.opacity = '0';
+            toast.style.transform = 'translateX(-100%)';
+            setTimeout(() => toast.remove(), 300);
+        }
+
+        // Skeleton Toggle
+        let skeletonVisible = true;
+        function toggleSkeleton() {
+            const container = document.getElementById('skeletonCards');
+            const list = document.getElementById('skeletonList');
+            if (!container) return;
+            skeletonVisible = !skeletonVisible;
+
+            const renderTemplateInto = (target, templateId) => {
+                if (!target) return;
+                const tpl = document.getElementById(templateId);
+                if (!tpl || !tpl.content) return;
+                target.replaceChildren(tpl.content.cloneNode(true));
+            };
+            
+            if (skeletonVisible) {
+                renderTemplateInto(container, 'tplSkeletonCardsLoading');
+                renderTemplateInto(list, 'tplSkeletonListLoading');
+                return;
+                container.innerHTML = `
+                    <div class="surface-elevated p-4 rounded-lg">
+                        <div class="intent-cluster gap-3 mb-3">
+                            <div class="skeleton skeleton-avatar"></div>
+                            <div class="flex-1">
+                                <div class="skeleton skeleton-text skeleton-text-lg"></div>
+                                <div class="skeleton skeleton-text skeleton-text-sm"></div>
+                            </div>
+                        </div>
+                        <div class="skeleton skeleton-text"></div>
+                        <div class="skeleton skeleton-text"></div>
+                        <div class="skeleton skeleton-text" style="width: 60%;"></div>
+                    </div>
+                    <div class="surface-elevated p-4 rounded-lg">
+                        <div class="skeleton skeleton-image mb-3"></div>
+                        <div class="skeleton skeleton-text skeleton-text-lg"></div>
+                        <div class="skeleton skeleton-text"></div>
+                    </div>
+                `;
+                if (list) {
+                    list.innerHTML = `
+                        <div class="intent-cluster gap-3">
+                            <div class="skeleton skeleton-avatar"></div>
+                            <div class="flex-1">
+                                <div class="skeleton skeleton-text"></div>
+                                <div class="skeleton skeleton-text skeleton-text-sm"></div>
+                            </div>
+                        </div>
+                        <div class="intent-cluster gap-3">
+                            <div class="skeleton skeleton-avatar"></div>
+                            <div class="flex-1">
+                                <div class="skeleton skeleton-text"></div>
+                                <div class="skeleton skeleton-text skeleton-text-sm"></div>
+                            </div>
+                        </div>
+                        <div class="intent-cluster gap-3">
+                            <div class="skeleton skeleton-avatar"></div>
+                            <div class="flex-1">
+                                <div class="skeleton skeleton-text"></div>
+                                <div class="skeleton skeleton-text skeleton-text-sm"></div>
+                            </div>
+                        </div>
+                    `;
+                }
+            } else {
+                renderTemplateInto(container, 'tplSkeletonCardsContent');
+                renderTemplateInto(list, 'tplSkeletonListContent');
+                return;
+                container.innerHTML = `
+                    <div class="surface-elevated p-4 rounded-lg">
+                        <div class="intent-cluster gap-3 mb-3">
+                            <div class="w-10 h-10 rounded-full bg-accent flex items-center justify-center text-white font-bold">JD</div>
+                            <div class="flex-1">
+                                <div class="font-semibold">John Doe</div>
+                                <div class="text-sm text-muted">Software Engineer</div>
+                            </div>
+                        </div>
+                        <p class="text-sm">Experienced developer with 5+ years in web technologies.</p>
+                    </div>
+                    <div class="surface-elevated p-4 rounded-lg">
+                        <div class="aspect-video bg-elevated rounded mb-3 flex items-center justify-center text-muted">
+                            <svg width="48" height="48" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><rect x="3" y="3" width="18" height="18" rx="2"/><circle cx="8.5" cy="8.5" r="1.5"/><path d="M21 15l-5-5L5 21"/></svg>
+                        </div>
+                        <div class="font-semibold">Project Screenshot</div>
+                        <div class="text-sm text-muted">Updated 2 hours ago</div>
+                    </div>
+                `;
+                if (list) {
+                    list.innerHTML = `
+                        <div class="intent-cluster gap-3">
+                            <div class="w-10 h-10 rounded-full bg-accent flex items-center justify-center text-white font-bold">AJ</div>
+                            <div class="flex-1">
+                                <div class="font-semibold">Alice Johnson</div>
+                                <div class="text-sm text-muted">Online now</div>
+                            </div>
+                        </div>
+                        <div class="intent-cluster gap-3">
+                            <div class="w-10 h-10 rounded-full bg-accent flex items-center justify-center text-white font-bold">BM</div>
+                            <div class="flex-1">
+                                <div class="font-semibold">Ben Miller</div>
+                                <div class="text-sm text-muted">Last seen 10m ago</div>
+                            </div>
+                        </div>
+                        <div class="intent-cluster gap-3">
+                            <div class="w-10 h-10 rounded-full bg-accent flex items-center justify-center text-white font-bold">CS</div>
+                            <div class="flex-1">
+                                <div class="font-semibold">Cara Singh</div>
+                                <div class="text-sm text-muted">Typing…</div>
+                            </div>
+                        </div>
+                    `;
+                }
+            }
+        }
+
+        // Progress Bar Functions
+        function setProgress(percent) {
+            const fill = document.getElementById('progressBarFill');
+            if (!fill) return;
+            fill.style.width = percent + '%';
+        }
+
+        function animateProgress() {
+            let progress = 0;
+            const interval = setInterval(() => {
+                progress += 2;
+                setProgress(progress);
+                if (progress >= 100) clearInterval(interval);
+            }, 50);
+        }
+
+        function setCircleProgress(percent) {
+            const circle = document.getElementById('progressCircleFill');
+            if (!circle) return;
+            const circumference = 2 * Math.PI * 36;
+            const offset = circumference - (percent / 100) * circumference;
+            circle.style.strokeDashoffset = offset;
+        }
+
+        // Loading Overlay Functions
+        function showOverlay() {
+            const overlay = document.getElementById('loadingOverlay');
+            if (!overlay) return;
+            overlay.style.display = 'flex';
+        }
+
+        function hideOverlay() {
+            const overlay = document.getElementById('loadingOverlay');
+            if (!overlay) return;
+            overlay.style.display = 'none';
+        }
+
+        // View Transitions Logic (Phase 5)
+        async function toggleVT(viewType) {
+            const displayArea = document.getElementById('vtDisplayArea');
+            if (!displayArea) return;
+            
+            const templateId = viewType === 'grid' ? 'tplVTGrid' : 'tplVTList';
+            const template = document.getElementById(templateId);
+            if (!template) return;
+            
+            // Check for View Transitions API support
+            if (!document.startViewTransition) {
+                displayArea.innerHTML = '';
+                displayArea.appendChild(template.content.cloneNode(true));
+                return;
+            }
+            
+            // Trigger transition
+            document.startViewTransition(() => {
+                displayArea.innerHTML = '';
+                displayArea.appendChild(template.content.cloneNode(true));
+            });
+        }
+
+        // Keyboard Navigation - Roving Tabindex
+        const rovingContainer = document.getElementById('rovingContainer');
+        if (rovingContainer) {
+            const rovingButtons = rovingContainer.querySelectorAll('.roving-tabindex');
+            let currentIndex = 0;
+
+            function setRovingActive(nextIndex) {
+                currentIndex = Math.max(0, Math.min(nextIndex, rovingButtons.length - 1));
+                rovingButtons.forEach((btn, idx) => {
+                    const isActive = idx === currentIndex;
+                    btn.tabIndex = isActive ? 0 : -1;
+                    btn.classList.toggle('roving-tabindex-active', isActive);
+                });
+            }
+
+            rovingButtons.forEach((btn, idx) => {
+                btn.addEventListener('focus', () => setRovingActive(idx));
+            });
+
+            rovingContainer.addEventListener('keydown', (e) => {
+                if (e.key === 'ArrowRight') {
+                    e.preventDefault();
+                    const next = (currentIndex + 1) % rovingButtons.length;
+                    setRovingActive(next);
+                    rovingButtons[currentIndex].focus();
+                } else if (e.key === 'ArrowLeft') {
+                    e.preventDefault();
+                    const next = (currentIndex - 1 + rovingButtons.length) % rovingButtons.length;
+                    setRovingActive(next);
+                    rovingButtons[currentIndex].focus();
+                }
+            });
+        }
+
+        // Keyboard Navigation - Arrow Grid
+        const arrowGrid = document.getElementById('arrowGrid');
+        if (arrowGrid) {
+            const gridButtons = arrowGrid.querySelectorAll('.arrow-nav');
+            const cols = 3;
+            const rows = 3;
+
+            arrowGrid.addEventListener('keydown', (e) => {
+                const focused = document.activeElement;
+                if (!focused.classList.contains('arrow-nav')) return;
+
+                const row = parseInt(focused.dataset.row);
+                const col = parseInt(focused.dataset.col);
+                let newRow = row;
+                let newCol = col;
+
+                switch(e.key) {
+                    case 'ArrowUp':
+                        e.preventDefault();
+                        newRow = Math.max(0, row - 1);
+                        break;
+                    case 'ArrowDown':
+                        e.preventDefault();
+                        newRow = Math.min(rows - 1, row + 1);
+                        break;
+                    case 'ArrowLeft':
+                        e.preventDefault();
+                        newCol = Math.max(0, col - 1);
+                        break;
+                    case 'ArrowRight':
+                        e.preventDefault();
+                        newCol = Math.min(cols - 1, col + 1);
+                        break;
+                }
+
+                if (newRow !== row || newCol !== col) {
+                    const nextButton = arrowGrid.querySelector(`[data-row="${newRow}"][data-col="${newCol}"]`);
+                    if (nextButton) nextButton.focus();
+                }
+            });
+        }
+
+        // Toast button event listeners
+        const toastButtons = document.getElementById('toastButtons');
+        if (toastButtons) {
+            const buttons = toastButtons.querySelectorAll('button');
+            buttons.forEach(btn => {
+                btn.addEventListener('click', function() {
+                    const type = this.dataset.type;
+                    const title = this.dataset.title;
+                    const message = this.dataset.message;
+                    showToast(type, title, message);
+                });
+            });
+        } else {
+            console.error('toastButtons container not found!');
+        }
+
+        // Theme button event listeners (nav)
+        const navThemeButtons = document.getElementById('navThemeButtons');
+        if (navThemeButtons) {
+            navThemeButtons.querySelectorAll('button').forEach(btn => {
+                btn.addEventListener('click', function() {
+                    setTheme(this.dataset.theme);
+                });
+            });
+        }
+
+        // Theme button event listeners (fixed)
+        const fixedThemeButtons = document.getElementById('fixedThemeButtons');
+        if (fixedThemeButtons) {
+            fixedThemeButtons.querySelectorAll('button').forEach(btn => {
+                btn.addEventListener('click', function() {
+                    setTheme(this.dataset.theme);
+                });
+            });
+        }
+
+        // Skeleton toggle button
+        const toggleSkeletonBtn = document.getElementById('toggleSkeletonBtn');
+        if (toggleSkeletonBtn) {
+            toggleSkeletonBtn.addEventListener('click', toggleSkeleton);
+        }
+
+        // Progress bar buttons
+        const progressButtons = document.getElementById('progressButtons');
+        if (progressButtons) {
+            progressButtons.querySelectorAll('button[data-progress]').forEach(btn => {
+                btn.addEventListener('click', function() {
+                    setProgress(parseInt(this.dataset.progress));
+                });
+            });
+            const animateProgressBtn = document.getElementById('animateProgressBtn');
+            if (animateProgressBtn) {
+                animateProgressBtn.addEventListener('click', animateProgress);
+            }
+        }
+
+        // Circle progress buttons
+        const circleProgressButtons = document.getElementById('circleProgressButtons');
+        if (circleProgressButtons) {
+            circleProgressButtons.querySelectorAll('button').forEach(btn => {
+                btn.addEventListener('click', function() {
+                    setCircleProgress(parseInt(this.dataset.circle));
+                });
+            });
+        }
+
+        // Overlay buttons
+        const showOverlayBtn = document.getElementById('showOverlayBtn');
+        const hideOverlayBtn = document.getElementById('hideOverlayBtn');
+        if (showOverlayBtn) showOverlayBtn.addEventListener('click', showOverlay);
+        if (hideOverlayBtn) hideOverlayBtn.addEventListener('click', hideOverlay);
+
+        // Initialize
+        const savedTheme = localStorage.getItem('zi-theme') || 'midnight';
+        setTheme(savedTheme);
+    </script>
+</body>
+</html>

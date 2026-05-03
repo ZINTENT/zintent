@@ -1,0 +1,15 @@
+# Default code owner for all files
+* @antigravity
+
+# Core compiler ownership
+/compiler/ @antigravity
+
+# Core framework styles and registry
+/core/ @antigravity
+
+# Build outputs and test baselines
+/tests/ @antigravity
+/dist/ @antigravity
+
+# CI and repository governance
+/.github/ @antigravity

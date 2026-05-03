@@ -1,0 +1,186 @@
+/* ZINTENT Container-First Responsive System */
+/* Components respond to parent container, not viewport */
+
+/* Base Container Definitions */
+.container-responsive {
+    container-type: inline-size;
+    container-name: responsive;
+}
+
+.container-layout {
+    container-type: size;
+    container-name: layout;
+}
+
+/* Intent-Based Container Queries */
+/* Usage: <div class="container-responsive card-container">
+            <div class="intent-card @sm:compact @md:default @lg:featured">
+        */
+
+@container responsive (min-width: 0px) {
+    /* Base state - smallest container */
+    .\@xs\:hidden { display: none; }
+    .\@xs\:stack { flex-direction: column; gap: var(--zi-space-2); }
+    .\@xs\:compact { padding: var(--zi-space-2); font-size: 0.875rem; }
+    .\@xs\:single { grid-template-columns: 1fr; }
+}
+
+@container responsive (min-width: 240px) {
+    /* Extra small container */
+    .\@xs\:hidden { display: none; }
+    .\@xs\:show { display: block; }
+    .\@xs\:stack { flex-direction: column; }
+    .\@xs\:row { flex-direction: row; flex-wrap: wrap; }
+    .\@xs\:compact { padding: var(--zi-space-2); }
+    .\@xs\:default { padding: var(--zi-space-4); }
+    .\@xs\:single { grid-template-columns: 1fr; }
+    .\@xs\:double { grid-template-columns: repeat(2, 1fr); }
+}
+
+@container responsive (min-width: 320px) {
+    /* Small container */
+    .\@sm\:hidden { display: none; }
+    .\@sm\:show { display: block; }
+    .\@sm\:stack { flex-direction: column; }
+    .\@sm\:row { flex-direction: row; }
+    .\@sm\:compact { padding: var(--zi-space-2); font-size: 0.875rem; }
+    .\@sm\:default { padding: var(--zi-space-4); }
+    .\@sm\:comfortable { padding: var(--zi-space-6); }
+    .\@sm\:single { grid-template-columns: 1fr; }
+    .\@sm\:double { grid-template-columns: repeat(2, 1fr); }
+    .\@sm\:triple { grid-template-columns: repeat(3, 1fr); }
+}
+
+@container responsive (min-width: 480px) {
+    /* Medium container - tablet */
+    .\@md\:hidden { display: none; }
+    .\@md\:show { display: block; }
+    .\@md\:stack { flex-direction: column; }
+    .\@md\:row { flex-direction: row; flex-wrap: nowrap; }
+    .\@md\:compact { padding: var(--zi-space-3); }
+    .\@md\:default { padding: var(--zi-space-4); }
+    .\@md\:comfortable { padding: var(--zi-space-6); }
+    .\@md\:spacious { padding: var(--zi-space-8); }
+    .\@md\:single { grid-template-columns: 1fr; }
+    .\@md\:double { grid-template-columns: repeat(2, 1fr); }
+    .\@md\:triple { grid-template-columns: repeat(3, 1fr); }
+    .\@md\:quad { grid-template-columns: repeat(4, 1fr); }
+}
+
+@container responsive (min-width: 640px) {
+    /* Large container */
+    .\@lg\:hidden { display: none; }
+    .\@lg\:show { display: block; }
+    .\@lg\:stack { flex-direction: column; }
+    .\@lg\:row { flex-direction: row; }
+    .\@lg\:compact { padding: var(--zi-space-4); }
+    .\@lg\:default { padding: var(--zi-space-6); }
+    .\@lg\:comfortable { padding: var(--zi-space-8); }
+    .\@lg\:spacious { padding: var(--zi-space-12); }
+    .\@lg\:featured { padding: var(--zi-space-8); font-size: 1.125rem; }
+    .\@lg\:single { grid-template-columns: 1fr; }
+    .\@lg\:double { grid-template-columns: repeat(2, 1fr); }
+    .\@lg\:triple { grid-template-columns: repeat(3, 1fr); }
+    .\@lg\:quad { grid-template-columns: repeat(4, 1fr); }
+    .\@lg\:auto { grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); }
+}
+
+@container responsive (min-width: 800px) {
+    /* Extra large container */
+    .\@xl\:hidden { display: none; }
+    .\@xl\:show { display: block; }
+    .\@xl\:default { padding: var(--zi-space-6); }
+    .\@xl\:comfortable { padding: var(--zi-space-8); }
+    .\@xl\:spacious { padding: var(--zi-space-12); }
+    .\@xl\:featured { padding: var(--zi-space-12); font-size: 1.25rem; }
+    .\@xl\:double { grid-template-columns: repeat(2, 1fr); }
+    .\@xl\:triple { grid-template-columns: repeat(3, 1fr); }
+    .\@xl\:quad { grid-template-columns: repeat(4, 1fr); }
+    .\@xl\:auto { grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); }
+}
+
+/* Layout Container Queries (for height-based layouts) */
+@container layout (min-height: 300px) {
+    .\@tall\:scroll { overflow-y: auto; }
+    .\@tall\:expand { height: 100%; }
+}
+
+@container layout (min-height: 500px) {
+    .\@tall\:scroll { overflow-y: auto; max-height: 100%; }
+    .\@tall\:expand { height: 100%; display: flex; flex-direction: column; }
+    .\@tall\:spacious { gap: var(--zi-space-6); }
+}
+
+/* Semantic Component Container Patterns */
+@container responsive (min-width: 320px) {
+    .intent-card.\@sm\:compact {
+        padding: var(--zi-space-2);
+        font-size: 0.875rem;
+    }
+    
+    .intent-card.\@sm\:default {
+        padding: var(--zi-space-4);
+    }
+    
+    .intent-card.\@sm\:featured {
+        padding: var(--zi-space-6);
+        border-left: 3px solid var(--zi-accent-primary);
+    }
+}
+
+@container responsive (min-width: 480px) {
+    .intent-card.\@md\:compact {
+        padding: var(--zi-space-3);
+    }
+    
+    .intent-card.\@md\:default {
+        padding: var(--zi-space-4);
+    }
+    
+    .intent-card.\@md\:featured {
+        padding: var(--zi-space-6);
+        border-left: 4px solid var(--zi-accent-primary);
+        box-shadow: var(--zi-shadow-lg);
+    }
+}
+
+@container responsive (min-width: 640px) {
+    .intent-card.\@lg\:featured {
+        padding: var(--zi-space-8);
+        font-size: 1.125rem;
+        border-left: 4px solid var(--zi-accent-primary);
+        box-shadow: var(--zi-shadow-lg);
+    }
+}
+
+/* Container Query Size Indicators (for debugging) */
+.container-debug::before {
+    content: attr(data-container-size);
+    position: absolute;
+    top: 0;
+    right: 0;
+    background: var(--zi-accent-primary);
+    color: var(--zi-bg-base);
+    padding: 2px 6px;
+    font-size: 10px;
+    border-radius: 0 0 0 var(--zi-radius-sm);
+    opacity: 0.8;
+}
+
+/* Quick Container Intents */
+.container-auto {
+    container-type: inline-size;
+}
+
+.container-fixed {
+    container-type: size;
+}
+
+/* Intent-Based Responsive Behavior */
+.intent-responsive {
+    container-type: inline-size;
+}
+
+.intent-responsive .content-adaptive {
+    transition: all var(--zi-transition-standard);
+}

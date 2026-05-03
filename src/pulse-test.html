@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="midnight">
+<head>
+    <meta charset="UTF-8">
+    <title>ZINTENT Labs | Sync-Pulse Debugger</title>
+    <style>
+        body { background: #0f172a; color: #fff; font-family: system-ui; padding: 4rem; }
+        .debug-hud { 
+            position: fixed; bottom: 2rem; right: 2rem; width: 400px; 
+            background: rgba(15, 23, 42, 0.95); border: 1px solid #38bdf8; 
+            border-radius: 1rem; padding: 1.5rem; box-shadow: 0 20px 50px rgba(0,0,0,0.5);
+            backdrop-filter: blur(20px); z-index: 1000;
+        }
+        .finding { color: #f87171; font-size: 13px; margin-top: 0.5rem; font-weight: 700; }
+        .success { color: #4ade80; font-weight: 900; }
+        .zi-btn { padding: 8px 16px; border-radius: 4px; background: #38bdf8; border: none; font-weight: 700; color: #fff; cursor: pointer; }
+        .zi-btn-sm { font-size: 12px; padding: 4px 8px; }
+    </style>
+</head>
+<body class="zi-reset">
+
+    <h1 style="font-size:3rem; font-weight:900;">ZINTENT <span style="color:#38bdf8;">Labs</span></h1>
+    <p style="opacity:0.6; margin-bottom:4rem;">Testing the Phase 9 UX Auditor Core.</p>
+
+    <!-- TEST CASE 1: SMALL BUTTON (UX VIOLATION) -->
+    <div style="padding:2rem; background:rgba(255,255,255,0.05); border-radius:1rem;">
+        <div style="font-size:10px; opacity:0.3; font-weight:900; letter-spacing:2px; margin-bottom:1rem;">TEST CASE: SMALL BUTTON</div>
+        <button class="zi-btn zi-btn-sm" id="test-btn">Tiny Action</button>
+    </div>
+
+    <!-- DEBUG HUD -->
+    <div class="debug-hud" id="hud">
+        <div style="font-weight:900; border-bottom:1px solid rgba(255,255,255,0.1); padding-bottom:0.5rem; margin-bottom:1rem; display:flex; justify-content:space-between;">
+            <span>SYNC-PULSE LOG</span>
+            <span style="color:#38bdf8;">v1.0.4-Loki</span>
+        </div>
+        <div id="findings-log">
+            Scanning components...
+        </div>
+    </div>
+
+    <script>
+        function runBrowserAudit() {
+            const log = document.getElementById('findings-log');
+            const btn = document.getElementById('test-btn');
+            const findings = [];
+
+            // 1. Physical Touch-Target Check (DOM based)
+            const rect = btn.getBoundingClientRect();
+            if (rect.width < 44 || rect.height < 44) {
+                findings.push(`[UX WARNING] Touch target [${rect.width.toFixed(0)}x${rect.height.toFixed(0)}] is below WCAG 44px min.`);
+            }
+
+            // 2. Attribute Consistency Check
+            if (btn.classList.contains('zi-btn-sm')) {
+                findings.push(`[LINT] Size "sm" detected. Use with caution in primary flows.`);
+            }
+
+            // Render Log
+            log.innerHTML = '';
+            if (findings.length > 0) {
+                findings.forEach(f => {
+                    const div = document.createElement('div');
+                    div.className = 'finding';
+                    div.innerText = '⚠️ ' + f;
+                    log.appendChild(div);
+                });
+            } else {
+                log.innerHTML = '<div class="success">🚀 All ZINTENT checks passed. Visual integrity at 100%.</div>';
+            }
+        }
+
+        // Run after initial paint
+        setTimeout(runBrowserAudit, 500);
+    </script>
+</body>
+</html>

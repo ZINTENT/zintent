@@ -1,0 +1,29 @@
+{
+  "name": "@zintent/neon-pack",
+  "version": "1.0.0",
+  "description": "Official ZINTENT plugin for cyberpunk/neon aesthetics and glowing intents.",
+  "author": "ZINTENT Core Team",
+  "intents": {
+    "intent-glow": {
+      "css": "filter: drop-shadow(0 0 8px var(--zi-neon-color, var(--zi-accent-primary))); transition: filter 0.3s ease;",
+      "description": "Adds a customizable glowing drop shadow."
+    },
+    "text-neon": {
+      "css": "color: #fff; text-shadow: 0 0 5px #fff, 0 0 10px #fff, 0 0 20px var(--zi-neon-color, var(--zi-accent-primary)), 0 0 40px var(--zi-neon-color, var(--zi-accent-primary));",
+      "description": "Intense neon typography effect."
+    },
+    "btn-neon": {
+      "base": "btn",
+      "css": "background: transparent; border: 2px solid var(--zi-neon-color, var(--zi-accent-primary)); color: var(--zi-neon-color, var(--zi-accent-primary)); box-shadow: inset 0 0 10px var(--zi-neon-color, var(--zi-accent-primary)), 0 0 20px var(--zi-neon-color, var(--zi-accent-primary)); text-transform: uppercase; font-weight: bold;"
+    }
+  },
+  "variants": {
+    "hover-glow": {
+      "selector": "&:hover",
+      "css": "filter: drop-shadow(0 0 16px var(--zi-neon-color, var(--zi-accent-primary)));"
+    }
+  },
+  "macros": {
+    "z-neon-card": "<div class=\"card-outlined intent-glow\" style=\"border-color: var(--zi-neon-color, var(--zi-accent-primary));\">{{content}}</div>"
+  }
+}

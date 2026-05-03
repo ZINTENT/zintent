@@ -1,0 +1,711 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="midnight">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ZINTENT Phase 2 Demo | Component Library</title>
+    <link rel="stylesheet" href="../dist/phase2-styles.css?v=2.1">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+</head>
+<body class="stack-md m-0" style="min-height: 100vh; font-family: 'Inter', system-ui, sans-serif;">
+    
+    <!-- Navigation -->
+    <nav class="intent-center bg-base" style="border-bottom: 1px solid var(--zi-bg-surface); position: sticky; top: 0; z-index: 100;">
+        <div class="container-xl flex flex-wrap justify-between items-center gap-4 px-6 py-4">
+            <div class="flex items-center gap-2">
+                <div class="animate-fade-in font-bold text-2xl text-accent">ZINTENT</div>
+                <span class="badge-primary">v2.1.0</span>
+            </div>
+            <div class="flex flex-wrap items-center gap-4">
+                <a href="#buttons" class="text-sm text-muted no-underline">Buttons</a>
+                <a href="#forms" class="text-sm text-muted no-underline">Forms</a>
+                <a href="#cards" class="text-sm text-muted no-underline">Cards</a>
+                <a href="#alerts" class="text-sm text-muted no-underline">Alerts</a>
+                <a href="#badges" class="text-sm text-muted no-underline">Badges</a>
+                <div class="btn-primary btn-sm">Download</div>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <header class="intent-center text-center px-6 py-12">
+        <div class="container-md">
+            <span class="badge-success mb-4">Phase 2 Complete</span>
+            <h1 class="animate-slide-up text-fluid-3xl font-extrabold leading-tight mb-4">
+                Component <span class="text-accent">Library</span>
+            </h1>
+            <p class="animate-slide-up text-fluid-lg text-muted mb-8">
+                50+ production-ready components with full accessibility support
+            </p>
+            <div class="animate-slide-up flex flex-wrap justify-center gap-4">
+                <div class="btn-primary btn-lg">Get Started</div>
+                <div class="btn-secondary btn-lg">View on GitHub</div>
+            </div>
+        </div>
+    </header>
+
+    <!-- Button System -->
+    <section id="buttons" class="intent-center px-6 py-12 bg-surface">
+        <div class="container-xl">
+            <h2 class="text-center text-fluid-3xl mb-4">
+                Button <span class="text-accent">System</span>
+            </h2>
+            <p class="container-sm text-center text-muted mb-12">
+                9 variants, 4 sizes, disabled & loading states
+            </p>
+
+            <!-- Button Variants -->
+            <div class="card-default p-6 mb-8">
+                <h3 class="text-xl mb-6">Button Variants</h3>
+                <div class="intent-cluster gap-4 flex-wrap">
+                    <button class="btn-primary">Primary</button>
+                    <button class="btn-secondary">Secondary</button>
+                    <button class="btn-ghost">Ghost</button>
+                    <button class="btn-outline">Outline</button>
+                    <button class="btn-danger">Danger</button>
+                    <button class="btn-success">Success</button>
+                    <button class="btn-link">Link Button</button>
+                    <button class="btn-icon">★</button>
+                </div>
+            </div>
+
+            <!-- Button Sizes -->
+            <div class="card-default p-6 mb-8">
+                <h3 class="text-xl mb-6">Button Sizes</h3>
+                <div class="intent-cluster items-center gap-4 flex-wrap">
+                    <button class="btn-primary btn-xs">Extra Small</button>
+                    <button class="btn-primary btn-sm">Small</button>
+                    <button class="btn-primary btn-md">Medium</button>
+                    <button class="btn-primary btn-lg">Large Button</button>
+                </div>
+            </div>
+
+            <!-- Button States -->
+            <div class="card-default p-6">
+                <h3 class="text-xl mb-6">Button States</h3>
+                <div class="intent-cluster gap-4 flex-wrap">
+                    <button class="btn-primary" disabled>Disabled</button>
+                    <button class="btn-primary btn-loading">Loading...</button>
+                    <button class="btn-primary btn-block container-sm">Block Button</button>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Form Controls -->
+    <section id="forms" class="intent-center px-6 py-12">
+        <div class="container-xl">
+            <h2 class="text-center text-fluid-3xl mb-4">
+                Form <span class="text-accent">Controls</span>
+            </h2>
+            <p class="container-sm text-center text-muted mb-12">
+                Complete form system with validation states
+            </p>
+
+            <div class="grid-responsive gap-6">
+                <!-- Basic Form -->
+                <div class="card-default p-6">
+                    <h3 class="text-xl mb-6">Basic Inputs</h3>
+                    <form class="form-stack">
+                        <div class="form-group">
+                            <label class="form-label">Email Address</label>
+                            <input type="email" class="input" placeholder="you@example.com">
+                            <span class="form-hint">We'll never share your email</span>
+                        </div>
+                        <div class="form-group">
+                            <label class="form-label">Password</label>
+                            <input type="password" class="input" placeholder="••••••••">
+                        </div>
+                        <div class="form-group">
+                            <label class="form-label">Message</label>
+                            <textarea class="textarea" placeholder="Enter your message..."></textarea>
+                        </div>
+                        <button class="btn-primary">Submit</button>
+                    </form>
+                </div>
+
+                <!-- Validation States -->
+                <div class="card-default p-6">
+                    <h3 class="text-xl mb-6">Validation States</h3>
+                    <form class="form-stack">
+                        <div class="form-group">
+                            <label class="form-label">Valid Input</label>
+                            <input type="text" class="input input-valid" value="john@example.com">
+                            <span class="form-hint" style="color: var(--zi-success-500);">✓ Email is valid</span>
+                        </div>
+                        <div class="form-group">
+                            <label class="form-label">Invalid Input</label>
+                            <input type="text" class="input input-invalid" value="invalid-email">
+                            <span class="form-error">✗ Please enter a valid email</span>
+                        </div>
+                        <div class="form-group">
+                            <label class="form-label">Disabled Input</label>
+                            <input type="text" class="input" value="Disabled value" disabled>
+                        </div>
+                    </form>
+                </div>
+
+                <!-- Input Sizes & Groups -->
+                <div class="card-default p-6">
+                    <h3 class="text-xl mb-6">Input Sizes & Groups</h3>
+                    <form class="form-stack">
+                        <div class="form-group">
+                            <label class="form-label">Small Input</label>
+                            <input type="text" class="input input-sm" placeholder="Small size">
+                        </div>
+                        <div class="form-group">
+                            <label class="form-label">Large Input</label>
+                            <input type="text" class="input input-lg" placeholder="Large size">
+                        </div>
+                        <div class="form-group">
+                            <label class="form-label">Input Group</label>
+                            <div class="input-group">
+                                <span class="input-group-text">@</span>
+                                <input type="text" class="input" placeholder="username" style="border-radius: 0;">
+                                <button class="input-group-btn">Check</button>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+
+                <!-- Select & Checkbox -->
+                <div class="card-default p-6">
+                    <h3 class="text-xl mb-6">Select & Checkboxes</h3>
+                    <form class="form-stack">
+                        <div class="form-group">
+                            <label class="form-label">Country</label>
+                            <select class="select">
+                                <option>United States</option>
+                                <option>United Kingdom</option>
+                                <option>Canada</option>
+                                <option>Australia</option>
+                            </select>
+                        </div>
+                        <div class="form-row gap-4">
+                            <label class="flex items-center gap-2">
+                                <input type="checkbox" class="checkbox" checked>
+                                <span class="text-sm">Subscribe to newsletter</span>
+                            </label>
+                        </div>
+                        <div class="form-row gap-4">
+                            <label class="flex items-center gap-2">
+                                <input type="radio" class="radio" name="plan" checked>
+                                <span class="text-sm">Free Plan</span>
+                            </label>
+                            <label class="flex items-center gap-2">
+                                <input type="radio" class="radio" name="plan">
+                                <span class="text-sm">Pro Plan</span>
+                            </label>
+                        </div>
+                        <div class="flex items-center gap-3">
+                            <input type="checkbox" class="switch" id="switch1">
+                            <label for="switch1" class="text-sm">Enable notifications</label>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Cards -->
+    <section id="cards" class="intent-center px-6 py-12 bg-surface">
+        <div class="container-xl">
+            <h2 class="text-center text-fluid-3xl mb-4">
+                Card <span class="text-accent">Components</span>
+            </h2>
+            <p class="container-sm text-center text-muted mb-12">
+                5 card styles with header, body, and footer slots
+            </p>
+
+            <div class="intent-auto-grid mb-12">
+                <!-- Default Card -->
+                <div class="card-default">
+                    <h4 class="card-title">Default Card</h4>
+                    <p class="card-text">Standard card with shadow and border. Perfect for general content.</p>
+                </div>
+
+                <!-- Elevated Card -->
+                <div class="card-elevated">
+                    <h4 class="card-title">Elevated Card</h4>
+                    <p class="card-text">More prominent shadow that elevates on hover. Great for featured content.</p>
+                </div>
+
+                <!-- Interactive Card -->
+                <div class="card-interactive">
+                    <h4 class="card-title">Interactive Card</h4>
+                    <p class="card-text">Clickable card with hover effects. Use for clickable content blocks.</p>
+                </div>
+
+                <!-- Outlined Card -->
+                <div class="card-outlined">
+                    <h4 class="card-title">Outlined Card</h4>
+                    <p class="card-text">Transparent background with border. Good for subtle content separation.</p>
+                </div>
+
+                <!-- Flat Card -->
+                <div class="card-flat">
+                    <h4 class="card-title">Flat Card</h4>
+                    <p class="card-text">No shadow, just border. Use when you want minimal visual hierarchy.</p>
+                </div>
+            </div>
+
+            <!-- Card with Header & Footer -->
+            <div class="card container-md mx-auto">
+                <div class="card-header">
+                    <div class="flex justify-between items-center">
+                        <h4 class="card-title m-0">Card with Header & Footer</h4>
+                        <span class="badge-primary">Active</span>
+                    </div>
+                </div>
+                <div class="card-body">
+                    <p class="card-text">This card demonstrates the header and footer slots. You can combine any card style with these structural elements.</p>
+                </div>
+                <div class="card-footer">
+                    <button class="btn-ghost btn-sm">Cancel</button>
+                    <button class="btn-primary btn-sm">Save Changes</button>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Alerts -->
+    <section id="alerts" class="intent-center px-6 py-12">
+        <div class="container-md">
+            <h2 class="text-center text-fluid-3xl mb-4">
+                Alert <span class="text-accent">Components</span>
+            </h2>
+            <p class="text-center text-muted mb-12">
+                Feedback messages with semantic colors
+            </p>
+
+            <div class="stack-md">
+                <div class="alert-info">
+                    <span>ℹ️</span>
+                    <div>
+                        <strong>Information</strong>
+                        <p class="m-0 text-sm">This is an informational message.</p>
+                    </div>
+                </div>
+
+                <div class="alert-success">
+                    <span>✓</span>
+                    <div>
+                        <strong>Success</strong>
+                        <p class="m-0 text-sm">Your changes have been saved successfully!</p>
+                    </div>
+                </div>
+
+                <div class="alert-warning">
+                    <span>⚠️</span>
+                    <div>
+                        <strong>Warning</strong>
+                        <p class="m-0 text-sm">Your subscription expires in 3 days.</p>
+                    </div>
+                </div>
+
+                <div class="alert-error alert-dismissible">
+                    <span>✕</span>
+                    <div>
+                        <strong>Error</strong>
+                        <p class="m-0 text-sm">Failed to save changes. Please try again.</p>
+                    </div>
+                    <button class="alert-close">×</button>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Badges & Tags -->
+    <section id="badges" class="intent-center px-6 py-12 bg-surface">
+        <div class="container-xl">
+            <h2 class="text-center text-fluid-3xl mb-4">
+                Badges & <span class="text-accent">Tags</span>
+            </h2>
+            <p class="container-sm text-center text-muted mb-12">
+                Status indicators and categorization components
+            </p>
+
+            <div class="grid-responsive gap-6">
+                <!-- Badge Variants -->
+                <div class="card-default p-6">
+                    <h3 class="text-xl mb-6">Badge Variants</h3>
+                    <div class="intent-cluster gap-3 flex-wrap">
+                        <span class="badge-default">Default</span>
+                        <span class="badge-primary">Primary</span>
+                        <span class="badge-success">Success</span>
+                        <span class="badge-warning">Warning</span>
+                        <span class="badge-error">Error</span>
+                        <span class="badge-outline">Outline</span>
+                    </div>
+                </div>
+
+                <!-- Pills -->
+                <div class="card-default p-6">
+                    <h3 class="text-xl mb-6">Pills</h3>
+                    <div class="intent-cluster gap-3 flex-wrap">
+                        <span class="pill">Technology</span>
+                        <span class="pill">Design</span>
+                        <span class="pill">Marketing</span>
+                        <span class="pill">Business</span>
+                    </div>
+                </div>
+
+                <!-- Tags -->
+                <div class="card-default p-6">
+                    <h3 class="text-xl mb-6">Tags (Removable)</h3>
+                    <div class="intent-cluster gap-3 flex-wrap">
+                        <span class="tag">React ×</span>
+                        <span class="tag">Vue ×</span>
+                        <span class="tag">Angular ×</span>
+                        <span class="tag">Svelte ×</span>
+                    </div>
+                </div>
+
+                <!-- Combined Example -->
+                <div class="card-default p-6">
+                    <h3 class="text-xl mb-6">Combined Example</h3>
+                    <div class="stack-sm">
+                        <div class="flex items-center gap-3">
+                            <span class="badge-primary">NEW</span>
+                            <span class="text-base">Feature announcement</span>
+                        </div>
+                        <div class="flex items-center gap-3">
+                            <span class="badge-success">PRO</span>
+                            <span class="text-base">Premium feature</span>
+                        </div>
+                        <div class="intent-cluster gap-2 flex-wrap">
+                            <span class="tag">javascript</span>
+                            <span class="tag">typescript</span>
+                            <span class="tag">css</span>
+                            <span class="tag">html</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Navigation -->
+    <section id="navigation" class="intent-center px-6 py-12">
+        <div class="container-xl">
+            <h2 class="text-center text-fluid-3xl mb-4">
+                Navigation <span class="text-accent">Patterns</span>
+            </h2>
+            <p class="container-sm text-center text-muted mb-12">
+                Tabs, breadcrumbs, and pagination
+            </p>
+
+            <div class="grid-responsive gap-6">
+                <!-- Tabs -->
+                <div class="card-default p-6">
+                    <h3 class="text-xl mb-6">Tabs</h3>
+                    <div class="tabs">
+                        <button class="tab active">Account</button>
+                        <button class="tab">Security</button>
+                        <button class="tab">Notifications</button>
+                        <button class="tab">Billing</button>
+                    </div>
+                </div>
+
+                <!-- Breadcrumb -->
+                <div class="card-default p-6">
+                    <h3 class="text-xl mb-6">Breadcrumb</h3>
+                    <nav aria-label="Breadcrumb">
+                        <ol class="breadcrumb">
+                            <li class="breadcrumb-item">
+                                <a href="#" class="breadcrumb-link">Home</a>
+                            </li>
+                            <li class="breadcrumb-item">/</li>
+                            <li class="breadcrumb-item">
+                                <a href="#" class="breadcrumb-link">Products</a>
+                            </li>
+                            <li class="breadcrumb-item">/</li>
+                            <li class="breadcrumb-item breadcrumb-active">ZINTENT Framework</li>
+                        </ol>
+                    </nav>
+                </div>
+
+                <!-- Pagination -->
+                <div class="card-default p-6">
+                    <h3 class="text-xl mb-6">Pagination</h3>
+                    <nav aria-label="Pagination">
+                        <div class="pagination">
+                            <a href="#" class="page-link">←</a>
+                            <a href="#" class="page-link active">1</a>
+                            <a href="#" class="page-link">2</a>
+                            <a href="#" class="page-link">3</a>
+                            <span class="page-link" style="cursor: default;">...</span>
+                            <a href="#" class="page-link">10</a>
+                            <a href="#" class="page-link">→</a>
+                        </div>
+                    </nav>
+                </div>
+
+                <!-- Vertical Nav -->
+                <div class="card-default p-6">
+                    <h3 class="text-xl mb-6">Vertical Navigation</h3>
+                    <ul class="nav-vertical">
+                        <li class="nav-item">
+                            <a href="#" class="nav-link active">Dashboard</a>
+                        </li>
+                        <li class="nav-item">
+                            <a href="#" class="nav-link">Projects</a>
+                        </li>
+                        <li class="nav-item">
+                            <a href="#" class="nav-link">Team</a>
+                        </li>
+                        <li class="nav-item">
+                            <a href="#" class="nav-link">Settings</a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Complete Component Showcase -->
+    <section id="all-components" class="intent-center px-6 py-12 bg-surface">
+        <div class="container-xl">
+            <h2 class="text-center text-fluid-3xl mb-4">
+                Complete <span class="text-accent">Showcase</span>
+            </h2>
+            <p class="container-sm text-center text-muted mb-12">
+                Every single Phase 2 component in one place
+            </p>
+
+            <!-- Base Button Class -->
+            <div class="card-default p-6 mb-8">
+                <h3 class="text-xl mb-4">Base Button (btn)</h3>
+                <button class="btn" style="background: var(--zi-accent-primary); color: white; border-radius: var(--zi-radius-lg); padding: var(--zi-space-3) var(--zi-space-5);">Base Button Class</button>
+            </div>
+
+            <!-- Card with Media -->
+            <div class="card container-sm mx-auto mb-8">
+                <div style="width: 100%; height: 200px; background: linear-gradient(135deg, var(--zi-accent-primary), var(--zi-accent-secondary)); display: flex; align-items: center; justify-content: center; color: white; font-size: 3rem;">
+                    🖼️
+                </div>
+                <div class="card-body">
+                    <h4 class="card-title">Card with Media</h4>
+                    <p class="card-subtitle mb-2">Using card-media intent</p>
+                    <p class="card-text">This card demonstrates the card-media slot for images or other media content.</p>
+                </div>
+            </div>
+
+            <!-- Dismissible Alerts -->
+            <div class="stack-md container-md mx-auto mb-8">
+                <h3 class="text-xl text-center mb-4">Dismissible Alerts</h3>
+                <div class="alert-info alert-dismissible">
+                    <span>ℹ️</span>
+                    <div>
+                        <strong>Dismissible Info</strong>
+                        <p class="m-0 text-sm">This alert can be dismissed with the close button.</p>
+                    </div>
+                    <button class="alert-close">×</button>
+                </div>
+                <div class="alert-success alert-dismissible">
+                    <span>✓</span>
+                    <div>
+                        <strong>Success with Close</strong>
+                        <p class="m-0 text-sm">Click the × to dismiss this success message.</p>
+                    </div>
+                    <button class="alert-close">×</button>
+                </div>
+            </div>
+
+            <!-- Navigation Patterns -->
+            <div class="grid-responsive gap-6 mb-8">
+                <!-- Horizontal Nav -->
+                <div class="card-default p-6">
+                    <h3 class="text-xl mb-4">Horizontal Navigation</h3>
+                    <ul class="nav-horizontal">
+                        <li class="nav-item">
+                            <a href="#" class="nav-link active">Home</a>
+                        </li>
+                        <li class="nav-item">
+                            <a href="#" class="nav-link">About</a>
+                        </li>
+                        <li class="nav-item">
+                            <a href="#" class="nav-link">Services</a>
+                        </li>
+                        <li class="nav-item">
+                            <a href="#" class="nav-link">Contact</a>
+                        </li>
+                    </ul>
+                </div>
+
+                <!-- Pagination with page-item -->
+                <div class="card-default p-6">
+                    <h3 class="text-xl mb-4">Full Pagination</h3>
+                    <nav aria-label="Pagination">
+                        <ul class="pagination">
+                            <li class="page-item">
+                                <a href="#" class="page-link">←</a>
+                            </li>
+                            <li class="page-item">
+                                <a href="#" class="page-link active">1</a>
+                            </li>
+                            <li class="page-item">
+                                <a href="#" class="page-link">2</a>
+                            </li>
+                            <li class="page-item">
+                                <a href="#" class="page-link">3</a>
+                            </li>
+                            <li class="page-item">
+                                <span class="page-link" style="cursor: default;">...</span>
+                            </li>
+                            <li class="page-item">
+                                <a href="#" class="page-link">10</a>
+                            </li>
+                            <li class="page-item">
+                                <a href="#" class="page-link">→</a>
+                            </li>
+                        </ul>
+                    </nav>
+                </div>
+            </div>
+
+            <!-- Complete Card Structure -->
+            <div class="card-outlined container-md mx-auto mb-8">
+                <div class="card-header">
+                    <div class="flex justify-between items-center">
+                        <div>
+                            <h4 class="card-title">Complete Card Structure</h4>
+                            <p class="card-subtitle">Using all card sub-components</p>
+                        </div>
+                        <span class="badge-outline">Archived</span>
+                    </div>
+                </div>
+                <div class="card-body">
+                    <p class="card-text">This demonstrates the complete card structure with header, body, and footer. The card-title, card-subtitle, and card-text classes provide consistent typography.</p>
+                </div>
+                <div class="card-footer">
+                    <div class="intent-cluster gap-2">
+                        <span class="tag">documentation</span>
+                        <span class="tag">component</span>
+                    </div>
+                    <div class="flex gap-2">
+                        <button class="btn-ghost btn-sm">Delete</button>
+                        <button class="btn-primary btn-sm">Edit</button>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Form Row Layout -->
+            <div class="card-default p-6 container-md mx-auto mb-8">
+                <h3 class="text-xl mb-4">Form Row Layout</h3>
+                <form class="form-row">
+                    <div class="form-group">
+                        <label class="form-label">First Name</label>
+                        <input type="text" class="input" placeholder="John">
+                    </div>
+                    <div class="form-group">
+                        <label class="form-label">Last Name</label>
+                        <input type="text" class="input" placeholder="Doe">
+                    </div>
+                    <div class="form-group">
+                        <label class="form-label">Email</label>
+                        <input type="email" class="input" placeholder="john@example.com">
+                    </div>
+                </form>
+            </div>
+
+            <!-- All Badge Variants -->
+            <div class="card-default p-6 container-md mx-auto mb-8">
+                <h3 class="text-xl mb-4">All Badge Variants</h3>
+                <div class="intent-cluster gap-3 flex-wrap">
+                    <span class="badge">Base Badge</span>
+                    <span class="badge-default">Default</span>
+                    <span class="badge-primary">Primary</span>
+                    <span class="badge-success">Success</span>
+                    <span class="badge-warning">Warning</span>
+                    <span class="badge-error">Error</span>
+                    <span class="badge-outline">Outline</span>
+                </div>
+            </div>
+
+            <!-- Combined Button Showcase -->
+            <div class="card-elevated p-6 container-md mx-auto mb-8 text-center">
+                <h3 class="text-xl mb-4">Button Showcase</h3>
+                <div class="stack-md">
+                    <div class="intent-cluster justify-center gap-3 flex-wrap">
+                        <button class="btn-primary btn-xs">XS Primary</button>
+                        <button class="btn-secondary btn-sm">SM Secondary</button>
+                        <button class="btn-ghost btn-md">MD Ghost</button>
+                        <button class="btn-outline btn-lg">LG Outline</button>
+                    </div>
+                    <div class="intent-cluster justify-center gap-3 flex-wrap">
+                        <button class="btn-danger btn-sm">Danger</button>
+                        <button class="btn-success btn-sm">Success</button>
+                        <button class="btn-link">Link Style</button>
+                        <button class="btn-icon">⚙️</button>
+                    </div>
+                    <div class="intent-cluster justify-center gap-3 flex-wrap">
+                        <button class="btn-primary" disabled>Disabled</button>
+                        <button class="btn-primary btn-loading">Loading State</button>
+                        <button class="btn-secondary btn-block" style="max-width: 200px;">Block</button>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Status Indicators -->
+            <div class="card-flat p-6 container-sm mx-auto text-center">
+                <h3 class="text-xl mb-4">Status Indicators</h3>
+                <div class="intent-cluster justify-center gap-4 flex-wrap">
+                    <div class="flex items-center gap-2">
+                        <span class="badge-success">●</span>
+                        <span class="text-sm">Online</span>
+                    </div>
+                    <div class="flex items-center gap-2">
+                        <span class="badge-warning">●</span>
+                        <span class="text-sm">Away</span>
+                    </div>
+                    <div class="flex items-center gap-2">
+                        <span class="badge-error">●</span>
+                        <span class="text-sm">Offline</span>
+                    </div>
+                    <div class="flex items-center gap-2">
+                        <span class="badge-default">●</span>
+                        <span class="text-sm">Unknown</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="intent-center text-center px-6 py-12" style="border-top: 1px solid var(--zi-bg-surface);">
+        <div class="container-sm">
+            <div class="animate-fade-in font-bold text-2xl text-accent mb-4">ZINTENT</div>
+            <p class="text-muted mb-4 text-sm">
+                Phase 2 Complete: 50+ Components • Full Accessibility • Zero Runtime
+            </p>
+            <div class="intent-cluster justify-center gap-4 mb-4">
+                <a href="#" class="text-sm text-muted no-underline">Documentation</a>
+                <a href="#" class="text-sm text-muted no-underline">GitHub</a>
+                <a href="#" class="text-sm text-muted no-underline">npm</a>
+            </div>
+            <span class="text-muted text-xs">Built with Antigravity</span>
+        </div>
+    </footer>
+
+    <!-- Theme Switcher -->
+    <div class="intent-center" style="position: fixed; bottom: var(--zi-space-6); left: 0; right: 0; z-index: 1000;">
+        <div class="intent-cluster gap-3 p-3 surface-elevated rounded-full mx-auto" style="box-shadow: var(--zi-shadow-lg); width: fit-content;">
+            <button onclick="setTheme('midnight')" class="cursor-pointer" style="width: 32px; height: 32px; border-radius: 50%; background: #0f172a; border: 2px solid rgba(255,255,255,0.2);" title="Midnight"></button>
+            <button onclick="setTheme('vibrant')" class="cursor-pointer" style="width: 32px; height: 32px; border-radius: 50%; background: #ec4899; border: 2px solid rgba(255,255,255,0.2);" title="Vibrant"></button>
+            <button onclick="setTheme('forest')" class="cursor-pointer" style="width: 32px; height: 32px; border-radius: 50%; background: #10b981; border: 2px solid rgba(255,255,255,0.2);" title="Forest"></button>
+            <button onclick="setTheme('nordic')" class="cursor-pointer" style="width: 32px; height: 32px; border-radius: 50%; background: #88c0d0; border: 2px solid rgba(255,255,255,0.2);" title="Nordic"></button>
+        </div>
+    </div>
+
+    <script>
+        function setTheme(theme) {
+            document.documentElement.setAttribute('data-theme', theme);
+            localStorage.setItem('zi-theme', theme);
+        }
+        
+        const savedTheme = localStorage.getItem('zi-theme') || 'midnight';
+        setTheme(savedTheme);
+    </script>
+</body>
+</html>

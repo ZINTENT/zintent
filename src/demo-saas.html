@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="high-contrast">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ZINTENT - SaaS Settings Demo</title>
+    <link rel="stylesheet" href="../dist/styles-saas.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+</head>
+<body class="m-0 bg-base" style="font-family: 'Inter', system-ui, sans-serif;">
+
+    <!-- Top Navigation -->
+    <header class="intent-cluster bg-surface p-4 border-b" style="justify-content: space-between; border-color: var(--zi-border-color);">
+        <div class="intent-cluster" style="gap: 20px;">
+            <div class="font-bold text-fluid-lg text-foreground">Acme Platform</div>
+            <div class="text-sm text-muted">Workspace Settings</div>
+        </div>
+        <div class="intent-center bg-base text-accent" style="width: 32px; height: 32px; border-radius: 50%; font-weight: bold; border: 1px solid var(--zi-border-color);">JD</div>
+    </header>
+
+    <div class="container-responsive py-10 px-6" style="max-width: 1000px; margin: 0 auto;">
+        <div class="intent-sidebar" style="--sidebar-width: 250px; gap: 40px;">
+            
+            <!-- Settings Sidebar -->
+            <aside class="stack-sm">
+                <div class="text-sm font-bold text-muted mb-2">WORKSPACE</div>
+                <a href="#" class="btn-primary" style="justify-content: flex-start;">General</a>
+                <a href="#" class="btn-ghost text-foreground" style="justify-content: flex-start;">Members & Teams</a>
+                <a href="#" class="btn-ghost text-foreground" style="justify-content: flex-start;">Security & SAML</a>
+                
+                <div class="text-sm font-bold text-muted mt-6 mb-2">BILLING</div>
+                <a href="#" class="btn-ghost text-foreground" style="justify-content: flex-start;">Subscription</a>
+                <a href="#" class="btn-ghost text-foreground" style="justify-content: flex-start;">Invoices</a>
+            </aside>
+
+            <!-- Settings Content Form -->
+            <main class="stack-md animate-fade-in">
+                <div class="mb-4">
+                    <h1 class="text-fluid-2xl font-bold text-foreground m-0">General Settings</h1>
+                    <p class="text-muted mt-2">Manage your workspace configuration and preferences.</p>
+                </div>
+
+                <div class="card-default p-6 stack-md">
+                    <div style="border-bottom: 1px solid var(--zi-border-color); padding-bottom: 20px;" class="intent-split">
+                        <div>
+                            <div class="font-medium text-foreground">Workspace Name</div>
+                            <div class="text-sm text-muted mt-2">Used to identify your organization across the platform.</div>
+                        </div>
+                        <div class="intent-center" style="justify-content: flex-end;">
+                            <input type="text" value="Acme Platform" class="input" style="width: 100%; max-width: 250px;" />
+                        </div>
+                    </div>
+
+                    <div style="border-bottom: 1px solid var(--zi-border-color); padding-bottom: 20px;" class="intent-split">
+                        <div>
+                            <div class="font-medium text-foreground">Primary Domain</div>
+                            <div class="text-sm text-muted mt-2">The primary web address for all generated links.</div>
+                        </div>
+                        <div class="intent-center" style="justify-content: flex-end;">
+                            <input type="text" value="acme.example.com" class="input" style="width: 100%; max-width: 250px;" disabled />
+                        </div>
+                    </div>
+
+                    <div class="intent-cluster" style="justify-content: flex-end; padding-top: 10px;">
+                        <button class="btn-primary transition-scale">Save Changes</button>
+                    </div>
+                </div>
+
+                <div class="card-outlined p-6" style="border-color: var(--zi-error-500);">
+                    <h2 class="text-fluid-lg font-bold" style="color: var(--zi-error-500);">Danger Zone</h2>
+                    <p class="text-sm text-muted mt-2 mb-4">Permanently delete this workspace and all associated data. This action cannot be undone.</p>
+                    <button class="btn-danger transition-bounce">Delete Workspace</button>
+                </div>
+
+            </main>
+        </div>
+    </div>
+</body>
+</html>

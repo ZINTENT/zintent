@@ -1,0 +1,46 @@
+{
+  "intents": {
+    "center-content": {
+      "styles": "display: grid; place-items: center; text-align: center;"
+    },
+    "auto-layout": {
+      "styles": "display: flex; flex-direction: column; gap: var(--zi-space-4);"
+    },
+    "stack-h": {
+      "styles": "display: flex; flex-direction: row; align-items: center; gap: var(--zi-space-4);"
+    },
+    "surface-elevated": {
+      "styles": "background-color: var(--zi-bg-surface); border-radius: var(--zi-radius-md); box-shadow: var(--zi-shadow-md); padding: var(--zi-space-4);"
+    },
+    "interaction-lift": {
+      "styles": "transition: var(--zi-transition-fast);",
+      "hover": "transform: translateY(-2px); box-shadow: var(--zi-shadow-lg);"
+    },
+    "antigravity-fill": {
+      "styles": "display: flex; flex-wrap: wrap; gap: var(--zi-space-4); align-content: flex-start;"
+    },
+    "antigravity-center": {
+      "styles": "display: grid; place-items: center; gap: var(--zi-space-4); width: 100%;"
+    }
+  },
+  "aria_mappings": {
+    "btn-primary": {
+      "role": "button",
+      "tabindex": "0"
+    },
+    "btn-dropdown": {
+      "role": "button",
+      "aria-haspopup": "true",
+      "aria-expanded": "false"
+    }
+  },
+  "macros": {
+    "z-nav": "<nav class=\"stack-h surface-elevated\" style=\"position: sticky; top: 0; justify-content: space-between; padding: var(--zi-space-4) var(--zi-space-8); margin-bottom: var(--zi-space-12); z-index: 100;\">{{content}}</nav>",
+    "z-card": "<div class=\"surface-elevated interaction-lift\" style=\"border: 1px solid rgba(255,255,255,0.05);\">{{content}}</div>",
+    "z-stack": "<div class=\"auto-layout\">{{content}}</div>",
+    "z-row": "<div class=\"stack-h\">{{content}}</div>",
+    "z-hero": "<header class=\"center-content\" style=\"padding: var(--zi-space-24) var(--zi-space-4); position: relative; overflow: hidden;\">{{content}}</header>",
+    "z-grid": "<div class=\"antigravity-fill\" style=\"display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: var(--zi-space-6);\">{{content}}</div>",
+    "z-section": "<section style=\"padding: var(--zi-space-24) 0;\">{{content}}</section>"
+  }
+}
