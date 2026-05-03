@@ -1,0 +1,1072 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="midnight">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ZINTENT Phase 3 Demo | Modals & Overlays</title>
+    <link rel="stylesheet" href="../dist/phase3-styles.css?v=3.0">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <style>
+        /* Demo-specific: Modal state classes */
+        .modal.active,
+        .modal-overlay.active,
+        .drawer-overlay.active,
+        .drawer-left.active,
+        .drawer-right.active { display: block !important; }
+    </style>
+</head>
+<body class="stack-md m-0" style="min-height: 100vh; font-family: 'Inter', system-ui, sans-serif;">
+    
+    <!-- Navigation -->
+    <nav class="intent-center bg-base" style="border-bottom: 1px solid var(--zi-bg-surface); position: sticky; top: 0; z-index: 100;">
+        <div class="container-xl flex flex-wrap justify-between items-center gap-4 px-6 py-4">
+            <div class="flex items-center gap-2">
+                <div class="animate-fade-in font-bold text-2xl text-accent">ZINTENT</div>
+                <span class="badge-primary">v3.0</span>
+            </div>
+            <div class="flex flex-wrap items-center gap-4">
+                <a href="#modals" class="text-sm text-muted no-underline">Modals</a>
+                <a href="#drawers" class="text-sm text-muted no-underline">Drawers</a>
+                <a href="#dropdowns" class="text-sm text-muted no-underline">Dropdowns</a>
+                <a href="#progress" class="text-sm text-muted no-underline">Progress</a>
+                <a href="#tables" class="text-sm text-muted no-underline">Tables</a>
+                <div class="btn-primary btn-sm" role="button" tabindex="0" role="button" tabindex="0">Download</div>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <header class="intent-center text-center px-6 py-12">
+        <div class="container-md">
+            <span class="badge-success mb-4">Phase 3 Preview</span>
+            <h1 class="animate-slide-up text-fluid-3xl font-extrabold leading-tight mb-4">
+                Modals & <span class="text-accent">Overlays</span>
+            </h1>
+            <p class="animate-slide-up text-fluid-lg text-muted mb-8">
+                Dialogs, drawers, dropdowns, and data components
+            </p>
+            <div class="animate-slide-up flex flex-wrap justify-center gap-4">
+                <button class="btn-primary btn-lg" tabindex="0" role="button" role="button" tabindex="0" onclick="openModal('modal-demo')">Open Modal</button>
+                <button class="btn-secondary btn-lg" role="button" tabindex="0" role="button" tabindex="0" onclick="openDrawer('drawer-demo')">Open Drawer</button>
+            </div>
+        </div>
+    </header>
+
+    <!-- Modals Section -->
+    <section id="modals" class="intent-center px-6 py-12 bg-surface">
+        <div class="container-xl">
+            <h2 class="text-center text-fluid-3xl mb-4">
+                Modal <span class="text-accent">System</span>
+            </h2>
+            <p class="container-sm text-center text-muted mb-12">
+                Centered dialogs with backdrop, multiple sizes, and animations
+            </p>
+
+            <!-- Modal Size Variants -->
+            <div class="grid-responsive gap-6 mb-12">
+                <div class="card-default p-6 text-center" role="article" role="article">
+                    <h3 class="text-xl mb-4">Small Modal</h3>
+                    <button class="btn-primary" tabindex="0" role="button" role="button" tabindex="0" onclick="openModal('modal-sm-demo')">Open Small</button>
+                </div>
+                <div class="card-default p-6 text-center" role="article" role="article">
+                    <h3 class="text-xl mb-4">Default Modal</h3>
+                    <button class="btn-primary" role="button" tabindex="0" role="button" tabindex="0" onclick="openModal('modal-demo')">Open Default</button>
+                </div>
+                <div class="card-default p-6 text-center" role="article" role="article">
+                    <h3 class="text-xl mb-4">Large Modal</h3>
+                    <button class="btn-primary" role="button" tabindex="0" role="button" tabindex="0" onclick="openModal('modal-lg-demo')">Open Large</button>
+                </div>
+                <div class="card-default p-6 text-center" role="article" role="article">
+                    <h3 class="text-xl mb-4">Fullscreen Modal</h3>
+                    <button class="btn-primary" role="button" tabindex="0" role="button" tabindex="0" onclick="openModal('modal-full-demo')">Open Fullscreen</button>
+                </div>
+            </div>
+
+            <!-- Modal Code Example -->
+            <div class="card-outlined p-6 container-md mx-auto" role="article">
+                <h3 class="text-xl mb-4">Usage</h3>
+                <pre class="bg-surface p-4 rounded-lg overflow-x-auto text-sm"><code>&lt;!-- Backdrop --&gt;
+&lt;div class="modal-overlay" aria-hidden="true" role="dialog" aria-modal="true" id="modal-backdrop"&gt;&lt;/div&gt;
+
+&lt;!-- Modal --&gt;
+&lt;div class="modal" role="dialog" aria-modal="true" id="my-modal"&gt;
+  &lt;div class="modal-header" role="dialog" aria-modal="true"&gt;
+    &lt;h3 class="modal-title" role="dialog" aria-modal="true"&gt;Modal Title&lt;/h3&gt;
+    &lt;button class="modal-close" role="dialog" aria-modal="true"&gt;×&lt;/button&gt;
+  &lt;/div&gt;
+  &lt;div class="modal-body" role="dialog" aria-modal="true"&gt;
+    Modal content goes here...
+  &lt;/div&gt;
+  &lt;div class="modal-footer" role="dialog" aria-modal="true"&gt;
+    &lt;button class="btn-ghost" role="button" tabindex="0" role="button" tabindex="0"&gt;Cancel&lt;/button&gt;
+    &lt;button class="btn-primary" role="button" tabindex="0" role="button" tabindex="0"&gt;Confirm&lt;/button&gt;
+  &lt;/div&gt;
+&lt;/div&gt;</code></pre>
+            </div>
+        </div>
+    </section>
+
+    <!-- Drawers Section -->
+    <section id="drawers" class="intent-center px-6 py-12">
+        <div class="container-xl">
+            <h2 class="text-center text-fluid-3xl mb-4">
+                Drawer <span class="text-accent">System</span>
+            </h2>
+            <p class="container-sm text-center text-muted mb-12">
+                Side panels that slide in from left or right
+            </p>
+
+            <!-- Drawer Direction Demo -->
+            <div class="grid-responsive gap-6 mb-12">
+                <div class="card-default p-6 text-center" role="article" role="article">
+                    <h3 class="text-xl mb-4">Left Drawer</h3>
+                    <button class="btn-primary" role="button" tabindex="0" role="button" tabindex="0" onclick="openDrawer('drawer-left-demo')">Open Left</button>
+                </div>
+                <div class="card-default p-6 text-center" role="article" role="article">
+                    <h3 class="text-xl mb-4">Right Drawer</h3>
+                    <button class="btn-primary" role="button" tabindex="0" role="button" tabindex="0" onclick="openDrawer('drawer-right-demo')">Open Right</button>
+                </div>
+                <div class="card-default p-6 text-center" role="article" role="article">
+                    <h3 class="text-xl mb-4">Large Drawer</h3>
+                    <button class="btn-primary" role="button" tabindex="0" role="button" tabindex="0" onclick="openDrawer('drawer-lg-demo')">Open Large</button>
+                </div>
+                <div class="card-default p-6 text-center" role="article" role="article">
+                    <h3 class="text-xl mb-4">Navigation Drawer</h3>
+                    <button class="btn-primary" role="button" tabindex="0" role="button" tabindex="0" onclick="openDrawer('drawer-nav-demo')">Open Navigation</button>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Dropdowns Section -->
+    <section id="dropdowns" class="intent-center px-6 py-12">
+        <div class="container-xl">
+            <h2 class="text-center text-fluid-3xl mb-4">
+                Dropdowns & <span class="text-accent">Menus</span>
+            </h2>
+            <p class="container-sm text-center text-muted mb-12">
+                Toggle menus, context menus, and command palettes
+            </p>
+
+            <!-- Basic Dropdown -->
+            <div class="grid-responsive gap-6 mb-12">
+                <div class="card-default p-6" role="article" role="article">
+                    <h3 class="text-xl mb-4">Basic Dropdown</h3>
+                    <div class="dropdown" role="menu" id="dropdown1">
+                        <button class="btn-primary dropdown-toggle" role="button" tabindex="0" role="menu" role="button" tabindex="0" aria-haspopup="true" aria-expanded="false" onclick="toggleDropdown('dropdown1')">
+                            Actions <span class="dropdown-chevron" role="menu">▼</span>
+                        </button>
+                        <div class="dropdown-menu" role="menu" role="menu" role="menu">
+                            <span class="dropdown-header" role="menu">Options</span>
+                            <button class="dropdown-item" role="menuitem" role="menu">Edit</button>
+                            <button class="dropdown-item" role="menuitem" role="menu">Duplicate</button>
+                            <button class="dropdown-item" role="menuitem" role="menu">Share</button>
+                            <div class="dropdown-divider" role="menu"></div>
+                            <span class="dropdown-text text-error" role="menu">Danger Zone</span>
+                            <button class="dropdown-item" role="menuitem" role="menu" style="color: var(--zi-error-500);">Delete</button>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="card-default p-6" role="article" role="article">
+                    <h3 class="text-xl mb-4">Right-Aligned Dropdown</h3>
+                    <div class="dropdown" role="menu" id="dropdown2">
+                        <button class="btn-secondary dropdown-toggle" role="menu" role="button" tabindex="0" role="button" tabindex="0" aria-haspopup="true" aria-expanded="false" onclick="toggleDropdown('dropdown2')">
+                            Settings <span class="dropdown-chevron" role="menu">▼</span>
+                        </button>
+                        <div class="dropdown-menu dropdown-menu-right" role="menu" role="menu" role="menu">
+                            <button class="dropdown-item" role="menuitem" role="menu">Profile</button>
+                            <button class="dropdown-item" role="menuitem" role="menu">Account</button>
+                            <button class="dropdown-item" role="menuitem" role="menu">Notifications</button>
+                            <div class="dropdown-divider" role="menu"></div>
+                            <button class="dropdown-item" role="menuitem" role="menu">Sign out</button>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="card-default p-6" role="article" role="article">
+                    <h3 class="text-xl mb-4">Drop-up Menu</h3>
+                    <div class="dropdown" role="menu" id="dropdown3" style="margin-top: 100px;">
+                        <button class="btn-ghost dropdown-toggle" role="button" tabindex="0" role="menu" role="button" tabindex="0" aria-haspopup="true" aria-expanded="false" onclick="toggleDropdown('dropdown3')">
+                            More <span class="dropdown-chevron" role="menu">▼</span>
+                        </button>
+                        <div class="dropdown-menu dropdown-menu-top" role="menu" role="menu" role="menu">
+                            <button class="dropdown-item" role="menuitem" role="menu">Move to</button>
+                            <button class="dropdown-item" role="menuitem" role="menu">Copy link</button>
+                            <button class="dropdown-item" role="menuitem" role="menu">Download</button>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="card-default p-6" role="article" role="article">
+                    <h3 class="text-xl mb-4">Split Button</h3>
+                    <div class="intent-cluster">
+                        <button class="btn-primary" role="button" tabindex="0" role="button" tabindex="0">Save Changes</button>
+                        <div class="dropdown" role="menu" id="dropdown4">
+                            <button class="btn-primary dropdown-toggle" role="button" tabindex="0" role="menu" role="button" tabindex="0" aria-haspopup="true" aria-expanded="false" style="border-left: 1px solid rgba(255,255,255,0.2);" onclick="toggleDropdown('dropdown4')">
+                                <span class="dropdown-chevron" role="menu">▼</span>
+                            </button>
+                            <div class="dropdown-menu dropdown-menu-right" role="menu" role="menu" role="menu">
+                                <button class="dropdown-item" role="menuitem" role="menu">Save & Close</button>
+                                <button class="dropdown-item" role="menuitem" role="menu">Save as Draft</button>
+                                <button class="dropdown-item" role="menuitem" role="menu">Save & New</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Context Menu Example -->
+            <div class="card-outlined p-6 container-md mx-auto mb-12" role="article">
+                <h3 class="text-xl mb-4">Context Menu (Right-Click)</h3>
+                <div class="bg-surface p-8 rounded-lg text-center cursor-context-menu" role="menu" oncontextmenu="showContextMenu(event); return false;" id="context-area">
+                    <p class="text-muted">Right-click this area to see the context menu</p>
+                </div>
+            </div>
+
+            <!-- Command Palette -->
+            <div class="card-default p-6 container-md mx-auto" role="article" role="article">
+                <h3 class="text-xl mb-4">Command Menu</h3>
+                <div class="menu" role="menu">
+                    <span class="menu-label" role="menu">File</span>
+                    <button class="menu-item" role="menuitem" role="menu">
+                        <span class="menu-icon" role="menu">📄</span>
+                        New File
+                        <span class="menu-shortcut" role="menu">⌘N</span>
+                    </button>
+                    <button class="menu-item" role="menuitem" role="menu">
+                        <span class="menu-icon" role="menu">📁</span>
+                        Open Folder
+                        <span class="menu-shortcut" role="menu">⌘O</span>
+                    </button>
+                    <button class="menu-item" role="menuitem" role="menu">
+                        <span class="menu-icon" role="menu">💾</span>
+                        Save
+                        <span class="menu-shortcut" role="menu">⌘S</span>
+                    </button>
+                    <div class="menu-divider" role="menu"></div>
+                    <span class="menu-label" role="menu">Edit</span>
+                    <button class="menu-item" role="menuitem" role="menu">
+                        <span class="menu-icon" role="menu">✂️</span>
+                        Cut
+                        <span class="menu-shortcut" role="menu">⌘X</span>
+                    </button>
+                    <button class="menu-item" role="menuitem" role="menu">
+                        <span class="menu-icon" role="menu">📋</span>
+                        Copy
+                        <span class="menu-shortcut" role="menu">⌘C</span>
+                    </button>
+                    <button class="menu-item" role="menuitem" role="menu">
+                        <span class="menu-icon" role="menu">📌</span>
+                        Paste
+                        <span class="menu-shortcut" role="menu">⌘V</span>
+                    </button>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Tables Section -->
+    <section id="tables" class="intent-center px-6 py-12">
+        <div class="container-xl">
+            <h2 class="text-center text-fluid-3xl mb-4">
+                Tables & <span class="text-accent">Data Grids</span>
+            </h2>
+            <p class="container-sm text-center text-muted mb-12">
+                Responsive tables with sorting, pagination, and data grids
+            </p>
+
+            <!-- Basic Table -->
+            <div class="table-container mb-12" role="table">
+                <table class="table" role="table">
+                    <thead class="table-header" role="table" role="rowgroup">
+                        <tr class="table-row" role="row" role="table">
+                            <th class="table-header-cell table-sortable" aria-sort="none" role="columnheader" role="table" role="rowgroup" onclick="sortTable(this)">Name</th>
+                            <th class="table-header-cell table-sortable" aria-sort="none" role="columnheader" role="table" role="rowgroup" onclick="sortTable(this)">Role</th>
+                            <th class="table-header-cell table-sortable" aria-sort="none" role="columnheader" role="table" role="rowgroup" onclick="sortTable(this)">Status</th>
+                            <th class="table-header-cell" role="columnheader" role="table" role="rowgroup" style="text-align: right;">Actions</th>
+                        </tr>
+                    </thead>
+                    <tbody class="table-body" role="rowgroup" role="table">
+                        <tr class="table-row" role="row" role="table">
+                            <td class="table-cell" role="table" role="cell">
+                                <div class="intent-cluster gap-3">
+                                    <div class="intent-center" style="width: 32px; height: 32px; background: var(--zi-accent-primary); border-radius: 50%; font-size: 14px;">JD</div>
+                                    <div>
+                                        <div class="font-medium">John Doe</div>
+                                        <div class="text-sm text-muted">john@example.com</div>
+                                    </div>
+                                </div>
+                            </td>
+                            <td class="table-cell text-muted" role="table" role="cell">Product Designer</td>
+                            <td class="table-cell" role="table" role="cell"><span class="badge-success">Active</span></td>
+                            <td class="table-cell" role="table" role="cell" style="text-align: right;">
+                                <button class="btn-ghost btn-sm" role="button" tabindex="0" role="button" tabindex="0">Edit</button>
+                            </td>
+                        </tr>
+                        <tr class="table-row" role="row" role="table">
+                            <td class="table-cell" role="table" role="cell">
+                                <div class="intent-cluster gap-3">
+                                    <div class="intent-center" style="width: 32px; height: 32px; background: var(--zi-success-500); border-radius: 50%; font-size: 14px;">AS</div>
+                                    <div>
+                                        <div class="font-medium">Alice Smith</div>
+                                        <div class="text-sm text-muted">alice@example.com</div>
+                                    </div>
+                                </div>
+                            </td>
+                            <td class="table-cell text-muted" role="table" role="cell">Developer</td>
+                            <td class="table-cell" role="table" role="cell"><span class="badge-success">Active</span></td>
+                            <td class="table-cell" role="table" role="cell" style="text-align: right;">
+                                <button class="btn-ghost btn-sm" tabindex="0" role="button" role="button" tabindex="0">Edit</button>
+                            </td>
+                        </tr>
+                        <tr class="table-row" role="row" role="table">
+                            <td class="table-cell" role="table" role="cell">
+                                <div class="intent-cluster gap-3">
+                                    <div class="intent-center" style="width: 32px; height: 32px; background: var(--zi-warning-500); border-radius: 50%; font-size: 14px;">BJ</div>
+                                    <div>
+                                        <div class="font-medium">Bob Johnson</div>
+                                        <div class="text-sm text-muted">bob@example.com</div>
+                                    </div>
+                                </div>
+                            </td>
+                            <td class="table-cell text-muted" role="table" role="cell">Manager</td>
+                            <td class="table-cell" role="table" role="cell"><span class="badge-ghost">Offline</span></td>
+                            <td class="table-cell" role="table" role="cell" style="text-align: right;">
+                                <button class="btn-ghost btn-sm" role="button" tabindex="0" tabindex="0" role="button">Edit</button>
+                            </td>
+                        </tr>
+                    </tbody>
+                    <caption class="table-caption" role="table">Showing 3 of 24 team members</caption>
+                </table>
+            </div>
+
+            <!-- Compact Table -->
+            <div class="grid-responsive gap-6 mb-12">
+                <div class="card-default p-6" role="article" role="article">
+                    <h3 class="text-xl mb-4">Compact Table</h3>
+                    <div class="table-container" role="table">
+                        <table class="table table-compact" role="table">
+                            <thead class="table-header" role="table" role="rowgroup">
+                                <tr class="table-row" role="row" role="table">
+                                    <th class="table-header-cell" role="columnheader" role="table" role="rowgroup">ID</th>
+                                    <th class="table-header-cell" role="columnheader" role="table" role="rowgroup">Item</th>
+                                    <th class="table-header-cell" role="columnheader" role="table" role="rowgroup" style="text-align: right;">Price</th>
+                                </tr>
+                            </thead>
+                            <tbody class="table-body" role="rowgroup" role="table">
+                                <tr class="table-row" role="row" role="table">
+                                    <td class="table-cell text-muted" role="table" role="cell">#001</td>
+                                    <td class="table-cell" role="table" role="cell">Pro Plan</td>
+                                    <td class="table-cell font-medium" role="table" role="cell" style="text-align: right;">$29/mo</td>
+                                </tr>
+                                <tr class="table-row" role="row" role="table">
+                                    <td class="table-cell text-muted" role="table" role="cell">#002</td>
+                                    <td class="table-cell" role="table" role="cell">Team License</td>
+                                    <td class="table-cell font-medium" role="table" role="cell" style="text-align: right;">$99/mo</td>
+                                </tr>
+                                <tr class="table-row" role="row" role="table">
+                                    <td class="table-cell text-muted" role="table" role="cell">#003</td>
+                                    <td class="table-cell" role="table" role="cell">Enterprise</td>
+                                    <td class="table-cell font-medium" role="table" role="cell" style="text-align: right;">Custom</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+
+                <div class="card-default p-6" role="article" role="article">
+                    <h3 class="text-xl mb-4">Data Grid</h3>
+                    <div class="data-grid">
+                        <div class="data-grid-item">
+                            <div class="intent-stack gap-2">
+                                <div class="badge-primary">Active</div>
+                                <h4 class="font-semibold">Project Alpha</h4>
+                                <p class="text-sm text-muted">12 tasks • 4 members</p>
+                            </div>
+                        </div>
+                        <div class="data-grid-item">
+                            <div class="intent-stack gap-2">
+                                <div class="badge-warning">In Review</div>
+                                <h4 class="font-semibold">Project Beta</h4>
+                                <p class="text-sm text-muted">8 tasks • 3 members</p>
+                            </div>
+                        </div>
+                        <div class="data-grid-item">
+                            <div class="intent-stack gap-2">
+                                <div class="badge-success">Complete</div>
+                                <h4 class="font-semibold">Project Gamma</h4>
+                                <p class="text-sm text-muted">0 tasks • 2 members</p>
+                            </div>
+                        </div>
+                        <div class="data-grid-item">
+                            <div class="intent-stack gap-2">
+                                <div class="badge-ghost">Archived</div>
+                                <h4 class="font-semibold">Project Delta</h4>
+                                <p class="text-sm text-muted">24 tasks • 6 members</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Empty State -->
+            <div class="card-outlined p-6 container-md mx-auto" role="article">
+                <div class="table-empty" role="table">
+                    <div class="text-4xl mb-4">📊</div>
+                    <h3 class="text-xl mb-2">No data available</h3>
+                    <p class="text-muted mb-4">Start by adding your first record</p>
+                    <button class="btn-primary" role="button" tabindex="0" role="button" tabindex="0">Add Record</button>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Progress & Loading Section -->
+    <section id="progress" class="intent-center px-6 py-12">
+        <div class="container-xl">
+            <h2 class="text-center text-fluid-3xl mb-4">
+                Progress & <span class="text-accent">Loading</span>
+            </h2>
+            <p class="container-sm text-center text-muted mb-12">
+                Progress bars, spinners, skeletons, and loading states
+            </p>
+
+            <!-- Linear Progress -->
+            <div class="grid-responsive gap-6 mb-12">
+                <div class="card-default p-6" role="article" role="article">
+                    <h3 class="text-xl mb-4">Linear Progress</h3>
+                    <div class="intent-stack gap-4">
+                        <div class="progress" role="progressbar" aria-valuemin="0" aria-valuemax="100">
+                            <div class="progress-bar" role="progressbar" aria-valuemin="0" aria-valuemax="100" aria-valuenow="0" style="width: 25%;"></div>
+                        </div>
+                        <div class="progress" role="progressbar" aria-valuemin="0" aria-valuemax="100">
+                            <div class="progress-bar" role="progressbar" aria-valuemin="0" aria-valuemax="100" aria-valuenow="0" style="width: 50%;"></div>
+                        </div>
+                        <div class="progress" aria-valuemin="0" aria-valuemax="100" role="progressbar">
+                            <div class="progress-bar" aria-valuemax="100" role="progressbar" aria-valuemin="0" aria-valuenow="0" style="width: 75%;"></div>
+                        </div>
+                        <div class="progress" role="progressbar" aria-valuemin="0" aria-valuemax="100">
+                            <div class="progress-bar" role="progressbar" aria-valuemin="0" aria-valuemax="100" aria-valuenow="0" style="width: 100%;"></div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="card-default p-6" role="article" role="article">
+                    <h3 class="text-xl mb-4">Size Variants</h3>
+                    <div class="intent-stack gap-4">
+                        <div class="progress progress-sm" role="progressbar" aria-valuemin="0" aria-valuemax="100">
+                            <div class="progress-bar" role="progressbar" aria-valuemin="0" aria-valuemax="100" aria-valuenow="0" style="width: 60%;"></div>
+                        </div>
+                        <div class="progress" aria-valuemax="100" role="progressbar" aria-valuemin="0">
+                            <div class="progress-bar" role="progressbar" aria-valuemin="0" aria-valuemax="100" aria-valuenow="0" style="width: 60%;"></div>
+                        </div>
+                        <div class="progress progress-lg" role="progressbar" aria-valuemin="0" aria-valuemax="100">
+                            <div class="progress-bar" role="progressbar" aria-valuemin="0" aria-valuemax="100" aria-valuenow="0" style="width: 60%;"></div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="card-default p-6" role="article" role="article">
+                    <h3 class="text-xl mb-4">Color States</h3>
+                    <div class="intent-stack gap-4">
+                        <div class="progress progress-success" role="progressbar" aria-valuemin="0" aria-valuemax="100">
+                            <div class="progress-bar" role="progressbar" aria-valuemin="0" aria-valuemax="100" aria-valuenow="0" style="width: 75%;"></div>
+                        </div>
+                        <div class="progress progress-warning" role="progressbar" aria-valuemin="0" aria-valuemax="100">
+                            <div class="progress-bar" role="progressbar" aria-valuemin="0" aria-valuemax="100" aria-valuenow="0" style="width: 50%;"></div>
+                        </div>
+                        <div class="progress progress-error" aria-valuemax="100" role="progressbar" aria-valuemin="0">
+                            <div class="progress-bar" role="progressbar" aria-valuemin="0" aria-valuemax="100" aria-valuenow="0" style="width: 25%;"></div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="card-default p-6" role="article" role="article">
+                    <h3 class="text-xl mb-4">Animated & Striped</h3>
+                    <div class="intent-stack gap-4">
+                        <div class="progress" role="progressbar" aria-valuemin="0" aria-valuemax="100">
+                            <div class="progress-bar progress-bar-striped" role="progressbar" aria-valuemin="0" aria-valuemax="100" aria-valuenow="0" style="width: 45%;"></div>
+                        </div>
+                        <div class="progress" role="progressbar" aria-valuemin="0" aria-valuemax="100">
+                            <div class="progress-bar progress-bar-striped progress-bar-animated" role="progressbar" aria-valuemin="0" aria-valuemax="100" aria-valuenow="0" style="width: 65%;"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Spinners & Loaders -->
+            <div class="grid-responsive gap-6 mb-12">
+                <div class="card-default p-6 text-center" role="article" role="article">
+                    <h3 class="text-xl mb-4">Spinners</h3>
+                    <div class="intent-cluster justify-center gap-6 items-center">
+                        <span class="spinner spinner-sm" role="status" aria-label="Loading"></span>
+                        <span class="spinner" role="status" aria-label="Loading"></span>
+                        <span class="spinner spinner-lg" role="status" aria-label="Loading"></span>
+                    </div>
+                </div>
+
+                <div class="card-default p-6 text-center" role="article" role="article">
+                    <h3 class="text-xl mb-4">Bouncing Dots</h3>
+                    <div class="dots">
+                        <span class="dot"></span>
+                        <span class="dot"></span>
+                        <span class="dot"></span>
+                    </div>
+                </div>
+
+                <div class="card-default p-6" role="article" role="article">
+                    <h3 class="text-xl mb-4">Button Loading State</h3>
+                    <div class="intent-cluster gap-4">
+                        <button class="btn-primary btn-loading" role="button" tabindex="0" role="button" tabindex="0">Loading...</button>
+                        <button class="btn-secondary btn-loading" role="button" tabindex="0" role="button" tabindex="0">Saving...</button>
+                    </div>
+                </div>
+
+                <div class="card-default p-6 text-center" role="article" role="article">
+                    <h3 class="text-xl mb-4">Circular Progress</h3>
+                    <svg class="circular-progress" role="progressbar" aria-valuemin="0" aria-valuemax="100" viewBox="0 0 48 48">
+                        <circle class="circular-progress-track" role="progressbar" aria-valuemin="0" aria-valuemax="100" cx="24" cy="24" r="20"></circle>
+                        <circle class="circular-progress-fill" aria-valuemax="100" role="progressbar" aria-valuemin="0" cx="24" cy="24" r="20" stroke-dasharray="125.6" stroke-dashoffset="31.4" transform="rotate(-90 24 24)"></circle>
+                    </svg>
+                    <p class="text-muted text-sm mt-2">75% complete</p>
+                </div>
+            </div>
+
+            <!-- Skeleton Loading -->
+            <div class="card-outlined p-6 container-md mx-auto mb-12" role="article">
+                <h3 class="text-xl mb-6">Skeleton Loading</h3>
+                <div class="intent-stack gap-4 max-w-md">
+                    <div class="intent-cluster gap-3">
+                        <div class="skeleton skeleton-avatar" aria-hidden="true" role="presentation"></div>
+                        <div class="flex-1">
+                            <div class="skeleton skeleton-title" aria-hidden="true" role="presentation"></div>
+                            <div class="skeleton skeleton-text" aria-hidden="true" role="presentation" style="width: 80%;"></div>
+                        </div>
+                    </div>
+                    <div class="skeleton skeleton-text" aria-hidden="true" role="presentation"></div>
+                    <div class="skeleton skeleton-text" aria-hidden="true" role="presentation" style="width: 90%;"></div>
+                    <div class="skeleton skeleton-text" aria-hidden="true" role="presentation" style="width: 70%;"></div>
+                    <div class="skeleton skeleton-card mt-4" aria-hidden="true" role="presentation" role="article"></div>
+                </div>
+            </div>
+
+            <!-- Loading Overlay Demo -->
+            <div class="card-default p-6 container-sm mx-auto text-center" role="article" role="article">
+                <h3 class="text-xl mb-4">Loading Overlay</h3>
+                <button class="btn-primary" role="button" tabindex="0" role="button" tabindex="0" onclick="showLoadingOverlay()">Show Loading Overlay</button>
+            </div>
+        </div>
+    </section>
+
+    <!-- Loading Overlay (Hidden by default) -->
+    <div class="loading-overlay" aria-live="polite" aria-label="Loading" role="alert" id="loading-overlay" onclick="hideLoadingOverlay()">
+        <div class="card-default p-8 text-center" role="article" role="article">
+            <span class="spinner spinner-lg mb-4" role="status" aria-label="Loading"></span>
+            <h3 class="text-xl">Loading...</h3>
+            <p class="text-muted">Please wait</p>
+        </div>
+    </div>
+
+    <!-- Tooltips & Popovers Section -->
+    <section id="tooltips" class="intent-center px-6 py-12">
+        <div class="container-xl">
+            <h2 class="text-center text-fluid-3xl mb-4">
+                Tooltips & <span class="text-accent">Popovers</span>
+            </h2>
+            <p class="container-sm text-center text-muted mb-12">
+                Hover tooltips and click popovers with directional positioning
+            </p>
+
+            <!-- Tooltips Demo -->
+            <div class="grid-responsive gap-6 mb-12">
+                <div class="card-default p-6 text-center" role="article" role="article">
+                    <h3 class="text-xl mb-6">Tooltip Positions</h3>
+                    <div class="intent-cluster justify-center gap-6">
+                        <div class="tooltip" role="tooltip" onmouseenter="showTooltip(this)" onmouseleave="hideTooltip(this)">
+                            <button class="btn-secondary" role="button" tabindex="0" role="button" tabindex="0">Top</button>
+                            <div class="tooltip-content tooltip-top" aria-hidden="true" role="tooltip">
+                                Tooltip on top
+                                <span class="tooltip-arrow" role="tooltip"></span>
+                            </div>
+                        </div>
+                        <div class="tooltip" role="tooltip" onmouseenter="showTooltip(this)" onmouseleave="hideTooltip(this)">
+                            <button class="btn-secondary" role="button" tabindex="0" role="button" tabindex="0">Bottom</button>
+                            <div class="tooltip-content tooltip-bottom" aria-hidden="true" role="tooltip">
+                                Tooltip on bottom
+                                <span class="tooltip-arrow" role="tooltip"></span>
+                            </div>
+                        </div>
+                        <div class="tooltip" role="tooltip" onmouseenter="showTooltip(this)" onmouseleave="hideTooltip(this)">
+                            <button class="btn-secondary" role="button" tabindex="0" role="button" tabindex="0">Left</button>
+                            <div class="tooltip-content tooltip-left" aria-hidden="true" role="tooltip">
+                                Left tooltip
+                                <span class="tooltip-arrow" role="tooltip"></span>
+                            </div>
+                        </div>
+                        <div class="tooltip" role="tooltip" onmouseenter="showTooltip(this)" onmouseleave="hideTooltip(this)">
+                            <button class="btn-secondary" role="button" tabindex="0" role="button" tabindex="0">Right</button>
+                            <div class="tooltip-content tooltip-right" aria-hidden="true" role="tooltip">
+                                Right tooltip
+                                <span class="tooltip-arrow" role="tooltip"></span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="card-default p-6" role="article" role="article">
+                    <h3 class="text-xl mb-4">Click Popovers</h3>
+                    <div class="intent-cluster gap-4">
+                        <div class="popover" role="dialog" aria-modal="false" id="popover1">
+                            <button class="btn-primary" role="button" tabindex="0" role="button" tabindex="0" onclick="togglePopover('popover1')">Toggle Popover</button>
+                            <div class="popover-content popover-bottom" role="dialog" aria-modal="false" aria-hidden="true">
+                                <div class="popover-header" aria-modal="false" role="dialog">
+                                    <h4 class="popover-title" role="dialog" aria-modal="false">Popover Title</h4>
+                                    <button class="modal-close" role="dialog" aria-modal="true" style="width: 24px; height: 24px;" onclick="hidePopover('popover1')">×</button>
+                                </div>
+                                <div class="popover-body" role="dialog" aria-modal="false">
+                                    <p class="text-muted">This is a popover with header, body, and optional footer.</p>
+                                </div>
+                                <div class="popover-footer" aria-modal="false" role="dialog">
+                                    <button class="btn-ghost btn-sm" role="button" tabindex="0" role="button" tabindex="0" onclick="hidePopover('popover1')">Close</button>
+                                    <button class="btn-primary btn-sm" role="button" tabindex="0" role="button" tabindex="0">Action</button>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="popover" role="dialog" aria-modal="false" id="popover2">
+                            <button class="btn-secondary" role="button" tabindex="0" role="button" tabindex="0" onclick="togglePopover('popover2')">Right Aligned</button>
+                            <div class="popover-content popover-right" role="dialog" aria-modal="false" aria-hidden="true" style="top: 50%; transform: translateY(-50%);">
+                                <div class="popover-body" role="dialog" aria-modal="false">
+                                    <p class="text-muted">This popover appears on the right side.</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Info Tooltips -->
+            <div class="card-outlined p-6 container-md mx-auto text-center" role="article">
+                <h3 class="text-xl mb-4">Info Icons with Tooltips</h3>
+                <p class="text-muted mb-4">
+                    Hover over the 
+                    <span class="tooltip" role="tooltip" onmouseenter="showTooltip(this)" onmouseleave="hideTooltip(this)">
+                        <span style="color: var(--zi-accent-primary); cursor: help;">ⓘ</span>
+                        <span class="tooltip-content tooltip-top" aria-hidden="true" role="tooltip" style="font-size: 12px;">
+                            This provides additional context
+                            <span class="tooltip-arrow" role="tooltip"></span>
+                        </span>
+                    </span>
+                    for more info
+                </p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Context Menu (Hidden by default) -->
+    <div class="dropdown-menu" role="menu" role="menu" role="menu" id="context-menu" style="position: fixed; z-index: 1000;">
+        <button class="dropdown-item" role="menuitem" role="menu">Copy</button>
+        <button class="dropdown-item" role="menuitem" role="menu">Cut</button>
+        <button class="dropdown-item" role="menuitem" role="menu">Paste</button>
+        <div class="dropdown-divider" role="menu"></div>
+        <button class="dropdown-item" role="menuitem" role="menu">Inspect</button>
+    </div>
+
+    <!-- Modals -->
+    
+    <!-- Default Modal -->
+    <div class="modal-overlay" aria-hidden="true" role="dialog" aria-modal="true" id="modal-backdrop" onclick="closeAllModals()"></div>
+    
+    <div class="modal" aria-modal="true" role="dialog" id="modal-demo">
+        <div class="modal-header" role="dialog" aria-modal="true">
+            <h3 class="modal-title" aria-modal="true" role="dialog">Modal Title</h3>
+            <button class="modal-close" role="dialog" aria-modal="true" onclick="closeAllModals()">×</button>
+        </div>
+        <div class="modal-body" role="dialog" aria-modal="true">
+            <p class="text-muted">This is a standard modal dialog with header, body, and footer sections. It centers on screen and includes a backdrop.</p>
+        </div>
+        <div class="modal-footer" aria-modal="true" role="dialog">
+            <button class="btn-ghost" role="button" tabindex="0" role="button" tabindex="0" onclick="closeAllModals()">Cancel</button>
+            <button class="btn-primary" role="button" tabindex="0" role="button" tabindex="0" onclick="closeAllModals()">Confirm</button>
+        </div>
+    </div>
+
+    <!-- Small Modal -->
+    <div class="modal modal-sm" role="dialog" aria-modal="true" id="modal-sm-demo">
+        <div class="modal-header" role="dialog" aria-modal="true">
+            <h3 class="modal-title" role="dialog" aria-modal="true">Delete Item?</h3>
+            <button class="modal-close" role="dialog" aria-modal="true" onclick="closeAllModals()">×</button>
+        </div>
+        <div class="modal-body" role="dialog" aria-modal="true">
+            <p class="text-muted">Are you sure you want to delete this item? This action cannot be undone.</p>
+        </div>
+        <div class="modal-footer" role="dialog" aria-modal="true">
+            <button class="btn-ghost" role="button" tabindex="0" role="button" tabindex="0" onclick="closeAllModals()">Cancel</button>
+            <button class="btn-danger" role="button" tabindex="0" role="button" tabindex="0" onclick="closeAllModals()">Delete</button>
+        </div>
+    </div>
+
+    <!-- Large Modal -->
+    <div class="modal modal-lg" role="dialog" aria-modal="true" id="modal-lg-demo">
+        <div class="modal-header" role="dialog" aria-modal="true">
+            <h3 class="modal-title" role="dialog" aria-modal="true">Large Modal</h3>
+            <button class="modal-close" role="dialog" aria-modal="true" onclick="closeAllModals()">×</button>
+        </div>
+        <div class="modal-body" role="dialog" aria-modal="true">
+            <p class="text-muted mb-4">This modal is wider and can contain more content.</p>
+            <div class="grid-responsive gap-4">
+                <div class="card-flat p-4" role="article">
+                    <h4 class="font-semibold mb-2">Feature 1</h4>
+                    <p class="text-sm text-muted">Description of this feature goes here.</p>
+                </div>
+                <div class="card-flat p-4" role="article">
+                    <h4 class="font-semibold mb-2">Feature 2</h4>
+                    <p class="text-sm text-muted">Description of this feature goes here.</p>
+                </div>
+                <div class="card-flat p-4" role="article">
+                    <h4 class="font-semibold mb-2">Feature 3</h4>
+                    <p class="text-sm text-muted">Description of this feature goes here.</p>
+                </div>
+                <div class="card-flat p-4" role="article">
+                    <h4 class="font-semibold mb-2">Feature 4</h4>
+                    <p class="text-sm text-muted">Description of this feature goes here.</p>
+                </div>
+            </div>
+        </div>
+        <div class="modal-footer" role="dialog" aria-modal="true">
+            <button class="btn-ghost" role="button" tabindex="0" role="button" tabindex="0" onclick="closeAllModals()">Close</button>
+            <button class="btn-primary" role="button" tabindex="0" role="button" tabindex="0" onclick="closeAllModals()">Save Changes</button>
+        </div>
+    </div>
+
+    <!-- Fullscreen Modal -->
+    <div class="modal modal-fullscreen" role="dialog" aria-modal="true" id="modal-full-demo">
+        <div class="modal-header" role="dialog" aria-modal="true">
+            <h3 class="modal-title" role="dialog" aria-modal="true">Fullscreen Modal</h3>
+            <button class="modal-close" role="dialog" aria-modal="true" onclick="closeAllModals()">×</button>
+        </div>
+        <div class="modal-body" role="dialog" aria-modal="true">
+            <p class="text-muted">This modal takes up most of the screen and is great for detailed views or complex forms.</p>
+        </div>
+        <div class="modal-footer" role="dialog" aria-modal="true">
+            <button class="btn-ghost" role="button" tabindex="0" role="button" tabindex="0" onclick="closeAllModals()">Close</button>
+        </div>
+    </div>
+
+    <!-- Drawers -->
+    
+    <!-- Drawer Overlays -->
+    <div class="drawer-overlay" aria-modal="true" role="dialog" aria-hidden="true" id="drawer-overlay-left" onclick="closeAllDrawers()"></div>
+    <div class="drawer-overlay" role="dialog" aria-modal="true" aria-hidden="true" id="drawer-overlay-right" onclick="closeAllDrawers()"></div>
+
+    <!-- Left Drawer -->
+    <div class="drawer drawer-left" role="dialog" aria-modal="true" id="drawer-left-demo">
+        <div class="drawer-header" role="dialog" aria-modal="true">
+            <h3 class="drawer-title" role="dialog" aria-modal="true">Left Drawer</h3>
+            <button class="modal-close" aria-modal="true" role="dialog" onclick="closeAllDrawers()">×</button>
+        </div>
+        <div class="drawer-body" role="dialog" aria-modal="true">
+            <p class="text-muted mb-4">This drawer slides in from the left side.</p>
+            <ul class="nav-vertical" role="navigation">
+                <li class="nav-item" role="navigation"><a href="#" class="nav-link active" role="navigation">Dashboard</a></li>
+                <li class="nav-item" role="navigation"><a href="#" class="nav-link" role="navigation">Projects</a></li>
+                <li class="nav-item" role="navigation"><a href="#" class="nav-link" role="navigation">Team</a></li>
+                <li class="nav-item" role="navigation"><a href="#" class="nav-link" role="navigation">Settings</a></li>
+            </ul>
+        </div>
+        <div class="drawer-footer" aria-modal="true" role="dialog">
+            <button class="btn-ghost btn-sm" role="button" tabindex="0" role="button" tabindex="0" onclick="closeAllDrawers()">Close</button>
+        </div>
+    </div>
+
+    <!-- Right Drawer -->
+    <div class="drawer drawer-right" aria-modal="true" role="dialog" id="drawer-right-demo">
+        <div class="drawer-header" role="dialog" aria-modal="true">
+            <h3 class="drawer-title" role="dialog" aria-modal="true">Right Drawer</h3>
+            <button class="modal-close" role="dialog" aria-modal="true" onclick="closeAllDrawers()">×</button>
+        </div>
+        <div class="drawer-body" role="dialog" aria-modal="true">
+            <p class="text-muted mb-4">This drawer slides in from the right side.</p>
+            <div class="card-flat p-4 mb-4" role="article">
+                <h4 class="font-semibold mb-2">Item Details</h4>
+                <p class="text-sm text-muted">View and edit item information here.</p>
+            </div>
+        </div>
+        <div class="drawer-footer" role="dialog" aria-modal="true">
+            <button class="btn-ghost btn-sm" tabindex="0" role="button" tabindex="0" role="button" onclick="closeAllDrawers()">Cancel</button>
+            <button class="btn-primary btn-sm" role="button" tabindex="0" tabindex="0" role="button" onclick="closeAllDrawers()">Save</button>
+        </div>
+    </div>
+
+    <!-- Large Drawer -->
+    <div class="drawer drawer-right drawer-lg" role="dialog" aria-modal="true" id="drawer-lg-demo">
+        <div class="drawer-header" role="dialog" aria-modal="true">
+            <h3 class="drawer-title" role="dialog" aria-modal="true">Large Drawer</h3>
+            <button class="modal-close" aria-modal="true" role="dialog" onclick="closeAllDrawers()">×</button>
+        </div>
+        <div class="drawer-body" aria-modal="true" role="dialog">
+            <p class="text-muted">This is a wider drawer (400px) for more content.</p>
+        </div>
+        <div class="drawer-footer" role="dialog" aria-modal="true">
+            <button class="btn-ghost" role="button" tabindex="0" role="button" tabindex="0" onclick="closeAllDrawers()">Close</button>
+        </div>
+    </div>
+
+    <!-- Navigation Drawer -->
+    <div class="drawer drawer-left drawer-lg" role="dialog" aria-modal="true" id="drawer-nav-demo">
+        <div class="drawer-header" role="dialog" aria-modal="true">
+            <h3 class="drawer-title" role="dialog" aria-modal="true">Navigation</h3>
+            <button class="modal-close" role="dialog" aria-modal="true" onclick="closeAllDrawers()">×</button>
+        </div>
+        <div class="drawer-body" role="dialog" aria-modal="true">
+            <ul class="nav-vertical" role="navigation">
+                <li class="nav-item" role="navigation"><a href="#modals" class="nav-link active" role="navigation" onclick="closeAllDrawers()">Modals</a></li>
+                <li class="nav-item" role="navigation"><a href="#drawers" class="nav-link" role="navigation" onclick="closeAllDrawers()">Drawers</a></li>
+                <li class="nav-item" role="navigation"><a href="#dropdowns" class="nav-link" role="navigation" onclick="closeAllDrawers()">Dropdowns</a></li>
+                <li class="nav-item" role="navigation"><a href="#progress" class="nav-link" role="navigation" onclick="closeAllDrawers()">Progress</a></li>
+                <li class="nav-item" role="navigation"><a href="#tables" class="nav-link" role="navigation" onclick="closeAllDrawers()">Tables</a></li>
+                <li class="nav-item" role="navigation"><a href="#tooltips" class="nav-link" role="navigation" onclick="closeAllDrawers()">Tooltips</a></li>
+            </ul>
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <footer class="intent-center text-center px-6 py-12" style="border-top: 1px solid var(--zi-bg-surface);">
+        <div class="container-sm">
+            <div class="animate-fade-in font-bold text-2xl text-accent mb-4">ZINTENT</div>
+            <p class="text-muted mb-4 text-sm">
+                Phase 3 COMPLETE: All 5 Steps • Zero Runtime
+            </p>
+            <div class="intent-cluster justify-center gap-4 mb-4">
+                <a href="#" class="text-sm text-muted no-underline">Documentation</a>
+                <a href="#" class="text-sm text-muted no-underline">GitHub</a>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Theme Switcher -->
+    <div class="intent-center" style="position: fixed; bottom: var(--zi-space-6); left: 0; right: 0; z-index: 1000;">
+        <div class="intent-cluster gap-3 p-3 surface-elevated rounded-full mx-auto" style="box-shadow: var(--zi-shadow-lg); width: fit-content;">
+            <button onclick="setTheme('midnight')" class="cursor-pointer" style="width: 32px; height: 32px; border-radius: 50%; background: #0f172a; border: 2px solid rgba(255,255,255,0.2);" title="Midnight"></button>
+            <button onclick="setTheme('vibrant')" class="cursor-pointer" style="width: 32px; height: 32px; border-radius: 50%; background: #ec4899; border: 2px solid rgba(255,255,255,0.2);" title="Vibrant"></button>
+            <button onclick="setTheme('forest')" class="cursor-pointer" style="width: 32px; height: 32px; border-radius: 50%; background: #10b981; border: 2px solid rgba(255,255,255,0.2);" title="Forest"></button>
+            <button onclick="setTheme('nordic')" class="cursor-pointer" style="width: 32px; height: 32px; border-radius: 50%; background: #88c0d0; border: 2px solid rgba(255,255,255,0.2);" title="Nordic"></button>
+        </div>
+    </div>
+
+    <script>
+        // Modal Functions
+        function openModal(id) {
+            closeAllModals();
+            document.getElementById('modal-backdrop').classList.add('active');
+            document.getElementById(id).classList.add('active');
+            document.body.style.overflow = 'hidden';
+        }
+
+        function closeAllModals() {
+            document.querySelectorAll('.modal, .modal-overlay').forEach(el => {
+                el.classList.remove('active');
+            });
+            document.body.style.overflow = '';
+        }
+
+        // Drawer Functions
+        function openDrawer(id) {
+            closeAllDrawers();
+            const drawer = document.getElementById(id);
+            const isLeft = drawer.classList.contains('drawer-left');
+            
+            document.getElementById(isLeft ? 'drawer-overlay-left' : 'drawer-overlay-right').classList.add('active');
+            drawer.classList.add('active');
+            document.body.style.overflow = 'hidden';
+        }
+
+        function closeAllDrawers() {
+            document.querySelectorAll('.drawer, .drawer-overlay').forEach(el => {
+                el.classList.remove('active');
+            });
+            document.body.style.overflow = '';
+        }
+
+        // Dropdown Functions
+        function toggleDropdown(id) {
+            const dropdown = document.getElementById(id);
+            const menu = dropdown.querySelector('.dropdown-menu');
+            const isOpen = menu.classList.contains('active');
+            
+            // Close all other dropdowns
+            document.querySelectorAll('.dropdown-menu').forEach(el => {
+                el.classList.remove('active');
+            });
+            document.querySelectorAll('.dropdown-chevron').forEach(el => {
+                el.classList.remove('active');
+            });
+            
+            if (!isOpen) {
+                menu.classList.add('active');
+                dropdown.querySelector('.dropdown-chevron').classList.add('active');
+            }
+        }
+
+        // Close dropdowns when clicking outside
+        document.addEventListener('click', (e) => {
+            if (!e.target.closest('.dropdown')) {
+                document.querySelectorAll('.dropdown-menu').forEach(el => {
+                    el.classList.remove('active');
+                });
+                document.querySelectorAll('.dropdown-chevron').forEach(el => {
+                    el.classList.remove('active');
+                });
+            }
+        });
+
+        // Context Menu Functions
+        function showContextMenu(e) {
+            const menu = document.getElementById('context-menu');
+            menu.style.left = e.pageX + 'px';
+            menu.style.top = e.pageY + 'px';
+            menu.classList.add('active');
+        }
+
+        document.addEventListener('click', () => {
+            document.getElementById('context-menu').classList.remove('active');
+        });
+
+        // Table Sorting Function
+        function sortTable(th) {
+            const table = th.closest('table');
+            const tbody = table.querySelector('tbody');
+            const rows = Array.from(tbody.querySelectorAll('tr'));
+            const index = Array.from(th.parentNode.children).indexOf(th);
+            
+            // Toggle sort direction
+            const isAsc = !th.classList.contains('table-sort-asc');
+            
+            // Reset all headers
+            table.querySelectorAll('.table-header-cell').forEach(cell => {
+                cell.classList.remove('table-sort-asc', 'table-sort-desc');
+            });
+            
+            // Set new sort direction
+            th.classList.add(isAsc ? 'table-sort-asc' : 'table-sort-desc');
+            
+            // Sort rows
+            rows.sort((a, b) => {
+                const aText = a.children[index].textContent.trim();
+                const bText = b.children[index].textContent.trim();
+                return isAsc ? aText.localeCompare(bText) : bText.localeCompare(aText);
+            });
+            
+            // Re-append rows in new order
+            rows.forEach(row => tbody.appendChild(row));
+        }
+        function toggleDropdown(id) {
+            const dropdown = document.getElementById(id);
+            const menu = dropdown.querySelector('.dropdown-menu');
+            const isOpen = menu.classList.contains('active');
+            
+            // Close all other dropdowns
+            document.querySelectorAll('.dropdown-menu').forEach(el => {
+                el.classList.remove('active');
+            });
+            document.querySelectorAll('.dropdown-chevron').forEach(el => {
+                el.classList.remove('active');
+            });
+            
+            if (!isOpen) {
+                menu.classList.add('active');
+                dropdown.querySelector('.dropdown-chevron').classList.add('active');
+            }
+        }
+
+        // Close dropdowns when clicking outside
+        document.addEventListener('click', (e) => {
+            if (!e.target.closest('.dropdown')) {
+                document.querySelectorAll('.dropdown-menu').forEach(el => {
+                    el.classList.remove('active');
+                });
+                document.querySelectorAll('.dropdown-chevron').forEach(el => {
+                    el.classList.remove('active');
+                });
+            }
+        });
+
+        // Context Menu Functions
+        function showContextMenu(e) {
+            const menu = document.getElementById('context-menu');
+            menu.style.left = e.pageX + 'px';
+            menu.style.top = e.pageY + 'px';
+            menu.classList.add('active');
+        }
+
+        document.addEventListener('click', () => {
+            document.getElementById('context-menu').classList.remove('active');
+        });
+
+        // Close on Escape key
+        document.addEventListener('keydown', (e) => {
+            if (e.key === 'Escape') {
+                closeAllModals();
+                closeAllDrawers();
+            }
+        });
+
+        // Loading Overlay Functions
+        function showLoadingOverlay() {
+            document.getElementById('loading-overlay').classList.add('active');
+        }
+
+        function hideLoadingOverlay() {
+            document.getElementById('loading-overlay').classList.remove('active');
+        }
+
+        // Tooltip Functions
+        function showTooltip(el) {
+            el.querySelector('.tooltip-content').classList.add('active');
+        }
+
+        function hideTooltip(el) {
+            el.querySelector('.tooltip-content').classList.remove('active');
+        }
+
+        // Popover Functions
+        function togglePopover(id) {
+            const popover = document.getElementById(id);
+            const content = popover.querySelector('.popover-content');
+            const isOpen = content.classList.contains('active');
+            
+            // Close all other popovers
+            document.querySelectorAll('.popover-content').forEach(el => {
+                el.classList.remove('active');
+            });
+            
+            if (!isOpen) {
+                content.classList.add('active');
+            }
+        }
+
+        function hidePopover(id) {
+            document.getElementById(id).querySelector('.popover-content').classList.remove('active');
+        }
+
+        // Close popovers when clicking outside
+        document.addEventListener('click', (e) => {
+            if (!e.target.closest('.popover')) {
+                document.querySelectorAll('.popover-content').forEach(el => {
+                    el.classList.remove('active');
+                });
+            }
+        });
+
+        // Theme Functions
+        function setTheme(theme) {
+            document.documentElement.setAttribute('data-theme', theme);
+            localStorage.setItem('zi-theme', theme);
+        }
+
+        const savedTheme = localStorage.getItem('zi-theme') || 'midnight';
+        setTheme(savedTheme);
+    </script>
+</body>
+</html>

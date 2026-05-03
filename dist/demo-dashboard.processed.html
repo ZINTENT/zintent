@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ZINTENT - Analytics Dashboard Demo</title>
+    <link rel="stylesheet" href="../dist/styles-dashboard.css">
+    <style>
+        /* Base specific layout for the demo to supplement intents */
+        body { margin: 0; font-family: system-ui, -apple-system, sans-serif; background-color: #f8fafc; color: #0f172a; }
+    </style>
+</head>
+<body class="zi-reset zi-base-body">
+    <!-- Sidebar Layout -->
+    <div class="intent-sidebar" style="--sidebar-width: 260px; min-height: 100vh;">
+        <!-- Sidebar Navigation -->
+        <aside class="zi-bg-white zi-border-r zi-p-6 intent-stack">
+            <div class="zi-text-xl zi-font-bold zi-mb-8 zi-text-blue-600">LogoInc</div>
+            <nav class="intent-stack" style="gap: 12px;">
+                <a href="#" class="zi-text-slate-700 zi-font-medium transition-lift" style="text-decoration: none;">Overview</a>
+                <a href="#" class="zi-text-slate-500 hover:zi-text-slate-700 transition-lift" style="text-decoration: none;">Analytics</a>
+                <a href="#" class="zi-text-slate-500 hover:zi-text-slate-700 transition-lift" style="text-decoration: none;">Reports</a>
+                <a href="#" class="zi-text-slate-500 hover:zi-text-slate-700 transition-lift" style="text-decoration: none;">Settings</a>
+            </nav>
+        </aside>
+
+        <!-- Main Content -->
+        <main class="zi-p-8 container-responsive animate-fade-in">
+            <header class="intent-cluster zi-mb-8" style="justify-content: space-between; align-items: center;">
+                <h1 class="zi-text-2xl zi-font-bold">Dashboard</h1>
+                <button class='zi-transition-standard zi-px-6 zi-py-3 zi-radius-md zi-font-bold zi-shadow-sm intent-press btn-primary btn-'  role="button" tabindex="0">Export Data</button>
+            </header>
+
+            <!-- Metrics Grid -->
+            <div class="intent-auto-grid zi-mb-8" style="--grid-min: 240px; gap: 24px;">
+                <article class='zi-bg-surface zi-border-subtle zi-shadow-md zi-radius-md zi-p-6 transition-lift'>
+                    <div class="zi-text-sm zi-text-slate-500">Total Revenue</div>
+                    <div class="zi-text-3xl zi-font-bold zi-mt-2">$45,231.89</div>
+                    <div class="zi-text-sm zi-text-emerald-500 zi-mt-2">+20.1% from last month</div>
+                </article>
+                <article class='zi-bg-surface zi-border-subtle zi-shadow-md zi-radius-md zi-p-6 transition-lift'>
+                    <div class="zi-text-sm zi-text-slate-500">Active Users</div>
+                    <div class="zi-text-3xl zi-font-bold zi-mt-2">2,350</div>
+                    <div class="zi-text-sm zi-text-emerald-500 zi-mt-2">+180 new users</div>
+                </article>
+                <article class='zi-bg-surface zi-border-subtle zi-shadow-md zi-radius-md zi-p-6 transition-lift'>
+                    <div class="zi-text-sm zi-text-slate-500">Server Load</div>
+                    <div class="zi-text-3xl zi-font-bold zi-mt-2">84%</div>
+                    <div class="zi-text-sm zi-text-rose-500 zi-mt-2">+14% since yesterday</div>
+                </article>
+            </div>
+
+            <!-- Main Chart Area -->
+            <article class='zi-bg-surface zi-border-subtle zi-shadow-md zi-radius-md zi-p-6 transition-lift'>
+                <div class="zi-text-lg zi-font-semibold zi-mb-4">Revenue Overview</div>
+                <div class="intent-center zi-bg-slate-100 zi-rounded" style="height: 300px; border: 1px dashed #cbd5e1;">
+                    <span class="zi-text-slate-400">Chart Visualization Placeholder</span>
+                </div>
+            </article>
+        </main>
+    </div>
+</body>
+</html>

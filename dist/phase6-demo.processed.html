@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="nordic">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ZINTENT Phase 6: Adaptive Layouts (Processed)</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body class="zi-base-body zi-antigravity-root">
+
+    <nav class='zi-bg-glass zi-border-b zi-border-glass zi-shadow-md' style='position: sticky; top: 0; padding: var(--zi-space-4) var(--zi-space-8); margin-bottom: var(--zi-space-12); z-index: 100; backdrop-filter: blur(12px);'>
+        <div class='intent-cluster-between'>
+            <div class='intent-cluster' style='gap: var(--zi-space-4);'>
+                <div class="zi-text-2xl zi-font-bold text-accent zi-transition-standard transition-scale">ZINTENT Phase 6</div>
+                <div class="zi-badge-primary zi-animate-pulse">Adaptive Engine</div>
+            </div>
+            <div class='intent-cluster' style='gap: var(--zi-space-4);'>
+                <button class='zi-transition-standard zi-px-6 zi-py-3 zi-radius-md zi-font-bold zi-shadow-sm intent-press btn-ghost btn-sm'>Docs</button>
+                <button class='zi-transition-standard zi-px-6 zi-py-3 zi-radius-md zi-font-bold zi-shadow-sm intent-press btn-primary btn-sm zi-shadow-glow'>Try Pro</button>
+            </div>
+        </div>
+    </nav>
+
+    <main class="zi-p-8">
+        <section class='intent-box-padded' style='padding-block: var(--zi-space-24);'>
+            <div class='intent-stack zi-text-center' style='gap: var(--zi-space-6);'>
+                <h1 class="zi-text-fluid-5xl zi-font-black zi-leading-tight zi-animate-slide-up">
+                    Zero-Runtime <br><span class="text-accent">Adaptive Layouts</span>
+                </h1>
+                <p class="zi-text-muted zi-text-fluid-lg zi-box-prose mx-auto zi-animate-fade-in delay-200">
+                    The Adaptive engine uses Container Queries to change layouts based on their container size, not the viewport. Resize the glass canvas below to see the magic.
+                </p>
+            </div>
+        </section>
+
+        <section class='intent-box-padded' style='padding-block: var(--zi-space-24);'>
+            <h2 class="zi-text-3xl zi-font-bold zi-mb-8 zi-border-b zi-border-subtle zi-pb-2">1. Adaptive Sidebar (Resizes at 700px)</h2>
+            <div class="demo-canvas zi-radius-xl zi-shadow-xl zi-border-glass zi-bg-glass">
+                <div class="intent-adaptive-sidebar zi-p-6">
+                    <div class="zi-card-elevated zi-bg-glass-heavy zi-radius-lg zi-p-6 zi-border-glass transition-lift">
+                        <div class='intent-stack' style='gap: var(--zi-space-6);'>
+                            <div class="zi-text-xl zi-font-black text-accent">Navigation</div>
+                            <nav class="zi-nav-vertical stack-sm">
+                                <a href="#" class="zi-nav-link zi-active zi-badge-primary" style="padding: 4px 12px; border-radius: 4px;">Dashboard</a>
+                                <a href="#" class="zi-nav-link zi-p-2 zi-radius-sm zi-transition-standard">Analytics</a>
+                                <a href="#" class="zi-nav-link zi-p-2 zi-radius-sm zi-transition-standard">Settings</a>
+                            </nav>
+                        </div>
+                    </div>
+                    <div class="zi-card-default zi-bg-surface zi-radius-lg zi-p-8 zi-shadow-md">
+                        <div class='intent-stack' style='gap: var(--zi-space-8);'>
+                            <h3 class="zi-text-3xl zi-font-bold">Main Content Area</h3>
+                            <p class="zi-text-muted zi-text-lg">
+                                This sidebar will automatically stack below the content when the container width drops below 700px. It uses the new <code>nested</code> intent property combined with Container Queries.
+                            </p>
+                            <div class="zi-grid-3 zi-gap-6">
+                                <div class="zi-card-flat zi-p-6 zi-bg-glass zi-radius-md zi-border-subtle zi-text-center zi-transition-standard transition-scale">
+                                    <div class="zi-text-2xl zi-font-bold">85%</div>
+                                    <div class="zi-text-xs zi-text-muted">Performance</div>
+                                </div>
+                                <div class="zi-card-flat zi-p-6 zi-bg-glass zi-radius-md zi-border-subtle zi-text-center zi-transition-standard transition-scale">
+                                    <div class="zi-text-2xl zi-font-bold">1.2kb</div>
+                                    <div class="zi-text-xs zi-text-muted">Bundle</div>
+                                </div>
+                                <div class="zi-card-flat zi-p-6 zi-bg-glass zi-radius-md zi-border-subtle zi-text-center zi-transition-standard transition-scale">
+                                    <div class="zi-text-2xl zi-font-bold">A++</div>
+                                    <div class="zi-text-xs zi-text-muted">Accessibility</div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class='intent-box-padded' style='padding-block: var(--zi-space-24);'>
+            <h2 class="zi-text-3xl zi-font-bold zi-mb-8 zi-border-b zi-border-subtle zi-pb-2">2. Zero-Runtime Component (z-card-pro)</h2>
+            <div class="zi-grid-responsive zi-gap-8">
+                <!-- Manual z-card-pro -->
+                <article class='zi-bg-glass-heavy zi-border-glass zi-shadow-xl zi-radius-lg zi-overflow-hidden transition-lift zi-transition-slow'>
+                    <header class='zi-p-6 zi-border-b zi-border-subtle zi-bg-shine'>
+                        <div class='intent-cluster-between'>
+                            <span class="zi-text-xl zi-font-black">Project Alpha</span>
+                            <span class="zi-badge-success zi-animate-pulse">Active</span>
+                        </div>
+                    </header>
+                    <div class='zi-p-8 zi-text-fluid-lg'>
+                        <p class="zi-py-4">This component was pre-rendered by the Go compiler using the new slot system. <strong>No React or Vue required</strong> for these complex layouts.</p>
+                    </div>
+                    <footer class='zi-p-6 zi-bg-glass zi-border-t zi-border-subtle'>
+                        <button class='zi-transition-standard zi-px-6 zi-py-3 zi-radius-md zi-font-bold zi-shadow-sm intent-press btn-link btn-xs'>View Details &rarr;</button>
+                    </footer>
+                </article>
+
+                <!-- Manual z-card-pro 2 -->
+                <article class='zi-bg-glass-heavy zi-border-glass zi-shadow-xl zi-radius-lg zi-overflow-hidden transition-lift zi-transition-slow'>
+                    <header class='zi-p-6 zi-border-b zi-border-subtle zi-bg-shine'>
+                        <div class='intent-cluster-between'>
+                            <span class="zi-text-xl zi-font-black">Project Beta</span>
+                            <span class="zi-badge-warning">Pending Review</span>
+                        </div>
+                    </header>
+                    <div class='zi-p-8 zi-text-fluid-lg'>
+                        <p class="zi-py-4">The compiler handles named slots and nested components with zero runtime overhead, delivering a <strong>Premium Developer Experience</strong>.</p>
+                    </div>
+                    <footer class='zi-p-6 zi-bg-glass zi-border-t zi-border-subtle'>
+                        <button class='zi-transition-standard zi-px-6 zi-py-3 zi-radius-md zi-font-bold zi-shadow-sm intent-press btn-primary btn-xs zi-shadow-glow'>Approve Now</button>
+                    </footer>
+                </article>
+            </div>
+        </section>
+
+    </main>
+
+    <footer class="zi-p-12 zi-bg-surface zi-text-center">
+        <p class="zi-text-muted">ZINTENT Phase 6 Demo &bull; Adaptive Layouts &bull; No JS required for layout changes</p>
+    </footer>
+
+</body>
+</html>

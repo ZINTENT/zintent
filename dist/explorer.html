@@ -1,0 +1,176 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="nordic">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ZINTENT Explorer</title>
+    <link rel="stylesheet" href="styles.css">
+    <style>
+        :root { --sidebar-w: 300px; }
+        body { margin: 0; display: flex; height: 100vh; background: var(--zi-bg-base); color: var(--zi-text-base); font-family: system-ui, sans-serif; overflow: hidden; }
+        .sidebar { width: var(--sidebar-w); background: var(--zi-bg-glass-heavy); border-right: 1px solid var(--zi-border-glass); backdrop-filter: blur(20px); display: flex; flex-direction: column; }
+        .main { flex: 1; overflow-y: auto; padding: var(--zi-space-8); scroll-behavior: smooth; }
+        
+        .nav-header { padding: var(--zi-space-6); border-bottom: 1px solid var(--zi-border-subtle); }
+        .search { width: 100%; padding: var(--zi-space-3); background: var(--zi-bg-surface); border: 1px solid var(--zi-neutral-700); border-radius: var(--zi-radius-md); color: white; margin-top: var(--zi-space-4); }
+        
+        .nav-list { flex: 1; overflow-y: auto; padding: var(--zi-space-2); }
+        .nav-group { margin-bottom: var(--zi-space-6); }
+        .nav-group-title { padding: var(--zi-space-2) var(--zi-space-4); font-size: 0.7rem; font-weight: 800; text-transform: uppercase; color: var(--zi-text-muted); letter-spacing: 0.1em; }
+        .nav-item { padding: var(--zi-space-2) var(--zi-space-4); cursor: pointer; border-radius: var(--zi-radius-sm); font-size: 0.9rem; transition: 0.2s; color: var(--zi-text-muted); }
+        .nav-item:hover { background: var(--zi-bg-elevated); color: var(--zi-accent-primary); }
+        .nav-item.active { background: var(--zi-accent-primary); color: white; }
+        
+        .card { background: var(--zi-bg-surface); border: 1px solid var(--zi-border-subtle); border-radius: var(--zi-radius-lg); padding: var(--zi-space-8); margin-bottom: var(--zi-space-8); box-shadow: var(--zi-shadow-md); animation: slideUp 0.4s ease-out; }
+        @keyframes slideUp { from { opacity: 0; transform: translateY(20px); } to { opacity: 1; transform: translateY(0); } }
+        
+        .code { background: #000; padding: var(--zi-space-4); border-radius: var(--zi-radius-md); font-family: ui-monospace, monospace; color: #a5b4fc; overflow-x: auto; font-size: 0.9rem; margin: var(--zi-space-4) 0; border: 1px solid var(--zi-neutral-800); }
+        .preview { background: var(--zi-bg-base); border: 1px dashed var(--zi-neutral-600); border-radius: var(--zi-radius-md); padding: var(--zi-space-8); margin-top: var(--zi-space-4); min-height: 120px; display: grid; place-items: center; position: relative; overflow: hidden; }
+        .preview::before { content: 'PREVIEW'; position: absolute; top: 8px; right: 8px; font-size: 0.6rem; font-weight: 900; opacity: 0.2; letter-spacing: 0.2em; }
+    </style>
+</head>
+<body class="zi-antigravity-root">
+    <aside class="sidebar">
+        <div class="nav-header">
+            <div class="zi-text-2xl zi-font-black text-accent">ZINTENT <span class="zi-text-xs zi-text-muted" style="font-weight: 400;">EXPLORER</span></div>
+            <input type="text" class="search" placeholder="Filter intents..." id="filter">
+        </div>
+        <div class="nav-list" id="navList"></div>
+    </aside>
+    
+    <main class="main" id="main">
+        <div id="welcome">
+            <h1 class="zi-text-fluid-5xl zi-font-black">Design <span class="text-accent">System</span> Explorer</h1>
+            <p class="zi-text-muted zi-text-fluid-lg zi-box-prose">Select any intent or macro from the sidebar to view its specification, generated CSS, and a live rendering.</p>
+            <div class="zi-grid-3 zi-gap-6 zi-mt-12">
+                <div class="zi-card-flat zi-p-6">
+                    <div class="zi-text-xl zi-font-bold text-accent">Intents</div>
+                    <p class="zi-text-sm">Semantic styling utilities powered by the core engine.</p>
+                </div>
+                <div class="zi-card-flat zi-p-6">
+                    <div class="zi-text-xl zi-font-bold text-accent">Macros</div>
+                    <p class="zi-text-sm">Zero-runtime components with props and named slots.</p>
+                </div>
+                <div class="zi-card-flat zi-p-6">
+                    <div class="zi-text-xl zi-font-bold text-accent">Themes</div>
+                    <p class="zi-text-sm">High-fidelity tokens including glassmorphism and depth.</p>
+                </div>
+            </div>
+        </div>
+        <div id="inspector"></div>
+    </main>
+
+    <script>
+        const registry = {
+            "intent-adaptive-sidebar": { "styles": "display: grid; grid-template-columns: repeat(auto-fit, minmax(min(100%, 300px), 1fr)); gap: var(--zi-space-8);" },
+            "zi-bg-glass": { "styles": "background: var(--zi-bg-glass); backdrop-filter: blur(8px);" },
+            "zi-bg-shine": { "styles": "background-image: var(--zi-bg-shine);" },
+            "zi-shadow-xl": { "styles": "box-shadow: var(--zi-shadow-xl);" },
+            "intent-masonry": { "styles": "column-count: 3; column-gap: var(--zi-space-6); break-inside: avoid;" },
+            "transition-lift": { "styles": "transition: transform var(--zi-duration-fast) var(--zi-ease-spring), box-shadow var(--zi-duration-normal) var(--zi-ease-smooth);" }
+        };
+        const components = {
+            "z-btn": "<button class='zi-transition-standard zi-px-6 zi-py-3 zi-radius-md zi-font-bold zi-shadow-sm intent-press btn-{{variant}} btn-{{size}}' {{attributes}}>{{content}}</button>",
+            "z-card-pro": "<article class='zi-bg-glass-heavy zi-border-glass zi-shadow-xl zi-radius-lg zi-overflow-hidden transition-lift zi-transition-slow'><header class='zi-p-6 zi-border-b zi-border-subtle zi-bg-shine'>{{slot_header}}</header><div class='zi-p-8 zi-text-fluid-lg'>{{content}}</div><footer class='zi-p-6 zi-bg-glass zi-border-t zi-border-subtle'>{{slot_footer}}</footer></article>",
+            "z-nav": "<nav class='zi-bg-glass zi-border-b zi-border-glass zi-shadow-md' style='...'>{{content}}</nav>"
+        };
+        
+        const navList = document.getElementById('navList');
+        const inspector = document.getElementById('inspector');
+        const welcome = document.getElementById('welcome');
+        const filterInput = document.getElementById('filter');
+
+        function renderNav(query = '') {
+            navList.innerHTML = '';
+            
+            // Render Macros
+            const mGroup = createGroup('Components (Macros)');
+            Object.keys(components).sort().forEach(name => {
+                if (name.toLowerCase().includes(query.toLowerCase())) {
+                    mGroup.appendChild(createItem(name, () => inspectMacro(name)));
+                }
+            });
+            if (mGroup.children.length > 1) navList.appendChild(mGroup);
+
+            // Render Intents
+            const iGroup = createGroup('Styling (Intents)');
+            Object.keys(registry).sort().forEach(name => {
+                if (name.toLowerCase().includes(query.toLowerCase())) {
+                    iGroup.appendChild(createItem(name, () => inspectIntent(name)));
+                }
+            });
+            if (iGroup.children.length > 1) navList.appendChild(iGroup);
+        }
+
+        function createGroup(title) {
+            const div = document.createElement('div');
+            div.className = 'nav-group';
+            div.innerHTML = `<div class="nav-group-title">${title}</div>`;
+            return div;
+        }
+
+        function createItem(text, onClick) {
+            const div = document.createElement('div');
+            div.className = 'nav-item';
+            div.innerText = text;
+            div.onclick = (e) => {
+                document.querySelectorAll('.nav-item').forEach(i => i.classList.remove('active'));
+                div.classList.add('active');
+                onClick();
+            };
+            return div;
+        }
+
+        function inspectMacro(name) {
+            welcome.style.display = 'none';
+            const template = components[name];
+            
+            // Expansion demo
+            let demo = template.replace(/{{content}}/g, 'Macro Content Block')
+                               .replace(/{{slot_header}}/g, 'Header Slot Content')
+                               .replace(/{{slot_footer}}/g, 'Footer Slot Content')
+                               .replace(/{{attributes}}/g, '')
+                               .replace(/{{variant}}/g, 'primary')
+                               .replace(/{{size}}/g, 'md');
+
+            inspector.innerHTML = `
+                <div class="card">
+                    <h2 class="zi-text-3xl zi-font-black text-accent">${name}</h2>
+                    <p class="zi-text-muted">Zero-Runtime Component Definition</p>
+                    <div class="code">${template.replace(/</g, '&lt;').replace(/>/g, '&gt;')}</div>
+                    
+                    <h3 class="zi-text-xl zi-font-bold zi-mt-8">Live Rendering</h3>
+                    <div class="preview">
+                        ${demo}
+                    </div>
+                </div>
+            `;
+        }
+
+        function inspectIntent(name) {
+            welcome.style.display = 'none';
+            const intent = registry[name];
+            inspector.innerHTML = `
+                <div class="card">
+                    <h2 class="zi-text-3xl zi-font-black text-accent">${name}</h2>
+                    <p class="zi-text-muted">Semantic Intent Utility</p>
+                    <div class="code">
+.intent-${name} {
+${intent.styles.split(';').map(s => '  ' + s.trim()).join(';\n')}
+}</div>
+                    
+                    <h3 class="zi-text-xl zi-font-bold zi-mt-8">Visual Preview</h3>
+                    <div class="preview">
+                        <div class="intent-${name} zi-p-8 zi-bg-glass zi-radius-lg zi-border-glass" style="min-width: 200px; text-align: center;">
+                            The ${name} Intent
+                        </div>
+                    </div>
+                </div>
+            `;
+        }
+
+        filterInput.oninput = (e) => renderNav(e.target.value);
+        renderNav();
+    </script>
+</body>
+</html>

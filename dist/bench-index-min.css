@@ -1,0 +1,907 @@
+/* ZINTENT v2.0 Generated Styles */
+/* Features: Container-First, Tokens, Animations, Antigravity */
+
+@layer zi-tokens, zi-themes, zi-core, zi-intents;
+
+/* === core/tokens.css === */
+@layer zi-tokens {
+:root {
+    /* Semantic Color Intent */
+    --zi-accent-primary: #6366f1;
+    --zi-accent-secondary: #a855f7;
+    --zi-accent-glow: rgba(99, 102, 241, 0.4);
+    
+    --zi-bg-base: #0f172a;
+    --zi-bg-surface: #1e293b;
+    --zi-bg-glass: rgba(30, 41, 59, 0.7);
+    --zi-bg-glass-heavy: rgba(15, 23, 42, 0.85);
+    --zi-bg-elevated: rgba(255, 255, 255, 0.05);
+    --zi-bg-shine: linear-gradient(110deg, rgba(255,255,255,0) 0%, rgba(255,255,255,0.05) 50%, rgba(255,255,255,0) 100%);
+    
+    --zi-text-base: #f8fafc;
+    --zi-text-muted: #94a3b8;
+    --zi-text-accent: #818cf8;
+    
+    --zi-border-subtle: rgba(255, 255, 255, 0.08);
+    --zi-border-strong: rgba(255, 255, 255, 0.15);
+    --zi-border-glass: rgba(255, 255, 255, 0.1);
+
+    /* Neutral Scale (Alpha, theme-friendly) */
+    --zi-neutral-500: rgba(255, 255, 255, 0.28);
+    --zi-neutral-600: rgba(255, 255, 255, 0.18);
+    --zi-neutral-700: rgba(255, 255, 255, 0.12);
+    --zi-neutral-800: rgba(255, 255, 255, 0.08);
+
+    /* State Colors */
+    --zi-success-500: #10b981;
+    --zi-warning-500: #f59e0b;
+    --zi-error-500: #ef4444;
+    --zi-info-500: #3b82f6;
+
+    /* Spacing System (Intent-Based) */
+    --zi-space-1: 0.25rem;
+    --zi-space-2: 0.5rem;
+    --zi-space-3: 0.75rem;
+    --zi-space-4: 1rem;
+    --zi-space-6: 1.5rem;
+    --zi-space-8: 2rem;
+    --zi-space-12: 3rem;
+    --zi-space-24: 6rem;
+
+    /* Radius Engine */
+    --zi-radius-sm: 0.375rem;
+    --zi-radius-md: 0.5rem;
+    --zi-radius-lg: 1rem;
+    --zi-radius-xl: 1.5rem;
+    --zi-radius-full: 9999px;
+
+    /* Shadow Engine (High Fidelity) */
+    --zi-shadow-sm: 0 1px 2px 0 rgb(0 0 0 / 0.05);
+    --zi-shadow-md: 0 4px 6px -1px rgb(0 0 0 / 0.1), 0 24px 30px -1px rgb(0 0 0 / 0.1);
+    --zi-shadow-lg: 0 10px 15px -3px rgb(0 0 0 / 0.1), 0 4px 6px -4px rgb(0 0 0 / 0.1);
+    --zi-shadow-xl: 0 20px 25px -5px rgb(0 0 0 / 0.35), 0 10px 10px -5px rgb(0 0 0 / 0.25);
+    --zi-shadow-glow: 0 0 20px 0 var(--zi-accent-glow);
+
+    /* Font Scale */
+    --zi-font-xs: 0.75rem;
+    --zi-font-sm: 0.875rem;
+    --zi-font-base: 1rem;
+    --zi-font-lg: 1.125rem;
+    --zi-font-xl: 1.25rem;
+    --zi-font-2xl: 1.5rem;
+
+    /* Duration + Easing */
+    --zi-duration-fast: 150ms;
+    --zi-duration-normal: 300ms;
+    --zi-duration-slow: 500ms;
+
+    --zi-ease-out: cubic-bezier(0, 0, 0.2, 1);
+    --zi-ease-smooth: cubic-bezier(0.4, 0, 0.2, 1);
+    --zi-ease-spring: cubic-bezier(0.34, 1.56, 0.64, 1);
+    --zi-ease-bounce: cubic-bezier(0.68, -0.55, 0.265, 1.55);
+
+    /* Transition Engine */
+    --zi-transition-fast: 150ms cubic-bezier(0.4, 0, 0.2, 1);
+    --zi-transition-normal: 300ms cubic-bezier(0.4, 0, 0.2, 1);
+    --zi-transition-standard: 300ms cubic-bezier(0.4, 0, 0.2, 1);
+    --zi-transition-slow: 500ms cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+/* Typography Overrides */
+html {
+    font-family: 'Inter', system-ui, -apple-system, sans-serif;
+    color: var(--zi-text-base);
+    background-color: var(--zi-bg-base);
+}
+
+}
+
+/* === core/themes.css === */
+@layer zi-themes {
+/* ZINTENT Theme Library */
+
+[data-theme="midnight"] {
+    --zi-accent-primary: #6366f1;
+    --zi-accent-secondary: #a855f7;
+    --zi-bg-base: #0f172a;
+    --zi-bg-surface: #1e293b;
+    --zi-text-base: #f8fafc;
+    --zi-text-muted: #94a3b8;
+}
+
+[data-theme="vibrant"] {
+    --zi-accent-primary: #ec4899;
+    --zi-accent-secondary: #f59e0b;
+    --zi-bg-base: #4c0519;
+    --zi-bg-surface: #881337;
+    --zi-text-base: #fff1f2;
+    --zi-text-muted: #fecdd3;
+}
+
+[data-theme="forest"] {
+    --zi-accent-primary: #10b981;
+    --zi-accent-secondary: #3b82f6;
+    --zi-bg-base: #064e3b;
+    --zi-bg-surface: #065f46;
+    --zi-text-base: #ecfdf5;
+    --zi-text-muted: #6ee7b7;
+}
+
+[data-theme="light"] {
+    --zi-accent-primary: #4f46e5;
+    --zi-accent-secondary: #7c3aed;
+    --zi-bg-base: #f8fafc;
+    --zi-bg-surface: #ffffff;
+    --zi-text-base: #0f172a;
+    --zi-text-muted: #475569;
+
+    --zi-bg-elevated: rgba(0, 0, 0, 0.04);
+    --zi-neutral-500: rgba(0, 0, 0, 0.28);
+    --zi-neutral-600: rgba(0, 0, 0, 0.18);
+    --zi-neutral-700: rgba(0, 0, 0, 0.12);
+    --zi-neutral-800: rgba(0, 0, 0, 0.08);
+
+    --zi-shadow-xl: 0 20px 25px -5px rgb(0 0 0 / 0.12), 0 10px 10px -5px rgb(0 0 0 / 0.10);
+}
+
+[data-theme="nordic"] {
+    --zi-accent-primary: #88c0d0;
+    --zi-accent-secondary: #81a1c1;
+    --zi-bg-base: #2e3440;
+    --zi-bg-surface: #3b4252;
+    --zi-bg-glass: rgba(59, 66, 82, 0.7);
+    --zi-bg-glass-heavy: rgba(46, 52, 64, 0.9);
+    --zi-text-base: #eceff4;
+    --zi-text-muted: #d8dee9;
+    --zi-border-subtle: rgba(216, 222, 233, 0.1);
+    --zi-border-strong: rgba(216, 222, 233, 0.2);
+    --zi-shadow-xl: 0 25px 50px -12px rgba(0, 0, 0, 0.5);
+}
+
+[data-theme="high-contrast"] {
+    --zi-accent-primary: #ffff00; /* Pure Yellow */
+    --zi-accent-secondary: #00ffff; /* Pure Cyan */
+    --zi-bg-base: #000000; /* Pure Black */
+    --zi-bg-surface: #000000;
+    --zi-text-base: #ffffff; /* Pure White */
+    --zi-text-muted: #ffffff;
+    
+    --zi-accent-glow: #ffffff;
+    --zi-bg-glass: #000000;
+    --zi-bg-elevated: #000000;
+    
+    --zi-neutral-500: #ffffff;
+    --zi-neutral-600: #ffffff;
+    --zi-neutral-700: #ffffff;
+    --zi-neutral-800: #ffffff;
+
+    --zi-shadow-sm: none;
+    --zi-shadow-md: none;
+    --zi-shadow-lg: none;
+    --zi-shadow-xl: none;
+    --zi-shadow-glow: 0 0 0 2px #ffffff;
+    
+    border: 2px solid #ffffff;
+}
+
+}
+
+/* === core/a11y.css === */
+@layer zi-core {
+/* ZINTENT Accessibility + Modern Platform Helpers */
+
+/* Screen reader only */
+.sr-only {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  border-width: 0;
+}
+
+.not-sr-only {
+  position: static;
+  width: auto;
+  height: auto;
+  padding: 0;
+  margin: 0;
+  overflow: visible;
+  clip: auto;
+  white-space: normal;
+}
+
+/* Prefer focus-visible when supported */
+@supports selector(:focus-visible) {
+  .focus-ring:focus { box-shadow: none; }
+  .focus-ring:focus-visible { box-shadow: 0 0 0 3px var(--zi-accent-glow); }
+}
+
+/* RTL helpers (opt-in via class) */
+[dir="rtl"] .rtl\:flip-row {
+  flex-direction: row-reverse;
+}
+
+[dir="rtl"] .rtl\:text-right {
+  text-align: right;
+}
+
+/* Popover API baseline styling (no JS required) */
+[popover] {
+  border: 1px solid var(--zi-neutral-700);
+  border-radius: var(--zi-radius-lg);
+  background: var(--zi-bg-surface);
+  color: var(--zi-text-base);
+  box-shadow: var(--zi-shadow-xl);
+  padding: var(--zi-space-4);
+}
+
+[popover]::backdrop {
+  background: rgba(0, 0, 0, 0.45);
+}
+
+[popover]:popover-open {
+  outline: none;
+}
+
+/* Anchor positioning (progressive enhancement) */
+@supports (anchor-name: --zi-a) and (position-anchor: --zi-a) {
+  /* .anchor-a and .popover-anchor-a are generated from intents for tree-shaking.
+     These rules add the actual positioning behavior when the platform supports it. */
+  .popover-anchor-a {
+    position: fixed;
+    top: anchor(--zi-a bottom);
+    left: anchor(--zi-a left);
+    margin-top: var(--zi-space-2);
+    bottom: auto;
+    right: auto;
+  }
+}
+
+/* View Transitions API helpers */
+@supports (view-transition-name: none) {
+  .vt-none { view-transition-name: none; }
+  .vt-root { view-transition-name: zi-root; }
+}
+
+}
+
+/* === core/animations.css === */
+@layer zi-core {
+/* ZINTENT Intent-Driven Animation Engine */
+/* Physics-based animations with accessibility-first approach */
+
+/* ========================================
+   REDUCED MOTION SUPPORT (First Priority)
+   ======================================== */
+@media (prefers-reduced-motion: reduce) {
+    *,
+    *::before,
+    *::after {
+        animation-duration: 0.01ms !important;
+        animation-iteration-count: 1 !important;
+        transition-duration: 0.01ms !important;
+        scroll-behavior: auto !important;
+    }
+    
+    .intent-animate,
+    .transition-bounce,
+    .transition-fade,
+    .transition-slide,
+    .transition-scale,
+    .transition-lift,
+    .transition-pulse,
+    .transition-shake,
+    .transition-spin,
+    .transition-flip {
+        animation: none !important;
+        transition: none !important;
+    }
+}
+
+/* ========================================
+   EASING FUNCTIONS (Physics-Based)
+   ======================================== */
+:root {
+    /* Standard easings */
+    --zi-ease-linear: linear;
+    --zi-ease-in: cubic-bezier(0.4, 0, 1, 1);
+    --zi-ease-out: cubic-bezier(0, 0, 0.2, 1);
+    --zi-ease-in-out: cubic-bezier(0.4, 0, 0.2, 1);
+    
+    /* Physics-based easings */
+    --zi-ease-bounce: cubic-bezier(0.68, -0.55, 0.265, 1.55);
+    --zi-ease-spring: cubic-bezier(0.175, 0.885, 0.32, 1.275);
+    --zi-ease-elastic: cubic-bezier(0.68, -0.6, 0.32, 1.6);
+    --zi-ease-smooth: cubic-bezier(0.4, 0, 0.2, 1);
+    --zi-ease-snappy: cubic-bezier(0.4, 0, 0.6, 1);
+    --zi-ease-dramatic: cubic-bezier(0.87, 0, 0.13, 1);
+    --zi-ease-overshoot: cubic-bezier(0.34, 1.56, 0.64, 1);
+    
+    /* Duration scale */
+    --zi-duration-instant: 0ms;
+    --zi-duration-fast: 150ms;
+    --zi-duration-normal: 300ms;
+    --zi-duration-slow: 500ms;
+    --zi-duration-slower: 700ms;
+    --zi-duration-dramatic: 1000ms;
+}
+
+/* ========================================
+   INTENT-BASED TRANSITIONS
+   ======================================== */
+
+/* Fade Intent */
+.transition-fade {
+    transition: opacity var(--zi-duration-normal) var(--zi-ease-smooth);
+}
+.transition-fade:hover,
+.transition-fade:focus {
+    opacity: 0.8;
+}
+
+/* Lift Intent (Elevate on hover) */
+.transition-lift {
+    transition: transform var(--zi-duration-fast) var(--zi-ease-spring),
+                box-shadow var(--zi-duration-normal) var(--zi-ease-smooth);
+    will-change: transform, box-shadow;
+}
+.transition-lift:hover,
+.transition-lift:focus {
+    transform: translateY(-4px);
+    box-shadow: var(--zi-shadow-lg);
+}
+
+/* Scale Intent */
+.transition-scale {
+    transition: transform var(--zi-duration-fast) var(--zi-ease-spring);
+    will-change: transform;
+}
+.transition-scale:hover,
+.transition-scale:focus {
+    transform: scale(1.05);
+}
+.transition-scale-sm:hover,
+.transition-scale-sm:focus {
+    transform: scale(1.02);
+}
+.transition-scale-lg:hover,
+.transition-scale-lg:focus {
+    transform: scale(1.1);
+}
+
+/* Bounce Intent */
+.transition-bounce {
+    transition: transform var(--zi-duration-normal) var(--zi-ease-bounce);
+    will-change: transform;
+}
+.transition-bounce:hover,
+.transition-bounce:focus {
+    transform: scale(1.05) translateY(-2px);
+}
+
+/* Slide Intents */
+.transition-slide-up {
+    transition: transform var(--zi-duration-normal) var(--zi-ease-out);
+    will-change: transform;
+}
+.transition-slide-up:hover,
+.transition-slide-up:focus {
+    transform: translateY(-8px);
+}
+
+.transition-slide-right {
+    transition: transform var(--zi-duration-normal) var(--zi-ease-out);
+    will-change: transform;
+}
+.transition-slide-right:hover,
+.transition-slide-right:focus {
+    transform: translateX(8px);
+}
+
+/* Glow Intent */
+.transition-glow {
+    transition: box-shadow var(--zi-duration-normal) var(--zi-ease-smooth),
+                border-color var(--zi-duration-fast) var(--zi-ease-smooth);
+}
+.transition-glow:hover,
+.transition-glow:focus {
+    box-shadow: 0 0 20px var(--zi-accent-glow), 0 0 40px var(--zi-accent-glow);
+    border-color: var(--zi-accent-primary);
+}
+
+/* Shake Intent (for attention) */
+@keyframes intent-shake {
+    0%, 100% { transform: translateX(0); }
+    10%, 30%, 50%, 70%, 90% { transform: translateX(-4px); }
+    20%, 40%, 60%, 80% { transform: translateX(4px); }
+}
+
+.transition-shake:hover,
+.transition-shake:focus {
+    animation: intent-shake 0.5s var(--zi-ease-in-out);
+}
+
+/* Pulse Intent */
+@keyframes intent-pulse {
+    0%, 100% { opacity: 1; }
+    50% { opacity: 0.5; }
+}
+
+.transition-pulse {
+    animation: intent-pulse 2s var(--zi-ease-in-out) infinite;
+}
+
+/* Spin Intent */
+@keyframes intent-spin {
+    from { transform: rotate(0deg); }
+    to { transform: rotate(360deg); }
+}
+
+.transition-spin:hover,
+.transition-spin:focus {
+    animation: intent-spin 1s var(--zi-ease-in-out);
+}
+
+/* Flip Intent */
+.transition-flip {
+    transition: transform var(--zi-duration-slow) var(--zi-ease-spring);
+    transform-style: preserve-3d;
+    will-change: transform;
+}
+.transition-flip:hover,
+.transition-flip:focus {
+    transform: rotateY(180deg);
+}
+
+/* ========================================
+   INTENT-BASED ANIMATIONS (Keyframe)
+   ======================================== */
+
+/* Entrance: Fade In */
+@keyframes intent-fade-in {
+    from { opacity: 0; }
+    to { opacity: 1; }
+}
+
+.animate-fade-in {
+    animation: intent-fade-in var(--zi-duration-normal) var(--zi-ease-out) forwards;
+}
+
+/* Entrance: Slide Up */
+@keyframes intent-slide-up {
+    from { 
+        opacity: 0;
+        transform: translateY(20px);
+    }
+    to { 
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.animate-slide-up {
+    animation: intent-slide-up var(--zi-duration-normal) var(--zi-ease-out) forwards;
+}
+
+/* Entrance: Scale In */
+@keyframes intent-scale-in {
+    from { 
+        opacity: 0;
+        transform: scale(0.9);
+    }
+    to { 
+        opacity: 1;
+        transform: scale(1);
+    }
+}
+
+.animate-scale-in {
+    animation: intent-scale-in var(--zi-duration-normal) var(--zi-ease-spring) forwards;
+}
+
+/* Entrance: Bounce In */
+@keyframes intent-bounce-in {
+    0% { 
+        opacity: 0;
+        transform: scale(0.3);
+    }
+    50% { 
+        transform: scale(1.05);
+    }
+    70% { 
+        transform: scale(0.9);
+    }
+    100% { 
+        opacity: 1;
+        transform: scale(1);
+    }
+}
+
+.animate-bounce-in {
+    animation: intent-bounce-in var(--zi-duration-slow) var(--zi-ease-bounce) forwards;
+}
+
+/* Exit: Fade Out */
+@keyframes intent-fade-out {
+    from { opacity: 1; }
+    to { opacity: 0; }
+}
+
+.animate-fade-out {
+    animation: intent-fade-out var(--zi-duration-normal) var(--zi-ease-in) forwards;
+}
+
+/* Exit: Slide Out */
+@keyframes intent-slide-out {
+    from { 
+        opacity: 1;
+        transform: translateX(0);
+    }
+    to { 
+        opacity: 0;
+        transform: translateX(-20px);
+    }
+}
+
+.animate-slide-out {
+    animation: intent-slide-out var(--zi-duration-normal) var(--zi-ease-in) forwards;
+}
+
+/* Attention: Pop */
+@keyframes intent-pop {
+    0%, 100% { transform: scale(1); }
+    50% { transform: scale(1.1); }
+}
+
+.animate-pop {
+    animation: intent-pop 0.3s var(--zi-ease-spring);
+}
+
+/* Attention: Wiggle */
+@keyframes intent-wiggle {
+    0%, 100% { transform: rotate(-3deg); }
+    50% { transform: rotate(3deg); }
+}
+
+.animate-wiggle {
+    animation: intent-wiggle 0.3s var(--zi-ease-in-out) 2;
+}
+
+/* Loading: Skeleton Shimmer */
+@keyframes intent-shimmer {
+    0% { background-position: -200% 0; }
+    100% { background-position: 200% 0; }
+}
+
+.animate-shimmer {
+    background: linear-gradient(
+        90deg,
+        var(--zi-bg-surface) 25%,
+        var(--zi-bg-elevated) 50%,
+        var(--zi-bg-surface) 75%
+    );
+    background-size: 200% 100%;
+    animation: intent-shimmer 1.5s infinite;
+}
+
+/* Loading: Spinner */
+@keyframes intent-spin-infinite {
+    from { transform: rotate(0deg); }
+    to { transform: rotate(360deg); }
+}
+
+.animate-spin {
+    animation: intent-spin-infinite 1s linear infinite;
+}
+
+/* Loading: Pulse Ring */
+@keyframes intent-pulse-ring {
+    0% {
+        transform: scale(0.8);
+        opacity: 1;
+    }
+    100% {
+        transform: scale(1.5);
+        opacity: 0;
+    }
+}
+
+.animate-pulse-ring::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    border: 2px solid var(--zi-accent-primary);
+    border-radius: inherit;
+    animation: intent-pulse-ring 1.5s var(--zi-ease-out) infinite;
+}
+
+/* ========================================
+   SCROLL-DRIVEN ANIMATIONS (Modern CSS)
+   ======================================== */
+
+/* View Timeline Animation Support */
+@supports (animation-timeline: view()) {
+    .animate-on-scroll {
+        animation: intent-fade-in linear both;
+        animation-timeline: view();
+        animation-range: entry 25% cover 50%;
+    }
+    
+    .animate-parallax {
+        animation: intent-parallax linear;
+        animation-timeline: scroll();
+    }
+    
+    @keyframes intent-parallax {
+        from { transform: translateY(0); }
+        to { transform: translateY(-100px); }
+    }
+    
+    .animate-reveal {
+        animation: intent-reveal linear both;
+        animation-timeline: view();
+        animation-range: entry 10% cover 40%;
+    }
+    
+    @keyframes intent-reveal {
+        from {
+            opacity: 0;
+            clip-path: inset(0 100% 0 0);
+        }
+        to {
+            opacity: 1;
+            clip-path: inset(0 0 0 0);
+        }
+    }
+}
+
+/* ========================================
+   STAGGER ANIMATION SUPPORT
+   ======================================== */
+
+.stagger-children > * {
+    opacity: 0;
+    animation: intent-slide-up var(--zi-duration-normal) var(--zi-ease-out) forwards;
+}
+
+.stagger-children > *:nth-child(1) { animation-delay: 0ms; }
+.stagger-children > *:nth-child(2) { animation-delay: 100ms; }
+.stagger-children > *:nth-child(3) { animation-delay: 200ms; }
+.stagger-children > *:nth-child(4) { animation-delay: 300ms; }
+.stagger-children > *:nth-child(5) { animation-delay: 400ms; }
+.stagger-children > *:nth-child(6) { animation-delay: 500ms; }
+
+/* ========================================
+   COMPOUND INTENT ANIMATIONS
+   ======================================== */
+
+/* Card Hover: Lift + Glow */
+.intent-card-hover {
+    transition: transform var(--zi-duration-fast) var(--zi-ease-spring),
+                box-shadow var(--zi-duration-normal) var(--zi-ease-smooth),
+                border-color var(--zi-duration-fast) var(--zi-ease-smooth);
+    will-change: transform, box-shadow;
+}
+
+.intent-card-hover:hover {
+    transform: translateY(-6px) scale(1.02);
+    box-shadow: var(--zi-shadow-xl), 0 0 30px var(--zi-accent-glow);
+}
+
+/* Button Press: Scale Down */
+.intent-press:active {
+    transform: scale(0.98);
+    transition: transform var(--zi-duration-instant);
+}
+
+/* Link Hover: Slide + Underline */
+.intent-link {
+    position: relative;
+    transition: color var(--zi-duration-fast) var(--zi-ease-smooth);
+}
+
+.intent-link::after {
+    content: '';
+    position: absolute;
+    bottom: -2px;
+    left: 0;
+    width: 0;
+    height: 2px;
+    background: var(--zi-accent-primary);
+    transition: width var(--zi-duration-normal) var(--zi-ease-out);
+}
+
+.intent-link:hover::after {
+    width: 100%;
+}
+
+/* ========================================
+   DELAY UTILITIES
+   ======================================== */
+
+.delay-0 { animation-delay: 0ms; }
+.delay-100 { animation-delay: 100ms; }
+.delay-200 { animation-delay: 200ms; }
+.delay-300 { animation-delay: 300ms; }
+.delay-400 { animation-delay: 400ms; }
+.delay-500 { animation-delay: 500ms; }
+.delay-700 { animation-delay: 700ms; }
+.delay-1000 { animation-delay: 1000ms; }
+
+/* ========================================
+   DURATION UTILITIES
+   ======================================== */
+
+.duration-instant { animation-duration: var(--zi-duration-instant); transition-duration: var(--zi-duration-instant); }
+.duration-fast { animation-duration: var(--zi-duration-fast); transition-duration: var(--zi-duration-fast); }
+.duration-normal { animation-duration: var(--zi-duration-normal); transition-duration: var(--zi-duration-normal); }
+.duration-slow { animation-duration: var(--zi-duration-slow); transition-duration: var(--zi-duration-slow); }
+.duration-slower { animation-duration: var(--zi-duration-slower); transition-duration: var(--zi-duration-slower); }
+
+/* ========================================
+   FILL MODE UTILITIES
+   ======================================== */
+
+.fill-forwards { animation-fill-mode: forwards; }
+.fill-backwards { animation-fill-mode: backwards; }
+.fill-both { animation-fill-mode: both; }
+
+/* ========================================
+   ITERATION UTILITIES
+   ======================================== */
+
+.iteration-1 { animation-iteration-count: 1; }
+.iteration-2 { animation-iteration-count: 2; }
+.iteration-3 { animation-iteration-count: 3; }
+.iteration-infinite { animation-iteration-count: infinite; }
+
+/* ========================================
+   PLAY STATE UTILITIES
+   ======================================== */
+
+.animate-paused { animation-play-state: paused; }
+.animate-running { animation-play-state: running; }
+
+/* ========================================
+   PROGRESS & LOADING ANIMATIONS
+   ======================================== */
+
+@keyframes spinner {
+    to { transform: rotate(360deg); }
+}
+
+@keyframes dot-bounce {
+    0%, 80%, 100% { transform: scale(0); }
+    40% { transform: scale(1); }
+}
+
+@keyframes skeleton-loading {
+    0% { background-position: 200% 0; }
+    100% { background-position: -200% 0; }
+}
+
+@keyframes progress-bar-stripes {
+    from { background-position: 1rem 0; }
+    to { background-position: 0 0; }
+}
+
+@keyframes progress-grow {
+    from { transform: scaleX(0); }
+    to { transform: scaleX(1); }
+}
+
+/* ========================================
+   VIEW TRANSITIONS (Custom Recipes)
+   ======================================== */
+
+::view-transition-group(zi-root) {
+    animation-duration: 0.5s;
+    animation-timing-function: var(--zi-ease-smooth);
+}
+
+::view-transition-old(vt-fade) {
+    animation: 0.3s ease-in both intent-fade-out;
+}
+::view-transition-new(vt-fade) {
+    animation: 0.3s ease-out both intent-fade-in;
+}
+
+::view-transition-old(vt-slide) {
+    animation: 0.5s var(--zi-ease-in) both intent-slide-out;
+}
+::view-transition-new(vt-slide) {
+    animation: 0.5s var(--zi-ease-spring) both intent-slide-up;
+}
+
+::view-transition-old(vt-morph) {
+    animation: 0.4s var(--zi-ease-smooth) both intent-fade-out,
+               0.4s var(--zi-ease-smooth) both intent-scale-down;
+}
+::view-transition-new(vt-morph) {
+    animation: 0.4s var(--zi-ease-spring) both intent-fade-in,
+               0.4s var(--zi-ease-spring) both intent-scale-in;
+}
+
+@keyframes intent-scale-down {
+    from { transform: scale(1); }
+    to { transform: scale(0.8); }
+}
+
+
+}
+
+/* === Generated Intent Classes === */
+@layer zi-intents {
+  .zi-radius-md {
+    border-radius: var(--zi-radius-md);
+  }
+
+  .zi-border-subtle {
+    border: 1px solid var(--zi-border-subtle);
+  }
+
+  .zi-shadow-md {
+    box-shadow: var(--zi-shadow-md);
+  }
+
+  .auto-layout {
+    display: flex; flex-direction: column; gap: var(--zi-space-4);
+  }
+
+  .center-content {
+    display: grid; place-items: center; text-align: center;
+  }
+
+  .btn-primary {
+    display: inline-flex; align-items: center; justify-content: center; gap: var(--zi-space-2); padding: var(--zi-space-3) var(--zi-space-5); background: var(--zi-accent-primary); color: white; border-radius: var(--zi-radius-lg); font-weight: 500; cursor: pointer; border: none; transition: all var(--zi-transition-fast);
+    &:hover {
+    background: var(--zi-accent-secondary); transform: translateY(-2px); box-shadow: var(--zi-shadow-md);
+    }
+    &:focus {
+    outline: none; box-shadow: 0 0 0 3px var(--zi-accent-glow);
+    }
+  }
+
+  .transition-lift {
+    transition: transform var(--zi-duration-fast) var(--zi-ease-spring), box-shadow var(--zi-duration-normal) var(--zi-ease-smooth); will-change: transform, box-shadow;
+    &:hover {
+    transform: translateY(-4px); box-shadow: var(--zi-shadow-lg);
+    }
+  }
+
+  .interaction-lift {
+    transition: transform var(--zi-transition-fast), box-shadow var(--zi-transition-normal); will-change: transform, box-shadow;
+    &:hover {
+    transform: translateY(-4px); box-shadow: var(--zi-shadow-lg);
+    }
+  }
+
+}
+
+
+/* === Container Query Support Detection === */
+@layer zi-core {
+  @supports not (container-type: inline-size) {
+    .container-responsive,
+    .container-layout,
+    .container-auto,
+    .intent-responsive {
+      width: 100%;
+    }
+  }
+}
+
+/* === Reduced Motion Support === */
+@layer zi-core {
+  @media (prefers-reduced-motion: reduce) {
+    *, *::before, *::after {
+      animation-duration: 0.01ms !important;
+      animation-iteration-count: 1 !important;
+      transition-duration: 0.01ms !important;
+    }
+  }
+}

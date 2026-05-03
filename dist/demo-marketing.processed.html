@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ZINTENT - Marketing Page Demo</title>
+    <link rel="stylesheet" href="../dist/styles-marketing.css">
+    <style>
+        body { margin: 0; font-family: system-ui, -apple-system, sans-serif; color: #1e293b; }
+    </style>
+</head>
+<body class="zi-reset zi-base-body">
+    <!-- Navbar -->
+    <header class="intent-cluster zi-p-6 zi-bg-white" style="justify-content: space-between; border-bottom: 1px solid #f1f5f9;">
+        <div class="zi-text-xl zi-font-bold">NextGenCorp</div>
+        <nav class="intent-cluster" style="gap: 24px;">
+            <a href="#" class="zi-text-slate-600 hover:zi-text-blue-600" style="text-decoration: none;">Features</a>
+            <a href="#" class="zi-text-slate-600 hover:zi-text-blue-600" style="text-decoration: none;">Pricing</a>
+            <a href="#" class="zi-text-slate-600 hover:zi-text-blue-600" style="text-decoration: none;">About</a>
+        </nav>
+        <button class='zi-transition-standard zi-px-6 zi-py-3 zi-radius-md zi-font-bold zi-shadow-sm intent-press btn-primary btn-'  role="button" tabindex="0">Get Started</button>
+    </header>
+
+    <!-- Hero Section -->
+    <main class="intent-center zi-py-24 zi-bg-slate-50 animate-slide-up" style="text-align: center; padding-left: 20px; padding-right: 20px;">
+        <div style="max-width: 800px;">
+            <h1 class="zi-text-5xl zi-font-bold zi-mb-6" style="line-height: 1.1;">Build Faster, Launch Better with True Intention</h1>
+            <p class="zi-text-xl zi-text-slate-500 zi-mb-10">Stop writing CSS classes. Start declaring your intentions. The next generation design system compiler that scales with your ambition.</p>
+            
+            <div class="intent-cluster intent-center" style="gap: 16px;">
+                <button class='zi-transition-standard zi-px-6 zi-py-3 zi-radius-md zi-font-bold zi-shadow-sm intent-press btn-primary btn-'  role="button" tabindex="0">Start 14-Day Free Trial</button>
+                <button class='zi-transition-standard zi-px-6 zi-py-3 zi-radius-md zi-font-bold zi-shadow-sm intent-press btn-secondary btn-'  role="button" tabindex="0">Read Documentation</button>
+            </div>
+        </div>
+    </main>
+
+    <!-- Feature Bento Grid -->
+    <section class="container-responsive zi-py-24 zi-px-8">
+        <div class="intent-center zi-mb-16">
+            <h2 class="zi-text-3xl zi-font-bold">Everything you need, zero configuration.</h2>
+        </div>
+        
+        <div class="intent-bento" style="--bento-min: 300px; gap: 32px;">
+            <article class='zi-bg-surface zi-border-subtle zi-shadow-md zi-radius-md zi-p-6 transition-lift'>
+                <h3 class="zi-text-xl zi-font-bold zi-mb-4">Zero Runtime Overhead</h3>
+                <p class="zi-text-slate-600">The compiler extracts only the intents you use and generates pure, optimized CSS ahead of time.</p>
+            </article>
+            
+            <article class='zi-bg-surface zi-border-subtle zi-shadow-md zi-radius-md zi-p-6 transition-lift'>
+                <h3 class="zi-text-xl zi-font-bold zi-mb-4">AI Theming</h3>
+                <p class="zi-text-slate-600">Generate whole design systems mapped perfectly to WCAG rules.</p>
+            </article>
+
+            <article class='zi-bg-surface zi-border-subtle zi-shadow-md zi-radius-md zi-p-6 transition-lift'>
+                <h3 class="zi-text-xl zi-font-bold zi-mb-4">Antigravity Layout</h3>
+                <p class="zi-text-slate-600">Container queries that adapt instantly.</p>
+            </article>
+
+            <article class='zi-bg-surface zi-border-subtle zi-shadow-md zi-radius-md zi-p-6 transition-lift'>
+                <h3 class="zi-text-xl zi-font-bold zi-mb-4">Physics Animations</h3>
+                <p class="zi-text-slate-600">GPU accelerated spring physics motion. Respects reduced-motion media queries out of the box.</p>
+            </article>
+        </div>
+    </section>
+
+</body>
+</html>

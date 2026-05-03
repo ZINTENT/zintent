@@ -1,0 +1,1526 @@
+/* ZINTENT v2.0 Generated Styles - Phase 1 Build */
+/* Features: Container-First, AI Tokens, Animations, Antigravity */
+
+/* === core/tokens.css === */
+:root {
+    /* Semantic Color Intent */
+    --zi-accent-primary: #6366f1;
+    --zi-accent-secondary: #a855f7;
+    --zi-accent-glow: rgba(99, 102, 241, 0.4);
+    
+    --zi-bg-base: #0f172a;
+    --zi-bg-surface: #1e293b;
+    --zi-bg-glass: rgba(30, 41, 59, 0.7);
+    
+    --zi-text-base: #f8fafc;
+    --zi-text-muted: #94a3b8;
+    --zi-text-accent: #818cf8;
+
+    /* Spacing System (Intent-Based) */
+    --zi-space-1: 0.25rem;
+    --zi-space-2: 0.5rem;
+    --zi-space-3: 0.75rem;
+    --zi-space-4: 1rem;
+    --zi-space-6: 1.5rem;
+    --zi-space-8: 2rem;
+    --zi-space-12: 3rem;
+    --zi-space-24: 6rem;
+
+    /* Radius Engine */
+    --zi-radius-sm: 0.375rem;
+    --zi-radius-md: 0.5rem;
+    --zi-radius-lg: 1rem;
+    --zi-radius-xl: 1.5rem;
+    --zi-radius-full: 9999px;
+
+    /* Shadow Engine (High Fidelity) */
+    --zi-shadow-sm: 0 1px 2px 0 rgb(0 0 0 / 0.05);
+    --zi-shadow-md: 0 4px 6px -1px rgb(0 0 0 / 0.1), 0 24px 30px -1px rgb(0 0 0 / 0.1);
+    --zi-shadow-lg: 0 10px 15px -3px rgb(0 0 0 / 0.1), 0 4px 6px -4px rgb(0 0 0 / 0.1);
+    --zi-shadow-glow: 0 0 20px 0 var(--zi-accent-glow);
+
+    /* Transition Engine */
+    --zi-transition-fast: 150ms cubic-bezier(0.4, 0, 0.2, 1);
+    --zi-transition-standard: 300ms cubic-bezier(0.4, 0, 0.2, 1);
+    --zi-transition-slow: 500ms cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+/* Typography Overrides */
+html {
+    font-family: 'Inter', system-ui, -apple-system, sans-serif;
+    color: var(--zi-text-base);
+    background-color: var(--zi-bg-base);
+}
+
+
+/* === core/themes.css === */
+/* ZINTENT Theme Library */
+
+[data-theme="midnight"] {
+    --zi-accent-primary: #6366f1;
+    --zi-accent-secondary: #a855f7;
+    --zi-bg-base: #0f172a;
+    --zi-bg-surface: #1e293b;
+    --zi-text-base: #f8fafc;
+    --zi-text-muted: #94a3b8;
+}
+
+[data-theme="vibrant"] {
+    --zi-accent-primary: #ec4899;
+    --zi-accent-secondary: #f59e0b;
+    --zi-bg-base: #4c0519;
+    --zi-bg-surface: #881337;
+    --zi-text-base: #fff1f2;
+    --zi-text-muted: #fecdd3;
+}
+
+[data-theme="forest"] {
+    --zi-accent-primary: #10b981;
+    --zi-accent-secondary: #3b82f6;
+    --zi-bg-base: #064e3b;
+    --zi-bg-surface: #065f46;
+    --zi-text-base: #ecfdf5;
+    --zi-text-muted: #6ee7b7;
+}
+
+[data-theme="nordic"] {
+    --zi-accent-primary: #88c0d0;
+    --zi-accent-secondary: #81a1c1;
+    --zi-bg-base: #2e3440;
+    --zi-bg-surface: #3b4252;
+    --zi-text-base: #eceff4;
+    --zi-text-muted: #d8dee9;
+}
+
+
+/* === core/container-queries.css === */
+/* ZINTENT Container-First Responsive System */
+/* Components respond to parent container, not viewport */
+
+/* Base Container Definitions */
+.container-responsive {
+    container-type: inline-size;
+    container-name: responsive;
+}
+
+.container-layout {
+    container-type: size;
+    container-name: layout;
+}
+
+/* Intent-Based Container Queries */
+/* Usage: <div class="container-responsive card-container">
+            <div class="intent-card @sm:compact @md:default @lg:featured">
+        */
+
+@container responsive (min-width: 0px) {
+    /* Base state - smallest container */
+    .\@xs\:hidden { display: none; }
+    .\@xs\:stack { flex-direction: column; gap: var(--zi-space-2); }
+    .\@xs\:compact { padding: var(--zi-space-2); font-size: 0.875rem; }
+    .\@xs\:single { grid-template-columns: 1fr; }
+}
+
+@container responsive (min-width: 240px) {
+    /* Extra small container */
+    .\@xs\:hidden { display: none; }
+    .\@xs\:show { display: block; }
+    .\@xs\:stack { flex-direction: column; }
+    .\@xs\:row { flex-direction: row; flex-wrap: wrap; }
+    .\@xs\:compact { padding: var(--zi-space-2); }
+    .\@xs\:default { padding: var(--zi-space-4); }
+    .\@xs\:single { grid-template-columns: 1fr; }
+    .\@xs\:double { grid-template-columns: repeat(2, 1fr); }
+}
+
+@container responsive (min-width: 320px) {
+    /* Small container */
+    .\@sm\:hidden { display: none; }
+    .\@sm\:show { display: block; }
+    .\@sm\:stack { flex-direction: column; }
+    .\@sm\:row { flex-direction: row; }
+    .\@sm\:compact { padding: var(--zi-space-2); font-size: 0.875rem; }
+    .\@sm\:default { padding: var(--zi-space-4); }
+    .\@sm\:comfortable { padding: var(--zi-space-6); }
+    .\@sm\:single { grid-template-columns: 1fr; }
+    .\@sm\:double { grid-template-columns: repeat(2, 1fr); }
+    .\@sm\:triple { grid-template-columns: repeat(3, 1fr); }
+}
+
+@container responsive (min-width: 480px) {
+    /* Medium container - tablet */
+    .\@md\:hidden { display: none; }
+    .\@md\:show { display: block; }
+    .\@md\:stack { flex-direction: column; }
+    .\@md\:row { flex-direction: row; flex-wrap: nowrap; }
+    .\@md\:compact { padding: var(--zi-space-3); }
+    .\@md\:default { padding: var(--zi-space-4); }
+    .\@md\:comfortable { padding: var(--zi-space-6); }
+    .\@md\:spacious { padding: var(--zi-space-8); }
+    .\@md\:single { grid-template-columns: 1fr; }
+    .\@md\:double { grid-template-columns: repeat(2, 1fr); }
+    .\@md\:triple { grid-template-columns: repeat(3, 1fr); }
+    .\@md\:quad { grid-template-columns: repeat(4, 1fr); }
+}
+
+@container responsive (min-width: 640px) {
+    /* Large container */
+    .\@lg\:hidden { display: none; }
+    .\@lg\:show { display: block; }
+    .\@lg\:stack { flex-direction: column; }
+    .\@lg\:row { flex-direction: row; }
+    .\@lg\:compact { padding: var(--zi-space-4); }
+    .\@lg\:default { padding: var(--zi-space-6); }
+    .\@lg\:comfortable { padding: var(--zi-space-8); }
+    .\@lg\:spacious { padding: var(--zi-space-12); }
+    .\@lg\:featured { padding: var(--zi-space-8); font-size: 1.125rem; }
+    .\@lg\:single { grid-template-columns: 1fr; }
+    .\@lg\:double { grid-template-columns: repeat(2, 1fr); }
+    .\@lg\:triple { grid-template-columns: repeat(3, 1fr); }
+    .\@lg\:quad { grid-template-columns: repeat(4, 1fr); }
+    .\@lg\:auto { grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); }
+}
+
+@container responsive (min-width: 800px) {
+    /* Extra large container */
+    .\@xl\:hidden { display: none; }
+    .\@xl\:show { display: block; }
+    .\@xl\:default { padding: var(--zi-space-6); }
+    .\@xl\:comfortable { padding: var(--zi-space-8); }
+    .\@xl\:spacious { padding: var(--zi-space-12); }
+    .\@xl\:featured { padding: var(--zi-space-12); font-size: 1.25rem; }
+    .\@xl\:double { grid-template-columns: repeat(2, 1fr); }
+    .\@xl\:triple { grid-template-columns: repeat(3, 1fr); }
+    .\@xl\:quad { grid-template-columns: repeat(4, 1fr); }
+    .\@xl\:auto { grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); }
+}
+
+/* Layout Container Queries (for height-based layouts) */
+@container layout (min-height: 300px) {
+    .\@tall\:scroll { overflow-y: auto; }
+    .\@tall\:expand { height: 100%; }
+}
+
+@container layout (min-height: 500px) {
+    .\@tall\:scroll { overflow-y: auto; max-height: 100%; }
+    .\@tall\:expand { height: 100%; display: flex; flex-direction: column; }
+    .\@tall\:spacious { gap: var(--zi-space-6); }
+}
+
+/* Semantic Component Container Patterns */
+@container responsive (min-width: 320px) {
+    .intent-card.\@sm\:compact {
+        padding: var(--zi-space-2);
+        font-size: 0.875rem;
+    }
+    
+    .intent-card.\@sm\:default {
+        padding: var(--zi-space-4);
+    }
+    
+    .intent-card.\@sm\:featured {
+        padding: var(--zi-space-6);
+        border-left: 3px solid var(--zi-accent-primary);
+    }
+}
+
+@container responsive (min-width: 480px) {
+    .intent-card.\@md\:compact {
+        padding: var(--zi-space-3);
+    }
+    
+    .intent-card.\@md\:default {
+        padding: var(--zi-space-4);
+    }
+    
+    .intent-card.\@md\:featured {
+        padding: var(--zi-space-6);
+        border-left: 4px solid var(--zi-accent-primary);
+        box-shadow: var(--zi-shadow-lg);
+    }
+}
+
+@container responsive (min-width: 640px) {
+    .intent-card.\@lg\:featured {
+        padding: var(--zi-space-8);
+        font-size: 1.125rem;
+        border-left: 4px solid var(--zi-accent-primary);
+        box-shadow: var(--zi-shadow-lg);
+    }
+}
+
+/* Container Query Size Indicators (for debugging) */
+.container-debug::before {
+    content: attr(data-container-size);
+    position: absolute;
+    top: 0;
+    right: 0;
+    background: var(--zi-accent-primary);
+    color: var(--zi-bg-base);
+    padding: 2px 6px;
+    font-size: 10px;
+    border-radius: 0 0 0 var(--zi-radius-sm);
+    opacity: 0.8;
+}
+
+/* Quick Container Intents */
+.container-auto {
+    container-type: inline-size;
+}
+
+.container-fixed {
+    container-type: size;
+}
+
+/* Intent-Based Responsive Behavior */
+.intent-responsive {
+    container-type: inline-size;
+}
+
+.intent-responsive .content-adaptive {
+    transition: all var(--zi-transition-standard);
+}
+
+
+/* === core/animations.css === */
+/* ZINTENT Intent-Driven Animation Engine */
+/* Physics-based animations with accessibility-first approach */
+
+/* ========================================
+   REDUCED MOTION SUPPORT (First Priority)
+   ======================================== */
+@media (prefers-reduced-motion: reduce) {
+    *,
+    *::before,
+    *::after {
+        animation-duration: 0.01ms !important;
+        animation-iteration-count: 1 !important;
+        transition-duration: 0.01ms !important;
+        scroll-behavior: auto !important;
+    }
+    
+    .intent-animate,
+    .transition-bounce,
+    .transition-fade,
+    .transition-slide,
+    .transition-scale,
+    .transition-lift,
+    .transition-pulse,
+    .transition-shake,
+    .transition-spin,
+    .transition-flip {
+        animation: none !important;
+        transition: none !important;
+    }
+}
+
+/* ========================================
+   EASING FUNCTIONS (Physics-Based)
+   ======================================== */
+:root {
+    /* Standard easings */
+    --zi-ease-linear: linear;
+    --zi-ease-in: cubic-bezier(0.4, 0, 1, 1);
+    --zi-ease-out: cubic-bezier(0, 0, 0.2, 1);
+    --zi-ease-in-out: cubic-bezier(0.4, 0, 0.2, 1);
+    
+    /* Physics-based easings */
+    --zi-ease-bounce: cubic-bezier(0.68, -0.55, 0.265, 1.55);
+    --zi-ease-spring: cubic-bezier(0.175, 0.885, 0.32, 1.275);
+    --zi-ease-elastic: cubic-bezier(0.68, -0.6, 0.32, 1.6);
+    --zi-ease-smooth: cubic-bezier(0.4, 0, 0.2, 1);
+    --zi-ease-snappy: cubic-bezier(0.4, 0, 0.6, 1);
+    --zi-ease-dramatic: cubic-bezier(0.87, 0, 0.13, 1);
+    --zi-ease-overshoot: cubic-bezier(0.34, 1.56, 0.64, 1);
+    
+    /* Duration scale */
+    --zi-duration-instant: 0ms;
+    --zi-duration-fast: 150ms;
+    --zi-duration-normal: 300ms;
+    --zi-duration-slow: 500ms;
+    --zi-duration-slower: 700ms;
+    --zi-duration-dramatic: 1000ms;
+}
+
+/* ========================================
+   INTENT-BASED TRANSITIONS
+   ======================================== */
+
+/* Fade Intent */
+.transition-fade {
+    transition: opacity var(--zi-duration-normal) var(--zi-ease-smooth);
+}
+.transition-fade:hover,
+.transition-fade:focus {
+    opacity: 0.8;
+}
+
+/* Lift Intent (Elevate on hover) */
+.transition-lift {
+    transition: transform var(--zi-duration-fast) var(--zi-ease-spring),
+                box-shadow var(--zi-duration-normal) var(--zi-ease-smooth);
+    will-change: transform, box-shadow;
+}
+.transition-lift:hover,
+.transition-lift:focus {
+    transform: translateY(-4px);
+    box-shadow: var(--zi-shadow-lg);
+}
+
+/* Scale Intent */
+.transition-scale {
+    transition: transform var(--zi-duration-fast) var(--zi-ease-spring);
+    will-change: transform;
+}
+.transition-scale:hover,
+.transition-scale:focus {
+    transform: scale(1.05);
+}
+.transition-scale-sm:hover,
+.transition-scale-sm:focus {
+    transform: scale(1.02);
+}
+.transition-scale-lg:hover,
+.transition-scale-lg:focus {
+    transform: scale(1.1);
+}
+
+/* Bounce Intent */
+.transition-bounce {
+    transition: transform var(--zi-duration-normal) var(--zi-ease-bounce);
+    will-change: transform;
+}
+.transition-bounce:hover,
+.transition-bounce:focus {
+    transform: scale(1.05) translateY(-2px);
+}
+
+/* Slide Intents */
+.transition-slide-up {
+    transition: transform var(--zi-duration-normal) var(--zi-ease-out);
+    will-change: transform;
+}
+.transition-slide-up:hover,
+.transition-slide-up:focus {
+    transform: translateY(-8px);
+}
+
+.transition-slide-right {
+    transition: transform var(--zi-duration-normal) var(--zi-ease-out);
+    will-change: transform;
+}
+.transition-slide-right:hover,
+.transition-slide-right:focus {
+    transform: translateX(8px);
+}
+
+/* Glow Intent */
+.transition-glow {
+    transition: box-shadow var(--zi-duration-normal) var(--zi-ease-smooth),
+                border-color var(--zi-duration-fast) var(--zi-ease-smooth);
+}
+.transition-glow:hover,
+.transition-glow:focus {
+    box-shadow: 0 0 20px var(--zi-accent-glow), 0 0 40px var(--zi-accent-glow);
+    border-color: var(--zi-accent-primary);
+}
+
+/* Shake Intent (for attention) */
+@keyframes intent-shake {
+    0%, 100% { transform: translateX(0); }
+    10%, 30%, 50%, 70%, 90% { transform: translateX(-4px); }
+    20%, 40%, 60%, 80% { transform: translateX(4px); }
+}
+
+.transition-shake:hover,
+.transition-shake:focus {
+    animation: intent-shake 0.5s var(--zi-ease-in-out);
+}
+
+/* Pulse Intent */
+@keyframes intent-pulse {
+    0%, 100% { opacity: 1; }
+    50% { opacity: 0.5; }
+}
+
+.transition-pulse {
+    animation: intent-pulse 2s var(--zi-ease-in-out) infinite;
+}
+
+/* Spin Intent */
+@keyframes intent-spin {
+    from { transform: rotate(0deg); }
+    to { transform: rotate(360deg); }
+}
+
+.transition-spin:hover,
+.transition-spin:focus {
+    animation: intent-spin 1s var(--zi-ease-in-out);
+}
+
+/* Flip Intent */
+.transition-flip {
+    transition: transform var(--zi-duration-slow) var(--zi-ease-spring);
+    transform-style: preserve-3d;
+    will-change: transform;
+}
+.transition-flip:hover,
+.transition-flip:focus {
+    transform: rotateY(180deg);
+}
+
+/* ========================================
+   INTENT-BASED ANIMATIONS (Keyframe)
+   ======================================== */
+
+/* Entrance: Fade In */
+@keyframes intent-fade-in {
+    from { opacity: 0; }
+    to { opacity: 1; }
+}
+
+.animate-fade-in {
+    animation: intent-fade-in var(--zi-duration-normal) var(--zi-ease-out) forwards;
+}
+
+/* Entrance: Slide Up */
+@keyframes intent-slide-up {
+    from { 
+        opacity: 0;
+        transform: translateY(20px);
+    }
+    to { 
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.animate-slide-up {
+    animation: intent-slide-up var(--zi-duration-normal) var(--zi-ease-out) forwards;
+}
+
+/* Entrance: Scale In */
+@keyframes intent-scale-in {
+    from { 
+        opacity: 0;
+        transform: scale(0.9);
+    }
+    to { 
+        opacity: 1;
+        transform: scale(1);
+    }
+}
+
+.animate-scale-in {
+    animation: intent-scale-in var(--zi-duration-normal) var(--zi-ease-spring) forwards;
+}
+
+/* Entrance: Bounce In */
+@keyframes intent-bounce-in {
+    0% { 
+        opacity: 0;
+        transform: scale(0.3);
+    }
+    50% { 
+        transform: scale(1.05);
+    }
+    70% { 
+        transform: scale(0.9);
+    }
+    100% { 
+        opacity: 1;
+        transform: scale(1);
+    }
+}
+
+.animate-bounce-in {
+    animation: intent-bounce-in var(--zi-duration-slow) var(--zi-ease-bounce) forwards;
+}
+
+/* Exit: Fade Out */
+@keyframes intent-fade-out {
+    from { opacity: 1; }
+    to { opacity: 0; }
+}
+
+.animate-fade-out {
+    animation: intent-fade-out var(--zi-duration-normal) var(--zi-ease-in) forwards;
+}
+
+/* Exit: Slide Out */
+@keyframes intent-slide-out {
+    from { 
+        opacity: 1;
+        transform: translateX(0);
+    }
+    to { 
+        opacity: 0;
+        transform: translateX(-20px);
+    }
+}
+
+.animate-slide-out {
+    animation: intent-slide-out var(--zi-duration-normal) var(--zi-ease-in) forwards;
+}
+
+/* Attention: Pop */
+@keyframes intent-pop {
+    0%, 100% { transform: scale(1); }
+    50% { transform: scale(1.1); }
+}
+
+.animate-pop {
+    animation: intent-pop 0.3s var(--zi-ease-spring);
+}
+
+/* Attention: Wiggle */
+@keyframes intent-wiggle {
+    0%, 100% { transform: rotate(-3deg); }
+    50% { transform: rotate(3deg); }
+}
+
+.animate-wiggle {
+    animation: intent-wiggle 0.3s var(--zi-ease-in-out) 2;
+}
+
+/* Loading: Skeleton Shimmer */
+@keyframes intent-shimmer {
+    0% { background-position: -200% 0; }
+    100% { background-position: 200% 0; }
+}
+
+.animate-shimmer {
+    background: linear-gradient(
+        90deg,
+        var(--zi-bg-surface) 25%,
+        var(--zi-bg-elevated) 50%,
+        var(--zi-bg-surface) 75%
+    );
+    background-size: 200% 100%;
+    animation: intent-shimmer 1.5s infinite;
+}
+
+/* Loading: Spinner */
+@keyframes intent-spin-infinite {
+    from { transform: rotate(0deg); }
+    to { transform: rotate(360deg); }
+}
+
+.animate-spin {
+    animation: intent-spin-infinite 1s linear infinite;
+}
+
+/* Loading: Pulse Ring */
+@keyframes intent-pulse-ring {
+    0% {
+        transform: scale(0.8);
+        opacity: 1;
+    }
+    100% {
+        transform: scale(1.5);
+        opacity: 0;
+    }
+}
+
+.animate-pulse-ring::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    border: 2px solid var(--zi-accent-primary);
+    border-radius: inherit;
+    animation: intent-pulse-ring 1.5s var(--zi-ease-out) infinite;
+}
+
+/* ========================================
+   SCROLL-DRIVEN ANIMATIONS (Modern CSS)
+   ======================================== */
+
+/* View Timeline Animation Support */
+@supports (animation-timeline: view()) {
+    .animate-on-scroll {
+        animation: intent-fade-in linear both;
+        animation-timeline: view();
+        animation-range: entry 25% cover 50%;
+    }
+    
+    .animate-parallax {
+        animation: intent-parallax linear;
+        animation-timeline: scroll();
+    }
+    
+    @keyframes intent-parallax {
+        from { transform: translateY(0); }
+        to { transform: translateY(-100px); }
+    }
+    
+    .animate-reveal {
+        animation: intent-reveal linear both;
+        animation-timeline: view();
+        animation-range: entry 10% cover 40%;
+    }
+    
+    @keyframes intent-reveal {
+        from {
+            opacity: 0;
+            clip-path: inset(0 100% 0 0);
+        }
+        to {
+            opacity: 1;
+            clip-path: inset(0 0 0 0);
+        }
+    }
+}
+
+/* ========================================
+   STAGGER ANIMATION SUPPORT
+   ======================================== */
+
+.stagger-children > * {
+    opacity: 0;
+    animation: intent-slide-up var(--zi-duration-normal) var(--zi-ease-out) forwards;
+}
+
+.stagger-children > *:nth-child(1) { animation-delay: 0ms; }
+.stagger-children > *:nth-child(2) { animation-delay: 100ms; }
+.stagger-children > *:nth-child(3) { animation-delay: 200ms; }
+.stagger-children > *:nth-child(4) { animation-delay: 300ms; }
+.stagger-children > *:nth-child(5) { animation-delay: 400ms; }
+.stagger-children > *:nth-child(6) { animation-delay: 500ms; }
+
+/* ========================================
+   COMPOUND INTENT ANIMATIONS
+   ======================================== */
+
+/* Card Hover: Lift + Glow */
+.intent-card-hover {
+    transition: transform var(--zi-duration-fast) var(--zi-ease-spring),
+                box-shadow var(--zi-duration-normal) var(--zi-ease-smooth),
+                border-color var(--zi-duration-fast) var(--zi-ease-smooth);
+    will-change: transform, box-shadow;
+}
+
+.intent-card-hover:hover {
+    transform: translateY(-6px) scale(1.02);
+    box-shadow: var(--zi-shadow-xl), 0 0 30px var(--zi-accent-glow);
+}
+
+/* Button Press: Scale Down */
+.intent-press:active {
+    transform: scale(0.98);
+    transition: transform var(--zi-duration-instant);
+}
+
+/* Link Hover: Slide + Underline */
+.intent-link {
+    position: relative;
+    transition: color var(--zi-duration-fast) var(--zi-ease-smooth);
+}
+
+.intent-link::after {
+    content: '';
+    position: absolute;
+    bottom: -2px;
+    left: 0;
+    width: 0;
+    height: 2px;
+    background: var(--zi-accent-primary);
+    transition: width var(--zi-duration-normal) var(--zi-ease-out);
+}
+
+.intent-link:hover::after {
+    width: 100%;
+}
+
+/* ========================================
+   DELAY UTILITIES
+   ======================================== */
+
+.delay-0 { animation-delay: 0ms; }
+.delay-100 { animation-delay: 100ms; }
+.delay-200 { animation-delay: 200ms; }
+.delay-300 { animation-delay: 300ms; }
+.delay-400 { animation-delay: 400ms; }
+.delay-500 { animation-delay: 500ms; }
+.delay-700 { animation-delay: 700ms; }
+.delay-1000 { animation-delay: 1000ms; }
+
+/* ========================================
+   DURATION UTILITIES
+   ======================================== */
+
+.duration-instant { animation-duration: var(--zi-duration-instant); transition-duration: var(--zi-duration-instant); }
+.duration-fast { animation-duration: var(--zi-duration-fast); transition-duration: var(--zi-duration-fast); }
+.duration-normal { animation-duration: var(--zi-duration-normal); transition-duration: var(--zi-duration-normal); }
+.duration-slow { animation-duration: var(--zi-duration-slow); transition-duration: var(--zi-duration-slow); }
+.duration-slower { animation-duration: var(--zi-duration-slower); transition-duration: var(--zi-duration-slower); }
+
+/* ========================================
+   FILL MODE UTILITIES
+   ======================================== */
+
+.fill-forwards { animation-fill-mode: forwards; }
+.fill-backwards { animation-fill-mode: backwards; }
+.fill-both { animation-fill-mode: both; }
+
+/* ========================================
+   ITERATION UTILITIES
+   ======================================== */
+
+.iteration-1 { animation-iteration-count: 1; }
+.iteration-2 { animation-iteration-count: 2; }
+.iteration-3 { animation-iteration-count: 3; }
+.iteration-infinite { animation-iteration-count: infinite; }
+
+/* ========================================
+   PLAY STATE UTILITIES
+   ======================================== */
+
+.animate-paused { animation-play-state: paused; }
+.animate-running { animation-play-state: running; }
+
+
+/* === core/antigravity-layouts.css === */
+/* ZINTENT Enhanced Antigravity Layout Engine */
+/* Intelligent auto-layout system - Content-aware spacing and alignment */
+
+/* ========================================
+   BASE ANTIGRAVITY UTILITIES
+   ======================================== */
+
+/* Content-Aware Flex Distribution */
+.antigravity-fill {
+    display: flex;
+    flex-wrap: wrap;
+    gap: var(--zi-space-4);
+    align-content: flex-start;
+}
+
+.antigravity-center {
+    display: grid;
+    place-items: center;
+    gap: var(--zi-space-4);
+    width: 100%;
+}
+
+/* ========================================
+   ADVANCED LAYOUT INTENTS
+   ======================================== */
+
+/* Auto Grid - Smart column distribution */
+.intent-auto-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(min(100%, 280px), 1fr));
+    gap: var(--zi-space-6);
+}
+
+.intent-auto-grid-sm {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(min(100%, 200px), 1fr));
+    gap: var(--zi-space-4);
+}
+
+.intent-auto-grid-lg {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(min(100%, 350px), 1fr));
+    gap: var(--zi-space-8);
+}
+
+/* Dense packing for irregular items */
+.intent-auto-grid-dense {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(min(100%, 280px), 1fr));
+    grid-auto-flow: dense;
+    gap: var(--zi-space-6);
+}
+
+/* Masonry Layout - Pinterest-style */
+.intent-masonry {
+    column-count: 1;
+    column-gap: var(--zi-space-6);
+}
+
+.intent-masonry > * {
+    break-inside: avoid;
+    margin-bottom: var(--zi-space-6);
+}
+
+@media (min-width: 640px) {
+    .intent-masonry { column-count: 2; }
+}
+
+@media (min-width: 1024px) {
+    .intent-masonry { column-count: 3; }
+}
+
+@media (min-width: 1280px) {
+    .intent-masonry { column-count: 4; }
+}
+
+/* Masonry with CSS Grid (Modern) */
+@supports (grid-template-rows: masonry) {
+    .intent-masonry-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+        grid-template-rows: masonry;
+        gap: var(--zi-space-6);
+    }
+}
+
+/* Sidebar Layout - Classic sidebar + main */
+.intent-sidebar {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: var(--zi-space-6);
+}
+
+@media (min-width: 1024px) {
+    .intent-sidebar {
+        grid-template-columns: 280px 1fr;
+    }
+    
+    .intent-sidebar-wide {
+        grid-template-columns: 320px 1fr;
+    }
+    
+    .intent-sidebar-narrow {
+        grid-template-columns: 240px 1fr;
+    }
+}
+
+/* Sidebar Right Variant */
+.intent-sidebar-right {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: var(--zi-space-6);
+}
+
+@media (min-width: 1024px) {
+    .intent-sidebar-right {
+        grid-template-columns: 1fr 280px;
+    }
+}
+
+/* Holy Grail Layout */
+.intent-holy-grail {
+    display: grid;
+    grid-template-areas:
+        "header"
+        "nav"
+        "main"
+        "aside"
+        "footer";
+    grid-template-columns: 1fr;
+    gap: var(--zi-space-6);
+}
+
+.intent-holy-grail > header { grid-area: header; }
+.intent-holy-grail > nav { grid-area: nav; }
+.intent-holy-grail > main { grid-area: main; }
+.intent-holy-grail > aside { grid-area: aside; }
+.intent-holy-grail > footer { grid-area: footer; }
+
+@media (min-width: 1024px) {
+    .intent-holy-grail {
+        grid-template-areas:
+            "header header header"
+            "nav main aside"
+            "footer footer footer";
+        grid-template-columns: 240px 1fr 240px;
+        grid-template-rows: auto 1fr auto;
+    }
+}
+
+/* Split Layout - 50/50 or asymmetric */
+.intent-split {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: var(--zi-space-6);
+}
+
+@media (min-width: 768px) {
+    .intent-split {
+        grid-template-columns: 1fr 1fr;
+    }
+    
+    .intent-split-40-60 {
+        grid-template-columns: 2fr 3fr;
+    }
+    
+    .intent-split-30-70 {
+        grid-template-columns: 3fr 7fr;
+    }
+    
+    .intent-split-60-40 {
+        grid-template-columns: 3fr 2fr;
+    }
+}
+
+/* Feature Layout - Hero + content */
+.intent-feature {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: var(--zi-space-8);
+}
+
+@media (min-width: 768px) {
+    .intent-feature {
+        grid-template-columns: 1fr 1fr;
+        align-items: center;
+    }
+    
+    .intent-feature-reverse > :first-child {
+        order: 2;
+    }
+}
+
+/* Bento Grid - Irregular but structured */
+.intent-bento {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: var(--zi-space-4);
+}
+
+.intent-bento > :first-child {
+    grid-column: span 2;
+}
+
+@media (min-width: 768px) {
+    .intent-bento {
+        grid-template-columns: repeat(4, 1fr);
+    }
+    
+    .intent-bento > :first-child {
+        grid-column: span 2;
+        grid-row: span 2;
+    }
+    
+    .intent-bento > :nth-child(4) {
+        grid-column: span 2;
+    }
+}
+
+/* ========================================
+   STACK LAYOUTS (Vertical spacing)
+   ======================================== */
+
+/* Vertical Stack with automatic spacing */
+.intent-stack {
+    display: flex;
+    flex-direction: column;
+    gap: var(--zi-space-4);
+}
+
+.intent-stack-xs { gap: var(--zi-space-1); }
+.intent-stack-sm { gap: var(--zi-space-2); }
+.intent-stack-md { gap: var(--zi-space-4); }
+.intent-stack-lg { gap: var(--zi-space-6); }
+.intent-stack-xl { gap: var(--zi-space-8); }
+.intent-stack-2xl { gap: var(--zi-space-12); }
+
+/* Recursive Stack (stacks within stacks maintain rhythm) */
+.intent-stack-recursive {
+    display: flex;
+    flex-direction: column;
+    gap: var(--zi-space-4);
+}
+
+.intent-stack-recursive * + * {
+    margin-top: 0;
+}
+
+/* Split Stack - Horizontal on wide, vertical on narrow */
+.intent-stack-split {
+    display: flex;
+    flex-direction: column;
+    gap: var(--zi-space-4);
+}
+
+@media (min-width: 640px) {
+    .intent-stack-split {
+        flex-direction: row;
+        flex-wrap: wrap;
+    }
+}
+
+/* ========================================
+   CLUSTER LAYOUTS (Horizontal groups)
+   ======================================== */
+
+/* Horizontal cluster with gap */
+.intent-cluster {
+    display: flex;
+    flex-wrap: wrap;
+    gap: var(--zi-space-4);
+    align-items: center;
+}
+
+.intent-cluster-xs { gap: var(--zi-space-1); }
+.intent-cluster-sm { gap: var(--zi-space-2); }
+.intent-cluster-md { gap: var(--zi-space-4); }
+.intent-cluster-lg { gap: var(--zi-space-6); }
+
+/* Cluster with space-between */
+.intent-cluster-between {
+    display: flex;
+    flex-wrap: wrap;
+    gap: var(--zi-space-4);
+    justify-content: space-between;
+    align-items: center;
+}
+
+/* Cluster center */
+.intent-cluster-center {
+    display: flex;
+    flex-wrap: wrap;
+    gap: var(--zi-space-4);
+    justify-content: center;
+    align-items: center;
+}
+
+/* Cluster right */
+.intent-cluster-right {
+    display: flex;
+    flex-wrap: wrap;
+    gap: var(--zi-space-4);
+    justify-content: flex-end;
+    align-items: center;
+}
+
+/* ========================================
+   BOX LAYOUTS (Centered content)
+   ======================================== */
+
+/* Center box with max-width */
+.intent-box {
+    margin-inline: auto;
+    width: 100%;
+}
+
+.intent-box-xs { max-width: 20rem; }
+.intent-box-sm { max-width: 24rem; }
+.intent-box-md { max-width: 28rem; }
+.intent-box-lg { max-width: 32rem; }
+.intent-box-xl { max-width: 36rem; }
+.intent-box-2xl { max-width: 42rem; }
+.intent-box-3xl { max-width: 48rem; }
+.intent-box-4xl { max-width: 56rem; }
+.intent-box-5xl { max-width: 64rem; }
+.intent-box-6xl { max-width: 72rem; }
+.intent-box-7xl { max-width: 80rem; }
+.intent-box-prose { max-width: 65ch; }
+
+/* Box with padding */
+.intent-box-padded {
+    margin-inline: auto;
+    width: 100%;
+    padding-inline: var(--zi-space-4);
+}
+
+@media (min-width: 640px) {
+    .intent-box-padded {
+        padding-inline: var(--zi-space-6);
+    }
+}
+
+@media (min-width: 1024px) {
+    .intent-box-padded {
+        padding-inline: var(--zi-space-8);
+    }
+}
+
+/* ========================================
+   CENTERING INTENTS
+   ======================================== */
+
+/* Perfect center - both axes */
+.intent-center {
+    display: grid;
+    place-items: center;
+}
+
+/* Center horizontally */
+.intent-center-x {
+    display: flex;
+    justify-content: center;
+}
+
+/* Center vertically */
+.intent-center-y {
+    display: flex;
+    align-items: center;
+}
+
+/* Center with text alignment */
+.intent-center-text {
+    text-align: center;
+}
+
+/* ========================================
+   ASPECT RATIO INTENTS
+   ======================================== */
+
+.intent-square {
+    aspect-ratio: 1 / 1;
+}
+
+.intent-landscape {
+    aspect-ratio: 16 / 9;
+}
+
+.intent-portrait {
+    aspect-ratio: 3 / 4;
+}
+
+.intent-video {
+    aspect-ratio: 16 / 9;
+}
+
+.intent-ultrawide {
+    aspect-ratio: 21 / 9;
+}
+
+.intent-golden {
+    aspect-ratio: 1.618 / 1;
+}
+
+/* ========================================
+   FULL BLEED & CONTAINMENT
+   ======================================== */
+
+/* Full width breaking out of container */
+.intent-full-bleed {
+    width: 100vw;
+    margin-left: calc(50% - 50vw);
+    margin-right: calc(50% - 50vw);
+}
+
+/* Full height */
+.intent-full-height {
+    min-height: 100vh;
+    min-height: 100dvh;
+}
+
+/* Content containment for performance */
+.intent-contain {
+    contain: layout style paint;
+}
+
+.intent-contain-strict {
+    contain: strict;
+}
+
+/* Content visibility for lazy rendering */
+.intent-content-auto {
+    content-visibility: auto;
+    contain-intrinsic-size: 0 500px;
+}
+
+/* ========================================
+   SCROLL & OVERFLOW
+   ======================================== */
+
+/* Horizontal scroll container */
+.intent-scroll-x {
+    display: flex;
+    gap: var(--zi-space-4);
+    overflow-x: auto;
+    scroll-snap-type: x mandatory;
+    -webkit-overflow-scrolling: touch;
+    scrollbar-width: thin;
+}
+
+.intent-scroll-x > * {
+    scroll-snap-align: start;
+    flex-shrink: 0;
+}
+
+/* Vertical scroll container */
+.intent-scroll-y {
+    overflow-y: auto;
+    -webkit-overflow-scrolling: touch;
+    scrollbar-width: thin;
+}
+
+/* Hide scrollbar but keep functionality */
+.intent-scroll-hidden {
+    -ms-overflow-style: none;
+    scrollbar-width: none;
+}
+
+.intent-scroll-hidden::-webkit-scrollbar {
+    display: none;
+}
+
+/* ========================================
+   POSITION INTENTS
+   ======================================== */
+
+/* Sticky positioning */
+.intent-sticky {
+    position: sticky;
+    top: 0;
+}
+
+.intent-sticky-bottom {
+    position: sticky;
+    bottom: 0;
+}
+
+/* Fixed positioning */
+.intent-fixed {
+    position: fixed;
+}
+
+.intent-fixed-top {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+}
+
+.intent-fixed-bottom {
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    right: 0;
+}
+
+/* ========================================
+   SUBGRID SUPPORT (Modern Browsers)
+   ======================================== */
+
+@supports (grid-template-columns: subgrid) {
+    .intent-subgrid-cols {
+        grid-template-columns: subgrid;
+    }
+    
+    .intent-subgrid-rows {
+        grid-template-rows: subgrid;
+    }
+    
+    .intent-subgrid {
+        grid-template-columns: subgrid;
+        grid-template-rows: subgrid;
+    }
+}
+
+/* ========================================
+   LOGICAL PROPERTIES (RTL Support)
+   ======================================== */
+
+/* Margin inline (respects text direction) */
+.intent-space-inline-sm { margin-inline: var(--zi-space-2); }
+.intent-space-inline-md { margin-inline: var(--zi-space-4); }
+.intent-space-inline-lg { margin-inline: var(--zi-space-6); }
+
+/* Margin block */
+.intent-space-block-sm { margin-block: var(--zi-space-2); }
+.intent-space-block-md { margin-block: var(--zi-space-4); }
+.intent-space-block-lg { margin-block: var(--zi-space-6); }
+
+/* Padding inline */
+.intent-pad-inline-sm { padding-inline: var(--zi-space-2); }
+.intent-pad-inline-md { padding-inline: var(--zi-space-4); }
+.intent-pad-inline-lg { padding-inline: var(--zi-space-6); }
+
+/* Padding block */
+.intent-pad-block-sm { padding-block: var(--zi-space-2); }
+.intent-pad-block-md { padding-block: var(--zi-space-4); }
+.intent-pad-block-lg { padding-block: var(--zi-space-6); }
+
+/* Border inline */
+.intent-border-inline {
+    border-inline: 1px solid var(--zi-bg-surface);
+}
+
+/* Border block */
+.intent-border-block {
+    border-block: 1px solid var(--zi-bg-surface);
+}
+
+/* ========================================
+   SMART GAPS (Content-aware)
+   ======================================== */
+
+/* Gaps that scale with container */
+.intent-gap-fluid {
+    gap: clamp(var(--zi-space-2), 2vw, var(--zi-space-8));
+}
+
+/* No gap between specific combinations */
+.intent-gap-0 > * + * {
+    margin-top: 0;
+}
+
+/* ========================================
+   UTILITY COMBINATIONS
+   ======================================== */
+
+/* Common patterns pre-composed */
+.intent-card-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(min(100%, 300px), 1fr));
+    gap: var(--zi-space-6);
+}
+
+.intent-nav-cluster {
+    display: flex;
+    flex-wrap: wrap;
+    gap: var(--zi-space-4);
+    justify-content: space-between;
+    align-items: center;
+}
+
+.intent-hero-stack {
+    display: flex;
+    flex-direction: column;
+    gap: var(--zi-space-6);
+    align-items: center;
+    text-align: center;
+    padding-block: var(--zi-space-24);
+}
+
+.intent-form-stack {
+    display: flex;
+    flex-direction: column;
+    gap: var(--zi-space-4);
+    max-width: 32rem;
+    margin-inline: auto;
+}
+
+.intent-media-object {
+    display: flex;
+    gap: var(--zi-space-4);
+    align-items: flex-start;
+}
+
+.intent-media-object > :first-child {
+    flex-shrink: 0;
+}
+
+.intent-media-object > :last-child {
+    flex: 1;
+    min-width: 0;
+}
+
+
+/* === Generated Intent Classes === */
+.animate-scale-in {
+animation: intent-scale-in var(--zi-duration-normal) var(--zi-ease-spring) forwards;
+}
+
+.animate-fade-in {
+animation: intent-fade-in var(--zi-duration-normal) var(--zi-ease-out) forwards;
+}
+
+.animate-spin {
+animation: intent-spin-infinite 1s linear infinite;
+}
+
+.interaction-lift {
+transition: transform var(--zi-transition-fast), box-shadow var(--zi-transition-normal); will-change: transform, box-shadow;
+}
+
+.interaction-lift:hover {
+transform: translateY(-4px); box-shadow: var(--zi-shadow-lg);
+}
+
+.animate-slide-up {
+animation: intent-slide-up var(--zi-duration-normal) var(--zi-ease-out) forwards;
+}
+
+.transition-lift {
+transition: transform var(--zi-duration-fast) var(--zi-ease-spring), box-shadow var(--zi-duration-normal) var(--zi-ease-smooth); will-change: transform, box-shadow;
+}
+
+.transition-lift:hover {
+transform: translateY(-4px); box-shadow: var(--zi-shadow-lg);
+}
+
+.animate-pulse {
+animation: intent-pulse 2s var(--zi-ease-in-out) infinite;
+}
+
+.badge-default {
+display: inline-flex; align-items: center; padding: var(--zi-space-1) var(--zi-space-3); background: var(--zi-primary-500); color: var(--zi-text-inverted); border-radius: var(--zi-radius-full); font-size: var(--zi-font-sm); font-weight: 500;
+}
+
+.intent-center {
+display: grid; place-items: center;
+}
+
+.btn-secondary {
+display: inline-flex; align-items: center; justify-content: center; padding: var(--zi-space-3) var(--zi-space-6); background: var(--zi-bg-surface); color: var(--zi-text-base); border-radius: var(--zi-radius-lg); font-weight: 600; cursor: pointer; border: 1px solid var(--zi-neutral-700); transition: all var(--zi-transition-fast);
+}
+
+.btn-secondary:hover {
+background: var(--zi-bg-elevated); border-color: var(--zi-neutral-600);
+}
+
+.transition-bounce {
+transition: transform var(--zi-duration-normal) var(--zi-ease-bounce); will-change: transform;
+}
+
+.transition-bounce:hover {
+transform: scale(1.05) translateY(-2px);
+}
+
+.transition-glow {
+transition: box-shadow var(--zi-duration-normal) var(--zi-ease-smooth), border-color var(--zi-duration-fast) var(--zi-ease-smooth);
+}
+
+.transition-glow:hover {
+box-shadow: 0 0 20px var(--zi-accent-glow), 0 0 40px var(--zi-accent-glow); border-color: var(--zi-accent-primary);
+}
+
+.btn-primary {
+display: inline-flex; align-items: center; justify-content: center; padding: var(--zi-space-3) var(--zi-space-6); background: var(--zi-primary-500); color: var(--zi-text-inverted); border-radius: var(--zi-radius-lg); font-weight: 600; cursor: pointer; border: none; transition: all var(--zi-transition-fast);
+}
+
+.btn-primary:hover {
+background: var(--zi-primary-600); transform: translateY(-1px); box-shadow: var(--zi-shadow-md);
+}
+
+.container-responsive {
+container-type: inline-size; container-name: responsive;
+}
+
+.surface-elevated {
+background-color: var(--zi-bg-surface); border-radius: var(--zi-radius-md); box-shadow: var(--zi-shadow-md); padding: var(--zi-space-4);
+}
+
+.intent-stack {
+display: flex; flex-direction: column; gap: var(--zi-space-4);
+}
+
+.transition-scale {
+transition: transform var(--zi-duration-fast) var(--zi-ease-spring); will-change: transform;
+}
+
+.transition-scale:hover {
+transform: scale(1.05);
+}
+
+.animate-bounce-in {
+animation: intent-bounce-in var(--zi-duration-slow) var(--zi-ease-bounce) forwards;
+}
+
+
+/* === Container Query Support Detection === */
+@supports not (container-type: inline-size) {
+  .container-responsive,
+  .container-layout,
+  .container-auto,
+  .intent-responsive {
+    width: 100%;
+  }
+}
+
+/* === Reduced Motion Support === */
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+}

@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ZINTENT - SaaS Settings Demo</title>
+    <link rel="stylesheet" href="../dist/styles-saas.css">
+    <style>
+        body { margin: 0; font-family: system-ui, -apple-system, sans-serif; background-color: #f4f4f5; color: #18181b; }
+    </style>
+</head>
+<body class="zi-reset zi-base-body">
+
+    <!-- Top Navigation -->
+    <header class="intent-cluster zi-bg-white zi-p-4 zi-shadow-sm" style="justify-content: space-between;">
+        <div class="intent-cluster" style="gap: 20px;">
+            <div class="zi-font-bold zi-text-lg">Acme Platform</div>
+            <div class="zi-text-sm zi-text-slate-500">Workspace Setting</div>
+        </div>
+        <div class="intent-center" style="width: 32px; height: 32px; border-radius: 50%; background: #e2e8f0; font-weight: bold;">JD</div>
+    </header>
+
+    <div class="container-responsive zi-py-10 zi-px-6" style="max-width: 1000px; margin: 0 auto;">
+        <div class="intent-sidebar" style="--sidebar-width: 250px; gap: 40px;">
+            
+            <!-- Settings Sidebar -->
+            <aside class="intent-stack" style="gap: 12px;">
+                <div class="zi-text-xs zi-font-bold zi-text-slate-400 zi-mb-2">WORKSPACE</div>
+                <a href="#" class="zi-font-medium zi-text-blue-600 zi-bg-blue-50 zi-px-3 zi-py-2 zi-rounded transition-lift" style="text-decoration: none;">General</a>
+                <a href="#" class="zi-text-slate-600 hover:zi-bg-slate-100 zi-px-3 zi-py-2 zi-rounded transition-lift" style="text-decoration: none;">Members & Teams</a>
+                <a href="#" class="zi-text-slate-600 hover:zi-bg-slate-100 zi-px-3 zi-py-2 zi-rounded transition-lift" style="text-decoration: none;">Security & SAML</a>
+                
+                <div class="zi-text-xs zi-font-bold zi-text-slate-400 zi-mt-6 zi-mb-2">BILLING</div>
+                <a href="#" class="zi-text-slate-600 hover:zi-bg-slate-100 zi-px-3 zi-py-2 zi-rounded transition-lift" style="text-decoration: none;">Subscription</a>
+                <a href="#" class="zi-text-slate-600 hover:zi-bg-slate-100 zi-px-3 zi-py-2 zi-rounded transition-lift" style="text-decoration: none;">Invoices</a>
+            </aside>
+
+            <!-- Settings Content Form -->
+            <main class="intent-stack animate-fade-in" style="gap: 24px;">
+                <div class="zi-mb-4">
+                    <h1 class="zi-text-2xl zi-font-bold">General Settings</h1>
+                    <p class="zi-text-slate-500 zi-mt-1">Manage your workspace configuration and preferences.</p>
+                </div>
+
+                <article class='zi-bg-surface zi-border-subtle zi-shadow-md zi-radius-md zi-p-6 transition-lift'>
+                    <div style="border-bottom: 1px solid #e2e8f0; padding-bottom: 20px;" class="intent-split">
+                        <div>
+                            <div class="zi-font-medium">Workspace Name</div>
+                            <div class="zi-text-sm zi-text-slate-500 zi-mt-1">Used to identify your organization across the platform.</div>
+                        </div>
+                        <div class="intent-center" style="justify-content: flex-end;">
+                            <input type="text" value="Acme Platform" class="zi-p-2 zi-border zi-rounded zi-shadow-sm" style="width: 250px; border-color: #cbd5e1" />
+                        </div>
+                    </div>
+
+                    <div style="border-bottom: 1px solid #e2e8f0; padding-bottom: 20px;" class="intent-split">
+                        <div>
+                            <div class="zi-font-medium">Primary Domain</div>
+                            <div class="zi-text-sm zi-text-slate-500 zi-mt-1">The primary web address for all generated links.</div>
+                        </div>
+                        <div class="intent-center" style="justify-content: flex-end;">
+                            <input type="text" value="acme.example.com" class="zi-p-2 zi-border zi-rounded zi-shadow-sm" style="width: 250px; border-color: #cbd5e1" disabled />
+                        </div>
+                    </div>
+
+                    <div class="intent-cluster" style="justify-content: flex-end; padding-top: 10px;">
+                        <button class='zi-transition-standard zi-px-6 zi-py-3 zi-radius-md zi-font-bold zi-shadow-sm intent-press btn-primary btn-'  tabindex="0" role="button">Save Changes</button>
+                    </div>
+                </article>
+
+                <article class='zi-bg-surface zi-border-subtle zi-shadow-md zi-radius-md zi-p-6 transition-lift'>
+                    <h2 class="zi-text-lg zi-font-bold zi-text-rose-600">Danger Zone</h2>
+                    <p class="zi-text-sm zi-text-rose-500 zi-mt-1 zi-mb-4">Permanently delete this workspace and all associated data. This action cannot be undone.</p>
+                    <button class='zi-transition-standard zi-px-6 zi-py-3 zi-radius-md zi-font-bold zi-shadow-sm intent-press btn-danger btn-'  role="button" tabindex="0">Delete Workspace</button>
+                </article>
+
+            </main>
+        </div>
+    </div>
+</body>
+</html>

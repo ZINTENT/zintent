@@ -1,0 +1,1116 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="midnight">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ZINTENT Phase 4 Demo | Advanced Components</title>
+    <link rel="stylesheet" href="../dist/phase4-styles.css?v=2.1">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+</head>
+<body class="stack-md m-0" style="min-height: 100vh; font-family: 'Inter', system-ui, sans-serif;">
+    
+    <!-- Navigation -->
+    <nav class="intent-center bg-base" style="border-bottom: 1px solid var(--zi-bg-surface); position: sticky; top: 0; z-index: 100;">
+        <div class="container-xl flex flex-wrap justify-between items-center gap-4 px-6 py-4">
+            <div class="flex items-center gap-2">
+                <div class="animate-fade-in font-bold text-2xl text-accent">ZINTENT</div>
+                <span class="badge-primary">v2.2</span>
+                <span class="badge-ghost">Phase 4</span>
+            </div>
+            <div class="flex flex-wrap items-center gap-4">
+                <a href="#datepickers" class="text-sm text-muted no-underline">Date Pickers</a>
+                <a href="#calendars" class="text-sm text-muted no-underline">Calendars</a>
+                <button class="btn-icon" role="button" tabindex="0" role="button" tabindex="0" aria-label="Icon button" onclick="toggleDrawer('drawer-nav-demo')" aria-label="Menu">
+                    <svg width="20" height="20" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M3 12h18M3 6h18M3 18h18"/></svg>
+                </button>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <header class="intent-center text-center px-6 py-12">
+        <div class="container-lg">
+            <h1 class="animate-slide-up font-bold mb-6">
+                Phase 4: <span class="text-accent">Advanced Components</span>
+            </h1>
+            <p class="text-fluid-lg text-muted mb-8 max-w-2xl mx-auto animate-fade-in">
+                Date pickers, calendars, and complex UI patterns. Zero runtime overhead.
+            </p>
+        </div>
+    </header>
+
+    <!-- Date Pickers Section -->
+    <section id="datepickers" class="intent-center px-6 py-12">
+        <div class="container-xl">
+            <h2 class="text-center text-fluid-3xl mb-4">
+                Date Pickers & <span class="text-accent">Calendars</span>
+            </h2>
+            <p class="container-sm text-center text-muted mb-12">
+                Single date, date range, and time picker components with accessible keyboard navigation
+            </p>
+
+            <!-- Single Date Picker -->
+            <div class="grid-responsive gap-6 mb-12">
+                <div class="card-default p-6" role="article" role="article">
+                    <h3 class="text-xl mb-4">Single Date Picker</h3>
+                    <div class="datepicker" role="button" aria-haspopup="dialog" aria-expanded="false" id="datepicker1">
+                        <div class="datepicker-input" role="button" aria-haspopup="dialog" aria-expanded="false" role="textbox" onclick="toggleDatepicker('datepicker1')">
+                            <svg width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+                                <rect x="3" y="4" width="18" height="18" rx="2" ry="2"></rect>
+                                <line x1="16" y1="2" x2="16" y2="6"></line>
+                                <line x1="8" y1="2" x2="8" y2="6"></line>
+                                <line x1="3" y1="10" x2="21" y2="10"></line>
+                            </svg>
+                            <span class="text-sm">Select a date</span>
+                        </div>
+                        <div class="datepicker-dropdown" role="menu" role="button" aria-haspopup="dialog" aria-expanded="false" role="dialog" aria-modal="false" id="dropdown1">
+                            <div class="calendar" role="grid" aria-label="Calendar">
+                                <div class="calendar-header" role="grid" aria-label="Calendar" role="row">
+                                    <span class="calendar-title" role="columnheader" role="grid" aria-label="Calendar">January 2026</span>
+                                    <div class="calendar-nav" role="grid" aria-label="Calendar" role="navigation">
+                                        <button class="calendar-nav-btn" role="grid" aria-label="Calendar" role="button" tabindex="0" role="button" tabindex="0" role="navigation" aria-label="Previous month">&lt;</button>
+                                        <button class="calendar-nav-btn" role="grid" aria-label="Calendar" role="button" tabindex="0" role="button" tabindex="0" role="navigation" aria-label="Next month">&gt;</button>
+                                    </div>
+                                </div>
+                                <div class="calendar-grid" aria-label="Calendar" role="grid">
+                                    <div class="calendar-weekday" role="grid" aria-label="Calendar" role="columnheader">Su</div>
+                                    <div class="calendar-weekday" role="grid" aria-label="Calendar" role="columnheader">Mo</div>
+                                    <div class="calendar-weekday" role="grid" aria-label="Calendar" role="columnheader">Tu</div>
+                                    <div class="calendar-weekday" role="grid" aria-label="Calendar" role="columnheader">We</div>
+                                    <div class="calendar-weekday" role="grid" aria-label="Calendar" role="columnheader">Th</div>
+                                    <div class="calendar-weekday" aria-label="Calendar" role="grid" role="columnheader">Fr</div>
+                                    <div class="calendar-weekday" role="grid" aria-label="Calendar" role="columnheader">Sa</div>
+                                    <button class="calendar-day calendar-day-prev" role="grid" aria-label="Calendar" tabindex="0" role="gridcell">29</button>
+                                    <button class="calendar-day calendar-day-prev" role="grid" aria-label="Calendar" role="gridcell" tabindex="0">30</button>
+                                    <button class="calendar-day calendar-day-prev" role="grid" aria-label="Calendar" role="gridcell" tabindex="0">31</button>
+                                    <button class="calendar-day" role="grid" aria-label="Calendar" role="gridcell" tabindex="0">1</button>
+                                    <button class="calendar-day" role="grid" aria-label="Calendar" role="gridcell" tabindex="0">2</button>
+                                    <button class="calendar-day" role="grid" aria-label="Calendar" role="gridcell" tabindex="0">3</button>
+                                    <button class="calendar-day" role="grid" aria-label="Calendar" role="gridcell" tabindex="0">4</button>
+                                    <button class="calendar-day" role="grid" aria-label="Calendar" role="gridcell" tabindex="0">5</button>
+                                    <button class="calendar-day" role="grid" aria-label="Calendar" role="gridcell" tabindex="0">6</button>
+                                    <button class="calendar-day" role="grid" aria-label="Calendar" role="gridcell" tabindex="0">7</button>
+                                    <button class="calendar-day" role="grid" aria-label="Calendar" role="gridcell" tabindex="0">8</button>
+                                    <button class="calendar-day" role="grid" aria-label="Calendar" role="gridcell" tabindex="0">9</button>
+                                    <button class="calendar-day" role="grid" aria-label="Calendar" role="gridcell" tabindex="0">10</button>
+                                    <button class="calendar-day" role="grid" aria-label="Calendar" tabindex="0" role="gridcell">11</button>
+                                    <button class="calendar-day" role="grid" aria-label="Calendar" role="gridcell" tabindex="0">12</button>
+                                    <button class="calendar-day" aria-label="Calendar" role="grid" role="gridcell" tabindex="0">13</button>
+                                    <button class="calendar-day" role="grid" aria-label="Calendar" role="gridcell" tabindex="0">14</button>
+                                    <button class="calendar-day calendar-day-today" role="grid" aria-label="Calendar" role="gridcell" tabindex="0">15</button>
+                                    <button class="calendar-day" role="grid" aria-label="Calendar" role="gridcell" tabindex="0">16</button>
+                                    <button class="calendar-day" aria-label="Calendar" role="grid" role="gridcell" tabindex="0">17</button>
+                                    <button class="calendar-day" role="grid" aria-label="Calendar" role="gridcell" tabindex="0">18</button>
+                                    <button class="calendar-day" role="grid" aria-label="Calendar" role="gridcell" tabindex="0">19</button>
+                                    <button class="calendar-day" role="grid" aria-label="Calendar" role="gridcell" tabindex="0">20</button>
+                                    <button class="calendar-day" role="grid" aria-label="Calendar" role="gridcell" tabindex="0">21</button>
+                                    <button class="calendar-day" role="grid" aria-label="Calendar" role="gridcell" tabindex="0">22</button>
+                                    <button class="calendar-day" role="grid" aria-label="Calendar" role="gridcell" tabindex="0">23</button>
+                                    <button class="calendar-day" role="grid" aria-label="Calendar" role="gridcell" tabindex="0">24</button>
+                                    <button class="calendar-day" role="grid" aria-label="Calendar" role="gridcell" tabindex="0">25</button>
+                                    <button class="calendar-day" role="grid" aria-label="Calendar" role="gridcell" tabindex="0">26</button>
+                                    <button class="calendar-day" role="grid" aria-label="Calendar" role="gridcell" tabindex="0">27</button>
+                                    <button class="calendar-day" role="grid" aria-label="Calendar" role="gridcell" tabindex="0">28</button>
+                                    <button class="calendar-day" aria-label="Calendar" role="grid" role="gridcell" tabindex="0">29</button>
+                                    <button class="calendar-day" aria-label="Calendar" role="grid" role="gridcell" tabindex="0">30</button>
+                                    <button class="calendar-day" role="grid" aria-label="Calendar" role="gridcell" tabindex="0">31</button>
+                                    <button class="calendar-day calendar-day-next" role="grid" aria-label="Calendar" role="gridcell" tabindex="0">1</button>
+                                </div>
+                                <div class="calendar-footer" role="grid" aria-label="Calendar">
+                                    <button class="btn-ghost btn-sm" role="button" tabindex="0" role="button" tabindex="0">Clear</button>
+                                    <button class="btn-primary btn-sm" role="button" tabindex="0" role="button" tabindex="0">Today</button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="card-default p-6" role="article" role="article">
+                    <h3 class="text-xl mb-4">Date Range Picker</h3>
+                    <div class="date-range">
+                        <div class="datepicker" aria-expanded="false" role="button" aria-haspopup="dialog" id="datepicker2">
+                            <div class="datepicker-input" role="button" aria-haspopup="dialog" aria-expanded="false" role="textbox" onclick="toggleDatepicker('datepicker2')" style="min-width: 140px;">
+                                <svg width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+                                    <rect x="3" y="4" width="18" height="18" rx="2" ry="2"></rect>
+                                    <line x1="16" y1="2" x2="16" y2="6"></line>
+                                    <line x1="8" y1="2" x2="8" y2="6"></line>
+                                    <line x1="3" y1="10" x2="21" y2="10"></line>
+                                </svg>
+                                <span class="text-sm">Start date</span>
+                            </div>
+                        </div>
+                        <span class="date-range-separator">to</span>
+                        <div class="datepicker" role="button" aria-haspopup="dialog" aria-expanded="false" id="datepicker3">
+                            <div class="datepicker-input" role="button" aria-haspopup="dialog" aria-expanded="false" role="textbox" onclick="toggleDatepicker('datepicker3')" style="min-width: 140px;">
+                                <svg width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+                                    <rect x="3" y="4" width="18" height="18" rx="2" ry="2"></rect>
+                                    <line x1="16" y1="2" x2="16" y2="6"></line>
+                                    <line x1="8" y1="2" x2="8" y2="6"></line>
+                                    <line x1="3" y1="10" x2="21" y2="10"></line>
+                                </svg>
+                                <span class="text-sm">End date</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Inline Calendar -->
+            <div class="card-default p-6 container-sm mx-auto" role="article" role="article">
+                <h3 class="text-xl mb-4 text-center">Inline Calendar with Range Selection</h3>
+                <div class="calendar" role="grid" aria-label="Calendar">
+                    <div class="calendar-header" role="grid" aria-label="Calendar" role="row">
+                        <span class="calendar-title" role="columnheader" aria-label="Calendar" role="grid">April 2026</span>
+                        <div class="calendar-nav" role="grid" aria-label="Calendar" role="navigation">
+                            <button class="calendar-nav-btn" role="grid" aria-label="Calendar" role="button" tabindex="0" role="button" tabindex="0" role="navigation" aria-label="Previous month">&lt;</button>
+                            <button class="calendar-nav-btn" role="grid" aria-label="Calendar" role="button" tabindex="0" role="button" tabindex="0" role="navigation" aria-label="Next month">&gt;</button>
+                        </div>
+                    </div>
+                    <div class="calendar-grid" role="grid" aria-label="Calendar">
+                        <div class="calendar-weekday" role="grid" aria-label="Calendar" role="columnheader">Su</div>
+                        <div class="calendar-weekday" role="grid" aria-label="Calendar" role="columnheader">Mo</div>
+                        <div class="calendar-weekday" role="grid" aria-label="Calendar" role="columnheader">Tu</div>
+                        <div class="calendar-weekday" role="grid" aria-label="Calendar" role="columnheader">We</div>
+                        <div class="calendar-weekday" role="grid" aria-label="Calendar" role="columnheader">Th</div>
+                        <div class="calendar-weekday" role="grid" aria-label="Calendar" role="columnheader">Fr</div>
+                        <div class="calendar-weekday" role="grid" aria-label="Calendar" role="columnheader">Sa</div>
+                        <button class="calendar-day" role="grid" aria-label="Calendar" role="gridcell" tabindex="0">29</button>
+                        <button class="calendar-day" role="grid" aria-label="Calendar" role="gridcell" tabindex="0">30</button>
+                        <button class="calendar-day" role="grid" aria-label="Calendar" role="gridcell" tabindex="0">31</button>
+                        <button class="calendar-day" role="grid" aria-label="Calendar" role="gridcell" tabindex="0">1</button>
+                        <button class="calendar-day" role="grid" aria-label="Calendar" role="gridcell" tabindex="0">2</button>
+                        <button class="calendar-day" role="grid" aria-label="Calendar" role="gridcell" tabindex="0">3</button>
+                        <button class="calendar-day" role="grid" aria-label="Calendar" role="gridcell" tabindex="0">4</button>
+                        <button class="calendar-day" role="grid" aria-label="Calendar" role="gridcell" tabindex="0">5</button>
+                        <button class="calendar-day" role="grid" aria-label="Calendar" role="gridcell" tabindex="0">6</button>
+                        <button class="calendar-day" role="grid" aria-label="Calendar" role="gridcell" tabindex="0">7</button>
+                        <button class="calendar-day" role="grid" aria-label="Calendar" role="gridcell" tabindex="0">8</button>
+                        <button class="calendar-day" role="grid" aria-label="Calendar" role="gridcell" tabindex="0">9</button>
+                        <button class="calendar-day" role="grid" aria-label="Calendar" tabindex="0" role="gridcell">10</button>
+                        <button class="calendar-day calendar-day-range-start" role="grid" aria-label="Calendar" role="gridcell" tabindex="0">11</button>
+                        <button class="calendar-day calendar-day-in-range" aria-label="Calendar" role="grid" role="gridcell" tabindex="0">12</button>
+                        <button class="calendar-day calendar-day-in-range" role="grid" aria-label="Calendar" role="gridcell" tabindex="0">13</button>
+                        <button class="calendar-day calendar-day-in-range" role="grid" aria-label="Calendar" role="gridcell" tabindex="0">14</button>
+                        <button class="calendar-day calendar-day-in-range" role="grid" aria-label="Calendar" role="gridcell" tabindex="0">15</button>
+                        <button class="calendar-day calendar-day-range-end" role="grid" aria-label="Calendar" tabindex="0" role="gridcell">16</button>
+                        <button class="calendar-day" role="grid" aria-label="Calendar" tabindex="0" role="gridcell">17</button>
+                        <button class="calendar-day" role="grid" aria-label="Calendar" role="gridcell" tabindex="0">18</button>
+                        <button class="calendar-day" role="grid" aria-label="Calendar" role="gridcell" tabindex="0">19</button>
+                        <button class="calendar-day" role="grid" aria-label="Calendar" tabindex="0" role="gridcell">20</button>
+                        <button class="calendar-day" role="grid" aria-label="Calendar" role="gridcell" tabindex="0">21</button>
+                        <button class="calendar-day" role="grid" aria-label="Calendar" role="gridcell" tabindex="0">22</button>
+                        <button class="calendar-day" role="grid" aria-label="Calendar" role="gridcell" tabindex="0">23</button>
+                        <button class="calendar-day" role="grid" aria-label="Calendar" role="gridcell" tabindex="0">24</button>
+                        <button class="calendar-day" role="grid" aria-label="Calendar" role="gridcell" tabindex="0">25</button>
+                        <button class="calendar-day" role="grid" aria-label="Calendar" tabindex="0" role="gridcell">26</button>
+                        <button class="calendar-day" role="grid" aria-label="Calendar" tabindex="0" role="gridcell">27</button>
+                        <button class="calendar-day" role="grid" aria-label="Calendar" role="gridcell" tabindex="0">28</button>
+                        <button class="calendar-day" role="grid" aria-label="Calendar" tabindex="0" role="gridcell">29</button>
+                        <button class="calendar-day" aria-label="Calendar" role="grid" role="gridcell" tabindex="0">30</button>
+                        <button class="calendar-day" role="grid" aria-label="Calendar" role="gridcell" tabindex="0">1</button>
+                        <button class="calendar-day" aria-label="Calendar" role="grid" role="gridcell" tabindex="0">2</button>
+                        <button class="calendar-day" role="grid" aria-label="Calendar" tabindex="0" role="gridcell">3</button>
+                        <!-- Hidden elements for compiler detection -->
+                        <div style="display:none">
+                            <button class="calendar-day calendar-day-selected" role="grid" aria-label="Calendar" tabindex="0" role="gridcell"></button>
+                            <button class="calendar-day calendar-day-disabled" role="grid" aria-label="Calendar" role="gridcell" tabindex="0"></button>
+                            <select class="calendar-time-select" role="combobox" role="grid" aria-label="Calendar"></select>
+                        </div>
+                    </div>
+                    <div class="calendar-footer" role="grid" aria-label="Calendar">
+                        <div class="calendar-time" role="grid" aria-label="Calendar">
+                            <span class="text-muted text-sm">Selected:</span>
+                            <span class="text-sm font-medium">Apr 11 - Apr 16, 2026</span>
+                        </div>
+                        <div class="intent-cluster gap-2">
+                            <button class="btn-ghost btn-sm" role="button" tabindex="0" role="button" tabindex="0">Cancel</button>
+                            <button class="btn-primary btn-sm" role="button" tabindex="0" role="button" tabindex="0">Apply</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Charts & Data Visualization Section -->
+    <section id="charts" class="intent-center px-6 py-12">
+        <div class="container-xl">
+            <h2 class="text-center text-fluid-3xl mb-4">
+                Charts & <span class="text-accent">Data Viz</span>
+            </h2>
+            <p class="container-sm text-center text-muted mb-12">
+                Bar charts, line charts, pie charts, and sparklines with CSS-only styling
+            </p>
+
+            <!-- Stats Cards -->
+            <div class="chart-stats container-md mx-auto mb-12" role="img" aria-label="Chart">
+                <div class="chart-stat" role="img" aria-label="Chart">
+                    <div class="chart-stat-value" role="img" aria-label="Chart">$24.5K</div>
+                    <div class="chart-stat-label" aria-label="Chart" role="img">Revenue</div>
+                </div>
+                <div class="chart-stat" role="img" aria-label="Chart">
+                    <div class="chart-stat-value" role="img" aria-label="Chart">1,234</div>
+                    <div class="chart-stat-label" aria-label="Chart" role="img">Users</div>
+                </div>
+                <div class="chart-stat" role="img" aria-label="Chart">
+                    <div class="chart-stat-value" role="img" aria-label="Chart">89%</div>
+                    <div class="chart-stat-label" aria-label="Chart" role="img">Uptime</div>
+                </div>
+                <div class="chart-stat" role="img" aria-label="Chart">
+                    <div class="chart-stat-value" role="img" aria-label="Chart">+12%</div>
+                    <div class="chart-stat-label" role="img" aria-label="Chart">Growth</div>
+                </div>
+            </div>
+
+            <!-- Bar Chart -->
+            <div class="grid-responsive gap-6 mb-12">
+                <div class="chart-container" role="region" aria-label="Chart container" aria-label="Chart" role="img">
+                    <div class="chart-header" role="img" aria-label="Chart">
+                        <div>
+                            <h3 class="chart-title" role="img" aria-label="Chart">Monthly Revenue</h3>
+                            <p class="chart-subtitle" role="img" aria-label="Chart">Last 6 months performance</p>
+                        </div>
+                        <div class="sparkline sparkline-up" aria-label="Trend indicator" role="img">
+                            <svg width="60" height="20" viewBox="0 0 60 20">
+                                <polyline fill="none" stroke="currentColor" stroke-width="2" points="0,15 10,12 20,14 30,8 40,10 50,5 60,2"/>
+                            </svg>
+                            <span class="text-sm font-medium">+24%</span>
+                        </div>
+                    </div>
+                    <div class="chart-body" role="img" aria-label="Chart">
+                        <div class="chart-bar" role="img" aria-label="Chart">
+                            <div class="chart-bar-item" role="graphics-symbol" aria-label="Bar value" role="img" aria-label="Chart" style="height: 40%;">
+                                <span class="chart-bar-value" role="img" aria-label="Chart">$12K</span>
+                                <span class="chart-bar-label" role="img" aria-label="Chart">Jan</span>
+                            </div>
+                            <div class="chart-bar-item" role="graphics-symbol" aria-label="Bar value" role="img" aria-label="Chart" style="height: 60%;">
+                                <span class="chart-bar-value" role="img" aria-label="Chart">$18K</span>
+                                <span class="chart-bar-label" aria-label="Chart" role="img">Feb</span>
+                            </div>
+                            <div class="chart-bar-item" role="graphics-symbol" aria-label="Bar value" role="img" aria-label="Chart" style="height: 45%;">
+                                <span class="chart-bar-value" role="img" aria-label="Chart">$14K</span>
+                                <span class="chart-bar-label" role="img" aria-label="Chart">Mar</span>
+                            </div>
+                            <div class="chart-bar-item" role="graphics-symbol" aria-label="Bar value" role="img" aria-label="Chart" style="height: 80%;">
+                                <span class="chart-bar-value" role="img" aria-label="Chart">$22K</span>
+                                <span class="chart-bar-label" role="img" aria-label="Chart">Apr</span>
+                            </div>
+                            <div class="chart-bar-item" role="graphics-symbol" aria-label="Bar value" role="img" aria-label="Chart" style="height: 65%;">
+                                <span class="chart-bar-value" aria-label="Chart" role="img">$19K</span>
+                                <span class="chart-bar-label" aria-label="Chart" role="img">May</span>
+                            </div>
+                            <div class="chart-bar-item" role="graphics-symbol" aria-label="Bar value" role="img" aria-label="Chart" style="height: 90%;">
+                                <span class="chart-bar-value" role="img" aria-label="Chart">$28K</span>
+                                <span class="chart-bar-label" role="img" aria-label="Chart">Jun</span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="chart-footer" role="img" aria-label="Chart">
+                        <span class="text-sm text-muted">Total: $113K</span>
+                        <button class="btn-ghost btn-sm" role="button" tabindex="0" tabindex="0" role="button">View Details</button>
+                    </div>
+                </div>
+
+                <!-- Line Chart -->
+                <div class="chart-container" role="region" aria-label="Chart container" role="img" aria-label="Chart">
+                    <div class="chart-header" role="img" aria-label="Chart">
+                        <div>
+                            <h3 class="chart-title" role="img" aria-label="Chart">User Activity</h3>
+                            <p class="chart-subtitle" role="img" aria-label="Chart">Daily active users over time</p>
+                        </div>
+                    </div>
+                    <div class="chart-body" role="img" aria-label="Chart">
+                        <div class="chart-line" role="img" aria-label="Chart">
+                            <svg class="chart-line-svg" aria-label="Line chart" role="img" role="img" aria-label="Chart" viewBox="0 0 300 150" preserveAspectRatio="none">
+                                <!-- Grid lines -->
+                                <line x1="0" y1="37.5" x2="300" y2="37.5" stroke="var(--zi-neutral-800)" stroke-width="1"/>
+                                <line x1="0" y1="75" x2="300" y2="75" stroke="var(--zi-neutral-800)" stroke-width="1"/>
+                                <line x1="0" y1="112.5" x2="300" y2="112.5" stroke="var(--zi-neutral-800)" stroke-width="1"/>
+                                <!-- Area under curve -->
+                                <path class="chart-line-area" role="img" aria-label="Chart" d="M0,120 Q50,100 100,90 T200,60 T300,30 L300,150 L0,150 Z"/>
+                                <!-- Line -->
+                                <path class="chart-line-path" aria-label="Chart" role="img" d="M0,120 Q50,100 100,90 T200,60 T300,30"/>
+                                <!-- Points -->
+                                <circle class="chart-line-point" role="img" aria-label="Chart" cx="0" cy="120" r="4"/>
+                                <circle class="chart-line-point" role="img" aria-label="Chart" cx="100" cy="90" r="4"/>
+                                <circle class="chart-line-point" role="img" aria-label="Chart" cx="200" cy="60" r="4"/>
+                                <circle class="chart-line-point" role="img" aria-label="Chart" cx="300" cy="30" r="4"/>
+                            </svg>
+                        </div>
+                    </div>
+                    <div class="chart-footer" role="img" aria-label="Chart">
+                        <div class="chart-legend" role="list" role="img" aria-label="Chart">
+                            <div class="chart-legend-item" role="listitem" role="list" role="img" aria-label="Chart">
+                                <span class="chart-legend-color" role="list" role="img" aria-label="Chart" style="background: var(--zi-accent-primary);"></span>
+                                <span class="chart-legend-label" role="list" role="img" aria-label="Chart">Active Users</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Pie Chart & Sparklines -->
+            <div class="grid-responsive gap-6">
+                <div class="chart-container" role="region" aria-label="Chart container" role="img" aria-label="Chart">
+                    <div class="chart-header" role="img" aria-label="Chart">
+                        <h3 class="chart-title" role="img" aria-label="Chart">Traffic Sources</h3>
+                    </div>
+                    <div class="chart-body" aria-label="Chart" role="img">
+                        <div class="chart-pie" role="img" aria-label="Chart">
+                            <svg class="chart-pie-svg" role="img" aria-label="Pie chart" role="img" aria-label="Chart" viewBox="0 0 100 100">
+                                <!-- Segments using stroke-dasharray -->
+                                <circle class="chart-pie-segment" role="img" aria-label="Chart" cx="50" cy="50" r="34" 
+                                    stroke="var(--zi-accent-primary)" 
+                                    stroke-dasharray="53.4 159.8"
+                                    stroke-dashoffset="0"/>
+                                <circle class="chart-pie-segment" role="img" aria-label="Chart" cx="50" cy="50" r="34" 
+                                    stroke="var(--zi-accent-secondary)" 
+                                    stroke-dasharray="42.7 159.8"
+                                    stroke-dashoffset="-53.4"/>
+                                <circle class="chart-pie-segment" role="img" aria-label="Chart" cx="50" cy="50" r="34" 
+                                    stroke="var(--zi-success-500)" 
+                                    stroke-dasharray="32 159.8"
+                                    stroke-dashoffset="-96.1"/>
+                                <circle class="chart-pie-segment" aria-label="Chart" role="img" cx="50" cy="50" r="34" 
+                                    stroke="var(--zi-warning-500)" 
+                                    stroke-dasharray="31.7 159.8"
+                                    stroke-dashoffset="-128.1"/>
+                            </svg>
+                        </div>
+                        <div class="chart-legend" role="list" role="img" aria-label="Chart">
+                            <div class="chart-legend-item" role="listitem" role="list" role="img" aria-label="Chart">
+                                <span class="chart-legend-color" role="list" role="img" aria-label="Chart" style="background: var(--zi-accent-primary);"></span>
+                                <span class="chart-legend-label" role="list" role="img" aria-label="Chart">Direct (33%)</span>
+                            </div>
+                            <div class="chart-legend-item" role="listitem" role="list" role="img" aria-label="Chart">
+                                <span class="chart-legend-color" role="list" role="img" aria-label="Chart" style="background: var(--zi-accent-secondary);"></span>
+                                <span class="chart-legend-label" role="list" role="img" aria-label="Chart">Organic (27%)</span>
+                            </div>
+                            <div class="chart-legend-item" role="listitem" role="list" role="img" aria-label="Chart">
+                                <span class="chart-legend-color" role="list" role="img" aria-label="Chart" style="background: var(--zi-success-500);"></span>
+                                <span class="chart-legend-label" role="list" role="img" aria-label="Chart">Social (20%)</span>
+                            </div>
+                            <div class="chart-legend-item" role="listitem" role="list" role="img" aria-label="Chart">
+                                <span class="chart-legend-color" role="list" aria-label="Chart" role="img" style="background: var(--zi-warning-500);"></span>
+                                <span class="chart-legend-label" role="list" aria-label="Chart" role="img">Referral (20%)</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Sparklines Demo -->
+                <div class="card-default p-6" role="article" role="article">
+                    <h3 class="text-xl mb-4">Mini Sparklines</h3>
+                    <div class="intent-stack gap-4">
+                        <div class="intent-cluster justify-between items-center p-3 bg-elevated rounded">
+                            <span class="text-sm">Page Views</span>
+                            <div class="intent-cluster gap-3">
+                                <div class="sparkline" role="img" aria-label="Trend indicator">
+                                    <div class="sparkline-bar" role="img" aria-label="Trend indicator" style="height: 8px;"></div>
+                                    <div class="sparkline-bar" role="img" aria-label="Trend indicator" style="height: 12px;"></div>
+                                    <div class="sparkline-bar" role="img" aria-label="Trend indicator" style="height: 6px;"></div>
+                                    <div class="sparkline-bar" role="img" aria-label="Trend indicator" style="height: 16px;"></div>
+                                    <div class="sparkline-bar" role="img" aria-label="Trend indicator" style="height: 10px;"></div>
+                                    <div class="sparkline-bar" role="img" aria-label="Trend indicator" style="height: 20px;"></div>
+                                    <div class="sparkline-bar" role="img" aria-label="Trend indicator" style="height: 14px;"></div>
+                                </div>
+                                <span class="sparkline-up text-sm font-medium" role="img" aria-label="Trend indicator">↑ 12%</span>
+                            </div>
+                        </div>
+                        <div class="intent-cluster justify-between items-center p-3 bg-elevated rounded">
+                            <span class="text-sm">Bounce Rate</span>
+                            <div class="intent-cluster gap-3">
+                                <div class="sparkline" role="img" aria-label="Trend indicator">
+                                    <div class="sparkline-bar" aria-label="Trend indicator" role="img" style="height: 18px; background: var(--zi-error-500);"></div>
+                                    <div class="sparkline-bar" role="img" aria-label="Trend indicator" style="height: 14px; background: var(--zi-error-500);"></div>
+                                    <div class="sparkline-bar" aria-label="Trend indicator" role="img" style="height: 16px; background: var(--zi-error-500);"></div>
+                                    <div class="sparkline-bar" role="img" aria-label="Trend indicator" style="height: 10px; background: var(--zi-error-500);"></div>
+                                    <div class="sparkline-bar" role="img" aria-label="Trend indicator" style="height: 12px; background: var(--zi-error-500);"></div>
+                                </div>
+                                <span class="sparkline-down text-sm font-medium" role="img" aria-label="Trend indicator">↓ 5%</span>
+                            </div>
+                        </div>
+                        <div class="intent-cluster justify-between items-center p-3 bg-elevated rounded">
+                            <span class="text-sm">Conversions</span>
+                            <div class="intent-cluster gap-3">
+                                <div class="sparkline" role="img" aria-label="Trend indicator">
+                                    <div class="sparkline-bar" role="img" aria-label="Trend indicator" style="height: 10px;"></div>
+                                    <div class="sparkline-bar" role="img" aria-label="Trend indicator" style="height: 14px;"></div>
+                                    <div class="sparkline-bar" role="img" aria-label="Trend indicator" style="height: 12px;"></div>
+                                    <div class="sparkline-bar" role="img" aria-label="Trend indicator" style="height: 18px;"></div>
+                                    <div class="sparkline-bar" role="img" aria-label="Trend indicator" style="height: 22px;"></div>
+                                    <div class="sparkline-bar" role="img" aria-label="Trend indicator" style="height: 24px;"></div>
+                                </div>
+                                <span class="sparkline-up text-sm font-medium" aria-label="Trend indicator" role="img">↑ 8%</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Multi-step Wizards Section -->
+    <section id="wizards" class="intent-center px-6 py-12">
+        <div class="container-xl">
+            <h2 class="text-center text-fluid-3xl mb-4">
+                Multi-step <span class="text-accent">Wizards</span>
+            </h2>
+            <p class="container-sm text-center text-muted mb-12">
+                Step-by-step forms with progress indicators and timeline variants
+            </p>
+
+            <!-- Horizontal Step Wizard -->
+            <div class="wizard mb-12" role="region" aria-label="Multi-step wizard">
+                <div class="wizard-container" aria-label="Multi-step wizard" role="region">
+                    <div class="wizard-header" role="region" aria-label="Multi-step wizard">
+                        <h3 class="wizard-title" role="region" aria-label="Multi-step wizard">Account Setup</h3>
+                        <p class="wizard-subtitle" role="region" aria-label="Multi-step wizard">Complete the following steps to create your account</p>
+                    </div>
+                    
+                    <div class="wizard-steps" role="region" aria-label="Multi-step wizard" role="tablist" aria-label="Wizard steps">
+                        <div class="wizard-step wizard-step-completed" role="region" aria-label="Multi-step wizard" role="tab" aria-selected="false" tabindex="0" onclick="goToStep(0)">
+                            <span class="wizard-step-number" role="region" aria-label="Multi-step wizard" role="tab" aria-selected="false" tabindex="0">✓</span>
+                            <span class="wizard-step-label" role="region" aria-label="Multi-step wizard" role="tab" aria-selected="false" tabindex="0">Profile</span>
+                        </div>
+                        <div class="wizard-step-connector" role="region" aria-label="Multi-step wizard" role="tab" aria-selected="false" tabindex="0"></div>
+                        <div class="wizard-step wizard-step-completed" role="region" aria-label="Multi-step wizard" role="tab" aria-selected="false" tabindex="0" onclick="goToStep(1)">
+                            <span class="wizard-step-number" role="region" aria-label="Multi-step wizard" role="tab" aria-selected="false" tabindex="0">✓</span>
+                            <span class="wizard-step-label" role="region" aria-label="Multi-step wizard" tabindex="0" role="tab" aria-selected="false">Settings</span>
+                        </div>
+                        <div class="wizard-step-connector" role="region" aria-label="Multi-step wizard" role="tab" aria-selected="false" tabindex="0"></div>
+                        <div class="wizard-step wizard-step-active" role="region" aria-label="Multi-step wizard" aria-selected="true" role="tab" aria-selected="false" tabindex="0" onclick="goToStep(2)">
+                            <span class="wizard-step-number" role="region" aria-label="Multi-step wizard" role="tab" aria-selected="false" tabindex="0">3</span>
+                            <span class="wizard-step-label" role="region" aria-label="Multi-step wizard" role="tab" aria-selected="false" tabindex="0">Billing</span>
+                        </div>
+                        <div class="wizard-step-connector" role="region" aria-label="Multi-step wizard" role="tab" aria-selected="false" tabindex="0"></div>
+                        <div class="wizard-step" role="region" aria-label="Multi-step wizard" role="tab" aria-selected="false" tabindex="0" onclick="goToStep(3)">
+                            <span class="wizard-step-number" role="region" aria-label="Multi-step wizard" role="tab" aria-selected="false" tabindex="0">4</span>
+                            <span class="wizard-step-label" aria-label="Multi-step wizard" role="region" aria-selected="false" tabindex="0" role="tab">Review</span>
+                        </div>
+                    </div>
+
+                    <div class="wizard-content" role="region" aria-label="Multi-step wizard">
+                        <div class="wizard-step-content wizard-step-content-active" role="region" aria-label="Multi-step wizard" role="tabpanel" role="tab" aria-selected="false" tabindex="0">
+                            <h4 class="text-lg font-semibold mb-4">Billing Information</h4>
+                            <div class="intent-stack gap-4 max-w-md">
+                                <div class="form-group">
+                                    <label class="form-label">Card Number</label>
+                                    <input type="text" class="input" role="textbox" placeholder="1234 5678 9012 3456">
+                                </div>
+                                <div class="grid-responsive gap-4" style="grid-template-columns: 1fr 1fr;">
+                                    <div class="form-group">
+                                        <label class="form-label">Expiry</label>
+                                        <input type="text" class="input" role="textbox" placeholder="MM/YY">
+                                    </div>
+                                    <div class="form-group">
+                                        <label class="form-label">CVC</label>
+                                        <input type="text" class="input" role="textbox" placeholder="123">
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="wizard-footer" role="region" aria-label="Multi-step wizard">
+                        <button class="btn-ghost" role="button" tabindex="0" role="button" tabindex="0" onclick="prevStep()">Back</button>
+                        <div class="intent-cluster gap-3">
+                            <span class="text-sm text-muted">Step 3 of 4</span>
+                            <button class="btn-primary" role="button" tabindex="0" role="button" tabindex="0" onclick="nextStep()">Continue</button>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="wizard-progress mt-4" aria-valuemax="100" aria-valuenow="0" role="progressbar" aria-valuemin="0" role="region" aria-label="Multi-step wizard" role="progressbar" aria-valuemin="0" aria-valuemax="100">
+                    <div class="wizard-progress-bar" aria-valuenow="0" role="progressbar" aria-valuemin="0" aria-valuemax="100" role="region" aria-label="Multi-step wizard" aria-valuenow="0" role="progressbar" aria-valuemin="0" aria-valuemax="100" style="width: 75%;"></div>
+                </div>
+            </div>
+
+            <!-- Timeline Wizard -->
+            <div class="grid-responsive gap-6">
+                <div class="card-default p-6" role="article" role="article">
+                    <h3 class="text-xl mb-6">Vertical Timeline</h3>
+                    <div class="wizard-timeline" role="region" aria-label="Multi-step wizard" role="list">
+                        <div class="wizard-timeline-item wizard-timeline-item-completed" role="region" aria-label="Multi-step wizard" role="list" role="listitem">
+                            <div class="wizard-timeline-marker" role="region" aria-label="Multi-step wizard" role="list"></div>
+                            <div class="wizard-timeline-line" aria-label="Multi-step wizard" role="region" role="list"></div>
+                            <div class="wizard-timeline-content" role="region" aria-label="Multi-step wizard" role="list">
+                                <h4 class="wizard-timeline-title" role="region" aria-label="Multi-step wizard" role="list">Account Created</h4>
+                                <p class="wizard-timeline-desc" role="region" aria-label="Multi-step wizard" role="list">Your account was successfully created</p>
+                                <span class="text-xs text-muted">2 days ago</span>
+                            </div>
+                        </div>
+                        <div class="wizard-timeline-item wizard-timeline-item-completed" role="region" aria-label="Multi-step wizard" role="list" role="listitem">
+                            <div class="wizard-timeline-marker" aria-label="Multi-step wizard" role="region" role="list"></div>
+                            <div class="wizard-timeline-line" role="region" aria-label="Multi-step wizard" role="list"></div>
+                            <div class="wizard-timeline-content" role="region" aria-label="Multi-step wizard" role="list">
+                                <h4 class="wizard-timeline-title" role="region" aria-label="Multi-step wizard" role="list">Email Verified</h4>
+                                <p class="wizard-timeline-desc" role="region" aria-label="Multi-step wizard" role="list">Email confirmation completed</p>
+                                <span class="text-xs text-muted">1 day ago</span>
+                            </div>
+                        </div>
+                        <div class="wizard-timeline-item wizard-timeline-item-active" role="region" aria-label="Multi-step wizard" role="list" role="listitem">
+                            <div class="wizard-timeline-marker" role="region" aria-label="Multi-step wizard" role="list"></div>
+                            <div class="wizard-timeline-line" role="region" aria-label="Multi-step wizard" role="list"></div>
+                            <div class="wizard-timeline-content" role="region" aria-label="Multi-step wizard" role="list">
+                                <h4 class="wizard-timeline-title" role="region" aria-label="Multi-step wizard" role="list">Profile Setup</h4>
+                                <p class="wizard-timeline-desc" role="region" aria-label="Multi-step wizard" role="list">Complete your profile information</p>
+                                <span class="text-xs text-muted">In progress</span>
+                            </div>
+                        </div>
+                        <div class="wizard-timeline-item" role="region" aria-label="Multi-step wizard" role="list" role="listitem">
+                            <div class="wizard-timeline-marker" role="region" aria-label="Multi-step wizard" role="list"></div>
+                            <div class="wizard-timeline-content" aria-label="Multi-step wizard" role="region" role="list">
+                                <h4 class="wizard-timeline-title" role="region" aria-label="Multi-step wizard" role="list">Get Started</h4>
+                                <p class="wizard-timeline-desc" role="region" aria-label="Multi-step wizard" role="list">Explore the platform features</p>
+                                <span class="text-xs text-muted">Pending</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Simple Steps -->
+                <div class="card-default p-6" role="article" role="article">
+                    <h3 class="text-xl mb-6">Compact Steps</h3>
+                    <div class="intent-stack gap-4">
+                        <div class="intent-cluster gap-3 p-3 bg-elevated rounded" style="background: var(--zi-bg-elevated);">
+                            <div style="width: 32px; height: 32px; background: var(--zi-success-500); color: white; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-weight: 600;">✓</div>
+                            <div class="flex-1">
+                                <h4 class="font-medium text-sm">Choose Plan</h4>
+                                <p class="text-xs text-muted">Pro plan selected</p>
+                            </div>
+                            <span class="badge-success text-xs">Done</span>
+                        </div>
+                        <div class="intent-cluster gap-3 p-3 bg-elevated rounded" style="background: var(--zi-bg-elevated);">
+                            <div style="width: 32px; height: 32px; background: var(--zi-success-500); color: white; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-weight: 600;">✓</div>
+                            <div class="flex-1">
+                                <h4 class="font-medium text-sm">Payment</h4>
+                                <p class="text-xs text-muted">Card ending in 4242</p>
+                            </div>
+                            <span class="badge-success text-xs">Done</span>
+                        </div>
+                        <div class="intent-cluster gap-3 p-3 rounded" style="background: var(--zi-accent-primary); color: white;">
+                            <div style="width: 32px; height: 32px; background: white; color: var(--zi-accent-primary); border-radius: 50%; display: flex; align-items: center; justify-content: center; font-weight: 600;">3</div>
+                            <div class="flex-1">
+                                <h4 class="font-medium text-sm">Configure</h4>
+                                <p class="text-xs" style="opacity: 0.9;">Set up your workspace</p>
+                            </div>
+                            <span class="badge-ghost text-xs" style="background: rgba(255,255,255,0.2); color: white;">Current</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Drag & Drop Section -->
+    <section id="dnd" class="intent-center px-6 py-12">
+        <div class="container-xl">
+            <h2 class="text-center text-fluid-3xl mb-4">
+                Drag & <span class="text-accent">Drop</span>
+            </h2>
+            <p class="container-sm text-center text-muted mb-12">
+                Sortable lists, file uploads, and draggable components
+            </p>
+
+            <!-- Upload Zone -->
+            <div class="card-default p-6 mb-8" role="article" role="article">
+                <h3 class="text-xl mb-4">File Upload</h3>
+                <div class="upload-zone" role="button" aria-label="File upload area" id="uploadZone" ondragover="handleDragOver(event)" ondragleave="handleDragLeave(event)" ondrop="handleDrop(event)">
+                    <div class="upload-zone-icon" role="button" aria-label="File upload area">
+                        <svg width="48" height="48" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+                            <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/>
+                            <polyline points="17 8 12 3 7 8"/>
+                            <line x1="12" y1="3" x2="12" y2="15"/>
+                        </svg>
+                    </div>
+                    <p class="upload-zone-text-primary" role="button" aria-label="File upload area">Drop files here or click to upload</p>
+                    <p class="upload-zone-text" role="button" aria-label="File upload area">Supports PNG, JPG, PDF up to 10MB</p>
+                </div>
+                <div class="file-list" id="fileList">
+                    <!-- File items will appear here -->
+                </div>
+            </div>
+
+            <!-- Sortable List -->
+            <div class="grid-responsive gap-6">
+                <div class="card-default p-6" role="article" role="article">
+                    <h3 class="text-xl mb-4">Sortable Tasks</h3>
+                    <ul class="sortable-list" role="list" id="sortableList">
+                        <li class="sortable-item" role="listitem" draggable="true" aria-grabbed="false" draggable="true" ondragstart="handleSortStart(event)" ondragend="handleSortEnd(event)" ondragover="handleSortOver(event)" ondrop="handleSortDrop(event)">
+                            <span class="sortable-handle">⋮⋮</span>
+                            <span class="flex-1">Review pull requests</span>
+                            <span class="badge-primary text-xs">High</span>
+                        </li>
+                        <li class="sortable-item" role="listitem" draggable="true" aria-grabbed="false" draggable="true" ondragstart="handleSortStart(event)" ondragend="handleSortEnd(event)" ondragover="handleSortOver(event)" ondrop="handleSortDrop(event)">
+                            <span class="sortable-handle">⋮⋮</span>
+                            <span class="flex-1">Update documentation</span>
+                            <span class="badge-secondary text-xs">Medium</span>
+                        </li>
+                        <li class="sortable-item" draggable="true" aria-grabbed="false" role="listitem" draggable="true" ondragstart="handleSortStart(event)" ondragend="handleSortEnd(event)" ondragover="handleSortOver(event)" ondrop="handleSortDrop(event)">
+                            <span class="sortable-handle">⋮⋮</span>
+                            <span class="flex-1">Fix navigation bug</span>
+                            <span class="badge-primary text-xs">High</span>
+                        </li>
+                        <li class="sortable-item" role="listitem" draggable="true" aria-grabbed="false" draggable="true" ondragstart="handleSortStart(event)" ondragend="handleSortEnd(event)" ondragover="handleSortOver(event)" ondrop="handleSortDrop(event)">
+                            <span class="sortable-handle">⋮⋮</span>
+                            <span class="flex-1">Write unit tests</span>
+                            <span class="badge-ghost text-xs">Low</span>
+                        </li>
+                    </ul>
+                </div>
+
+                <!-- Drag Between Containers -->
+                <div class="card-default p-6" role="article" role="article">
+                    <h3 class="text-xl mb-4">Drag to Columns</h3>
+                    <div class="grid-responsive gap-4" style="grid-template-columns: 1fr 1fr;">
+                        <div class="drag-container" aria-label="Draggable items container" role="region" id="container1" ondragover="allowDrop(event)" ondrop="dropItem(event, 'container1')">
+                            <p class="text-sm text-muted mb-3">To Do</p>
+                            <div class="drag-item" aria-grabbed="false" tabindex="0" role="button" draggable="true" draggable="true" id="item1" ondragstart="dragStart(event)">
+                                <span class="drag-handle">⋮⋮</span>
+                                <span>Design mockups</span>
+                            </div>
+                            <div class="drag-item" role="button" draggable="true" aria-grabbed="false" tabindex="0" draggable="true" id="item2" ondragstart="dragStart(event)">
+                                <span class="drag-handle">⋮⋮</span>
+                                <span>Research APIs</span>
+                            </div>
+                        </div>
+                        <div class="drop-zone" role="region" aria-label="Drop zone" aria-dropeffect="move" id="container2" ondragover="allowDrop(event)" ondrop="dropItem(event, 'container2')">
+                            <p class="text-sm text-muted mb-3">Done</p>
+                            <p class="text-xs text-muted">Drop items here</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Rich Text / WYSIWYG Section -->
+    <section id="richtext" class="intent-center px-6 py-12">
+        <div class="container-xl">
+            <h2 class="text-center text-fluid-3xl mb-4">
+                Rich Text <span class="text-accent">Editor</span>
+            </h2>
+            <p class="container-sm text-center text-muted mb-12">
+                WYSIWYG editor with formatting toolbar, mentions, and link previews
+            </p>
+
+            <!-- Main Rich Text Editor -->
+            <div class="card-default p-6 mb-8" role="article" role="article">
+                <h3 class="text-xl mb-4">Create Post</h3>
+                <div class="rich-editor" role="textbox" aria-multiline="true" aria-label="Rich text editor">
+                    <div class="rich-toolbar" role="toolbar" aria-label="Formatting toolbar">
+                        <div class="rich-toolbar-group" role="toolbar" aria-label="Formatting toolbar">
+                            <select class="rich-toolbar-select" role="combobox" role="toolbar" aria-label="Formatting toolbar" onchange="formatDoc('formatBlock', this.value); this.value='';">
+                                <option value="" selected disabled>Style</option>
+                                <option value="p">Paragraph</option>
+                                <option value="h1">Heading 1</option>
+                                <option value="h2">Heading 2</option>
+                                <option value="h3">Heading 3</option>
+                            </select>
+                        </div>
+                        <div class="rich-toolbar-group" aria-label="Formatting toolbar" role="toolbar">
+                            <button class="rich-toolbar-btn" role="toolbar" aria-label="Formatting toolbar" role="button" tabindex="0" role="button" tabindex="0" aria-pressed="false" onclick="formatDoc('bold')" title="Bold">
+                                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M6 4h8a4 4 0 0 1 4 4 4 4 0 0 1-4 4H6z"/><path d="M6 12h9a4 4 0 0 1 4 4 4 4 0 0 1-4 4H6z"/></svg>
+                            </button>
+                            <button class="rich-toolbar-btn" aria-label="Formatting toolbar" role="toolbar" role="button" tabindex="0" role="button" tabindex="0" aria-pressed="false" onclick="formatDoc('italic')" title="Italic">
+                                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="19" y1="4" x2="10" y2="4"/><line x1="14" y1="20" x2="5" y2="20"/><line x1="15" y1="4" x2="9" y2="20"/></svg>
+                            </button>
+                            <button class="rich-toolbar-btn" role="toolbar" aria-label="Formatting toolbar" role="button" tabindex="0" role="button" tabindex="0" aria-pressed="false" onclick="formatDoc('underline')" title="Underline">
+                                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M6 3v7a6 6 0 0 0 6 6 6 6 0 0 0 6-6V3"/><line x1="4" y1="21" x2="20" y2="21"/></svg>
+                            </button>
+                            <button class="rich-toolbar-btn" role="toolbar" aria-label="Formatting toolbar" tabindex="0" role="button" role="button" tabindex="0" aria-pressed="false" onclick="formatDoc('strikeThrough')" title="Strikethrough">
+                                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M17.3 19c-1.4 1.4-3.3 2-5.3 2-4.4 0-8-3.6-8-8s3.6-8 8-8 8 3.6 8 8v2"/><line x1="4" y1="12" x2="20" y2="12"/></svg>
+                            </button>
+                        </div>
+                        <div class="rich-toolbar-group" role="toolbar" aria-label="Formatting toolbar">
+                            <button class="rich-toolbar-btn" role="toolbar" aria-label="Formatting toolbar" role="button" tabindex="0" role="button" tabindex="0" aria-pressed="false" onclick="formatDoc('insertUnorderedList')" title="Bullet List">
+                                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="8" y1="6" x2="21" y2="6"/><line x1="8" y1="12" x2="21" y2="12"/><line x1="8" y1="18" x2="21" y2="18"/><line x1="3" y1="6" x2="3.01" y2="6"/><line x1="3" y1="12" x2="3.01" y2="12"/><line x1="3" y1="18" x2="3.01" y2="18"/></svg>
+                            </button>
+                            <button class="rich-toolbar-btn" role="toolbar" aria-label="Formatting toolbar" role="button" tabindex="0" role="button" tabindex="0" aria-pressed="false" onclick="formatDoc('insertOrderedList')" title="Numbered List">
+                                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="10" y1="6" x2="21" y2="6"/><line x1="10" y1="12" x2="21" y2="12"/><line x1="10" y1="18" x2="21" y2="18"/><path d="M4 6h1v4"/><path d="M4 10h2"/><path d="M6 18H4c0-1 2-2 2-3s-1-1.5-2-2"/></svg>
+                            </button>
+                            <button class="rich-toolbar-btn" role="toolbar" aria-label="Formatting toolbar" role="button" tabindex="0" role="button" tabindex="0" aria-pressed="false" onclick="formatDoc('formatBlock', 'blockquote')" title="Quote">
+                                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 21c3 0 7-1 7-8V5c0-1.25-.756-2.017-2-2H4c-1.25 0-2 .75-2 1.972V11c0 1.25.75 2 2 2 1 0 1 0 1 1v1c0 1-1 2-2 2s-1 .008-1 1.031V21M15 21c3 0 7-1 7-8V5c0-1.25-.757-2.017-2-2h-4c-1.25 0-2 .75-2 1.972V11c0 1.25.75 2 2 2h.75c0 2.25.25 4-2.75 4v3c0 1 0 1 1 1z"/></svg>
+                            </button>
+                        </div>
+                        <div class="rich-toolbar-group rich-toolbar-group-last" role="toolbar" aria-label="Formatting toolbar">
+                            <button class="rich-toolbar-btn" role="toolbar" aria-label="Formatting toolbar" role="button" tabindex="0" role="button" tabindex="0" aria-pressed="false" onclick="formatDoc('createLink', prompt('Enter URL:', 'https://'))" title="Link">
+                                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"/><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"/></svg>
+                            </button>
+                            <button class="rich-toolbar-btn" role="toolbar" aria-label="Formatting toolbar" role="button" tabindex="0" tabindex="0" aria-pressed="false" role="button" onclick="formatDoc('removeFormat')" title="Clear Formatting">
+                                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 7v10"/><path d="M7 3h10"/><path d="M7 21h10"/><path d="M21 7v10"/></svg>
+                            </button>
+                        </div>
+                    </div>
+                    <div class="rich-content" contenteditable="true" aria-multiline="true" role="textbox" contenteditable="true" id="richContent">
+                        <h2>Welcome to ZINTENT</h2>
+                        <p>This is a <b>rich text editor</b> built with semantic intents. You can format text, create lists, and add links.</p>
+                        <blockquote>Design is not just what it looks like and feels like. Design is how it works.</blockquote>
+                        <ul>
+                            <li>Container-first responsive design</li>
+                            <li>Zero runtime CSS framework</li>
+                            <li>Intent-driven architecture</li>
+                        </ul>
+                        <p>Try editing this content using the toolbar above!</p>
+                    </div>
+                    <div class="rich-footer">
+                        <div class="rich-footer-stats">
+                            <span id="charCount">247 characters</span>
+                            <span id="wordCount">42 words</span>
+                        </div>
+                        <div class="intent-cluster gap-2">
+                            <button class="btn-ghost btn-sm" role="button" tabindex="0" role="button" tabindex="0">Save Draft</button>
+                            <button class="btn-primary btn-sm" role="button" tabindex="0" role="button" tabindex="0">Publish</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Link Preview Demo -->
+            <div class="grid-responsive gap-6">
+                <div class="card-default p-6" role="article" role="article">
+                    <h3 class="text-xl mb-4">Link Preview</h3>
+                    <div class="rich-link-preview">
+                        <div class="rich-link-preview-image"></div>
+                        <div class="rich-link-preview-content">
+                            <div class="rich-link-preview-title">ZINTENT CSS Framework</div>
+                            <div class="rich-link-preview-url">github.com/zintent/core</div>
+                        </div>
+                    </div>
+                    <p class="text-sm text-muted mt-3">Paste a link to see automatic preview generation</p>
+                </div>
+
+                <!-- Mentions Demo -->
+                <div class="card-default p-6" role="article" role="article">
+                    <h3 class="text-xl mb-4">Mentions</h3>
+                    <div class="intent-stack gap-3">
+                        <div class="rich-mention">
+                            <span class="rich-mention-avatar">JD</span>
+                            <span>John Doe</span>
+                        </div>
+                        <div class="rich-mention">
+                            <span class="rich-mention-avatar">AS</span>
+                            <span>Alice Smith</span>
+                        </div>
+                        <div class="rich-mention">
+                            <span class="rich-mention-avatar">TB</span>
+                            <span>Tom Brown</span>
+                        </div>
+                    </div>
+                    <p class="text-sm text-muted mt-3">Type @ to mention team members</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Navigation Drawer -->
+    <div class="drawer drawer-left drawer-lg" role="dialog" aria-modal="true" id="drawer-nav-demo">
+        <div class="drawer-header" role="dialog" aria-modal="true">
+            <h3 class="drawer-title" role="dialog" aria-modal="true">Navigation</h3>
+            <button class="modal-close" role="dialog" aria-modal="true" onclick="closeAllDrawers()">×</button>
+        </div>
+        <div class="drawer-body" role="dialog" aria-modal="true">
+            <ul class="nav-vertical" role="navigation">
+                <li class="nav-item" role="navigation"><a href="#datepickers" class="nav-link active" role="navigation" onclick="closeAllDrawers()">Date Pickers</a></li>
+                <li class="nav-item" role="navigation"><a href="#calendars" class="nav-link" role="navigation" onclick="closeAllDrawers()">Calendars</a></li>
+                <li class="nav-item" role="navigation"><a href="#charts" class="nav-link" role="navigation" onclick="closeAllDrawers()">Charts</a></li>
+                <li class="nav-item" role="navigation"><a href="#wizards" class="nav-link" role="navigation" onclick="closeAllDrawers()">Wizards</a></li>
+                <li class="nav-item" role="navigation"><a href="#dnd" class="nav-link" role="navigation" onclick="closeAllDrawers()">Drag & Drop</a></li>
+                <li class="nav-item" role="navigation"><a href="#richtext" class="nav-link" role="navigation" onclick="closeAllDrawers()">Rich Text</a></li>
+            </ul>
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <footer class="intent-center text-center px-6 py-12" style="border-top: 1px solid var(--zi-bg-surface);">
+        <div class="container-sm">
+            <div class="animate-fade-in font-bold text-2xl text-accent mb-4">ZINTENT</div>
+            <p class="text-muted mb-4 text-sm">
+                Phase 4 Complete: Date Pickers, Calendars, Charts, Wizards, Drag & Drop & Rich Text • Zero Runtime
+            </p>
+            <div class="intent-cluster justify-center gap-4 mb-4">
+                <a href="#" class="text-sm text-muted no-underline">Documentation</a>
+                <a href="#" class="text-sm text-muted no-underline">GitHub</a>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Theme Switcher -->
+    <div class="intent-center" style="position: fixed; bottom: var(--zi-space-6); left: 0; right: 0; z-index: 1000;">
+        <div class="card-default p-2" role="article" role="article" style="display: inline-flex; gap: var(--zi-space-2);">
+            <button class="btn-sm" role="button" tabindex="0" onclick="setTheme('midnight')" style="background: #0f172a; color: white;">Midnight</button>
+            <button class="btn-sm" tabindex="0" role="button" onclick="setTheme('ocean')" style="background: #1e3a5f; color: white;">Ocean</button>
+            <button class="btn-sm" role="button" tabindex="0" onclick="setTheme('forest')" style="background: #1a2f1a; color: #86efac;">Forest</button>
+            <button class="btn-sm" role="button" tabindex="0" onclick="setTheme('light')" style="background: #f8fafc; color: #0f172a;">Light</button>
+        </div>
+    </div>
+
+    <script>
+        // Drawer Functions
+        function toggleDrawer(id) {
+            const drawer = document.getElementById(id);
+            const isOpen = drawer.classList.contains('active');
+            closeAllDrawers();
+            if (!isOpen) {
+                drawer.classList.add('active');
+            }
+        }
+
+        function closeAllDrawers() {
+            document.querySelectorAll('.drawer').forEach(el => {
+                el.classList.remove('active');
+            });
+        }
+
+        // Close on Escape key
+        document.addEventListener('keydown', (e) => {
+            if (e.key === 'Escape') {
+                closeAllDrawers();
+                closeAllDatepickers();
+            }
+        });
+
+        // Datepicker Functions
+        function toggleDatepicker(id) {
+            const datepicker = document.getElementById(id);
+            const dropdown = datepicker.querySelector('.datepicker-dropdown');
+            const isOpen = dropdown.classList.contains('active');
+            
+            closeAllDatepickers();
+            
+            if (!isOpen) {
+                dropdown.classList.add('active');
+            }
+        }
+
+        function closeAllDatepickers() {
+            document.querySelectorAll('.datepicker-dropdown').forEach(el => {
+                el.classList.remove('active');
+            });
+        }
+
+        // Close datepickers when clicking outside
+        document.addEventListener('click', (e) => {
+            if (!e.target.closest('.datepicker')) {
+                closeAllDatepickers();
+            }
+        });
+
+        // Calendar Day Selection
+        document.querySelectorAll('.calendar-day').forEach(day => {
+            day.addEventListener('click', function() {
+                if (!this.classList.contains('calendar-day-disabled') &&
+                    !this.classList.contains('calendar-day-prev') &&
+                    !this.classList.contains('calendar-day-next')) {
+                    this.closest('.calendar').querySelectorAll('.calendar-day-selected').forEach(d => {
+                        d.classList.remove('calendar-day-selected');
+                    });
+                    this.classList.add('calendar-day-selected');
+
+                    // Update datepicker input with selected date
+                    const dayNumber = this.textContent;
+                    const calendarTitle = this.closest('.calendar').querySelector('.calendar-title').textContent;
+                    const dateStr = `${calendarTitle.split(' ')[0]} ${dayNumber}, ${calendarTitle.split(' ')[1]}`;
+
+                    const datepicker = this.closest('.datepicker');
+                    if (datepicker) {
+                        const inputSpan = datepicker.querySelector('.datepicker-input span');
+                        if (inputSpan) {
+                            inputSpan.textContent = dateStr;
+                            inputSpan.style.color = 'var(--zi-text-base)';
+                        }
+                        // Close dropdown after selection
+                        const dropdown = datepicker.querySelector('.datepicker-dropdown');
+                        if (dropdown) {
+                            dropdown.classList.remove('active');
+                        }
+                    }
+                }
+            });
+        });
+
+        // Wizard Functions
+        let currentStep = 2;
+        const totalSteps = 4;
+
+        function goToStep(step) {
+            if (step >= 0 && step < totalSteps) {
+                currentStep = step;
+                updateWizardUI();
+            }
+        }
+
+        function nextStep() {
+            if (currentStep < totalSteps - 1) {
+                currentStep++;
+                updateWizardUI();
+            }
+        }
+
+        function prevStep() {
+            if (currentStep > 0) {
+                currentStep--;
+                updateWizardUI();
+            }
+        }
+
+        function updateWizardUI() {
+            // Update progress bar
+            const progress = ((currentStep + 1) / totalSteps) * 100;
+            document.querySelector('.wizard-progress-bar').style.width = progress + '%';
+            
+            // Update steps
+            document.querySelectorAll('.wizard-step').forEach((step, index) => {
+                step.classList.remove('wizard-step-active', 'wizard-step-completed');
+                if (index < currentStep) {
+                    step.classList.add('wizard-step-completed');
+                } else if (index === currentStep) {
+                    step.classList.add('wizard-step-active');
+                }
+            });
+        }
+
+        // Theme Functions
+        function setTheme(theme) {
+            document.documentElement.setAttribute('data-theme', theme);
+            localStorage.setItem('zi-theme', theme);
+        }
+
+        // Drag & Drop Functions
+        let draggedItem = null;
+        let draggedSortItem = null;
+
+        function dragStart(e) {
+            draggedItem = e.target;
+            e.target.classList.add('drag-item-dragging');
+            e.dataTransfer.effectAllowed = 'move';
+            e.dataTransfer.setData('text/plain', e.target.id);
+        }
+
+        function allowDrop(e) {
+            e.preventDefault();
+        }
+
+        function dropItem(e, containerId) {
+            e.preventDefault();
+            const container = document.getElementById(containerId);
+            const id = e.dataTransfer.getData('text/plain');
+            const item = document.getElementById(id);
+
+            if (item && container) {
+                item.classList.remove('drag-item-dragging');
+                container.appendChild(item);
+            }
+        }
+
+        // Upload Zone Functions
+        function handleDragOver(e) {
+            e.preventDefault();
+            e.currentTarget.classList.add('upload-zone-hover');
+        }
+
+        function handleDragLeave(e) {
+            e.currentTarget.classList.remove('upload-zone-hover');
+        }
+
+        function handleDrop(e) {
+            e.preventDefault();
+            e.currentTarget.classList.remove('upload-zone-hover');
+
+            const files = e.dataTransfer.files;
+            const fileList = document.getElementById('fileList');
+
+            Array.from(files).forEach(file => {
+                const fileItem = document.createElement('div');
+                fileItem.className = 'file-item';
+                fileItem.innerHTML = `
+                    <div class="file-item-icon">
+                        <svg width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+                            <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/>
+                            <polyline points="14 2 14 8 20 8"/>
+                        </svg>
+                    </div>
+                    <div class="file-item-info">
+                        <div class="file-item-name">${file.name}</div>
+                        <div class="file-item-size">${(file.size / 1024).toFixed(1)} KB</div>
+                        <div class="file-item-progress" aria-valuemax="100" role="progressbar" aria-valuemin="0">
+                            <div class="file-item-progress-bar" aria-valuenow="0" role="progressbar" aria-valuemin="0" aria-valuemax="100" style="width: 0%;"></div>
+                        </div>
+                    </div>
+                    <span class="file-item-remove" onclick="this.parentElement.remove()">×</span>
+                `;
+                fileList.appendChild(fileItem);
+
+                // Simulate upload progress
+                setTimeout(() => {
+                    const progressBar = fileItem.querySelector('.file-item-progress-bar');
+                    progressBar.style.width = '100%';
+                }, 100);
+            });
+        }
+
+        // Sortable List Functions
+        function handleSortStart(e) {
+            draggedSortItem = e.target;
+            e.target.classList.add('sortable-item-dragging');
+            e.dataTransfer.effectAllowed = 'move';
+        }
+
+        function handleSortEnd(e) {
+            e.target.classList.remove('sortable-item-dragging');
+        }
+
+        function handleSortOver(e) {
+            e.preventDefault();
+            const afterElement = getDragAfterElement(document.getElementById('sortableList'), e.clientY);
+            if (afterElement == null) {
+                document.getElementById('sortableList').appendChild(draggedSortItem);
+            } else {
+                document.getElementById('sortableList').insertBefore(draggedSortItem, afterElement);
+            }
+        }
+
+        function handleSortDrop(e) {
+            e.preventDefault();
+        }
+
+        function getDragAfterElement(container, y) {
+            const draggableElements = [...container.querySelectorAll('.sortable-item:not(.sortable-item-dragging)')];
+
+            return draggableElements.reduce((closest, child) => {
+                const box = child.getBoundingClientRect();
+                const offset = y - box.top - box.height / 2;
+                if (offset < 0 && offset > closest.offset) {
+                    return { offset: offset, element: child };
+                } else {
+                    return closest;
+                }
+            }, { offset: Number.NEGATIVE_INFINITY }).element;
+        }
+
+        // Rich Text Functions
+        function formatDoc(cmd, value = null) {
+            document.execCommand(cmd, false, value);
+            document.getElementById('richContent').focus();
+            updateCharCount();
+        }
+
+        function updateCharCount() {
+            const content = document.getElementById('richContent');
+            const text = content.innerText || '';
+            const charCount = text.length;
+            const wordCount = text.trim() ? text.trim().split(/\s+/).length : 0;
+
+            document.getElementById('charCount').textContent = charCount + ' characters';
+            document.getElementById('wordCount').textContent = wordCount + ' words';
+        }
+
+        // Update counts when content changes
+        document.getElementById('richContent').addEventListener('input', updateCharCount);
+
+        const savedTheme = localStorage.getItem('zi-theme') || 'midnight';
+        setTheme(savedTheme);
+    </script>
+</body>
+</html>

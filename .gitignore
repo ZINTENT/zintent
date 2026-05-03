@@ -4,7 +4,7 @@ node_modules/
 .eslintcache
 
 # Build output
-dist/
+# dist/
 *.exe
 *.dll
 *.so

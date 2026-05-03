@@ -1,0 +1,348 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="midnight">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ZINTENT Phase 1 Demo | 100% Framework Classes</title>
+    <link rel="stylesheet" href="../dist/phase2-styles.css?v=2.1">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+</head>
+<body class="stack-md m-0" style="min-height: 100vh; font-family: 'Inter', system-ui, sans-serif;">
+    
+    <!-- Navigation -->
+    <nav class="intent-center bg-base" style="border-bottom: 1px solid var(--zi-bg-surface); position: sticky; top: 0; z-index: 100;">
+        <div class="container-xl flex flex-wrap justify-between items-center gap-4 px-6 py-4">
+            <div class="animate-fade-in font-bold text-2xl text-accent">ZINTENT v2.0</div>
+            <div class="flex flex-wrap items-center gap-4">
+                <a href="#containers" class="text-sm text-muted no-underline">Containers</a>
+                <a href="#animations" class="text-sm text-muted no-underline">Animations</a>
+                <a href="#layouts" class="text-sm text-muted no-underline">Layouts</a>
+                <div class="btn-primary interaction-lift" tabindex="0" role="button">Get Started</div>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <header class="intent-center text-center px-6 py-12">
+        <div class="container-md">
+            <h1 class="animate-slide-up text-fluid-3xl font-extrabold leading-tight mb-4">
+                Phase 1 <span class="text-accent">Complete</span>
+            </h1>
+            <p class="animate-slide-up text-fluid-lg text-muted mb-8">
+                100% ZINTENT classes. Zero manual CSS.
+            </p>
+            <div class="animate-slide-up flex flex-wrap justify-center gap-4">
+                <div class="btn-primary interaction-lift" role="button" tabindex="0">Explore Features</div>
+                <div class="btn-secondary interaction-lift" role="button" tabindex="0">View Docs</div>
+            </div>
+        </div>
+    </header>
+
+    <!-- Feature 1: Container-First Responsive -->
+    <section id="containers" class="intent-center px-6 py-12">
+        <div class="container-xl">
+            <h2 class="text-center text-fluid-3xl mb-4">
+                Container-First <span class="text-accent">Responsive</span>
+            </h2>
+            <p class="container-sm text-center text-muted mb-12">
+                Pure ZINTENT: <code>container-responsive</code>, <code>grid-responsive</code>, <code>surface-elevated</code>
+            </p>
+
+            <div class="grid-responsive gap-6 mb-8">
+                <!-- Narrow container demo -->
+                <div class="container-responsive surface-elevated p-6 rounded-lg" style="resize: horizontal; overflow: auto; min-height: 200px;">
+                    <p class="text-xs text-muted mb-2">Resize me →</p>
+                    <div class="surface-elevated bg-base p-4 rounded">
+                        <h4 class="mb-2">Adaptive Card</h4>
+                        <p class="text-sm text-muted m-0">
+                            Uses container queries. Try resizing this box!
+                        </p>
+                    </div>
+                </div>
+
+                <!-- Wide container demo -->
+                <div class="container-responsive surface-elevated p-6 rounded-lg" style="resize: horizontal; overflow: auto; min-height: 200px;">
+                    <p class="text-xs text-muted mb-2">Resize me →</p>
+                    <div class="intent-auto-grid-sm">
+                        <div class="surface-elevated bg-base p-3 text-center text-sm rounded">Item 1</div>
+                        <div class="surface-elevated bg-base p-3 text-center text-sm rounded">Item 2</div>
+                        <div class="surface-elevated bg-base p-3 text-center text-sm rounded">Item 3</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Feature 2: AI Design Tokens -->
+    <section class="intent-center px-6 py-12 bg-surface">
+        <div class="container-xl">
+            <h2 class="text-center text-fluid-3xl mb-4">
+                AI-Powered <span class="text-accent">Design Tokens</span>
+            </h2>
+            <p class="container-sm text-center text-muted mb-12">
+                Generated from a single brand color. WCAG 2.2 AA compliant.
+            </p>
+
+            <div class="grid-responsive gap-6 mb-8">
+                <!-- Color Scale Demo -->
+                <div class="card-default p-6" role="article">
+                    <h4 class="mb-4">Color Scale</h4>
+                    <div class="intent-cluster gap-2">
+                        <div class="rounded" style="width: 40px; height: 40px; background: var(--zi-primary-100);"></div>
+                        <div class="rounded" style="width: 40px; height: 40px; background: var(--zi-primary-300);"></div>
+                        <div class="rounded" style="width: 40px; height: 40px; background: var(--zi-primary-500);"></div>
+                        <div class="rounded" style="width: 40px; height: 40px; background: var(--zi-primary-700);"></div>
+                        <div class="rounded" style="width: 40px; height: 40px; background: var(--zi-primary-900);"></div>
+                    </div>
+                    <p class="mt-2 text-sm text-muted">
+                        Auto-generated from brand color
+                    </p>
+                </div>
+
+                <!-- Typography Demo -->
+                <div class="card-default p-6" role="article">
+                    <h4 class="mb-4">Fluid Typography</h4>
+                    <div class="stack-xs">
+                        <p class="text-xs">Extra Small: Responsive</p>
+                        <p class="text-sm">Small: Fluid scaling</p>
+                        <p class="text-base">Base: 16px → 18px</p>
+                        <p class="text-lg">Large: Responsive</p>
+                        <p class="text-xl">Extra Large: Scales</p>
+                    </div>
+                </div>
+
+                <!-- Spacing Demo -->
+                <div class="card-default p-6" role="article">
+                    <h4 class="mb-4">Golden Ratio Spacing</h4>
+                    <div class="stack-xs">
+                        <div class="flex items-center gap-2">
+                            <div style="width: 16px; height: 16px; background: var(--zi-accent-primary);"></div>
+                            <span class="text-sm">space-1: 0.25rem</span>
+                        </div>
+                        <div class="flex items-center gap-4">
+                            <div style="width: 16px; height: 16px; background: var(--zi-accent-primary);"></div>
+                            <span class="text-sm">space-4: 1rem</span>
+                        </div>
+                        <div class="flex items-center gap-6">
+                            <div style="width: 16px; height: 16px; background: var(--zi-accent-primary);"></div>
+                            <span class="text-sm">space-6: 1.5rem</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- CLI Command Demo -->
+            <div class="surface-elevated p-6 rounded-lg bg-base">
+                <p class="text-sm text-muted mb-2">Generate your design system:</p>
+                <code class="text-sm" style="font-family: 'Fira Code', monospace; color: var(--zi-accent-secondary);">
+                    $ node compiler/ai-token-generator.js --brand="#ec4899" --mood="vibrant"
+                </code>
+            </div>
+        </div>
+    </section>
+
+    <!-- Feature 3: Intent-Driven Animations -->
+    <section id="animations" class="intent-center px-6 py-12">
+        <div class="container-xl">
+            <h2 class="text-center text-fluid-3xl mb-4">
+                Intent-Driven <span class="text-accent">Animations</span>
+            </h2>
+            <p class="container-sm text-center text-muted mb-12">
+                Physics-based animations. Just add <code>transition-lift</code>, <code>animate-fade-in</code>, etc.
+            </p>
+
+            <div class="intent-auto-grid mb-8">
+                <!-- Transition Demos -->
+                <div class="transition-lift card-default p-6 cursor-pointer" role="article">
+                    <h4>transition-lift</h4>
+                    <p class="text-sm text-muted">Hover to see spring animation</p>
+                </div>
+
+                <div class="transition-scale card-default p-6 cursor-pointer" role="article">
+                    <h4>transition-scale</h4>
+                    <p class="text-sm text-muted">Hover to scale up</p>
+                </div>
+
+                <div class="transition-bounce card-default p-6 cursor-pointer" role="article">
+                    <h4>transition-bounce</h4>
+                    <p class="text-sm text-muted">Physics-based bounce</p>
+                </div>
+
+                <div class="transition-glow card-default p-6 cursor-pointer" role="article">
+                    <h4>transition-glow</h4>
+                    <p class="text-sm text-muted">Hover for accent glow</p>
+                </div>
+
+                <div class="animate-pulse card-default p-6" role="article">
+                    <h4>animate-pulse</h4>
+                    <p class="text-sm text-muted">Continuous pulse</p>
+                </div>
+
+                <div class="animate-spin card-default p-6" role="article">
+                    <h4>⏳ animate-spin</h4>
+                    <p class="text-sm text-muted">Loading spinner</p>
+                </div>
+            </div>
+
+            <!-- Keyframe Animation Demos -->
+            <div class="grid-2 gap-4 mb-8">
+                <div class="surface-elevated animate-bounce-in p-6 rounded-lg">
+                    <h4>animate-bounce-in</h4>
+                    <p class="text-muted">Staggered entrance animation</p>
+                </div>
+                <div class="surface-elevated animate-scale-in p-6 rounded-lg" style="animation-delay: 0.2s;">
+                    <h4>animate-scale-in</h4>
+                    <p class="text-muted">Spring-animated scale entrance</p>
+                </div>
+            </div>
+
+            <!-- Reduced Motion Notice -->
+            <div class="surface-elevated p-4 text-center container-md rounded-lg">
+                <p class="text-sm text-muted m-0">
+                    ♿ <strong>Accessibility:</strong> All animations respect <code>prefers-reduced-motion</code>.
+                </p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Feature 4: Antigravity Layouts -->
+    <section id="layouts" class="intent-center px-6 py-12 bg-surface">
+        <div class="container-xl">
+            <h2 class="text-center text-fluid-3xl mb-4">
+                Antigravity <span class="text-accent">Layouts</span>
+            </h2>
+            <p class="container-sm text-center text-muted mb-12">
+                Content-aware layouts using only intent classes.
+            </p>
+
+            <!-- Stack Layout -->
+            <div class="mb-12">
+                <h3 class="mb-4 text-xl">stack-lg</h3>
+                <div class="stack-lg container-sm">
+                    <div class="surface-elevated p-4 rounded-lg">Stack Item 1</div>
+                    <div class="surface-elevated p-4 rounded-lg">Stack Item 2</div>
+                    <div class="surface-elevated p-4 rounded-lg">Stack Item 3</div>
+                </div>
+            </div>
+
+            <!-- Cluster Layout -->
+            <div class="mb-12">
+                <h3 class="mb-4 text-xl">intent-cluster-between</h3>
+                <div class="intent-cluster-between surface-elevated p-4 rounded-lg">
+                    <span class="badge-default">Tag 1</span>
+                    <span class="badge-default">Tag 2</span>
+                    <span class="badge-default">Tag 3</span>
+                    <span class="badge-default">Tag 4</span>
+                    <div class="btn-primary" tabindex="0" role="button">Action</div>
+                </div>
+            </div>
+
+            <!-- Auto Grid Layout -->
+            <div class="mb-12">
+                <h3 class="mb-4 text-xl">intent-auto-grid</h3>
+                <div class="intent-auto-grid">
+                    <div class="surface-elevated p-4 rounded-lg">Auto Grid 1</div>
+                    <div class="surface-elevated p-4 rounded-lg">Auto Grid 2</div>
+                    <div class="surface-elevated p-4 rounded-lg">Auto Grid 3</div>
+                    <div class="surface-elevated p-4 rounded-lg">Auto Grid 4</div>
+                    <div class="surface-elevated p-4 rounded-lg">Auto Grid 5</div>
+                    <div class="surface-elevated p-4 rounded-lg">Auto Grid 6</div>
+                </div>
+            </div>
+
+            <!-- Split Layout -->
+            <div class="mb-12">
+                <h3 class="mb-4 text-xl">intent-split (responsive)</h3>
+                <div class="intent-split gap-6">
+                    <div class="surface-elevated p-6 rounded-lg">
+                        <h4 class="mb-2">Sidebar</h4>
+                        <p class="text-sm text-muted">Stacks on mobile</p>
+                    </div>
+                    <div class="surface-elevated p-6 rounded-lg">
+                        <h4 class="mb-2">Main Content</h4>
+                        <p class="text-sm text-muted">Responsive columns</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Bento Grid -->
+            <div class="mb-12">
+                <h3 class="mb-4 text-xl">intent-bento</h3>
+                <div class="intent-bento">
+                    <div class="surface-elevated p-6 rounded-lg" style="grid-column: span 2; grid-row: span 2;">
+                        <h4 class="mb-2">Featured Item</h4>
+                        <p class="text-sm text-muted">Spans 2x2 on desktop</p>
+                    </div>
+                    <div class="surface-elevated p-4 rounded-lg">Item 2</div>
+                    <div class="surface-elevated p-4 rounded-lg">Item 3</div>
+                    <div class="surface-elevated p-4 rounded-lg">Item 4</div>
+                    <div class="surface-elevated p-4 rounded-lg">Item 5</div>
+                </div>
+            </div>
+
+            <!-- Full Bleed -->
+            <div class="mb-12">
+                <h3 class="mb-4 text-xl">Full Bleed</h3>
+                <div class="surface-elevated p-12 text-center rounded-lg" style="background: linear-gradient(135deg, var(--zi-accent-primary), var(--zi-accent-secondary)); margin: 0 calc(-1 * var(--zi-space-6));">
+                    <h3 class="text-2xl m-0 mb-2" style="color: white;">Full Width Section</h3>
+                    <p class="text-sm m-0" style="color: rgba(255,255,255,0.9);">Breaks out of container</p>
+                </div>
+            </div>
+
+            <!-- Horizontal Scroll -->
+            <div class="mb-12">
+                <h3 class="mb-4 text-xl">intent-scroll-x</h3>
+                <div class="intent-scroll-x">
+                    <div class="card-default p-6" style="width: 280px; flex-shrink: 0;" role="article">
+                        <h4 class="mb-2">Card 1</h4>
+                        <p class="text-sm text-muted">Swipe to scroll</p>
+                    </div>
+                    <div class="card-default p-6" style="width: 280px; flex-shrink: 0;" role="article">
+                        <h4 class="mb-2">Card 2</h4>
+                        <p class="text-sm text-muted">Snap scrolling</p>
+                    </div>
+                    <div class="card-default p-6" style="width: 280px; flex-shrink: 0;" role="article">
+                        <h4 class="mb-2">Card 3</h4>
+                        <p class="text-sm text-muted">Touch-optimized</p>
+                    </div>
+                    <div class="card-default p-6" style="width: 280px; flex-shrink: 0;" role="article">
+                        <h4 class="mb-2">Card 4</h4>
+                        <p class="text-sm text-muted">Native scroll</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="intent-center text-center px-6 py-12" style="border-top: 1px solid var(--zi-bg-surface);">
+        <div class="container-sm">
+            <div class="animate-fade-in font-bold text-2xl text-accent mb-4">ZINTENT</div>
+            <p class="text-muted mb-4 text-sm">
+                Phase 1 Complete: Container-First • AI Tokens • Animations • Antigravity
+            </p>
+            <span class="text-muted text-xs">Built with Antigravity</span>
+        </div>
+    </footer>
+
+    <!-- Theme Switcher -->
+    <div class="intent-center" style="position: fixed; bottom: var(--zi-space-6); left: 0; right: 0; z-index: 1000;">
+        <div class="intent-cluster gap-3 p-3 surface-elevated rounded-full mx-auto" style="box-shadow: var(--zi-shadow-lg); width: fit-content;">
+            <button onclick="setTheme('midnight')" class="cursor-pointer" style="width: 32px; height: 32px; border-radius: 50%; background: #0f172a; border: 2px solid rgba(255,255,255,0.2);" title="Midnight"></button>
+            <button onclick="setTheme('vibrant')" class="cursor-pointer" style="width: 32px; height: 32px; border-radius: 50%; background: #ec4899; border: 2px solid rgba(255,255,255,0.2);" title="Vibrant"></button>
+            <button onclick="setTheme('forest')" class="cursor-pointer" style="width: 32px; height: 32px; border-radius: 50%; background: #10b981; border: 2px solid rgba(255,255,255,0.2);" title="Forest"></button>
+            <button onclick="setTheme('nordic')" class="cursor-pointer" style="width: 32px; height: 32px; border-radius: 50%; background: #88c0d0; border: 2px solid rgba(255,255,255,0.2);" title="Nordic"></button>
+        </div>
+    </div>
+
+    <script>
+        function setTheme(theme) {
+            document.documentElement.setAttribute('data-theme', theme);
+            localStorage.setItem('zi-theme', theme);
+        }
+        
+        const savedTheme = localStorage.getItem('zi-theme') || 'midnight';
+        setTheme(savedTheme);
+    </script>
+</body>
+</html>
