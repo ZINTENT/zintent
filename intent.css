@@ -1,0 +1,122 @@
+@layer base, intent, components, utilities;
+
+@layer base {
+  * { box-sizing: border-box; }
+  body { margin: 0; font-family: system-ui, -apple-system, sans-serif; line-height: 1.5; }
+}
+
+@layer intent {
+  /* Container-Aware Layouts */
+  .container-base {
+    container-type: inline-size;
+    width: 100%;
+  }
+
+  /* Antigravity Engine: Content-Aware Adaptation */
+  .antigravity-fill {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(clamp(200px, 30vw, 400px), 1fr));
+    gap: var(--zi-space-4);
+  }
+
+  @container (width < 400px) {
+    .antigravity-fill {
+      grid-template-columns: 1fr;
+    }
+  }
+
+  .stack-h {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    gap: var(--zi-space-4);
+  }
+
+  .stack-v {
+    display: flex;
+    flex-direction: column;
+    gap: var(--zi-space-4);
+  }
+
+  /**
+   * The ultimate centering intent.
+   * No more flex justify-center items-center.
+   */
+  .center-content {
+    display: grid;
+    place-items: center;
+    text-align: center;
+  }
+
+  /* Spacing Intents */
+  .gap-fluid {
+    gap: var(--zi-space-4);
+  }
+
+  .inset-fluid {
+    padding: var(--zi-space-4);
+  }
+
+  /* Visual Intents */
+  .surface-canvas {
+    background-color: var(--zi-bg-canvas);
+    color: var(--zi-text-primary);
+  }
+
+  .surface-elevated {
+    background-color: var(--zi-bg-surface);
+    border-radius: var(--zi-radius-md);
+    box-shadow: var(--zi-shadow-md);
+    padding: var(--zi-space-4);
+  }
+
+  .interaction-lift:hover {
+    transform: translateY(-4px);
+    box-shadow: var(--zi-shadow-lg);
+  }
+
+  /* Intent-Driven Animations (Physics-based) */
+  .transition-bounce {
+    transition: transform 0.5s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+  }
+
+  .hover-lift:hover {
+    transform: translateY(-8px);
+    box-shadow: var(--zi-shadow-lg);
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    * {
+      animation-duration: 0.01ms !important;
+      animation-iteration-count: 1 !important;
+      transition-duration: 0.01ms !important;
+      scroll-behavior: auto !important;
+    }
+  }
+}
+
+@layer components {
+  /* Semantic Bridges */
+  .btn-primary {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    padding: var(--zi-space-2) var(--zi-space-4);
+    background-color: var(--zi-brand-500);
+    color: #ffffff;
+    border-radius: var(--zi-radius-sm);
+    font-weight: 600;
+    transition: var(--zi-transition-fast);
+    cursor: pointer;
+    border: none;
+  }
+
+  .btn-primary:hover {
+    background-color: var(--zi-brand-600);
+  }
+
+  .card {
+    @extend .surface-elevated;
+    @extend .interaction-lift;
+  }
+}
